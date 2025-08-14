@@ -1,0 +1,60 @@
+{
+  "name": "johnykvsky/dummyproviders",
+  "type": "library",
+  "description": "Sample providers for DummyGenerator",
+  "keywords": [
+    "dummy",
+    "generator",
+    "faker",
+    "fake data",
+    "provider",
+    "language"
+  ],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Johny Kvsky",
+      "homepage": "https://github.com/johnykvsky"
+    }
+  ],
+  "require": {
+    "php": "^8.3",
+    "johnykvsky/dummygenerator": "^0.0.8"
+  },
+  "require-dev": {
+    "phpstan/extension-installer": "^1.4.3",
+    "phpstan/phpstan": "^2.1.18",
+    "phpunit/phpunit": "^12.2.0",
+    "slevomat/coding-standard": "^8.19.1",
+    "squizlabs/php_codesniffer": "^3.13.2"
+  },
+  "autoload": {
+    "psr-4": {
+      "DummyGenerator\\Provider\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "DummyGenerator\\Provider\\Test\\": "test/"
+    }
+  },
+  "suggest": {
+    "ext-intl": "Required for better transliteration i.e. in Internet Extension",
+    "ext-mbstring": "Required for multibyte Unicode string functionality."
+  },
+  "config": {
+    "sort-packages": true,
+    "bin-dir": "vendor-bin",
+    "allow-plugins": {
+      "dealerdirect/phpcodesniffer-composer-installer": true,
+      "phpstan/extension-installer": true
+    }
+  },
+  "scripts": {
+    "test": "vendor-bin/phpunit --no-coverage",
+    "test-coverage": "vendor-bin/phpunit",
+    "check-style": "vendor-bin/phpcs -p --standard=phpcs.xml --runtime-set ignore_errors_on_exit 1 --runtime-set ignore_warnings_on_exit 1",
+    "fix-style": "vendor-bin/phpcbf -p --standard=phpcs.xml --runtime-set ignore_errors_on_exit 1 --runtime-set ignore_warnings_on_exit 1",
+    "phpstan": "vendor-bin/phpstan analyse src --level=8"
+  }
+}

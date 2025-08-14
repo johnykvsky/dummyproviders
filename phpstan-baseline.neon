@@ -1,0 +1,6 @@
+parameters:
+    paths:
+        - src
+    excludePaths:
+        - src/Languages/*
+        - src/Regexify.php
