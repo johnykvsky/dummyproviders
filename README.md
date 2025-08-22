@@ -14,10 +14,16 @@ composer require johnykvsky/dummyproviders --dev
 
 ## Usage
 
+Easiest way is to go with `DummyGeneratorFactory`:
+```php
+$generator = DummyGeneratorFactory::create()->withProvider(new EnUsDefinitionPack());
+```
+
+Beside that there are few other options.
 Option 1, add language providers to container on generator initialization:
 ```php
 $container = DefinitionContainerBuilder::all(); // initialize the container with core extensions
-$en_US_pack = new DefinitionPack(); // en_US provider definitions pack
+$en_US_pack = new EnUsDefinitionPack(); // en_US provider definitions pack
 foreach ($en_US_pack->all() as $id => $class) { // add all extensions
     $container->add($id, $class);
 }
@@ -34,7 +40,7 @@ $generator = new DummyGenerator($container); // create generator with no provide
 
 echo $generator->state(); // will throw an error, no such method in Address extension
 
-echo $generator->withProvider(new DefinitionPack())->state(); // en_US provider is loaded, output will be i.e. "Arkansas"
+echo $generator->withProvider(new EnUsDefinitionPack())->state(); // en_US provider is loaded, output will be i.e. "Arkansas"
 
 echo $generator->state(); // will throw an error, no such method in Address extension
 ```
@@ -44,10 +50,11 @@ Option 3, same as number two, but better if you have more data to be generated f
 $container = DefinitionContainerBuilder::all(); // initialize the container with core extensions
 $generator = new DummyGenerator($container); // create generator with no providers, core extensions are loaded
 
-$en_US_generator = $generator->withProvider(new DefinitionPack());
+$en_US_generator = $generator->withProvider(new EnUsDefinitionPack());
 echo $en_US_generator->state(); // i.e. "Arkansas"
 echo $en_US_generator->stateAbbr(); // i.e. "CA"
-// $generator stays as it was before
+// since $generator stays as it was, there is no such method as state()
+$generator->state() // error
 ```
 
 ## Text extension
