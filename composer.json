@@ -19,7 +19,7 @@
   ],
   "require": {
     "php": "^8.3",
-    "johnykvsky/dummygenerator": "^0.0.8"
+    "johnykvsky/dummygenerator": "^0.0.8 || ^0.0.9"
   },
   "require-dev": {
     "phpstan/extension-installer": "^1.4.3",
