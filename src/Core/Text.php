@@ -4,23 +4,15 @@ declare(strict_types = 1);
 
 namespace DummyGenerator\Provider\Core;
 
-use DummyGenerator\Definitions\Extension\Awareness\RandomizerAwareExtensionInterface;
-use DummyGenerator\Definitions\Extension\Awareness\RandomizerAwareExtensionTrait;
-use DummyGenerator\Definitions\Extension\Awareness\ReplacerAwareExtensionInterface;
-use DummyGenerator\Definitions\Extension\Awareness\ReplacerAwareExtensionTrait;
 use DummyGenerator\Definitions\Extension\Exception\ExtensionArgumentException;
 use DummyGenerator\Definitions\Extension\Exception\ExtensionOverflowException;
+use DummyGenerator\Definitions\Randomizer\RandomizerInterface;
+use DummyGenerator\Definitions\Replacer\ReplacerInterface;
 use DummyGenerator\Provider\Definitions\Extension\TextExtensionInterface;
 
-class Text implements
-    TextExtensionInterface,
-    RandomizerAwareExtensionInterface,
-    ReplacerAwareExtensionInterface
+class Text implements TextExtensionInterface
 {
-    use RandomizerAwareExtensionTrait;
-    use ReplacerAwareExtensionTrait;
-
-    protected string $defaultText = __DIR__ . '../../../resources/en_US.txt';
+    protected string $defaultText = __DIR__ . '/../../resources/en_US.txt';
 
     protected string $baseText = '';
     /** @var non-empty-string */
@@ -32,11 +24,14 @@ class Text implements
     protected array $consecutiveWords = [];
     protected bool $textStartsWithUppercase = true;
 
-    public function __construct(?string $baseText = null)
-    {
+    public function __construct(
+        private readonly RandomizerInterface $randomizer,
+        private readonly ReplacerInterface $replacer,
+        ?string $baseText = null
+    ) {
         if (null !== $baseText) {
             $this->baseText = $baseText;
-        } elseif ($file = file_get_contents($this->defaultText)) {
+        } elseif (($file = file_get_contents($this->defaultText)) !== false) {
             $this->baseText = $file;
         }
     }
@@ -48,8 +43,8 @@ class Text implements
      * generates a weighted table with the specified number of words as the index and the
      * possible following words as the value.
      *
-     * @param int $min Minimum number of characters the text should contain (maximum: 8)
-     * @param int $max Maximum number of characters the text should contain (minimum: 10)
+     * @param int $min Minimum number of characters the text should contain (min: 1)
+     * @param int $max Maximum number of characters the text should contain (min: 10)
      * @param int $indexSize  Determines how many words are considered for the generation of the next word.
      *                        The minimum is 1, and it produces a higher level of randomness, although the
      *                        generated text usually doesn't make sense. Higher index sizes (up to 5)
@@ -57,7 +52,7 @@ class Text implements
      *
      * @example 'Alice, swallowing down her flamingo, and began by taking the little golden key'
      */
-    public function realText(int $min = 160, int $max = 200, int $indexSize = 2): string
+    public function realText(int $min = 50, int $max = 200, int $indexSize = 2): string
     {
         if ($min < 1) {
             throw new ExtensionArgumentException('min must be at least 1');
@@ -126,7 +121,9 @@ class Text implements
         }
 
         // remove the element that caused the text to overflow
-        array_pop($result);
+        if ($resultLength > $max) {
+            array_pop($result);
+        }
 
         // build result
         $result = implode($this->separator, $result);

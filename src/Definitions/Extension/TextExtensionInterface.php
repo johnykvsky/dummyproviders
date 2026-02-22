@@ -24,5 +24,5 @@ interface TextExtensionInterface extends ExtensionInterface
      *
      * @example 'Alice, swallowing down her flamingo, and began by taking the little golden key'
      */
-    public function realText(int $min = 0, int $max = 200, int $indexSize = 2): string;
+    public function realText(int $min = 50, int $max = 200, int $indexSize = 2): string;
 }

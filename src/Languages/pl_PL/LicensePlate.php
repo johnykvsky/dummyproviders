@@ -4,21 +4,27 @@ declare(strict_types = 1);
 
 namespace DummyGenerator\Provider\Languages\pl_PL;
 
-use DummyGenerator\Definitions\Extension\Awareness\RandomizerAwareExtensionInterface;
-use DummyGenerator\Definitions\Extension\Awareness\RandomizerAwareExtensionTrait;
-use DummyGenerator\Definitions\Extension\Awareness\ReplacerAwareExtensionInterface;
-use DummyGenerator\Definitions\Extension\Awareness\ReplacerAwareExtensionTrait;
 use DummyGenerator\Definitions\Extension\ExtensionInterface;
+use DummyGenerator\Definitions\Randomizer\RandomizerInterface;
+use DummyGenerator\Definitions\Replacer\ReplacerInterface;
 
 /**
  * Generator of Polish vehicle registration numbers.
  * {@link} https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20220001847
  * {@link} https://pl.wikipedia.org/wiki/Tablice_rejestracyjne_w_Polsce#Tablice_standardowe
  */
-class LicensePlate implements ExtensionInterface, RandomizerAwareExtensionInterface, ReplacerAwareExtensionInterface
+class LicensePlate implements ExtensionInterface
 {
-    use RandomizerAwareExtensionTrait;
-    use ReplacerAwareExtensionTrait;
+    private RandomizerInterface $randomizer;
+    private ReplacerInterface $replacer;
+
+    public function __construct(
+        RandomizerInterface $randomizer,
+        ReplacerInterface $replacer,
+    ) {
+        $this->randomizer = $randomizer;
+        $this->replacer = $replacer;
+    }
 
     /** @var array<string, string[]> list of Polish voivodeships and respective vehicle registration number prefixes. */
     protected array $voivodeships = [
@@ -513,6 +519,12 @@ class LicensePlate implements ExtensionInterface, RandomizerAwareExtensionInterf
         $voivodeshipSelected = $this->selectRandomArea($voivodeshipsAvailable, $voivodeships);
         $voivodeshipCode = $this->randomizer->randomElement($voivodeshipsAvailable[$voivodeshipSelected]);
 
+        if (!isset($this->counties[$voivodeshipSelected])) {
+            $suffix = $this->replacer->bothify($this->randomizer->randomElement($this->plateSuffixesGroup1));
+
+            return $this->replacer->toUpper("{$voivodeshipCode} {$suffix}");
+        }
+
         $countiesAvailable = $this->counties[$voivodeshipSelected];
         // @phpstan-ignore-next-line
         $countySelected = $this->selectRandomArea($countiesAvailable, $counties);
@@ -532,8 +544,7 @@ class LicensePlate implements ExtensionInterface, RandomizerAwareExtensionInterf
      */
     protected function selectRandomArea(array $available, ?array $requested): string
     {
-        // @phpstan-ignore-next-line
-        $result = array_intersect(array_keys($available), $requested ?? []);
+        $result = array_intersect(array_keys($available), array_keys($requested ?? []));
 
         if (empty($result)) {
             $result = array_keys($available);

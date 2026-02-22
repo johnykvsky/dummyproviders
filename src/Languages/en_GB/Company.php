@@ -46,7 +46,7 @@ class Company extends BaseCompany
         $secondBlock = $this->generator->randomNumber(4, true);
 
         return sprintf(
-            '%s%d %d %d',
+            '%s%d %04d %s',
             self::VAT_PREFIX,
             $firstBlock,
             $secondBlock,

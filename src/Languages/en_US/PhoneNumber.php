@@ -5,17 +5,26 @@ declare(strict_types = 1);
 namespace DummyGenerator\Provider\Languages\en_US;
 
 use DummyGenerator\Core\PhoneNumber as BasePhoneNumber;
-use DummyGenerator\Definitions\Extension\Awareness\GeneratorAwareExtensionInterface;
-use DummyGenerator\Definitions\Extension\Awareness\GeneratorAwareExtensionTrait;
-use DummyGenerator\Definitions\Extension\Awareness\RandomizerAwareExtensionTrait;
-use DummyGenerator\Definitions\Extension\Awareness\ReplacerAwareExtensionTrait;
+use DummyGenerator\Definitions\Calculator\LuhnCalculatorInterface;
+use DummyGenerator\Definitions\Randomizer\RandomizerInterface;
+use DummyGenerator\Definitions\Replacer\ReplacerInterface;
+use DummyGenerator\GeneratorInterface;
 use DummyGenerator\Provider\Regexify;
 
-class PhoneNumber extends BasePhoneNumber implements GeneratorAwareExtensionInterface
+class PhoneNumber extends BasePhoneNumber
 {
-    use GeneratorAwareExtensionTrait;
-    use RandomizerAwareExtensionTrait;
-    use ReplacerAwareExtensionTrait;
+    private GeneratorInterface $generator;
+
+    public function __construct(
+        RandomizerInterface $randomizer,
+        ReplacerInterface $replacer,
+        LuhnCalculatorInterface $luhnCalculator,
+        GeneratorInterface $generator,
+    ) {
+        parent::__construct($randomizer, $replacer, $luhnCalculator);
+
+        $this->generator = $generator;
+    }
 
     /** @var array<int, string> */
     protected array $areaCodeRegexes = [
