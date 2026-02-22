@@ -5,12 +5,9 @@ declare(strict_types = 1);
 namespace DummyGenerator\Provider\Languages\en_US;
 
 use DummyGenerator\Core\Company as BaseCompany;
-use DummyGenerator\Definitions\Extension\Awareness\RandomizerAwareExtensionTrait;
 
 class Company extends BaseCompany
 {
-    use RandomizerAwareExtensionTrait;
-
     protected array $formats = [
         '{{lastName}} {{companySuffix}}',
         '{{lastName}}-{{lastName}}',

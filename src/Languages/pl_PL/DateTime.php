@@ -4,13 +4,24 @@ declare(strict_types = 1);
 
 namespace DummyGenerator\Provider\Languages\pl_PL;
 
+use DummyGenerator\Clock\SystemClockInterface;
 use DummyGenerator\Core\DateTime as BaseDateTime;
-use DummyGenerator\Definitions\Extension\Awareness\GeneratorAwareExtensionInterface;
-use DummyGenerator\Definitions\Extension\Awareness\GeneratorAwareExtensionTrait;
+use DummyGenerator\Definitions\Randomizer\RandomizerInterface;
+use DummyGenerator\GeneratorInterface;
 
-class DateTime extends BaseDateTime implements GeneratorAwareExtensionInterface
+class DateTime extends BaseDateTime
 {
-    use GeneratorAwareExtensionTrait;
+    private GeneratorInterface $generator;
+
+    public function __construct(
+        RandomizerInterface $randomizer,
+        SystemClockInterface $clock,
+        GeneratorInterface $generator,
+    ) {
+        parent::__construct($randomizer, $clock);
+
+        $this->generator = $generator;
+    }
 
     /** @var string[] */
     protected array $days = [

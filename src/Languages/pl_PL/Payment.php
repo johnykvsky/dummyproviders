@@ -100,7 +100,8 @@ class Payment extends BasePayment
         return $this->iban($countryCode, $prefix);
     }
 
-    protected function addBankCodeChecksum(string $iban, string $countryCode = 'PL'): string
+    //TODO verify if this is still needed, if so, then it most likely should go to calculator
+    public function addBankCodeChecksum(string $iban, string $countryCode = 'PL'): string
     {
         if ($countryCode !== 'PL' || $this->replacer->strlen($iban) <= 8) {
             return $iban;

@@ -5,14 +5,23 @@ declare(strict_types = 1);
 namespace DummyGenerator\Provider\Languages\en_GB;
 
 use DummyGenerator\Core\Person as BasePerson;
-use DummyGenerator\Definitions\Extension\Awareness\RandomizerAwareExtensionTrait;
-use DummyGenerator\Definitions\Extension\Awareness\ReplacerAwareExtensionInterface;
-use DummyGenerator\Definitions\Extension\Awareness\ReplacerAwareExtensionTrait;
+use DummyGenerator\Definitions\Randomizer\RandomizerInterface;
+use DummyGenerator\Definitions\Replacer\ReplacerInterface;
+use DummyGenerator\GeneratorInterface;
 
-class Person extends BasePerson implements ReplacerAwareExtensionInterface
+class Person extends BasePerson
 {
-    use ReplacerAwareExtensionTrait;
-    use RandomizerAwareExtensionTrait;
+    private ReplacerInterface $replacer;
+
+    public function __construct(
+        RandomizerInterface $randomizer,
+        ReplacerInterface $replacer,
+        GeneratorInterface $generator,
+    ) {
+        parent::__construct($randomizer, $generator);
+
+        $this->replacer = $replacer;
+    }
 
     protected array $maleNameFormats = [
         '{{firstNameMale}} {{lastName}}',

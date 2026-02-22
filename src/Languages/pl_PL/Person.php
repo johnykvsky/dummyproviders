@@ -5,7 +5,6 @@ declare(strict_types = 1);
 namespace DummyGenerator\Provider\Languages\pl_PL;
 
 use DummyGenerator\Core\Person as BasePerson;
-use DummyGenerator\Definitions\Extension\Awareness\GeneratorAwareExtensionTrait;
 
 /**
  * Most popular first and last names published by Ministry of the Interior:
@@ -14,8 +13,6 @@ use DummyGenerator\Definitions\Extension\Awareness\GeneratorAwareExtensionTrait;
  */
 class Person extends BasePerson
 {
-    use GeneratorAwareExtensionTrait;
-
     /** @var array<string> */
     protected array $lastNameFormat = [
         '{{lastNameMale}}',

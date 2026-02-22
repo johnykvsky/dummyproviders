@@ -5,13 +5,9 @@ declare(strict_types = 1);
 namespace DummyGenerator\Provider\Languages\en_GB;
 
 use DummyGenerator\Core\PhoneNumber as BasePhoneNumber;
-use DummyGenerator\Definitions\Extension\Awareness\RandomizerAwareExtensionTrait;
 
 class PhoneNumber extends BasePhoneNumber
 {
-    use RandomizerAwareExtensionTrait;
-    use RandomizerAwareExtensionTrait;
-
     protected array $formats = [
         '+44(0)##########',
         '+44(0)#### ######',

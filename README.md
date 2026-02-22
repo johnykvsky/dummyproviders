@@ -14,54 +14,32 @@ composer require johnykvsky/dummyproviders --dev
 
 ## Usage
 
-Easiest way is to go with `DummyGeneratorFactory`:
+For full info about DummyGenerator check go [here](https://github.com/johnykvsky/dummygenerator)
+
+Easiest way to add language providers is to go with `DummyGenerator` factory method:
+
 ```php
-$generator = DummyGeneratorFactory::create()->withProvider(new EnUsDefinitionPack());
+$generator = DummyGenerator::create()->withProvider(new EnUsDefinitionPack());
 ```
 
-Beside that there are few other options.
-Option 1, add language providers to container on generator initialization:
-```php
-$container = DefinitionContainerBuilder::all(); // initialize the container with core extensions
-$en_US_pack = new EnUsDefinitionPack(); // en_US provider definitions pack
-foreach ($en_US_pack->all() as $id => $class) { // add all extensions
-    $container->add($id, $class);
-}
+But it can be also done with explicit container usage:
 
-$generator = new DummyGenerator($container); // create generator with providers
+```php
+$container = DiContainerFactory::all();
+$generator = new DummyGenerator($container)
+$generator = $generator->withProvider(new EnUsDefinitionPack());
 echo $generator->state(); // i.e. "Arkansas"
 echo $generator->realText(); // it will give you part of ./resources/en_US.txt
-```
-
-Option 2, run method with given provider
-```php
-$container = DefinitionContainerBuilder::all(); // initialize the container with core extensions
-$generator = new DummyGenerator($container); // create generator with no providers, core extensions are loaded
-
-echo $generator->state(); // will throw an error, no such method in Address extension
-
-echo $generator->withProvider(new EnUsDefinitionPack())->state(); // en_US provider is loaded, output will be i.e. "Arkansas"
-
-echo $generator->state(); // will throw an error, no such method in Address extension
-```
-
-Option 3, same as number two, but better if you have more data to be generated for provider:
-```php
-$container = DefinitionContainerBuilder::all(); // initialize the container with core extensions
-$generator = new DummyGenerator($container); // create generator with no providers, core extensions are loaded
-
-$en_US_generator = $generator->withProvider(new EnUsDefinitionPack());
-echo $en_US_generator->state(); // i.e. "Arkansas"
-echo $en_US_generator->stateAbbr(); // i.e. "CA"
-// since $generator stays as it was, there is no such method as state()
-$generator->state() // error
 ```
 
 ## Text extension
 
 Providers add one more extension: `Text`. It has only one method, `realText()` that allows you to generate text from passed string or given txt file.
 
-By default txt files are in `resources` folder.
+Text extension is a bit different for one reason - it uses external `.txt` file as source to large text. By default, it's in `resources/en_US.txt` but you can either:
+
+* pass text to `Text` constructor (i.e. `$text = new Text(file_get_contents('my_file.txt'));`)
+* extend `Text` class and use different location in `$defaultText` property
 
 ## Regexify
 

@@ -13,7 +13,6 @@ use DummyGenerator\Definitions\Extension\InternetExtensionInterface;
 use DummyGenerator\Definitions\Extension\PaymentExtensionInterface;
 use DummyGenerator\Definitions\Extension\PersonExtensionInterface;
 use DummyGenerator\Definitions\Extension\PhoneNumberExtensionInterface;
-use DummyGenerator\Provider\Core\Text;
 use DummyGenerator\Provider\Definitions\Extension\TextExtensionInterface;
 use DummyGenerator\ProviderPack\ProviderPackInterface;
 
