@@ -5,12 +5,9 @@ declare(strict_types = 1);
 namespace DummyGenerator\Provider\Languages\pl_PL;
 
 use DummyGenerator\Core\Company as BaseCompany;
-use DummyGenerator\Definitions\Extension\Awareness\GeneratorAwareExtensionTrait;
 
 class Company extends BaseCompany
 {
-    use GeneratorAwareExtensionTrait;
-
     /** @var array<string> */
     protected array $formats = [
         '{{lastName}}',

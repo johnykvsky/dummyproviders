@@ -5,14 +5,9 @@ declare(strict_types = 1);
 namespace DummyGenerator\Provider\Languages\en_US;
 
 use DummyGenerator\Core\Address as BaseAddress;
-use DummyGenerator\Definitions\Extension\Awareness\RandomizerAwareExtensionTrait;
-use DummyGenerator\Definitions\Extension\Awareness\ReplacerAwareExtensionTrait;
 
 class Address extends BaseAddress
 {
-    use RandomizerAwareExtensionTrait;
-    use ReplacerAwareExtensionTrait;
-
     protected array $cityPrefix = ['North', 'East', 'West', 'South', 'New', 'Lake', 'Port'];
     protected array $citySuffix = ['town', 'ton', 'land', 'ville', 'berg', 'burgh', 'borough', 'bury', 'view', 'port', 'mouth', 'stad', 'furt', 'chester', 'mouth', 'fort', 'haven', 'side', 'shire'];
     protected array $buildingNumber = ['%####', '%###', '%##'];

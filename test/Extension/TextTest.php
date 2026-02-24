@@ -4,9 +4,10 @@ declare(strict_types=1);
 
 namespace DummyGenerator\Provider\Test\Extension;
 
-use DummyGenerator\Container\DefinitionContainer;
+use DummyGenerator\Container\DiContainerFactory;
 use DummyGenerator\Core\Randomizer\Randomizer;
 use DummyGenerator\Core\Replacer\Replacer;
+use DummyGenerator\Core\Transliterator\SimpleTransliterator;
 use DummyGenerator\Core\Transliterator\Transliterator;
 use DummyGenerator\Definitions\Extension\Exception\ExtensionArgumentException;
 use DummyGenerator\Definitions\Randomizer\RandomizerInterface;
@@ -25,21 +26,30 @@ class TextTest extends TestCase
     {
         parent::setUp();
 
-        $container = new DefinitionContainer([]);
-        $container->add(RandomizerInterface::class, Randomizer::class);
-        $container->add(TransliteratorInterface::class, Transliterator::class);
-        $container->add(ReplacerInterface::class, Replacer::class);
-        $container->add(TextExtensionInterface::class, Text::class);
+        $container = DiContainerFactory::base();
+        $container->set(RandomizerInterface::class, Randomizer::class);
+        $container->set(TransliteratorInterface::class, Transliterator::class);
+        $container->set(ReplacerInterface::class, Replacer::class);
+        $container->set(TextExtensionInterface::class, Text::class);
         $this->generator = new DummyGenerator($container);
     }
+
     public function testRealText(): void
     {
         $realText = $this->generator->realText(min: 5, max: 50, indexSize: 3);
+        $replacer = $this->generator->ext(ReplacerInterface::class);
+        self::assertInstanceOf(ReplacerInterface::class, $replacer);
+        $length = $replacer->strlen($realText);
+        self::assertTrue($length > 5 && $length <= 51);
+    }
 
-        // @phpstan-ignore-next-line
-        $length = $this->generator->ext(ReplacerInterface::class)->strlen($realText);
-
-        self::assertTrue($length >= 5 && $length <= 50);
+    public function testRealTextUsesDefaultBounds(): void
+    {
+        $realText = $this->generator->realText();
+        $replacer = $this->generator->ext(ReplacerInterface::class);
+        self::assertInstanceOf(ReplacerInterface::class, $replacer);
+        $length = $replacer->strlen($realText);
+        self::assertTrue($length > 50 && $length <= 201);
     }
 
     public function testRealTextMinBelowLimitError(): void
@@ -89,14 +99,18 @@ Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu 
 Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 EOT;
 
-        $this->generator->addDefinition(TextExtensionInterface::class, new Text($text));
+        $randomizer = new Randomizer();
+        $generator = $this->generator->withDefinition(TextExtensionInterface::class, new Text(
+            $randomizer,
+            new Replacer($randomizer, new SimpleTransliterator()),
+            $text
+        ));
 
-        $realText = $this->generator->realText(min: 5, max: 50, indexSize: 3);
-
-        // @phpstan-ignore-next-line
-        $length = $this->generator->ext(ReplacerInterface::class)->strlen($realText);
-
-        self::assertTrue($length >= 5 && $length <= 50);
+        $realText = $generator->realText(min: 5, max: 50, indexSize: 3);
+        $replacer = $this->generator->ext(ReplacerInterface::class);
+        self::assertInstanceOf(ReplacerInterface::class, $replacer);
+        $length = $replacer->strlen($realText);
+        self::assertTrue($length > 5 && $length <= 51);
         self::assertTrue(str_contains($text, rtrim($realText, '.')));
     }
 }

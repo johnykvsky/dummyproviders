@@ -5,14 +5,9 @@ declare(strict_types = 1);
 namespace DummyGenerator\Provider\Languages\en_US;
 
 use DummyGenerator\Core\Person as BasePerson;
-use DummyGenerator\Definitions\Extension\Awareness\GeneratorAwareExtensionTrait;
-use DummyGenerator\Definitions\Extension\Awareness\RandomizerAwareExtensionTrait;
 
 class Person extends BasePerson
 {
-    use GeneratorAwareExtensionTrait;
-    use RandomizerAwareExtensionTrait;
-
     protected array $maleNameFormats = [
         '{{firstNameMale}} {{lastName}}',
         '{{firstNameMale}} {{lastName}}',
