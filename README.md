@@ -25,12 +25,22 @@ $generator = DummyGenerator::create()->withProvider(new EnUsDefinitionPack());
 But it can be also done with explicit container usage:
 
 ```php
-$container = DiContainerFactory::all();
-$generator = new DummyGenerator($container)
-$generator = $generator->withProvider(new EnUsDefinitionPack());
+$container = DiContainerFactory::all()->withDefinitions((new EnUsDefinitionPack())->all());
+$generator = new DummyGenerator($container);
 echo $generator->state(); // i.e. "Arkansas"
 echo $generator->realText(); // it will give you part of ./resources/en_US.txt
 ```
+
+But provider can be changed in a shorter way, via DummyGenerator itself:
+
+```php
+$generator = DummyGenerator::create()->withProvider(new EnUsDefinitionPack());
+echo $generator->state(); // i.e. "Arkansas"
+$generator = $generator->withProvider(new PlPlDefinitionPack());
+echo $generator->licensePlate(); // i.e. "CIN O6UT"
+```
+
+Remember: generator is immutable.
 
 ## Text extension
 
