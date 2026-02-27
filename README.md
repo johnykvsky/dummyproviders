@@ -1,6 +1,8 @@
 # DummyProviders
 
-This repository contains sample language providers for DummyGenerator:
+![logo][ico-logo]
+
+This repository contains language providers for **DummyGenerator**:
 
 * en_US
 * en_GB
@@ -54,3 +56,5 @@ Text extension is a bit different for one reason - it uses external `.txt` file 
 ## Regexify
 
 There is `Regexify` class in `src` folder, for compatibility - it's still being used in some providers
+
+[ico-logo]: logo_d6.png
