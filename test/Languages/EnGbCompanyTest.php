@@ -76,8 +76,6 @@ class EnGbCompanyTest extends TestCase
         self::assertInstanceOf(Company::class, $company);
 
         $method = new \ReflectionMethod(Company::class, 'calculateModulus97');
-        $method->setAccessible(true);
-
         self::expectException(\InvalidArgumentException::class);
         $method->invoke($company, '123456');
     }
@@ -100,5 +98,18 @@ class EnGbCompanyTest extends TestCase
         }
 
         return str_pad((string) (-1 * $sum), 2, '0', STR_PAD_LEFT);
+    }
+
+    public function testCrnAndCompanyNumber(): void
+    {
+        $generator = DummyGenerator::create()->withProvider(new EnGbDefinitionPack());
+
+        for ($i = 0; $i < 20; ++$i) {
+            $crn = $generator->crn();
+            self::assertMatchesRegularExpression('/^[A-Z0-9]{2}\d{6}$/', $crn);
+
+            $companyNumber = $generator->companyNumber();
+            self::assertMatchesRegularExpression('/^[A-Z0-9]{2}\d{6}$/', $companyNumber);
+        }
     }
 }

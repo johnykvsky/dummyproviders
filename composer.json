@@ -19,6 +19,7 @@
   ],
   "require": {
     "php": "^8.3",
+    "ext-mbstring": "*",
     "johnykvsky/dummygenerator": "^0.2.0"
   },
   "require-dev": {
@@ -39,8 +40,7 @@
     }
   },
   "suggest": {
-    "ext-intl": "Required for better transliteration i.e. in Internet Extension",
-    "ext-mbstring": "Required for multibyte Unicode string functionality."
+    "ext-intl": "Required for better transliteration i.e. in Internet Extension"
   },
   "config": {
     "sort-packages": true,

@@ -4,18 +4,18 @@ declare(strict_types = 1);
 
 namespace DummyGenerator\Provider\Core;
 
+use DI\Attribute\Inject;
 use DummyGenerator\Definitions\Extension\Exception\ExtensionArgumentException;
 use DummyGenerator\Definitions\Extension\Exception\ExtensionOverflowException;
 use DummyGenerator\Definitions\Randomizer\RandomizerInterface;
 use DummyGenerator\Definitions\Replacer\ReplacerInterface;
 use DummyGenerator\Provider\Definitions\Extension\TextExtensionInterface;
+use DummyGenerator\Provider\Resources\DefaultText;
+use DummyGenerator\Provider\Resources\DefaultTextInterface;
 
 class Text implements TextExtensionInterface
 {
-    protected string $defaultText = __DIR__ . '/../../resources/en_US.txt';
-
     protected string $baseText = '';
-    /** @var non-empty-string */
     protected string $separator = ' ';
     protected int $separatorLen = 1;
     /** @var array<int, string> */
@@ -27,12 +27,18 @@ class Text implements TextExtensionInterface
     public function __construct(
         private readonly RandomizerInterface $randomizer,
         private readonly ReplacerInterface $replacer,
+        #[Inject(DefaultText::class)]
+        DefaultTextInterface|string|null $defaultText = null,
         ?string $baseText = null
     ) {
-        if (null !== $baseText) {
+        if (is_string($defaultText)) {
+            $this->baseText = $defaultText;
+        } elseif ($baseText !== null) {
             $this->baseText = $baseText;
-        } elseif (($file = file_get_contents($this->defaultText)) !== false) {
-            $this->baseText = $file;
+        } elseif ($defaultText instanceof DefaultTextInterface) {
+            $this->baseText = $defaultText->getText();
+        } else {
+            $this->baseText = (new DefaultText())->getText();
         }
     }
 
@@ -105,7 +111,7 @@ class Text implements TextExtensionInterface
             $word = $this->randomizer->randomElement($words[$next]);
 
             // calculate next index
-            $currentWords = explode($this->separator, $next);
+            $currentWords = $this->separator === '' ? mb_str_split($next) : explode($this->separator, $next);
             $currentWords[] = $word;
             array_shift($currentWords);
             $next = implode($this->separator, $currentWords);
@@ -169,7 +175,7 @@ class Text implements TextExtensionInterface
     {
         if (empty($this->explodedText)) {
             $replaced = preg_replace('/\s+/u', ' ', $this->baseText);
-            $this->explodedText = explode($this->separator, $replaced ?? '');
+            $this->explodedText = $this->separator === '' ? mb_str_split($replaced ?? '') : explode($this->separator, $replaced ?? '');
         }
 
         return $this->explodedText;

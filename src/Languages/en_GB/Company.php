@@ -126,4 +126,27 @@ class Company extends BaseCompany
 
         return str_pad((string) $sum, 2, '0', STR_PAD_LEFT);
     }
+
+    /**
+     * UK Company Registration Number (CRN)
+     *
+     * 8 character company number registered with Companies House (either 8 digits or 2-letter prefix + 6 digits).
+     *
+     * @see https://en.wikipedia.org/wiki/Companies_House#Company_number
+     */
+    public function crn(): string
+    {
+        if ($this->randomizer->getBool(80)) {
+            return sprintf('%08d', $this->randomizer->getInt(100000, 99999999));
+        }
+
+        $prefix = $this->randomizer->randomElement(['SC', 'NI', 'OC', 'SO', 'NC', 'R0']);
+
+        return sprintf('%s%06d', $prefix, $this->randomizer->getInt(1000, 999999));
+    }
+
+    public function companyNumber(): string
+    {
+        return $this->crn();
+    }
 }

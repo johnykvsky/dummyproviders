@@ -64,7 +64,6 @@ class PlPlLicensePlateTest extends TestCase
         self::assertInstanceOf(LicensePlate::class, $licensePlate);
 
         $countiesProperty = new \ReflectionProperty(LicensePlate::class, 'counties');
-        $countiesProperty->setAccessible(true);
         $countiesProperty->setValue($licensePlate, []);
 
         $plate = $licensePlate->licensePlate(

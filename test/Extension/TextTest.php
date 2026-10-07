@@ -16,6 +16,8 @@ use DummyGenerator\Definitions\Transliterator\TransliteratorInterface;
 use DummyGenerator\DummyGenerator;
 use DummyGenerator\Provider\Core\Text;
 use DummyGenerator\Provider\Definitions\Extension\TextExtensionInterface;
+use DummyGenerator\Provider\Resources\DefaultText;
+use DummyGenerator\Provider\Resources\DefaultTextInterface;
 use PHPUnit\Framework\TestCase;
 
 class TextTest extends TestCase
@@ -31,6 +33,7 @@ class TextTest extends TestCase
         $container->set(TransliteratorInterface::class, Transliterator::class);
         $container->set(ReplacerInterface::class, Replacer::class);
         $container->set(TextExtensionInterface::class, Text::class);
+        $container->set(DefaultText::class, DefaultText::class);
         $this->generator = new DummyGenerator($container);
     }
 
@@ -113,4 +116,69 @@ EOT;
         self::assertTrue($length > 5 && $length <= 51);
         self::assertTrue(str_contains($text, rtrim($realText, '.')));
     }
+
+    public function testRealTextOverrideWithCustomClass(): void
+    {
+        $customText = (new CustomSubclassText())->getText();
+        $generator = $this->generator->withDefinition(DefaultText::class, CustomSubclassText::class);
+        $realText = $generator->realText(min: 5, max: 40, indexSize: 2);
+
+        self::assertNotEmpty($realText);
+        self::assertTrue(str_contains($customText, rtrim($realText, '.')));
+    }
+
+    public function testRealTextOverrideWithInterfaceClass(): void
+    {
+        $customText = (new CustomInterfaceOnlyText())->getText();
+        $generator = $this->generator->withDefinition(DefaultText::class, CustomInterfaceOnlyText::class);
+        $realText = $generator->realText(min: 5, max: 40, indexSize: 2);
+
+        self::assertNotEmpty($realText);
+        self::assertTrue(str_contains($customText, rtrim($realText, '.')));
+    }
+
+    public function testRealTextOverrideWithInstance(): void
+    {
+        $sample = 'Instance custom sentence alpha. Instance custom sentence beta. Instance custom sentence gamma.';
+        $generator = $this->generator->withDefinition(DefaultText::class, new DefaultText($sample));
+        $realText = $generator->realText(min: 5, max: 40, indexSize: 2);
+
+        self::assertNotEmpty($realText);
+        self::assertTrue(str_contains($sample, rtrim($realText, '.')));
+    }
+
+    public function testRealTextOverrideWithClosureFactory(): void
+    {
+        $sample = 'Closure custom sentence alpha. Closure custom sentence beta. Closure custom sentence gamma.';
+        $generator = $this->generator->withDefinition(DefaultText::class, fn () => new DefaultText($sample));
+        $realText = $generator->realText(min: 5, max: 40, indexSize: 2);
+
+        self::assertNotEmpty($realText);
+        self::assertTrue(str_contains($sample, rtrim($realText, '.')));
+    }
+
+    public function testDefaultTextContract(): void
+    {
+        $defaultText = new DefaultText();
+        self::assertInstanceOf(DefaultTextInterface::class, $defaultText);
+        self::assertStringContainsString('JULY 16, 1833', $defaultText->getText());
+        self::assertSame($defaultText->getText(), (string) $defaultText);
+    }
 }
+
+class CustomSubclassText extends DefaultText
+{
+    public function getText(): string
+    {
+        return 'Custom subclass text for Markov generation. Another sentence follows right here.';
+    }
+}
+
+class CustomInterfaceOnlyText implements DefaultTextInterface
+{
+    public function getText(): string
+    {
+        return 'Custom interface only text for Markov generation. Another sentence follows right here.';
+    }
+}
+

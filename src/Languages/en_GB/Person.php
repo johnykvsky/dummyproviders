@@ -125,4 +125,16 @@ class Person extends BasePerson
 
         return sprintf('%s%s%s', $prefix, $digits, $suffix);
     }
+
+    /**
+     * UK Unique Taxpayer Reference (UTR)
+     *
+     * 10 digits number used by HM Revenue and Customs
+     *
+     * @see https://www.gov.uk/find-lost-utr-number
+     */
+    public function utr(): string
+    {
+        return $this->replacer->numerify('%#########');
+    }
 }

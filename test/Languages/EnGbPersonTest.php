@@ -23,4 +23,12 @@ class EnGbPersonTest extends TestCase
         self::assertFalse(in_array($prefix, $bannedPrefixes, true));
         self::assertNotSame('O', $prefix[1]);
     }
+
+    public function testUtr(): void
+    {
+        $generator = DummyGenerator::create()->withProvider(new EnGbDefinitionPack());
+        $utr = $generator->utr();
+
+        self::assertMatchesRegularExpression('/^\d{10}$/', $utr);
+    }
 }

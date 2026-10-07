@@ -9,5 +9,4 @@ use DummyGenerator\Provider\Definitions\Extension\TextExtensionInterface;
 
 class Text extends BaseText implements TextExtensionInterface
 {
-    protected string $defaultText = __DIR__ . '/../../../resources/en_GB.txt';
 }
