@@ -10,7 +10,6 @@ use DummyGenerator\Definitions\Extension\ColorExtensionInterface;
 use DummyGenerator\Definitions\Extension\CompanyExtensionInterface;
 use DummyGenerator\Definitions\Extension\PersonExtensionInterface;
 use DummyGenerator\ProviderPack\ProviderPackInterface;
-use DummyGenerator\Provider\Definitions\Extension\TextExtensionInterface;
 
 readonly class FrCaDefinitionPack implements ProviderPackInterface
 {
@@ -24,7 +23,6 @@ readonly class FrCaDefinitionPack implements ProviderPackInterface
             ColorExtensionInterface::class => Color::class,
             CompanyExtensionInterface::class => Company::class,
             PersonExtensionInterface::class => Person::class,
-            TextExtensionInterface::class => Text::class,
         ];
     }
 

@@ -5,38 +5,38 @@ declare(strict_types=1);
 namespace DummyGenerator\Provider\Test\ProviderPack;
 
 use DummyGenerator\DummyGenerator;
-use DummyGenerator\Provider\Definitions\Extension\TextExtensionInterface;
+use DummyGenerator\Definitions\Extension\PersonExtensionInterface;
 use DummyGenerator\Provider\Languages\en_GB\EnGbDefinitionPack;
-use DummyGenerator\Provider\Languages\en_GB\Text as EnGbText;
+use DummyGenerator\Provider\Languages\en_GB\Person as EnGbPerson;
 use DummyGenerator\Provider\Languages\en_US\EnUsDefinitionPack;
-use DummyGenerator\Provider\Languages\en_US\Text as EnUsText;
+use DummyGenerator\Provider\Languages\en_US\Person as EnUsPerson;
 use DummyGenerator\Provider\Languages\pl_PL\PlPlDefinitionPack;
-use DummyGenerator\Provider\Languages\pl_PL\Text as PlPlText;
+use DummyGenerator\Provider\Languages\pl_PL\Person as PlPlPerson;
 use DummyGenerator\ProviderPack\ProviderPackInterface;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 class DefinitionPackTest extends TestCase
 {
-    public function testEnUsDefinitionPackRegistersLocaleTextClass(): void
+    public function testEnUsDefinitionPackRegistersLocalePersonClass(): void
     {
         $generator = DummyGenerator::create()->withProvider(new EnUsDefinitionPack());
 
-        self::assertInstanceOf(EnUsText::class, $generator->ext(TextExtensionInterface::class));
+        self::assertInstanceOf(EnUsPerson::class, $generator->ext(PersonExtensionInterface::class));
     }
 
-    public function testEnGbDefinitionPackRegistersLocaleTextClass(): void
+    public function testEnGbDefinitionPackRegistersLocalePersonClass(): void
     {
         $generator = DummyGenerator::create()->withProvider(new EnGbDefinitionPack());
 
-        self::assertInstanceOf(EnGbText::class, $generator->ext(TextExtensionInterface::class));
+        self::assertInstanceOf(EnGbPerson::class, $generator->ext(PersonExtensionInterface::class));
     }
 
-    public function testPlPlDefinitionPackRegistersLocaleTextClass(): void
+    public function testPlPlDefinitionPackRegistersLocalePersonClass(): void
     {
         $generator = DummyGenerator::create()->withProvider(new PlPlDefinitionPack());
 
-        self::assertInstanceOf(PlPlText::class, $generator->ext(TextExtensionInterface::class));
+        self::assertInstanceOf(PlPlPerson::class, $generator->ext(PersonExtensionInterface::class));
     }
 
     /**

@@ -11,7 +11,6 @@ use DummyGenerator\Definitions\Extension\InternetExtensionInterface;
 use DummyGenerator\Definitions\Extension\PersonExtensionInterface;
 use DummyGenerator\Definitions\Extension\PhoneNumberExtensionInterface;
 use DummyGenerator\ProviderPack\ProviderPackInterface;
-use DummyGenerator\Provider\Definitions\Extension\TextExtensionInterface;
 
 readonly class FaIrDefinitionPack implements ProviderPackInterface
 {
@@ -26,7 +25,6 @@ readonly class FaIrDefinitionPack implements ProviderPackInterface
             InternetExtensionInterface::class => Internet::class,
             PersonExtensionInterface::class => Person::class,
             PhoneNumberExtensionInterface::class => PhoneNumber::class,
-            TextExtensionInterface::class => Text::class,
         ];
     }
 

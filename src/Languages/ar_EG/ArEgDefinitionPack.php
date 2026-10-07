@@ -12,7 +12,6 @@ use DummyGenerator\Definitions\Extension\InternetExtensionInterface;
 use DummyGenerator\Definitions\Extension\PaymentExtensionInterface;
 use DummyGenerator\Definitions\Extension\PersonExtensionInterface;
 use DummyGenerator\ProviderPack\ProviderPackInterface;
-use DummyGenerator\Provider\Definitions\Extension\TextExtensionInterface;
 
 readonly class ArEgDefinitionPack implements ProviderPackInterface
 {
@@ -28,7 +27,6 @@ readonly class ArEgDefinitionPack implements ProviderPackInterface
             InternetExtensionInterface::class => Internet::class,
             PaymentExtensionInterface::class => Payment::class,
             PersonExtensionInterface::class => Person::class,
-            TextExtensionInterface::class => Text::class,
         ];
     }
 

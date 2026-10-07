@@ -10,7 +10,6 @@ use DummyGenerator\Definitions\Extension\CompanyExtensionInterface;
 use DummyGenerator\Definitions\Extension\InternetExtensionInterface;
 use DummyGenerator\Definitions\Extension\PersonExtensionInterface;
 use DummyGenerator\ProviderPack\ProviderPackInterface;
-use DummyGenerator\Provider\Definitions\Extension\TextExtensionInterface;
 
 readonly class ArJoDefinitionPack implements ProviderPackInterface
 {
@@ -24,7 +23,6 @@ readonly class ArJoDefinitionPack implements ProviderPackInterface
             CompanyExtensionInterface::class => Company::class,
             InternetExtensionInterface::class => Internet::class,
             PersonExtensionInterface::class => Person::class,
-            TextExtensionInterface::class => Text::class,
         ];
     }
 
