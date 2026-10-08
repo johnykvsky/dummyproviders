@@ -171,7 +171,7 @@ class Address extends BaseAddress
         'Skośna', 'Skrajna', 'Słoneczna', 'Słonecznikowa', 'Słowackiego', 'Słowiańska',
         'Słowicza', 'Sobieskiego', 'Jana III Sobieskiego', 'Sokola', 'Al. Solidarności',
         'Solna', 'Solskiego', 'Sosnowa', 'Sowia', 'Sowińskiego', 'Spacerowa',
-        'Spokojna', 'Sportowa', 'Spółdzielcza', 'Srebrna', 'Staffa ', 'Stalowa', 'Staromiejska',
+        'Spokojna', 'Sportowa', 'Spółdzielcza', 'Srebrna', 'Staffa', 'Stalowa', 'Staromiejska',
         'Starowiejska', 'Staszica', 'Stawowa', 'Stolarska', 'Strażacka', 'Stroma',
         'Struga', 'Strumykowa', 'Strzelecka', 'Studzienna', 'Wita Stwosza', 'Sucha',
         'Sucharskiego', 'Szafirowa', 'Szarych Szeregów', 'Szczecińska', 'Szczęśliwa',

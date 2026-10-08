@@ -26,6 +26,14 @@ class Company extends BaseCompany
     /** @var array<string> */
     protected array $companyPrefix = ['Grupa', 'Fundacja', 'Stowarzyszenie', 'Spółdzielnia'];
 
+    /** @var string[] */
+    protected array $industries = [
+        'Technologia', 'Ochrona zdrowia', 'Usługi finansowe', 'Produkcja',
+        'Handel detaliczny', 'Telekomunikacja', 'Edukacja', 'Energetyka',
+        'Transport i logistyka', 'Media i rozrywka', 'Nieruchomości', 'Rolnictwo',
+        'Hotelarstwo i gastronomia', 'Budownictwo', 'Konsulting', 'Motoryzacja',
+    ];
+
     /** @example 'Grupa' */
     public function companyPrefix(): string
     {
@@ -97,5 +105,48 @@ class Company extends BaseCompany
         $result[] = $checksum;
 
         return implode('', $result);
+    }
+
+    /**
+     * Taxpayer Identification Number (NIP in Polish)
+     *
+     * @return string 10 digit number
+     *
+     * @see http://pl.wikipedia.org/wiki/NIP
+     */
+    public function nip(): string
+    {
+        $weights = [6, 5, 7, 2, 3, 4, 5, 6, 7];
+
+        do {
+            $result = [
+                $this->generator->randomDigitNotZero(), $this->generator->randomDigitNotZero(), $this->generator->randomDigitNotZero(),
+                $this->generator->randomDigit(), $this->generator->randomDigit(), $this->generator->randomDigit(),
+                $this->generator->randomDigit(), $this->generator->randomDigit(), $this->generator->randomDigit(),
+            ];
+            $checksum = 0;
+
+            for ($i = 0, $size = count($result); $i < $size; ++$i) {
+                $checksum += $weights[$i] * $result[$i];
+            }
+
+            $checksum %= 11;
+        } while ($checksum === 10);
+
+        $result[] = $checksum;
+
+        return implode('', $result);
+    }
+
+    /**
+     * National Court Register number (Krajowy Rejestr Sądowy / KRS)
+     *
+     * 10 digits number
+     *
+     * @see https://pl.wikipedia.org/wiki/Krajowy_Rejestr_S%C4%85dowy
+     */
+    public function krs(): string
+    {
+        return sprintf('%010d', $this->randomizer->getInt(1, 9999999));
     }
 }

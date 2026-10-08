@@ -259,4 +259,44 @@ class Person extends BasePerson
 
         return implode('', $result);
     }
+
+    public function nip(): string
+    {
+        return $this->taxpayerIdentificationNumber();
+    }
+
+    /**
+     * Polish Identity Card Number (Dowód osobisty)
+     *
+     * Format: 3 uppercase letters followed by 6 digits (first digit is check digit)
+     *
+     * @see https://pl.wikipedia.org/wiki/Dow%C3%B3d_osobisty_w_Polsce#Numer_dowodu_osobistego
+     */
+    public function dowodOsobisty(): string
+    {
+        $letters = '';
+        for ($i = 0; $i < 3; ++$i) {
+            $letters .= chr($this->randomizer->getInt(65, 90));
+        }
+
+        $digits = [];
+        for ($i = 0; $i < 5; ++$i) {
+            $digits[] = $this->generator->randomDigit();
+        }
+
+        $weights = [7, 3, 1, 7, 3, 1, 7, 3];
+        $sum = 0;
+        for ($i = 0; $i < 3; ++$i) {
+            $val = ord($letters[$i]) - 55;
+            $sum += $val * $weights[$i];
+        }
+
+        for ($i = 0; $i < 5; ++$i) {
+            $sum += $digits[$i] * $weights[$i + 3];
+        }
+
+        $checkDigit = $sum % 10;
+
+        return sprintf('%s%d%s', $letters, $checkDigit, implode('', $digits));
+    }
 }

@@ -8,9 +8,9 @@ use DummyGenerator\Definitions\DefinitionInterface;
 use DummyGenerator\Definitions\Extension\AddressExtensionInterface;
 use DummyGenerator\Definitions\Extension\CompanyExtensionInterface;
 use DummyGenerator\Definitions\Extension\InternetExtensionInterface;
+use DummyGenerator\Definitions\Extension\PaymentExtensionInterface;
 use DummyGenerator\Definitions\Extension\PersonExtensionInterface;
 use DummyGenerator\Definitions\Extension\PhoneNumberExtensionInterface;
-use DummyGenerator\Provider\Definitions\Extension\TextExtensionInterface;
 use DummyGenerator\ProviderPack\ProviderPackInterface;
 
 readonly class EnGbDefinitionPack implements ProviderPackInterface
@@ -24,9 +24,9 @@ readonly class EnGbDefinitionPack implements ProviderPackInterface
             AddressExtensionInterface::class => Address::class,
             CompanyExtensionInterface::class => Company::class,
             InternetExtensionInterface::class => Internet::class,
+            PaymentExtensionInterface::class => Payment::class,
             PersonExtensionInterface::class => Person::class,
             PhoneNumberExtensionInterface::class => PhoneNumber::class,
-            TextExtensionInterface::class => Text::class,
         ];
     }
 

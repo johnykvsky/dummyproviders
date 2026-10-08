@@ -10,7 +10,6 @@ use DummyGenerator\Definitions\Extension\CompanyExtensionInterface;
 use DummyGenerator\Definitions\Extension\PaymentExtensionInterface;
 use DummyGenerator\Definitions\Extension\PersonExtensionInterface;
 use DummyGenerator\Definitions\Extension\PhoneNumberExtensionInterface;
-use DummyGenerator\Provider\Definitions\Extension\TextExtensionInterface;
 use DummyGenerator\ProviderPack\ProviderPackInterface;
 
 readonly class EnUsDefinitionPack implements ProviderPackInterface
@@ -26,7 +25,6 @@ readonly class EnUsDefinitionPack implements ProviderPackInterface
             PaymentExtensionInterface::class => Payment::class,
             PersonExtensionInterface::class => Person::class,
             PhoneNumberExtensionInterface::class => PhoneNumber::class,
-            TextExtensionInterface::class => Text::class,
         ];
     }
 

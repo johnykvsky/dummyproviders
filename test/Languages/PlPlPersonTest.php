@@ -96,6 +96,21 @@ class PlPlPersonTest extends TestCase
         self::assertSame((int) $number[9], $this->taxpayerIdChecksum(substr($number, 0, 9)));
     }
 
+    public function testDowodOsobistyFormatAndChecksum(): void
+    {
+        $generator = DummyGenerator::create()->withProvider(new PlPlDefinitionPack());
+
+        for ($i = 0; $i < 20; ++$i) {
+            $number = $generator->dowodOsobisty();
+            self::assertMatchesRegularExpression('/^[A-Z]{3}\d{6}$/', $number);
+
+            $letters = substr($number, 0, 3);
+            $digits = substr($number, 3, 6);
+
+            self::assertSame((int) $digits[0], $this->personalIdChecksum($letters, substr($digits, 1)));
+        }
+    }
+
     private function peselChecksum(string $digits): int
     {
         $weights = [1, 3, 7, 9, 1, 3, 7, 9, 1, 3];

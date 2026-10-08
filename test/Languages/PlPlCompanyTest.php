@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types=1);
+declare(strict_types = 1);
 
 namespace DummyGenerator\Provider\Test\Languages;
 
@@ -16,6 +16,24 @@ class PlPlCompanyTest extends TestCase
         $companyPrefix = $generator->companyPrefix();
 
         self::assertContains($companyPrefix, ['Grupa', 'Fundacja', 'Stowarzyszenie', 'Spółdzielnia']);
+    }
+
+    public function testNipFormatAndChecksum(): void
+    {
+        $generator = DummyGenerator::create()->withProvider(new PlPlDefinitionPack());
+
+        for ($i = 0; $i < 20; ++$i) {
+            $nip = $generator->nip();
+            self::assertMatchesRegularExpression('/^\d{10}$/', $nip);
+
+            $weights = [6, 5, 7, 2, 3, 4, 5, 6, 7];
+            $sum = 0;
+            for ($j = 0; $j < 9; ++$j) {
+                $sum += (int) $nip[$j] * $weights[$j];
+            }
+
+            self::assertSame((int) $nip[9], $sum % 11);
+        }
     }
 
     public function testRegonFormatAndChecksum(): void
@@ -35,6 +53,27 @@ class PlPlCompanyTest extends TestCase
         $regonLocal = $generator->regonLocal();
         self::assertMatchesRegularExpression('/^\d{14}$/', $regonLocal);
         self::assertSame((int) $regonLocal[13], $this->regonLocalChecksum(substr($regonLocal, 0, 13)));
+    }
+
+    public function testKrs(): void
+    {
+        $generator = DummyGenerator::create()->withProvider(new PlPlDefinitionPack());
+
+        for ($i = 0; $i < 20; ++$i) {
+            $krs = $generator->krs();
+            self::assertMatchesRegularExpression('/^\d{10}$/', $krs);
+        }
+    }
+
+    public function testIndustry(): void
+    {
+        $generator = DummyGenerator::create()->withProvider(new PlPlDefinitionPack());
+
+        for ($i = 0; $i < 20; ++$i) {
+            $industry = $generator->industry();
+            self::assertIsString($industry);
+            self::assertNotEmpty($industry);
+        }
     }
 
     private function regonChecksum(string $digits): int

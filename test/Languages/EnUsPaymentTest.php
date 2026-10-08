@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types=1);
+declare(strict_types = 1);
 
 namespace DummyGenerator\Provider\Test\Languages;
 
@@ -37,5 +37,14 @@ class EnUsPaymentTest extends TestCase
         );
 
         return (10 - ($sum % 10)) % 10;
+    }
+
+    public function testCurrency(): void
+    {
+        $generator = DummyGenerator::create()->withProvider(new EnUsDefinitionPack());
+
+        self::assertSame('USD', $generator->currencyCode());
+        self::assertSame('$', $generator->currencySymbol());
+        self::assertSame('US Dollar', $generator->currencyName());
     }
 }

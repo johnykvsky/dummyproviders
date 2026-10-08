@@ -50,9 +50,9 @@ class DateTime extends BaseDateTime
         return $this->months[(int) $this->month($until) - 1];
     }
 
-    public function monthNameGenitive(\DateTimeInterface|string $max = 'now'): string
+    public function monthNameGenitive(\DateTimeInterface|string $until = 'now'): string
     {
-        return $this->monthsGenitive[(int) $this->month($max) - 1];
+        return $this->monthsGenitive[(int) $this->month($until) - 1];
     }
 
     public function dayOfWeek(\DateTimeInterface|string $until = 'now'): string

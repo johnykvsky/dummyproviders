@@ -8,6 +8,21 @@ use DummyGenerator\Core\Payment as BasePayment;
 
 class Payment extends BasePayment
 {
+    /** @var string[] */
+    protected array $currencyCode = [
+        'USD',
+    ];
+
+    /** @var string[] */
+    protected array $currencySymbols = [
+        '$',
+    ];
+
+    /** @var string[] */
+    protected array $currencyNames = [
+        'US Dollar',
+    ];
+
     public function bankAccountNumber(): string
     {
         // Length between 5 and 17, biased towards center

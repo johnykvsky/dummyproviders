@@ -40,7 +40,7 @@ class Payment extends BasePayment
         '219' => 'DNB Bank Polska Spółka Akcyjna',
         '224' => 'Banque PSA Finance Spółka Akcyjna Oddział w Polsce',
         '225' => 'Svenska Handelsbanken AB Spółka Akcyjna Oddział w Polsce',
-        '235' => 'BNP Paribas S.A. Oddział w Polsce ',
+        '235' => 'BNP Paribas S.A. Oddział w Polsce',
         '236' => 'Danske Bank A/S Spółka Akcyjna Oddział w Polsce',
         '237' => 'Skandinaviska Enskilda Banken AB (Spółka Akcyjna) - Oddział w Polsce',
         '239' => 'CAIXABANK, S.A. (SPÓŁKA AKCYJNA) ODDZIAŁ W POLSCE',
@@ -66,7 +66,7 @@ class Payment extends BasePayment
         '272' => 'AS Inbank Spółka Akcyjna - Oddział w Polsce',
         '273' => 'China Construction Bank (Europe) S.A. (Spółka Akcyjna) Oddział w Polsce',
         '274' => 'MUFG Bank (Europe) N.V. S.A. Oddział w Polsce',
-        '275' => 'John Deere Bank S.A. Spółka Akcyjna Oddział w Polsce ',
+        '275' => 'John Deere Bank S.A. Spółka Akcyjna Oddział w Polsce',
         '277' => 'Volkswagen Bank GmbH Spółka z ograniczoną odpowiedzialnością Oddział w Polsce',
         '278' => 'ING Bank Hipoteczny Spółka Akcyjna',
         '279' => 'Raiffeisen Bank International AG (Spółka Akcyjna) Oddział w Polsce',
@@ -86,16 +86,30 @@ class Payment extends BasePayment
         return $this->randomizer->randomElement($this->banks);
     }
 
+    /** @var string[] */
+    protected array $currencyCode = [
+        'PLN',
+    ];
+
+    /** @var string[] */
+    protected array $currencySymbols = [
+        'zł',
+    ];
+
+    /** @var string[] */
+    protected array $currencyNames = [
+        'Polski złoty',
+    ];
+
     /**
      * International Bank Account Number (IBAN)
      *
      * @param string $prefix      for generating bank account number of a specific bank
      * @param string $countryCode ISO 3166-1 alpha-2 country code
-     * @return string
      *
      * @see http://en.wikipedia.org/wiki/International_Bank_Account_Number
      */
-    public function bankAccountNumber(string $prefix = '', string $countryCode = 'PL')
+    public function bankAccountNumber(string $prefix = '', string $countryCode = 'PL'): string
     {
         return $this->iban($countryCode, $prefix);
     }

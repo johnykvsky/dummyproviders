@@ -2,6 +2,17 @@
 
 ---
 
+## v0.3.0
+
+* **Dependencies & Cleanup**:
+  * Bumped `johnykvsky/dummygenerator` to `^0.3.0`.
+  * Removed legacy `Text` extension.
+  * Added `ext-mbstring` requirement in `composer.json`.
+  * Added localized Currencies, Initials, and Industries.
+  * Added tests
+
+---
+
 ## v0.2.0
 
 Updated for DummyGenerator `v0.2.0`:

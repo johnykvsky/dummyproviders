@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types=1);
+declare(strict_types = 1);
 
 namespace DummyGenerator\Provider\Test\Languages;
 
@@ -38,5 +38,16 @@ class PlPlAddressTest extends TestCase
             'opolskie', 'podkarpackie', 'podlaskie', 'pomorskie', 'śląskie', 'świętokrzyskie', 'warmińsko-mazurskie',
             'wielkopolskie', 'zachodniopomorskie',
         ]);
+    }
+
+    public function testStreetNamesHaveNoTrailingWhitespace(): void
+    {
+        $reflection = new \ReflectionClass(\DummyGenerator\Provider\Languages\pl_PL\Address::class);
+        $defaults = $reflection->getDefaultProperties();
+        /** @var array<int, string> $streets */
+        $streets = $defaults['street'];
+        foreach ($streets as $street) {
+            self::assertSame(trim($street), $street, sprintf('Street name "%s" is padded with whitespace', $street));
+        }
     }
 }
