@@ -90,9 +90,7 @@ class Person extends BasePerson
         'Žana', 'Živa',
     ];
 
-    /**
-     * @see http://www.stat.si/imena_top_priimki.asp?r=True
-     */
+    /** @see http://www.stat.si/imena_top_priimki.asp?r=True */
     protected array $lastName = [
         'Ambrožič', 'Babič', 'Bajc', 'Bergant', 'Bevc', 'Bezjak', 'Bizjak', 'Blatnik', 'Blažič',
         'Bogataj', 'Božič', 'Bregar', 'Breznik', 'Bukovec', 'Cerar', 'Cvetko', 'Debeljak',
@@ -126,7 +124,7 @@ class Person extends BasePerson
     /**
      * replaced by specific unisex slovenian title
      */
-    public function title($gender = null): string
+    public function title(?string $gender = null): string
     {
         return $this->randomizer->randomElement($this->title);
     }
@@ -136,7 +134,7 @@ class Person extends BasePerson
      *
      * @example 'Novak'
      */
-    public function lastName($gender = null): string
+    public function lastName(?string $gender = null): string
     {
         return $this->randomizer->randomElement($this->lastName);
     }
@@ -150,5 +148,4 @@ class Person extends BasePerson
     {
         return $this->lastName();
     }
-
 }

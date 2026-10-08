@@ -15,9 +15,7 @@ class Company extends BaseCompany
         '{{companyPrefix}} {{lastName}} {{lastName}} {{companySuffix}}',
     ];
 
-    /**
-     * @see http://id.wikipedia.org/wiki/Jenis_badan_usaha
-     */
+    /** @see http://id.wikipedia.org/wiki/Jenis_badan_usaha */
     protected array $companyPrefix = ['PT', 'Fa', 'CV', 'UD', 'PJ', 'PD', 'Perum', 'Yayasan'];
 
     /**
@@ -41,9 +39,7 @@ class Company extends BaseCompany
         'Wartawan', 'Wiraswasta',
     ];
 
-    /**
-     * @see http://id.wikipedia.org/wiki/Jenis_badan_usaha
-     */
+    /** @see http://id.wikipedia.org/wiki/Jenis_badan_usaha */
     protected array $companySuffix = ['(Persero) Tbk', 'Tbk'];
 
     /**
@@ -65,5 +61,4 @@ class Company extends BaseCompany
     {
         return $this->randomizer->randomElement($this->companySuffix);
     }
-
 }

@@ -17,5 +17,4 @@ class PhoneNumber extends BasePhoneNumber
         '+7 (747) #######',
         '+7 (7172) 745###',
     ];
-
 }

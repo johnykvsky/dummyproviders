@@ -8,9 +8,7 @@ use DummyGenerator\Core\PhoneNumber as BasePhoneNumber;
 
 class PhoneNumber extends BasePhoneNumber
 {
-    /**
-     * @var array Icelandic phone number formats.
-     */
+    /** @var array Icelandic phone number formats. */
     protected array $formats = [
         '+354 ### ####',
         '+354 #######',
@@ -18,5 +16,4 @@ class PhoneNumber extends BasePhoneNumber
         '### ####',
         '#######',
     ];
-
 }

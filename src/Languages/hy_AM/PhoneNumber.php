@@ -54,5 +54,4 @@ class PhoneNumber extends BasePhoneNumber
     {
         return $this->randomizer->randomElement($this->numberFormats);
     }
-
 }

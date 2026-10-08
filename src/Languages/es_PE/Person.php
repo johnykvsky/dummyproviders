@@ -95,9 +95,7 @@ class Person extends BasePerson
 
     protected array $suffix = ['Hijo'];
 
-    /**
-     * @example 'Hijo'
-     */
+    /** @example 'Hijo' */
     public function suffix(): string
     {
         return $this->randomizer->randomElement($this->suffix);
@@ -110,7 +108,6 @@ class Person extends BasePerson
      * 8 digits.
      *
      * @example '83367512'
-     *
      * @see http://www2.sunat.gob.pe/pdt/pdtModulos/independientes/p695/TipoDoc.htm
      */
     public function dni()

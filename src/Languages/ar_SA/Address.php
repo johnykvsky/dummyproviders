@@ -10,9 +10,7 @@ class Address extends BaseAddress
 {
     protected array $streetPrefix = ['شارع', 'طريق', 'ممر'];
 
-    /**
-     * @see https://ar.wikipedia.org/wiki/%D9%82%D8%A7%D8%A6%D9%85%D8%A9_%D9%85%D8%AF%D9%86_%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A%D8%A9
-     */
+    /** @see https://ar.wikipedia.org/wiki/%D9%82%D8%A7%D8%A6%D9%85%D8%A9_%D9%85%D8%AF%D9%86_%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A%D8%A9 */
     protected array $cityName = [
         'الرياض', 'جدة', 'مكة', 'المدينة المنورة', 'تبوك', 'الدمام', 'الأحساء', 'القطيف', 'خميس مشيط', 'المظيلف', 'الهفوف',
         'المبرز', 'الطائف', 'نجران', 'حفر الباطن', 'الجبيل', 'ضباء', 'الخرج', 'الثقبة', 'ينبع البحر', 'الخبر', 'عرعر', 'الحوية',
@@ -20,9 +18,7 @@ class Address extends BaseAddress
         'الدوادمي', 'الأفلاج',
     ];
 
-    /**
-     * @see https://ar.wikipedia.org/wiki/%D8%A7%D9%84%D8%AA%D9%82%D8%B3%D9%8A%D9%85_%D8%A7%D9%84%D8%A5%D8%AF%D8%A7%D8%B1%D9%8A_%D9%84%D9%84%D9%85%D9%85%D9%84%D9%83%D8%A9_%D8%A7%D9%84%D8%B9%D8%B1%D8%A8%D9%8A%D8%A9_%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A%D8%A9
-     */
+    /** @see https://ar.wikipedia.org/wiki/%D8%A7%D9%84%D8%AA%D9%82%D8%B3%D9%8A%D9%85_%D8%A7%D9%84%D8%A5%D8%AF%D8%A7%D8%B1%D9%8A_%D9%84%D9%84%D9%85%D9%85%D9%84%D9%83%D8%A9_%D8%A7%D9%84%D8%B9%D8%B1%D8%A8%D9%8A%D8%A9_%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A%D8%A9 */
     protected array $subdivisions = [
         'منطقة الرياض', 'منطقة القصيم',
         'منطقة مكة المكرمة', 'منطقة المدينة المنورة',
@@ -31,9 +27,7 @@ class Address extends BaseAddress
         'المنطقة الشرقية',
     ];
 
-    /**
-     * @see https://ar.wikipedia.org/wiki/%D9%82%D8%A7%D8%A6%D9%85%D8%A9_%D9%85%D8%AD%D8%A7%D9%81%D8%B8%D8%A7%D8%AA_%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A%D8%A9
-     */
+    /** @see https://ar.wikipedia.org/wiki/%D9%82%D8%A7%D8%A6%D9%85%D8%A9_%D9%85%D8%AD%D8%A7%D9%81%D8%B8%D8%A7%D8%AA_%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A%D8%A9 */
     protected array $governorates = [
         'الرياض', 'الدرعية', 'الخرج', 'الدوادمي', 'المجمعة', 'القويعية', 'الأفلاج', 'وادي الدواسر', 'الزلفي', 'شقراء', 'حوطة بني تميم', 'عفيف', 'الغاط', 'السليل', 'ضرما', 'المزاحمية', 'رماح', 'ثادق', 'حريملاء', 'الحريق', 'مرات',
         'مكة المكرمة', 'جدة', 'الطائف', 'القنفذة', 'الليث', 'رابغ', 'خليص', 'الخرمة', 'رنية', 'تربة', 'الجموم', 'الكامل', 'المويه', 'ميسان', 'أضم', 'العرضيات', 'بحرة',
@@ -54,9 +48,7 @@ class Address extends BaseAddress
 
     protected array $postcode = ['#####', '#####-####'];
 
-    /**
-     * @see http://www.nationsonline.org/oneworld/countrynames_arabic.htm
-     */
+    /** @see http://www.nationsonline.org/oneworld/countrynames_arabic.htm */
     protected array $country = [
         'الكاريبي', 'أمريكا الوسطى', 'أنتيجوا وبربودا', 'أنجولا', 'أنجويلا', 'أندورا', 'اندونيسيا', 'أورجواي', 'أوروبا', 'أوزبكستان', 'أوغندا', 'أوقيانوسيا', 'أوقيانوسيا النائية', 'أوكرانيا', 'ايران', 'أيرلندا', 'أيسلندا', 'ايطاليا',
         'بابوا غينيا الجديدة', 'باراجواي', 'باكستان', 'بالاو', 'بتسوانا', 'بتكايرن', 'بربادوس', 'برمودا', 'بروناي', 'بلجيكا', 'بلغاريا', 'بليز', 'بنجلاديش', 'بنما', 'بنين', 'بوتان', 'بورتوريكو', 'بوركينا فاسو', 'بوروندي', 'بولندا', 'بوليفيا', 'بولينيزيا', 'بولينيزيا الفرنسية', 'بيرو',
@@ -100,52 +92,39 @@ class Address extends BaseAddress
 
     protected array $secondaryAddressFormats = ['شقة رقم. ##', 'عمارة رقم ##'];
 
-    /**
-     * @example 'شرق'
-     */
+    /** @example 'شرق' */
     public function cityPrefix(): string
     {
         return $this->randomizer->randomElement($this->cityPrefix);
     }
 
-    /**
-     * @example 'الرياض'
-     */
+    /** @example 'الرياض' */
     public function cityName(): string
     {
         return $this->randomizer->randomElement($this->cityName);
     }
 
-    /**
-     * @example 'شارع'
-     */
+    /** @example 'شارع' */
     public function streetPrefix(): string
     {
         return $this->randomizer->randomElement($this->streetPrefix);
     }
 
-    /**
-     * @example 'شقة رقم. 350'
-     */
+    /** @example 'شقة رقم. 350' */
     public function secondaryAddress(): string
     {
         return $this->replacer->numerify($this->randomizer->randomElement($this->secondaryAddressFormats));
     }
 
-    /**
-     * @example 'منطقة الرياض'
-     */
+    /** @example 'منطقة الرياض' */
     public function subdivision(): string
     {
         return $this->randomizer->randomElement($this->subdivisions);
     }
 
-    /**
-     * @example 'منطقة الرياض'
-     */
+    /** @example 'منطقة الرياض' */
     public function governorate(): string
     {
         return $this->randomizer->randomElement($this->governorates);
     }
-
 }

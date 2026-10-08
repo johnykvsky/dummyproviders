@@ -71,7 +71,7 @@ class Person extends BasePerson
     ];
 
     protected array $firstNameFemale = [
-        'Abril', 'Adriana', 'África', 'Aina', 'Ainara', 'Ainhoa', 'Aitana', 'Alba', 'Alejandra', 'Alexandra', 'Alexia', 'Alicia', 'Alma', 'Amparo', 'Ana', 'Ana Isabel', 'Ana María', 'Andrea',  'Ángela', 'Ángeles', 'Antonia', 'Ariadna', 'Aurora',
+        'Abril', 'Adriana', 'África', 'Aina', 'Ainara', 'Ainhoa', 'Aitana', 'Alba', 'Alejandra', 'Alexandra', 'Alexia', 'Alicia', 'Alma', 'Amparo', 'Ana', 'Ana Isabel', 'Ana María', 'Andrea', 'Ángela', 'Ángeles', 'Antonia', 'Ariadna', 'Aurora',
         'Beatriz', 'Berta', 'Blanca',
         'Candela', 'Carla', 'Carlota', 'Carmen', 'Carolina', 'Celia', 'Clara', 'Claudia', 'Cristina',
         'Daniela', 'Diana',
@@ -79,10 +79,10 @@ class Person extends BasePerson
         'Fátima', 'Francisca',
         'Gabriela', 'Gloria',
         'Helena',
-        'Inés', 'Inmaculada', 'Irene',  'Isabel',
+        'Inés', 'Inmaculada', 'Irene', 'Isabel',
         'Josefa', 'Jimena', 'Juana', 'Julia',
         'Laia', 'Lara', 'Laura', 'Leire', 'Lorena', 'Lidia', 'Lola', 'Lucía', 'Luisa', 'Luna',
-        'Malak', 'Manuela', 'Mar', 'Mara', 'Margarita', 'María', 'María Ángeles', 'María Carmen', 'María Dolores', 'María Pilar', 'Marina', 'Marta',  'Martina', 'Mireia', 'Miriam',
+        'Malak', 'Manuela', 'Mar', 'Mara', 'Margarita', 'María', 'María Ángeles', 'María Carmen', 'María Dolores', 'María Pilar', 'Marina', 'Marta', 'Martina', 'Mireia', 'Miriam',
         'Nadia', 'Nahia', 'Naia', 'Naiara', 'Natalia', 'Nayara', 'Nerea', 'Nil', 'Noa', 'Noelia', 'Nora', 'Nuria',
         'Olivia', 'Olga', 'Ona',
         'Paola', 'Patricia', 'Pau', 'Paula', 'Pilar',
@@ -129,9 +129,7 @@ class Person extends BasePerson
 
     protected array $licenceCodes = ['AM', 'A1', 'A2', 'A', 'B', 'B+E', 'C1', 'C1+E', 'C', 'C+E', 'D1', 'D1+E', 'D', 'D+E'];
 
-    /**
-     * @example 'Hijo'
-     */
+    /** @example 'Hijo' */
     public function suffix(): string
     {
         return $this->randomizer->randomElement($this->suffix);
@@ -141,7 +139,6 @@ class Person extends BasePerson
      * Generate a Documento Nacional de Identidad (DNI) number
      *
      * @example '77446565E'
-     *
      * @see https://es.wikibooks.org/wiki/Algoritmo_para_obtener_la_letra_del_NIF#Algoritmo
      */
     public function dni()
@@ -152,11 +149,7 @@ class Person extends BasePerson
         return $number . $letter;
     }
 
-    /**
-     * @see https://sede.dgt.gob.es/es/tramites-y-multas/permiso-de-conduccion/obtencion-permiso-licencia-conduccion/clases-permiso-conduccion-edad.shtml
-     *
-     * @return string
-     */
+    /** @see https://sede.dgt.gob.es/es/tramites-y-multas/permiso-de-conduccion/obtencion-permiso-licencia-conduccion/clases-permiso-conduccion-edad.shtml */
     public function licenceCode(): string
     {
         return $this->randomizer->randomElement($this->licenceCodes);
@@ -166,7 +159,6 @@ class Person extends BasePerson
      * Generate a Número de Identidad de Extranjero (NIE)
      *
      * @example 'X1234567L'
-     *
      * @see https://es.wikipedia.org/wiki/N%C3%BAmero_de_identidad_de_extranjero
      */
     public function nie(): string

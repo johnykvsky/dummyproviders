@@ -8,9 +8,7 @@ use DummyGenerator\Core\Color as BaseColor;
 
 class Color extends BaseColor
 {
-    /**
-     * @see https://zh.wikipedia.org/zh-cn/%E9%A2%9C%E8%89%B2%E5%88%97%E8%A1%A8
-     */
+    /** @see https://zh.wikipedia.org/zh-cn/%E9%A2%9C%E8%89%B2%E5%88%97%E8%A1%A8 */
     protected array $safeColorNames = [
         '黑色', '粟色', '绿色', '藏青', '橄榄色',
         '紫', '凫绿', '鲜绿色', '蓝色', '银色',
@@ -67,5 +65,4 @@ class Color extends BaseColor
         '樱桃红', '浅鲑红', '绯红', '粉红', '亮粉红', '壳黄红',
         '茜红',
     ];
-
 }

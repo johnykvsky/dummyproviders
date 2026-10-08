@@ -58,5 +58,4 @@ class PhoneNumber extends BasePhoneNumber
 
         return $this->replacer->numerify($this->generator->parse($format));
     }
-
 }

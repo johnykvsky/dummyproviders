@@ -5,6 +5,7 @@ declare(strict_types = 1);
 namespace DummyGenerator\Provider\Languages\ru_RU;
 
 use DummyGenerator\Core\Person as BasePerson;
+use DummyGenerator\Definitions\Extension\Exception\ExtensionArgumentException;
 use DummyGenerator\Definitions\Randomizer\RandomizerInterface;
 use DummyGenerator\Definitions\Replacer\ReplacerInterface;
 use DummyGenerator\GeneratorInterface;
@@ -153,7 +154,7 @@ class Person extends BasePerson
      *                            for. If the argument is skipped a random gender will be used.
      * @return string Middle name
      */
-    public function middleName($gender = null): string
+    public function middleName(?string $gender = null): string
     {
         if ($gender === static::GENDER_MALE) {
             return $this->middleNameMale();
@@ -176,7 +177,7 @@ class Person extends BasePerson
      *                            for. If the argument is skipped a random gender will be used.
      * @return string Last name
      */
-    public function lastName($gender = null): string
+    public function lastName(?string $gender = null): string
     {
         $lastName = $this->randomizer->randomElement($this->lastName);
 
@@ -240,5 +241,24 @@ class Person extends BasePerson
     public function inn12IsValid(string $inn): bool
     {
         return strlen($inn) === 12 && $this->inn12Checksum($inn) === substr($inn, -2);
+    }
+
+    /** @var string[] */
+    protected array $cyrillicLetters = [
+        'А', 'Б', 'В', 'Г', 'Д', 'Е', 'Ж', 'З', 'И', 'К', 'Л', 'М', 'Н', 'О', 'П', 'Р', 'С', 'Т', 'У', 'Ф', 'Х', 'Ц', 'Ч', 'Ш', 'Щ', 'Э', 'Ю', 'Я',
+    ];
+
+    public function initials(int $length = 2): string
+    {
+        if ($length < 1) {
+            throw new ExtensionArgumentException('initials() $length must be at least 1');
+        }
+
+        $letters = [];
+        for ($i = 0; $i < $length; ++$i) {
+            $letters[] = $this->randomizer->randomElement($this->cyrillicLetters) . '.';
+        }
+
+        return implode(' ', $letters);
     }
 }

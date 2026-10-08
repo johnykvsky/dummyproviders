@@ -11,9 +11,9 @@ class PhoneNumber extends BasePhoneNumber
     /**
      * Mixed landline and mobile phone numbers valid for Turkey
      *
-     * @see https://en.wikipedia.org/wiki/Telephone_numbers_in_Turkey
-     *
      * @var string[]
+     *
+     * @see https://en.wikipedia.org/wiki/Telephone_numbers_in_Turkey
      */
     protected array $formats = [
         '0212#######',
@@ -69,9 +69,9 @@ class PhoneNumber extends BasePhoneNumber
     /**
      * Mixed landline and mobile phone numbers in E164 format valid for Turkey
      *
-     * @see https://en.wikipedia.org/wiki/Telephone_numbers_in_Turkey
-     *
      * @var string[]
+     *
+     * @see https://en.wikipedia.org/wiki/Telephone_numbers_in_Turkey
      */
     protected array $e164Formats = [
         '+90212#######',
@@ -187,5 +187,4 @@ class PhoneNumber extends BasePhoneNumber
         '+90555#######',
         '+90556#######',
     ];
-
 }

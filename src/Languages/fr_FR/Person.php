@@ -86,9 +86,9 @@ class Person extends BasePerson
     /**
      * Generates a NIR / Sécurité Sociale number (13 digits + 2 digits for the key)
      *
-     * @see https://fr.wikipedia.org/wiki/Num%C3%A9ro_de_s%C3%A9curit%C3%A9_sociale_en_France
-     *
      * @return string
+     *
+     * @see https://fr.wikipedia.org/wiki/Num%C3%A9ro_de_s%C3%A9curit%C3%A9_sociale_en_France
      */
     public function nir($gender = null, $formatted = false)
     {
@@ -133,6 +133,7 @@ class Person extends BasePerson
         } else {
             $nirInteger = $nir;
         }
+
         $nir .= sprintf('%02d', 97 - $nirInteger % 97);
 
         // Format is x xx xx xx xxx xxx xx

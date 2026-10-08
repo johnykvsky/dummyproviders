@@ -15,9 +15,7 @@ class Address extends BaseAddress
 
     protected array $postcode = ['#####'];
 
-    /**
-     * @see http://en.wikipedia.org/wiki/List_of_districts_of_Nepal
-     */
+    /** @see http://en.wikipedia.org/wiki/List_of_districts_of_Nepal */
     protected array $district = [
         'Achham', 'Arghakhanchi',
         'Baglung', 'Baitadi', 'Bajhang', 'Bajura', 'Banke', 'Bara', 'Bardiya', 'Bhaktapur', 'Bhojpur',
@@ -41,11 +39,9 @@ class Address extends BaseAddress
         'Western Rukum',
     ];
 
-    /**
-     * @see http://www.fallingrain.com/world/NP/
-     */
+    /** @see http://www.fallingrain.com/world/NP/ */
     protected array $cityName = [
-        'Achham', 'Aiselukharka', 'Amardaha', 'Amariya', 'Amlekhganj', 'Amraia', 'Andia', 'Andruli', 'Angbung',  'Arghkot', 'Arughatbazaar', 'Asaina', 'Ataria', 'Atrauli', 'Aulgurta',
+        'Achham', 'Aiselukharka', 'Amardaha', 'Amariya', 'Amlekhganj', 'Amraia', 'Andia', 'Andruli', 'Angbung', 'Arghkot', 'Arughatbazaar', 'Asaina', 'Ataria', 'Atrauli', 'Aulgurta',
         'Bachhuwa', 'Badirpatti', 'Bagar', 'Bagarchhap', 'Baglungbazaar', 'Bahadurganj', 'Bahrabise', 'Bahsi', 'Baijnathpurwa', 'Baindoli', 'Bairia', 'Baitadi', 'Bajhang', 'Bajura', 'Bakarkot', 'Balapur', 'Baldenggarhi', 'Balkot', 'Balma', 'Bandipur', 'Banepa', 'Banepabazaar', 'Baneshore', 'Banghi', 'Banke', 'Bansangu', 'Barbatta', 'Bardiya', 'Barhamjia', 'Basbeti', 'Batarbazaar', 'Bathala', 'Battar', 'Baudha', 'Baudhatinchule', 'Baugachia', 'Beding', 'Belahia', 'Belgaon', 'Belwa', 'Beni', 'Benighat', 'Berhampuri', 'Besisahar', 'Beteni', 'Bethari', 'Betrwati', 'Bhadgaon', 'Bhadrapur', 'Bhagaura', 'Bhagwanpur', 'Bhainsah', 'Bhainse', 'Bhainsedobhn', 'Bhairahawa', 'Bhajni', 'Bhaktapur', 'Bhandar', 'Bharatpur', 'Bhartbs', 'Bhata', 'Bhataulia', 'Bhawanipur', 'Bhikhnatdjori', 'Bhiknathor', 'Bhimkothi', 'Bhimphedi', 'Bhingrigaon', 'Bhitania', 'Bhojpur', 'Bholi', 'Bhopatpur', 'Bhowa', 'Bhujauli', 'Bhurchaur', 'Bhurkia', 'Bijulpura', 'Bilauri', 'Binayakgaon', 'Biprat', 'Biratnagar', 'Birendranagar', 'Birgunj', 'Birkot', 'Birta', 'Bishunpura', 'Bithara', 'Bogri', 'Boradandi', 'Bramhadeumandi', 'Budanilkantha', 'Budhabare', 'Bungmati', 'Burili', 'Burthum', 'Burtibang', 'Butwal',
         'Captainganj', 'Chainpur', 'Chaitya', 'Champapur', 'Chandragadhi', 'Changrang', 'Chapagaun', 'Charikot', 'Chaturale', 'Chaubisho', 'Chaukle', 'Chaukun', 'Chaunrikharka', 'Chautara', 'Chautha', 'Chepang', 'Chepti', 'Chepuwa', 'Chhapia', 'Chhapre', 'Chharkabhot', 'Chhibro', 'Chhintapu', 'Chhokang', 'Chhrkbhotgaon', 'Chhukgaon', 'Chhule', 'Chilankha', 'Chilha', 'Chilkhaya', 'Chisapani', 'Chisapanigadhi', 'Chiybri', 'Chobhar', 'Cholpa', 'Chong', 'Choutar', 'Chuchekanda', 'Chukhung', 'Chumikgyatsa', 'Chunemari', 'Chyabari', 'Chyamtang', 'Chyangthapu', 'Colonelbari',
         'Daban', 'Dabhung', 'Dadeldhura', 'Dahawa', 'Dailekh', 'Dakhakot', 'Dakshnkli', 'Daliwa', 'Dall', 'Dalphu', 'Daman', 'Damdwali', 'Dandakharka', 'Dang', 'Dangarmarwa', 'Daregaunra', 'Daura', 'Debichaur', 'Debikot', 'Dekhatbhuli', 'Deomoro', 'Deoraha', 'Deurali', 'Dhabi', 'Dhadinbesi', 'Dhakela', 'Dhalkebar', 'Dhamaura', 'Dhangadhi', 'Dhankuta', 'Dhankutabazaar', 'Dharamnagar', 'Dharampur', 'Dharan', 'Dharnbzr', 'Dharot', 'Dharsing', 'Dhita', 'Dhuli', 'Dhulikhel', 'Dhunche', 'Dhungrebas', 'Dhurjanna', 'Dhurkot', 'Diktel', 'Diktelbazaar', 'Dillikot', 'Dingboche', 'Dingla', 'Dipayal', 'Doglng', 'Dolakha', 'Dolalghat', 'Dorpattan', 'Doti', 'Dugtha', 'Dullu', 'Dumja', 'Dumn', 'Dumrchaur', 'Dumuhn', 'Dunai', 'Dunglang', 'Durgaon', 'Durgoli',
@@ -109,28 +105,21 @@ class Address extends BaseAddress
         '{{city}}-{{wardNumber}}, {{streetAddress}}, {{district}} {{postcode}}',
     ];
 
-    /**
-     * @example 'Kalaiya'
-     */
+    /** @example 'Kalaiya' */
     public function cityName(): string
     {
         return $this->randomizer->randomElement($this->cityName);
     }
 
-    /**
-     * @example '5'
-     */
+    /** @example '5' */
     public function wardNumber()
     {
         return $this->replacer->numerify($this->randomizer->randomElement($this->wardNumber));
     }
 
-    /**
-     * @example 'Bara'
-     */
+    /** @example 'Bara' */
     public function district(): string
     {
         return $this->randomizer->randomElement($this->district);
     }
-
 }

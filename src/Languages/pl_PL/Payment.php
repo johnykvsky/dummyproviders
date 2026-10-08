@@ -86,16 +86,30 @@ class Payment extends BasePayment
         return $this->randomizer->randomElement($this->banks);
     }
 
+    /** @var string[] */
+    protected array $currencyCode = [
+        'PLN',
+    ];
+
+    /** @var string[] */
+    protected array $currencySymbols = [
+        'zł',
+    ];
+
+    /** @var string[] */
+    protected array $currencyNames = [
+        'Polski złoty',
+    ];
+
     /**
      * International Bank Account Number (IBAN)
      *
      * @param string $prefix      for generating bank account number of a specific bank
      * @param string $countryCode ISO 3166-1 alpha-2 country code
-     * @return string
      *
      * @see http://en.wikipedia.org/wiki/International_Bank_Account_Number
      */
-    public function bankAccountNumber(string $prefix = '', string $countryCode = 'PL')
+    public function bankAccountNumber(string $prefix = '', string $countryCode = 'PL'): string
     {
         return $this->iban($countryCode, $prefix);
     }

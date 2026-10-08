@@ -301,22 +301,21 @@ class Person extends BasePerson
     /**
      * National Personal Identity number (personnummer)
      *
-     * @see https://no.wikipedia.org/wiki/Personnummer
-     *
      * @param string $gender Person::GENDER_MALE || Person::GENDER_FEMALE
-     *
      * @return string on format DDMMYY#####
+     *
+     * @see https://no.wikipedia.org/wiki/Personnummer
      */
     public function personalIdentityNumber(?\DateTimeInterface $birthdate = null, $gender = null): string
     {
         if (!$birthdate) {
             $birthdate = $this->generator->dateTimeThisCentury();
         }
+
         $datePart = $birthdate->format('dmy');
 
         /**
          * @todo These number should be random based on birth year
-         *
          * @see http://no.wikipedia.org/wiki/F%C3%B8dselsnummer
          */
         $randomDigits = (string) $this->replacer->numerify('##');
@@ -340,7 +339,6 @@ class Person extends BasePerson
 
         /**
          * @todo Calculate modulo 11 of $digits
-         *
          * @see http://no.wikipedia.org/wiki/F%C3%B8dselsnummer
          */
         $checksum = (string) $this->replacer->numerify('##');

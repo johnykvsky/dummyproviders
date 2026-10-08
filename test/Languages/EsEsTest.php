@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types=1);
+declare(strict_types = 1);
 
 namespace DummyGenerator\Provider\Test\Languages;
 
@@ -28,5 +28,14 @@ class EsEsTest extends TestCase
             $cif = $generator->cif();
             self::assertMatchesRegularExpression('/^[ABCDEFGHJNPQRSUVW]\d{7}[0-9A-J]$/', $cif);
         }
+    }
+
+    public function testCurrency(): void
+    {
+        $generator = DummyGenerator::create()->withProvider(new EsEsDefinitionPack());
+
+        self::assertSame('EUR', $generator->currencyCode());
+        self::assertSame('€', $generator->currencySymbol());
+        self::assertSame('Euro', $generator->currencyName());
     }
 }

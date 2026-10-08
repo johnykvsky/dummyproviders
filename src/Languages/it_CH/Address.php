@@ -60,9 +60,7 @@ class Address extends BaseAddress
 
     protected array $postcode = ['####'];
 
-    /**
-     * @see https://it.wikipedia.org/wiki/Citt%C3%A0_svizzere
-     */
+    /** @see https://it.wikipedia.org/wiki/Citt%C3%A0_svizzere */
     protected array $cityNames = [
         'Aarau', 'Adliswil', 'Aesch', 'Affoltern am Albis', 'Allschwil', 'Altstätten', 'Amriswil', 'Arbon', 'Arth',
         'Baar', 'Baden', 'Basilea', 'Bassersdorf', 'Bellinzona', 'Belp', 'Berna', 'Bienne', 'Binningen', 'Birsfelden', 'Briga-Glis', 'Brugg', 'Buchs', 'Bulle', 'Burgdorf', 'Bülach',
@@ -89,9 +87,7 @@ class Address extends BaseAddress
         'Zofingen', 'Zollikon', 'Zugo', 'Zurigo',
     ];
 
-    /**
-     * @see https://it.wikipedia.org/wiki/Cantoni_della_Svizzera
-     */
+    /** @see https://it.wikipedia.org/wiki/Cantoni_della_Svizzera */
     protected array $canton = [
         ['AG' => 'Argovia'],
         ['AI' => 'Appenzello Interno'],
@@ -141,8 +137,6 @@ class Address extends BaseAddress
      * Returns a random street prefix
      *
      * @example Via
-     *
-     * @return string
      */
     public function streetPrefix(): string
     {
@@ -153,8 +147,6 @@ class Address extends BaseAddress
      * Returns a random city name.
      *
      * @example Luzern
-     *
-     * @return string
      */
     public function cityName(): string
     {
@@ -164,9 +156,9 @@ class Address extends BaseAddress
     /**
      * Returns a canton
      *
-     * @example array('BE' => 'Bern')
-     *
      * @return array
+     *
+     * @example array('BE' => 'Bern')
      */
     public function canton(): string
     {
@@ -197,33 +189,25 @@ class Address extends BaseAddress
         return current($canton);
     }
 
-    /**
-     * @example 'East'
-     */
+    /** @example 'East' */
     public function cityPrefix(): string
     {
         return $this->randomizer->randomElement($this->cityPrefix);
     }
 
-    /**
-     * @example 'Appt. 350'
-     */
+    /** @example 'Appt. 350' */
     public function secondaryAddress(): string
     {
         return $this->replacer->numerify($this->randomizer->randomElement($this->secondaryAddressFormats));
     }
 
-    /**
-     * @example 'California'
-     */
+    /** @example 'California' */
     public function state(): string
     {
         return $this->randomizer->randomElement($this->state);
     }
 
-    /**
-     * @example 'CA'
-     */
+    /** @example 'CA' */
     public function stateAbbr(): string
     {
         return $this->randomizer->randomElement($this->stateAbbr);

@@ -80,8 +80,6 @@ class Address extends BaseAddress
      * Randomly returns a Nigerian state or county.
      *
      * @example 'Lagos'
-     *
-     * @return string
      */
     public function county(): string
     {
@@ -92,12 +90,9 @@ class Address extends BaseAddress
      * Randomly returns a Nigerian region of a state.
      *
      * @example 'Ikeja'
-     *
-     * @return string
      */
     public function region(): string
     {
         return $this->randomizer->randomElement($this->regions);
     }
-
 }

@@ -49,9 +49,7 @@ class Person extends BasePerson
         parent::__construct($randomizer, $generator);
     }
 
-    /**
-     * @see http://www.bfs.admin.ch/bfs/portal/de/index/themen/01/02/blank/dos/prenoms/02.html
-     */
+    /** @see http://www.bfs.admin.ch/bfs/portal/de/index/themen/01/02/blank/dos/prenoms/02.html */
     protected array $firstNameMale = [
         'Adrian', 'Adrien', 'Alain', 'Albert', 'Alberto', 'Alessandro', 'Alex', 'Alexander', 'Alexandre', 'Alexis', 'Alfred', 'Ali', 'Andrea', 'André', 'Angelo', 'Anthony', 'Antoine', 'Antonio', 'António', 'Arnaud', 'Arthur', 'Aurélien', 'Axel',
         'Baptiste', 'Bastien', 'Benjamin', 'Benoît', 'Bernard', 'Bertrand', 'Bruno', 'Bryan',
@@ -78,9 +76,7 @@ class Person extends BasePerson
         'Yann', 'Yannick', 'Yvan', 'Yves',
     ];
 
-    /**
-     * @see http://www.bfs.admin.ch/bfs/portal/de/index/themen/01/02/blank/dos/prenoms/02.html
-     */
+    /** @see http://www.bfs.admin.ch/bfs/portal/de/index/themen/01/02/blank/dos/prenoms/02.html */
     protected array $firstNameFemale = [
         'Agnès', 'Alexandra', 'Alice', 'Alicia', 'Aline', 'Amélie', 'Ana', 'Anaïs', 'Andrea', 'Andrée', 'Angela', 'Anita', 'Anna', 'Anne', 'Anne-Marie', 'Antoinette', 'Ariane', 'Arlette', 'Audrey', 'Aurélie',
         'Barbara', 'Bernadette', 'Brigitte', 'Béatrice',
@@ -106,9 +102,7 @@ class Person extends BasePerson
         'Zoé',
     ];
 
-    /**
-     * @see http://blog.tagesanzeiger.ch/datenblog/index.php/6859
-     */
+    /** @see http://blog.tagesanzeiger.ch/datenblog/index.php/6859 */
     protected array $lastName = [
         'Aebischer', 'Aeby', 'Andrey', 'Aubert', 'Aubry',
         'Bachmann', 'Baechler', 'Baeriswyl', 'Barbey', 'Barras', 'Baumann', 'Baumgartner', 'Berger', 'Bernard', 'Berset', 'Bersier', 'Berthoud', 'Besson', 'Blanc', 'Blaser', 'Boillat', 'Bonvin', 'Bourquin', 'Bruchez', 'Brunner', 'Brügger', 'Buchs', 'Bugnon', 'Burri', 'Bühler',
@@ -140,8 +134,6 @@ class Person extends BasePerson
      * as a formatted string.
      *
      * @see https://www.zas.admin.ch/zas/fr/home/partenaires-et-institutions-/navs13.html
-     *
-     * @return string
      */
     public function avs13(): string
     {
@@ -165,9 +157,9 @@ class Person extends BasePerson
     /**
      * Generates a NIR / Sécurité Sociale number (13 digits + 2 digits for the key)
      *
-     * @see https://fr.wikipedia.org/wiki/Num%C3%A9ro_de_s%C3%A9curit%C3%A9_sociale_en_France
-     *
      * @return string
+     *
+     * @see https://fr.wikipedia.org/wiki/Num%C3%A9ro_de_s%C3%A9curit%C3%A9_sociale_en_France
      */
     public function nir($gender = null, $formatted = false)
     {
@@ -212,6 +204,7 @@ class Person extends BasePerson
         } else {
             $nirInteger = $nir;
         }
+
         $nir .= sprintf('%02d', 97 - $nirInteger % 97);
 
         // Format is x xx xx xx xxx xxx xx

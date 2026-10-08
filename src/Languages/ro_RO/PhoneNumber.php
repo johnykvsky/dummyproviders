@@ -44,9 +44,7 @@ class PhoneNumber extends BasePhoneNumber
         ],
     ];
 
-    /**
-     * @see http://en.wikipedia.org/wiki/Telephone_numbers_in_Romania#Last_years
-     */
+    /** @see http://en.wikipedia.org/wiki/Telephone_numbers_in_Romania#Last_years */
     public function phoneNumber(): string
     {
         $type = $this->randomizer->randomElement(array_keys($this->normalFormats));
@@ -63,5 +61,4 @@ class PhoneNumber extends BasePhoneNumber
     {
         return $this->replacer->numerify($this->randomizer->randomElement($this->specialFormats['premium-rate']));
     }
-
 }

@@ -8,9 +8,7 @@ use DummyGenerator\Core\Address as BaseAddress;
 
 class Address extends BaseAddress
 {
-    /**
-     * @see https://en.wikipedia.org/wiki/Addresses_in_Malaysia
-     */
+    /** @see https://en.wikipedia.org/wiki/Addresses_in_Malaysia */
     protected array $addressFormats = [
         '{{streetAddress}}, {{township}}, {{townState}}',
     ];
@@ -400,9 +398,7 @@ class Address extends BaseAddress
         ],
     ];
 
-    /**
-     * @see https://en.wikipedia.org/wiki/States_and_federal_territories_of_Malaysia
-     */
+    /** @see https://en.wikipedia.org/wiki/States_and_federal_territories_of_Malaysia */
     protected array $states = [
         'johor' => [
             'Johor Darul Ta\'zim',
@@ -467,9 +463,7 @@ class Address extends BaseAddress
         ],
     ];
 
-    /**
-     * @see https://ms.wikipedia.org/wiki/Senarai_negara_berdaulat
-     */
+    /** @see https://ms.wikipedia.org/wiki/Senarai_negara_berdaulat */
     protected array $country = [
         'Abkhazia', 'Afghanistan', 'Afrika Selatan', 'Republik Afrika Tengah', 'Akrotiri dan Dhekelia', 'Albania', 'Algeria', 'Amerika Syarikat', 'Andorra', 'Angola', 'Antigua dan Barbuda', 'Arab Saudi', 'Argentina', 'Armenia', 'Australia', 'Austria', 'Azerbaijan',
         'Bahamas', 'Bahrain', 'Bangladesh', 'Barbados', 'Belanda', 'Belarus', 'Belgium', 'Belize', 'Benin', 'Bhutan', 'Bolivia', 'Bonaire', 'Bosnia dan Herzegovina', 'Botswana', 'Brazil', 'Brunei Darussalam', 'Bulgaria', 'Burkina Faso', 'Burundi',
@@ -500,9 +494,9 @@ class Address extends BaseAddress
     /**
      * Return a building prefix
      *
-     * @example 'No.'
-     *
      * @return string
+     *
+     * @example 'No.'
      */
     public function buildingPrefix()
     {
@@ -513,8 +507,6 @@ class Address extends BaseAddress
      * Return a building number
      *
      * @example '123'
-     *
-     * @return string
      */
     public function buildingNumber(): string
     {
@@ -537,8 +529,6 @@ class Address extends BaseAddress
      * Return a complete streename
      *
      * @example 'Jalan Utama 7'
-     *
-     * @return string
      */
     public function streetName(): string
     {
@@ -550,9 +540,9 @@ class Address extends BaseAddress
     /**
      * Return a randown township
      *
-     * @example Taman Bahagia
-     *
      * @return string
+     *
+     * @example Taman Bahagia
      */
     public function township()
     {
@@ -564,9 +554,9 @@ class Address extends BaseAddress
     /**
      * Return a township prefix abbreviation
      *
-     * @example 'USJ'
-     *
      * @return string
+     *
+     * @example 'USJ'
      */
     public function townshipPrefixAbbr()
     {
@@ -576,9 +566,9 @@ class Address extends BaseAddress
     /**
      * Return a township prefix
      *
-     * @example 'Taman'
-     *
      * @return string
+     *
+     * @example 'Taman'
      */
     public function townshipPrefix()
     {
@@ -598,13 +588,10 @@ class Address extends BaseAddress
     /**
      * Return a postcode based on state
      *
-     * @example '55100'
-     *
-     * @see https://en.wikipedia.org/wiki/Postal_codes_in_Malaysia#States
-     *
      * @param string|null $state 'state' or null
      *
-     * @return string
+     * @example '55100'
+     * @see https://en.wikipedia.org/wiki/Postal_codes_in_Malaysia#States
      */
     public function postcode($state = null): string
     {
@@ -670,9 +657,9 @@ class Address extends BaseAddress
     /**
      * Return the complete town address with matching postcode and state
      *
-     * @example 55100 Bukit Bintang, Kuala Lumpur
-     *
      * @return string
+     *
+     * @example 55100 Bukit Bintang, Kuala Lumpur
      */
     public function townState()
     {
@@ -688,8 +675,6 @@ class Address extends BaseAddress
      * Return a random city (town)
      *
      * @example 'Ampang'
-     *
-     * @return string
      */
     public function city(): string
     {
@@ -702,8 +687,6 @@ class Address extends BaseAddress
      * Return a random state
      *
      * @example 'Johor'
-     *
-     * @return string
      */
     public function state(): string
     {
@@ -711,5 +694,4 @@ class Address extends BaseAddress
 
         return $this->randomizer->randomElement($this->states[$state]);
     }
-
 }

@@ -16,5 +16,4 @@ class PhoneNumber extends BasePhoneNumber
         '+38268#####',
         '+38240#####',
     ];
-
 }

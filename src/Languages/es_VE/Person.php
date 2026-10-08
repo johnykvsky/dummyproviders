@@ -149,9 +149,7 @@ class Person extends BasePerson
 
     private array $nationalityId = ['V', 'E'];
 
-    /**
-     * @example 'Hijo'
-     */
+    /** @example 'Hijo' */
     public function suffix(): string
     {
         return $this->randomizer->randomElement($this->suffix);
@@ -161,7 +159,6 @@ class Person extends BasePerson
      * Generate random national identification number (cédula de identidad). Ex V-8756432
      *
      * @param string $separator
-     *
      * @return string CNE is the official national election registry org.
      *                CNE is the official national election registry org.
      *
@@ -177,5 +174,4 @@ class Person extends BasePerson
 
         return $id . $separator . $this->randomizer->getInt(80000000, 100000000);
     }
-
 }

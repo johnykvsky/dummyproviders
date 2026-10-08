@@ -18,5 +18,4 @@ class Internet extends BaseInternet
         'swissonline.ch',
     ];
     protected array $tld = ['com', 'com', 'com', 'net', 'org', 'li', 'ch', 'ch'];
-
 }

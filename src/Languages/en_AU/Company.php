@@ -22,10 +22,12 @@ class Company extends BaseCompany
         for ($i = 0; $i < 8; ++$i) {
             $digits[] = $this->randomizer->getInt(0, 9);
         }
+
         $sum = 0;
         for ($i = 0; $i < 8; ++$i) {
             $sum += $digits[$i] * $weights[$i];
         }
+
         $rem = $sum % 10;
         $check = (10 - $rem) % 10;
 
@@ -59,6 +61,7 @@ class Company extends BaseCompany
         if ($num >= 100) {
             $num -= 89;
         }
+
         $abn = sprintf('%02d%s', $num, $acn);
 
         if ($formatted) {

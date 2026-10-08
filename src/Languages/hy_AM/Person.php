@@ -20,9 +20,7 @@ class Person extends BasePerson
         '{{firstNameFemale}} {{lastName}}',
     ];
 
-    /**
-     * @see http://www.armeniapedia.org/wiki/Armenian_Male_Names
-     */
+    /** @see http://www.armeniapedia.org/wiki/Armenian_Male_Names */
     protected array $firstNameMale = [
         'Աբգար', 'Աբէլ', 'Ազատ', 'Ազնաւուր', 'Ազնուական', 'Ալիշան', 'Ակնունի', 'Աղան', 'Աղասի', 'Ամարաս', 'Այգեկ', 'Անակ',
         'Անդրանիկ', 'Անուշաւան', 'Աշոտ', 'Ապիրատ', 'Արանձեր', 'Առատ', 'Արաքել', 'Առէն', 'Առուծ', 'Աժնակ', 'Ասողիկ', 'Ասպետ', 'Աստուածատուր',
@@ -58,9 +56,7 @@ class Person extends BasePerson
         'Քաջայր', 'Քերովբէ', 'Քրիստափոր', 'Օգսէն', 'Օհան', 'Օնէ', 'Օննիկ', 'Օշին', 'Օշական', 'Օտա',
     ];
 
-    /**
-     * @see http://www.armeniapedia.org/wiki/Armenian_Female_Names
-     */
+    /** @see http://www.armeniapedia.org/wiki/Armenian_Female_Names */
     protected array $firstNameFemale = [
         'Ազատուհի', 'Ազգանոյշ', 'Ազնիւ', 'Ալիծ', 'Ալին', 'Ալիս', 'Ալիք', 'Ալվարդ', 'Աղաւնի', 'Աղբիւր', 'Աղուոր', 'Ամանոր', 'Այծեամ', 'Այծեմնիկ',
         'Ալծիկ', 'Այտա', 'Անահիտ', 'Անայիս', 'Անգինէ', 'Անթառամ', 'Անի', 'Աննա', 'Աննիկ', 'Անծրեւիկ', 'Աննման', 'Անոյշ', 'Աշխէն', 'Աստղիկ',
@@ -104,12 +100,9 @@ class Person extends BasePerson
 
     private array $suffix = [''];
 
-    /**
-     * @example 'PhD'
-     */
+    /** @example 'PhD' */
     public function suffix(): string
     {
         return $this->randomizer->randomElement($this->suffix);
     }
-
 }

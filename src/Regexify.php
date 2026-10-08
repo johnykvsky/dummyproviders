@@ -43,6 +43,8 @@ class Regexify
 
     /**
      * Returns a random element from a passed array.
+     *
+     * @param array<int|string, mixed> $array
      */
     public static function randomElement(array $array): mixed
     {
@@ -80,30 +82,30 @@ class Regexify
     public static function regexify(string $regex = ''): string
     {
         // ditch the anchors
-        $regex = preg_replace('/^\/?\^?/', '', $regex);
-        $regex = preg_replace('/\$?\/?$/', '', $regex);
+        $regex = (string) preg_replace('/^\/?\^?/', '', $regex);
+        $regex = (string) preg_replace('/\$?\/?$/', '', $regex);
         // All {2} become {2,2}
-        $regex = preg_replace('/\{(\d+)\}/', '{\1,\1}', $regex);
+        $regex = (string) preg_replace('/\{(\d+)\}/', '{\1,\1}', $regex);
         // Single-letter quantifiers (?, *, +) become bracket quantifiers ({0,1}, {0,rand}, {1, rand})
-        $regex = preg_replace('/(?<!\\\)\?/', '{0,1}', $regex);
-        $regex = preg_replace('/(?<!\\\)\*/', '{0,' . self::randomDigitNotZero() . '}', $regex);
-        $regex = preg_replace('/(?<!\\\)\+/', '{1,' . self::randomDigitNotZero() . '}', $regex);
+        $regex = (string) preg_replace('/(?<!\\\)\?/', '{0,1}', $regex);
+        $regex = (string) preg_replace('/(?<!\\\)\*/', '{0,' . self::randomDigitNotZero() . '}', $regex);
+        $regex = (string) preg_replace('/(?<!\\\)\+/', '{1,' . self::randomDigitNotZero() . '}', $regex);
         // [12]{1,2} becomes [12] or [12][12]
-        $regex = preg_replace_callback('/(\[[^\]]+\])\{(\d+),(\d+)\}/', static fn ($matches) => str_repeat($matches[1], (int) self::randomElement(range($matches[2], $matches[3]))), $regex);
+        $regex = (string) preg_replace_callback('/(\[[^\]]+\])\{(\d+),(\d+)\}/', static fn (array $matches): string => str_repeat($matches[1], (int) self::randomElement(range((int) $matches[2], (int) $matches[3]))), $regex);
         // (12|34){1,2} becomes (12|34) or (12|34)(12|34)
-        $regex = preg_replace_callback('/(\([^\)]+\))\{(\d+),(\d+)\}/', static fn ($matches) => str_repeat($matches[1], (int) self::randomElement(range($matches[2], $matches[3]))), $regex);
+        $regex = (string) preg_replace_callback('/(\([^\)]+\))\{(\d+),(\d+)\}/', static fn (array $matches): string => str_repeat($matches[1], (int) self::randomElement(range((int) $matches[2], (int) $matches[3]))), $regex);
         // A{1,2} becomes A or AA or \d{3} becomes \d\d\d
-        $regex = preg_replace_callback('/(\\\?.)\{(\d+),(\d+)\}/', static fn ($matches) => str_repeat($matches[1], (int) self::randomElement(range($matches[2], $matches[3]))), $regex);
+        $regex = (string) preg_replace_callback('/(\\\?.)\{(\d+),(\d+)\}/', static fn (array $matches): string => str_repeat($matches[1], (int) self::randomElement(range((int) $matches[2], (int) $matches[3]))), $regex);
         // (this|that) becomes 'this' or 'that'
-        $regex = preg_replace_callback('/\((.*?)\)/', static fn ($matches) => self::randomElement(explode('|', str_replace(array('(', ')'), '', $matches[1]))), $regex);
+        $regex = (string) preg_replace_callback('/\((.*?)\)/', static fn (array $matches): string => (string) self::randomElement(explode('|', str_replace(['(', ')'], '', $matches[1]))), $regex);
         // All A-F inside of [] become ABCDEF
-        $regex = preg_replace_callback('/\[([^\]]+)\]/', static fn ($matches) => '[' . preg_replace_callback('/(\w|\d)\-(\w|\d)/', static fn ($range) => implode('', range($range[1], $range[2])), $matches[1]) . ']', $regex);
+        $regex = (string) preg_replace_callback('/\[([^\]]+)\]/', static fn (array $matches): string => '[' . (string) preg_replace_callback('/(\w|\d)\-(\w|\d)/', static fn (array $range): string => implode('', range($range[1], $range[2])), $matches[1]) . ']', $regex);
         // All [ABC] become B (or A or C)
-        $regex = preg_replace_callback('/\[([^\]]+)\]/', static fn ($matches) => self::randomElement(str_split($matches[1])), $regex);
+        $regex = (string) preg_replace_callback('/\[([^\]]+)\]/', static fn (array $matches): string => (string) self::randomElement(str_split($matches[1])), $regex);
         // replace \d with number and \w with letter and . with ascii
-        $regex = preg_replace_callback('/\\\w/', self::randomLetter(...), $regex);
-        $regex = preg_replace_callback('/\\\d/', self::randomDigit(...), $regex);
-        $regex = preg_replace_callback('/(?<!\\\)\./', self::randomAscii(...), $regex);
+        $regex = (string) preg_replace_callback('/\\\w/', self::randomLetter(...), $regex);
+        $regex = (string) preg_replace_callback('/\\\d/', static fn (): string => (string) self::randomDigit(), $regex);
+        $regex = (string) preg_replace_callback('/(?<!\\\)\./', self::randomAscii(...), $regex);
         // remove remaining backslashes
         // phew
         return str_replace('\\', '', $regex);

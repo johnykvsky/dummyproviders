@@ -10,5 +10,4 @@ class Internet extends BaseInternet
 {
     protected array $freeEmailDomain = ['aon.at', 'chello.at', 'gmail.com', 'outlook.com', 'gmx.at', 'univie.ac.at'];
     protected array $tld = ['at', 'co.at', 'com', 'net', 'org'];
-
 }

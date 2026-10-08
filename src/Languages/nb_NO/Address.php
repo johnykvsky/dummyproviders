@@ -39,7 +39,7 @@ class Address extends BaseAddress
         'Haugesund', 'Hokksund', 'Holmestrand', 'Honningsvåg', 'Horten', 'Hønefoss', 'Jessheim', 'Jørpeland',
         'Kirkenes', 'Kolvereid', 'Kongsberg', 'Kongsvinger', 'Kopervik', 'Kragerø', 'Kristiansand', 'Kristiansund',
         'Langesund', 'Larvik', 'Leknes', 'Levanger', 'Lillehammer', 'Lillesand', 'Lillestrøm', 'Lyngdal', 'Mandal',
-        'Mo i Rana',  'Moelv', 'Molde', 'Mosjøen', 'Moss', 'Mysen', 'Måløy', 'Namsos', 'Narvik', 'Notodden', 'Odda',
+        'Mo i Rana', 'Moelv', 'Molde', 'Mosjøen', 'Moss', 'Mysen', 'Måløy', 'Namsos', 'Narvik', 'Notodden', 'Odda',
         'Orkanger', 'Oslo', 'Otta', 'Porsgrunn', 'Risør', 'Rjukan', 'Røros', 'Sandefjord', 'Sandnes', 'Sandnessjøen',
         'Sandvika', 'Sarpsborg', 'Sauda', 'Ski', 'Skien', 'Skudeneshavn', 'Sortland', 'Stathelle', 'Stavanger',
         'Stavern', 'Steinkjer', 'Stjørdalshalsen', 'Stokmarknes', 'Stord', 'Svelvik', 'Svolvær', 'Tromsø', 'Trondheim',
@@ -140,9 +140,7 @@ class Address extends BaseAddress
         'Venezuela', 'Vietnam', 'Zambia', 'Zimbabwe', 'Østerrike', 'Øst-Timor',
     ];
 
-    /**
-     * @var array Norwegian street name formats
-     */
+    /** @var array Norwegian street name formats */
     protected array $streetNameFormats = [
         '{{lastName}}{{streetSuffix}}',
         '{{lastName}}{{streetSuffix}}',
@@ -155,24 +153,18 @@ class Address extends BaseAddress
         '{{lastName}} {{streetSuffixWord}}',
     ];
 
-    /**
-     * @var array Norwegian street address formats
-     */
+    /** @var array Norwegian street address formats */
     protected array $streetAddressFormats = [
         '{{streetName}} {{buildingNumber}}',
     ];
 
-    /**
-     * @var array Norwegian address formats
-     */
+    /** @var array Norwegian address formats */
     protected array $addressFormats = [
         "{{streetAddress}}\n{{postcode}} {{city}}",
     ];
 
     /**
      * Randomly return a real city name
-     *
-     * @return string
      */
     public function cityName(): string
     {
@@ -191,12 +183,9 @@ class Address extends BaseAddress
 
     /**
      * Randomly return a building number.
-     *
-     * @return string
      */
     public function buildingNumber(): string
     {
         return $this->replacer->toUpper($this->replacer->bothify($this->randomizer->randomElement($this->buildingNumber)));
     }
-
 }

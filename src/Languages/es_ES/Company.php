@@ -48,17 +48,21 @@ class Company extends BaseCompany
     protected array $companyPrefix = ['Asociación', 'Centro', 'Corporación', 'Empresa', 'Gestora', 'Global', 'Grupo', 'Viajes', 'Air'];
     protected array $companySuffix = ['e Hijo', 'e Hija', 'e Hijos', 'y Asoc.', 'y Flia.', 'SRL', 'SA', 'S. de H.'];
 
-    /**
-     * @example 'Grupo'
-     */
+    /** @var string[] */
+    protected array $industries = [
+        'Tecnología', 'Salud', 'Servicios financieros', 'Manufactura',
+        'Comercio minorista', 'Telecomunicaciones', 'Educación', 'Energía',
+        'Transporte y logística', 'Medios y entretenimiento', 'Inmobiliaria', 'Agricultura',
+        'Hostelería y turismo', 'Construcción', 'Consultoría', 'Automoción',
+    ];
+
+    /** @example 'Grupo' */
     public function companyPrefix(): string
     {
         return $this->randomizer->randomElement($this->companyPrefix);
     }
 
-    /**
-     * @example 'Robust full-range hub'
-     */
+    /** @example 'Robust full-range hub' */
     public function catchPhrase(): string
     {
         $result = [];
@@ -70,9 +74,7 @@ class Company extends BaseCompany
         return implode(' ', $result);
     }
 
-    /**
-     * @example 'integrate extensible convergence'
-     */
+    /** @example 'integrate extensible convergence' */
     public function bs(): string
     {
         $result = [];
@@ -88,7 +90,6 @@ class Company extends BaseCompany
      * Generate a Código de Identificación Fiscal (CIF)
      *
      * @example 'B12345678'
-     *
      * @see https://es.wikipedia.org/wiki/C%C3%B3digo_de_identificaci%C3%B3n_fiscal
      */
     public function cif(): string

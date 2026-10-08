@@ -38,12 +38,9 @@ class Payment extends BasePayment
         'ธนาคารไอซีบีซี (ไทย)',
     ];
 
-    /**
-     * @example 'ธนาคารกสิกรไทย'
-     */
+    /** @example 'ธนาคารกสิกรไทย' */
     public function bank(): string
     {
         return $this->randomizer->randomElement($this->banks);
     }
-
 }

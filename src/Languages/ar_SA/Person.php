@@ -40,9 +40,7 @@ class Person extends BasePerson
         '{{titleFemale}} {{firstNameFemale}} {{lastName}}',
     ];
 
-    /**
-     * @see http://muslim-names.us/
-     */
+    /** @see http://muslim-names.us/ */
     protected array $firstNameMale = [
 
         'آدم', 'أبراهيم', 'أحمد', 'أدهم', 'أسامة', 'أسعد', 'أشرف', 'أكثم', 'أكرم', 'أمجد', 'أمين', 'أنس', 'أنور', 'أواس', 'أوس', 'أيمن', 'أيهم', 'أيوب', 'إبراهيم', 'إسلام', 'إسماعيل', 'إلياس', 'إياد', 'إيهاب', 'ابان', 'ابراهيم', 'اثير', 'احسان', 'احمد', 'ادريس', 'ادم', 'ادهم', 'اديب', 'اسامة',
@@ -63,9 +61,7 @@ class Person extends BasePerson
         'واثق', 'واصف', 'وجدي', 'وجيه', 'وحيد', 'وديع', 'ورد', 'وسام', 'وسن', 'وسيم', 'وصفي', 'وضاح', 'وعد', 'وفاء', 'وليد', 'وهيب', 'ياسر', 'ياسين', 'يامن', 'يحيى', 'يزن', 'يزيد', 'يسار', 'يشار', 'يعرب', 'يعقوب', 'يمان', 'ينال', 'يوسف', 'يونس',
     ];
 
-    /**
-     * @see http://muslim-names.us/
-     */
+    /** @see http://muslim-names.us/ */
     protected array $firstNameFemale = [
         'آثار', 'آلاء', 'آناء', 'آية', 'أبرار', 'أحلام', 'أروى', 'أريج', 'أسماء', 'أسيل', 'أصاله', 'أفنان', 'ألاء', 'أماني', 'أمل', 'أميرة', 'أنسام', 'أنوار', 'إباء', 'إخلاص', 'إسراء', 'إسلام', 'إكرام', 'إنعام', 'إيمان', 'إيناس', 'ابتهاج', 'ابتهال', 'أبرار', 'إخلاص', 'ارجوان', 'أروى', 'أريج',
         'أزهار', 'أسحار', 'اسراء', 'اسرار', 'اسيل', 'اشراق', 'أصالة', 'اعتدال', 'أفراح', 'أفنان', 'إكرام', 'آلاء', 'العنود', 'إلهام', 'آمال', 'أمنة', 'أميرة', 'أمينة', 'أناهيد', 'انتظار', 'أنعام', 'أنوار', 'آيات', 'إيمان', 'إيناس', 'آية', 'باسمة', 'بتول', 'بثينة', 'بدور', 'براء', 'براءة', 'بسمة',
@@ -94,17 +90,13 @@ class Person extends BasePerson
     protected array $titleFemale = ['السيدة', 'الآنسة', 'الدكتورة', 'المهندسة'];
     private array $prefix = ['أ.', 'د.', 'أ.د', 'م.'];
 
-    /**
-     * @example 'أ.'
-     */
+    /** @example 'أ.' */
     public function prefix(): string
     {
         return $this->randomizer->randomElement($this->prefix);
     }
 
-    /**
-     * @example 1010101010
-     */
+    /** @example 1010101010 */
     public function idNumber(): string
     {
         $partialValue = $this->replacer->numerify(
@@ -114,9 +106,7 @@ class Person extends BasePerson
         return $this->luhnCalculator->generateLuhnNumber($partialValue);
     }
 
-    /**
-     * @example 1010101010
-     */
+    /** @example 1010101010 */
     public function nationalIdNumber()
     {
         $partialValue = $this->replacer->numerify(1 . str_repeat('#', 8));
@@ -124,9 +114,7 @@ class Person extends BasePerson
         return $this->luhnCalculator->generateLuhnNumber($partialValue);
     }
 
-    /**
-     * @example 2010101010
-     */
+    /** @example 2010101010 */
     public function foreignerIdNumber()
     {
         $partialValue = $this->replacer->numerify(2 . str_repeat('#', 8));

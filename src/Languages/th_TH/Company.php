@@ -20,9 +20,7 @@ class Company extends BaseCompany
         ],
     ];
 
-    /**
-     * @example 'เชื่อมต่อตลาดที่แข็งแกร่ง'
-     */
+    /** @example 'เชื่อมต่อตลาดที่แข็งแกร่ง' */
     public function slogan()
     {
         $result = [];
@@ -33,5 +31,4 @@ class Company extends BaseCompany
 
         return implode('', $result);
     }
-
 }

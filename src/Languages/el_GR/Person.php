@@ -5,6 +5,7 @@ declare(strict_types = 1);
 namespace DummyGenerator\Provider\Languages\el_GR;
 
 use DummyGenerator\Core\Person as BasePerson;
+use DummyGenerator\Definitions\Extension\Exception\ExtensionArgumentException;
 
 class Person extends BasePerson
 {
@@ -154,7 +155,7 @@ class Person extends BasePerson
      *
      * @example 'Αγγελόπουλος'
      */
-    public function lastName($gender = null): string
+    public function lastName(?string $gender = null): string
     {
         if ($gender === static::GENDER_MALE) {
             return $this->lastNameMale();
@@ -167,20 +168,34 @@ class Person extends BasePerson
         return $this->generator->parse($this->randomizer->randomElement($this->lastNameFormat));
     }
 
-    /**
-     * @example 'Θεοδωρόπουλος'
-     */
+    /** @example 'Θεοδωρόπουλος' */
     public function lastNameMale(): string
     {
         return $this->randomizer->randomElement($this->lastNameMale);
     }
 
-    /**
-     * @example 'Κοκκίνου'
-     */
+    /** @example 'Κοκκίνου' */
     public function lastNameFemale(): string
     {
         return $this->randomizer->randomElement($this->lastNameFemale);
     }
 
+    /** @var string[] */
+    protected array $greekLetters = [
+        'Α', 'Β', 'Γ', 'Δ', 'Ε', 'Ζ', 'Η', 'Θ', 'Ι', 'Κ', 'Λ', 'Μ', 'Ν', 'Ξ', 'Ο', 'Π', 'Ρ', 'Σ', 'Τ', 'Υ', 'Φ', 'Χ', 'Ψ', 'Ω',
+    ];
+
+    public function initials(int $length = 2): string
+    {
+        if ($length < 1) {
+            throw new ExtensionArgumentException('initials() $length must be at least 1');
+        }
+
+        $letters = [];
+        for ($i = 0; $i < $length; ++$i) {
+            $letters[] = $this->randomizer->randomElement($this->greekLetters) . '.';
+        }
+
+        return implode(' ', $letters);
+    }
 }

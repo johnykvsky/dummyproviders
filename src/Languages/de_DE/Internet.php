@@ -27,5 +27,4 @@ class Internet extends BaseInternet
         't-online.de',
     ];
     protected array $tld = ['com', 'com', 'com', 'net', 'org', 'de', 'de', 'de'];
-
 }

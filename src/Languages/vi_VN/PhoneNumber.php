@@ -62,5 +62,4 @@ class PhoneNumber extends BasePhoneNumber
 
         return $this->replacer->numerify(str_replace('[a]', $areaCode, $this->randomizer->randomElement($this->formats[$digits])));
     }
-
 }

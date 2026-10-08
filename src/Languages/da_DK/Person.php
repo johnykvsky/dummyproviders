@@ -9,9 +9,7 @@ use DummyGenerator\Definitions\Randomizer\RandomizerInterface;
 use DummyGenerator\Definitions\Replacer\ReplacerInterface;
 use DummyGenerator\GeneratorInterface;
 
-/**
- * @see http://www.danskernesnavne.navneforskning.ku.dk/Personnavne.asp
- */
+/** @see http://www.danskernesnavne.navneforskning.ku.dk/Personnavne.asp */
 class Person extends BasePerson
 {
     public function __construct(
@@ -22,9 +20,7 @@ class Person extends BasePerson
         parent::__construct($randomizer, $generator);
     }
 
-    /**
-     * @var array Danish person name formats.
-     */
+    /** @var array Danish person name formats. */
     protected array $maleNameFormats = [
         '{{firstNameMale}} {{lastName}}',
         '{{firstNameMale}} {{lastName}}',
@@ -45,9 +41,7 @@ class Person extends BasePerson
         '{{firstNameFemale}} {{middleName}} {{middleName}}-{{lastName}}',
     ];
 
-    /**
-     * @var array Danish first names.
-     */
+    /** @var array Danish first names. */
     protected array $firstNameMale = [
         'Aage', 'Adam', 'Ahmad', 'Ahmed', 'Aksel', 'Albert', 'Alex', 'Alexander', 'Alf', 'Alfred', 'Ali', 'Allan',
         'Anders', 'Andreas', 'Anker', 'Anton', 'Arne', 'Arnold', 'Arthur', 'Asbjørn', 'Asger', 'August', 'Axel', 'Benjamin',
@@ -105,9 +99,7 @@ class Person extends BasePerson
         'Oline', 'Petrea', 'Petrine', 'Pouline', 'Ragna', 'Sørine', 'Thora', 'Valborg', 'Vilhelmine',
     ];
 
-    /**
-     * @var array Danish middle names.
-     */
+    /** @var array Danish middle names. */
     protected array $middleName = [
         'Møller', 'Lund', 'Holm', 'Jensen', 'Juul', 'Nielsen', 'Kjær', 'Hansen', 'Skov', 'Østergaard', 'Vestergaard',
         'Nørgaard', 'Dahl', 'Bach', 'Friis', 'Søndergaard', 'Andersen', 'Bech', 'Pedersen', 'Bruun', 'Nygaard', 'Winther',
@@ -135,9 +127,7 @@ class Person extends BasePerson
         'Vestergård', 'Østergård', 'Nyborg', 'Qvist', 'Damkjær', 'Kold', 'Sønderskov', 'Bank',
     ];
 
-    /**
-     * @var array Danish last names.
-     */
+    /** @var array Danish last names. */
     protected array $lastName = [
         'Jensen', 'Nielsen', 'Hansen', 'Pedersen', 'Andersen', 'Christensen', 'Larsen', 'Sørensen', 'Rasmussen', 'Petersen',
         'Jørgensen', 'Madsen', 'Kristensen', 'Olsen', 'Christiansen', 'Thomsen', 'Poulsen', 'Johansen', 'Knudsen', 'Mortensen',
@@ -183,8 +173,6 @@ class Person extends BasePerson
 
     /**
      * Randomly return a danish name.
-     *
-     * @return string
      */
     public function middleName(): string
     {
@@ -196,8 +184,6 @@ class Person extends BasePerson
      *
      * @see http://cpr.dk/cpr/site.aspx?p=16
      * @see http://en.wikipedia.org/wiki/Personal_identification_number_%28Denmark%29
-     *
-     * @return string
      */
     public function cpr(): string
     {

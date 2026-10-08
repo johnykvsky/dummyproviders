@@ -84,12 +84,9 @@ class Person extends BasePerson
 
     private array $suffix = ['Hijo', 'Segundo', 'Tercero'];
 
-    /**
-     * @example 'Hijo'
-     */
+    /** @example 'Hijo' */
     public function suffix(): string
     {
         return $this->randomizer->randomElement($this->suffix);
     }
-
 }

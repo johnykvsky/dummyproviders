@@ -12,9 +12,7 @@ use DummyGenerator\GeneratorInterface;
 
 class Company extends BaseCompany
 {
-    /**
-     * @var array French company name formats.
-     */
+    /** @var array French company name formats. */
     protected array $formats = [
         '{{lastName}} {{companySuffix}}',
         '{{lastName}} {{lastName}} {{companySuffix}}',
@@ -22,49 +20,37 @@ class Company extends BaseCompany
         '{{lastName}}',
     ];
 
-    /**
-     * @var array French catch phrase formats.
-     */
+    /** @var array French catch phrase formats. */
     protected array $catchPhraseFormats = [
         '{{catchPhraseNoun}} {{catchPhraseVerb}} {{catchPhraseAttribute}}',
     ];
 
-    /**
-     * @var array French nouns (used by the catch phrase format).
-     */
+    /** @var array French nouns (used by the catch phrase format). */
     protected array $noun = [
         'la sécurité', 'le plaisir', 'le confort', 'la simplicité', "l'assurance", "l'art", 'le pouvoir', 'le droit',
         'la possibilité', "l'avantage", 'la liberté',
     ];
 
-    /**
-     * @var array French verbs (used by the catch phrase format).
-     */
+    /** @var array French verbs (used by the catch phrase format). */
     protected array $verb = [
         'de rouler', "d'avancer", "d'évoluer", 'de changer', "d'innover", 'de louer', "d'atteindre vos buts",
         'de concrétiser vos projets',
     ];
 
-    /**
-     * @var array End of sentences (used by the catch phrase format).
-     */
+    /** @var array End of sentences (used by the catch phrase format). */
     protected array $attribute = [
         'de manière efficace', 'plus rapidement', 'plus facilement', 'plus simplement', 'en toute tranquilité',
         'avant-tout', 'autrement', 'naturellement', 'à la pointe', 'sans soucis', "à l'état pur",
         'à sa source', 'de manière sûre', 'en toute sécurité',
     ];
 
-    /**
-     * @var array Company suffixes.
-     */
+    /** @var array Company suffixes. */
     protected array $companySuffix = ['SA', 'S.A.', 'SARL', 'S.A.R.L.', 'SAS', 'S.A.S.', 'et Fils'];
 
     protected array $siretNicFormats = ['####', '0###', '00#%'];
 
     /**
      * Returns a random catch phrase noun.
-     *
-     * @return string
      */
     public function catchPhraseNoun(): string
     {
@@ -73,8 +59,6 @@ class Company extends BaseCompany
 
     /**
      * Returns a random catch phrase attribute.
-     *
-     * @return string
      */
     public function catchPhraseAttribute(): string
     {
@@ -83,8 +67,6 @@ class Company extends BaseCompany
 
     /**
      * Returns a random catch phrase verb.
-     *
-     * @return string
      */
     public function catchPhraseVerb(): string
     {
@@ -93,8 +75,6 @@ class Company extends BaseCompany
 
     /**
      * Generates a french catch phrase.
-     *
-     * @return string
      */
     public function catchPhrase(): string
     {
@@ -114,8 +94,6 @@ class Company extends BaseCompany
      * Generates a siret number (14 digits) that passes the Luhn check.
      *
      * @see http://fr.wikipedia.org/wiki/Syst%C3%A8me_d'identification_du_r%C3%A9pertoire_des_%C3%A9tablissements
-     *
-     * @return string
      */
     public function siret($formatted = true): string
     {
@@ -135,8 +113,6 @@ class Company extends BaseCompany
      * Generates a siren number (9 digits) that passes the Luhn check.
      *
      * @see http://fr.wikipedia.org/wiki/Syst%C3%A8me_d%27identification_du_r%C3%A9pertoire_des_entreprises
-     *
-     * @return string
      */
     public function siren($formatted = true): string
     {
@@ -150,16 +126,13 @@ class Company extends BaseCompany
         return $siren;
     }
 
-    /**
-     * @var array An array containing string which should not appear twice in a catch phrase.
-     */
+    /** @var array An array containing string which should not appear twice in a catch phrase. */
     protected array $wordsWhichShouldNotAppearTwice = ['sécurité', 'simpl'];
 
     /**
      * Validates a french catch phrase.
      *
      * @param string $catchPhrase The catch phrase to validate.
-     *
      * @return bool (true if valid, false otherwise)
      */
     protected function isCatchPhraseValid($catchPhrase): bool
@@ -179,7 +152,6 @@ class Company extends BaseCompany
 
     /**
      * @see http://www.pole-emploi.fr/candidat/le-code-rome-et-les-fiches-metiers-@/article.jspz?id=60702
-     *
      * @note Randomly took 300 from this list
      */
     protected array $jobTitleFormat = [
@@ -519,4 +491,3 @@ class Company extends BaseCompany
         return $this->bn($formatted);
     }
 }
-

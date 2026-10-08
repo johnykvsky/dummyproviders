@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types=1);
+declare(strict_types = 1);
 
 namespace DummyGenerator\Provider\Test\Languages;
 
@@ -31,6 +31,7 @@ class PlPlCompanyTest extends TestCase
             for ($j = 0; $j < 9; ++$j) {
                 $sum += (int) $nip[$j] * $weights[$j];
             }
+
             self::assertSame((int) $nip[9], $sum % 11);
         }
     }
@@ -61,6 +62,17 @@ class PlPlCompanyTest extends TestCase
         for ($i = 0; $i < 20; ++$i) {
             $krs = $generator->krs();
             self::assertMatchesRegularExpression('/^\d{10}$/', $krs);
+        }
+    }
+
+    public function testIndustry(): void
+    {
+        $generator = DummyGenerator::create()->withProvider(new PlPlDefinitionPack());
+
+        for ($i = 0; $i < 20; ++$i) {
+            $industry = $generator->industry();
+            self::assertIsString($industry);
+            self::assertNotEmpty($industry);
         }
     }
 

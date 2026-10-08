@@ -8,9 +8,7 @@ use DummyGenerator\Core\Address as BaseAddress;
 
 class Address extends BaseAddress
 {
-    /**
-     * @var array Countries in icelandic
-     */
+    /** @var array Countries in icelandic */
     protected array $country = [
         'Afganistan', 'Albanía', 'Alsír', 'Andorra', 'Angóla', 'Angvilla', 'Antígva og Barbúda', 'Argentína',
         'Armenía', 'Arúba', 'Aserbaídsjan', 'Austur-Kongó', 'Austurríki', 'Austur-Tímor', 'Álandseyjar',
@@ -46,9 +44,7 @@ class Address extends BaseAddress
         'Vanúatú', 'Venesúela', 'Vestur-Kongó', 'Vestur-Sahara', 'Víetnam', 'Wales', 'Wallis- og Fútúnaeyjar', 'Þýskaland',
     ];
 
-    /**
-     * @var array Icelandic cities.
-     */
+    /** @var array Icelandic cities. */
     protected array $cityNames = [
         'Reykjavík', 'Seltjarnarnes', 'Vogar', 'Kópavogur', 'Garðabær', 'Hafnarfjörður', 'Reykjanesbær', 'Grindavík',
         'Sandgerði', 'Garður', 'Reykjanesbær', 'Mosfellsbær', 'Akranes', 'Borgarnes', 'Reykholt', 'Stykkishólmur',
@@ -64,9 +60,7 @@ class Address extends BaseAddress
         'Vestmannaeyjar',
     ];
 
-    /**
-     * @var array Street name suffix.
-     */
+    /** @var array Street name suffix. */
     protected array $streetSuffix = [
         'ás', 'bakki', 'braut', 'bær', 'brún', 'berg', 'fold', 'gata', 'gróf',
         'garðar', 'höfði', 'heimar', 'hamar', 'hólar', 'háls', 'kvísl', 'lækur',
@@ -75,9 +69,7 @@ class Address extends BaseAddress
         'vað',
     ];
 
-    /**
-     * @var array Street name prefix.
-     */
+    /** @var array Street name prefix. */
     protected array $streetPrefix = [
         'Aðal', 'Austur', 'Bakka', 'Braga', 'Báru', 'Brunn', 'Fiski', 'Leifs',
         'Týs', 'Birki', 'Suður', 'Norður', 'Vestur', 'Austur', 'Sanda', 'Skógar',
@@ -85,37 +77,27 @@ class Address extends BaseAddress
         'Þing', 'Hamra', 'Hóla', 'Kríu', 'Iðu', 'Spóa', 'Starra', 'Uglu', 'Vals',
     ];
 
-    /**
-     * @var array Icelandic zip code.
-     */
+    /** @var array Icelandic zip code. */
     protected array $postcode = [
         '%##',
     ];
 
-    /**
-     * @var array Icelandic regions.
-     */
+    /** @var array Icelandic regions. */
     protected array $regionNames = [
         'Höfuðborgarsvæðið', 'Norðurland', 'Suðurland', 'Vesturland', 'Vestfirðir', 'Austurland', 'Suðurnes',
     ];
 
-    /**
-     * @var array Icelandic building numbers.
-     */
+    /** @var array Icelandic building numbers. */
     protected array $buildingNumber = [
         '%##', '%#', '%#', '%', '%', '%', '%?', '% ?',
     ];
 
-    /**
-     * @var array Icelandic city format.
-     */
+    /** @var array Icelandic city format. */
     protected array $cityFormats = [
         '{{cityName}}',
     ];
 
-    /**
-     * @var array Icelandic street's name formats.
-     */
+    /** @var array Icelandic street's name formats. */
     protected array $streetNameFormats = [
         '{{streetPrefix}}{{streetSuffix}}',
         '{{streetPrefix}}{{streetSuffix}}',
@@ -123,24 +105,18 @@ class Address extends BaseAddress
         '{{firstNameFemale}}{{streetSuffix}}',
     ];
 
-    /**
-     * @var array Icelandic street's address formats.
-     */
+    /** @var array Icelandic street's address formats. */
     protected array $streetAddressFormats = [
         '{{streetName}} {{buildingNumber}}',
     ];
 
-    /**
-     * @var array Icelandic address format.
-     */
+    /** @var array Icelandic address format. */
     protected array $addressFormats = [
         "{{streetAddress}}\n{{postcode}} {{city}}",
     ];
 
     /**
      * Randomly return a real city name.
-     *
-     * @return string
      */
     public function cityName(): string
     {
@@ -149,8 +125,6 @@ class Address extends BaseAddress
 
     /**
      * Randomly return a street prefix.
-     *
-     * @return string
      */
     public function streetPrefix(): string
     {
@@ -159,8 +133,6 @@ class Address extends BaseAddress
 
     /**
      * Randomly return a building number.
-     *
-     * @return string
      */
     public function buildingNumber(): string
     {
@@ -169,12 +141,9 @@ class Address extends BaseAddress
 
     /**
      * Randomly return a real region name.
-     *
-     * @return string
      */
     public function region(): string
     {
         return $this->randomizer->randomElement($this->regionNames);
     }
-
 }

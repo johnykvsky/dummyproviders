@@ -24,5 +24,4 @@ class PhoneNumber extends BasePhoneNumber
 
         return $operator . $this->replacer->numerify(substr($format, 0, strlen($format) - strlen($operator)));
     }
-
 }

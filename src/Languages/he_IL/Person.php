@@ -133,5 +133,4 @@ class Person extends BasePerson
     protected array $titleMale = ['מר.', 'ד"ר', 'פרופ'];
 
     protected array $titleFemale = ['גב.', 'ד"ר', 'פרופ'];
-
 }

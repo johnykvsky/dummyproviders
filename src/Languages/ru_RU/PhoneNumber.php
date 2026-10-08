@@ -15,5 +15,4 @@ class PhoneNumber extends BasePhoneNumber
         '(35222) ##-####',
         '8-800-###-####',
     ];
-
 }

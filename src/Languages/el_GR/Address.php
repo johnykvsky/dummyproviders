@@ -47,20 +47,15 @@ class Address extends BaseAddress
         '{{streetAddress}}, {{postcode}}, {{prefecture}}',
     ];
 
-    /**
-     * @example 'Όδος'
-     */
+    /** @example 'Όδος' */
     public function streetPrefix(): string
     {
         return $this->randomizer->randomElement($this->streetPrefix);
     }
 
-    /**
-     * @example 'Θερμαϊκός'
-     */
+    /** @example 'Θερμαϊκός' */
     public function prefecture(): string
     {
         return $this->randomizer->randomElement($this->prefecture);
     }
-
 }

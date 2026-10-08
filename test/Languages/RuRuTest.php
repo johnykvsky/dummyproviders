@@ -87,4 +87,20 @@ class RuRuTest extends TestCase
             }
         }
     }
+
+    public function testInitials(): void
+    {
+        $generator = DummyGenerator::create()->withProvider(new RuRuDefinitionPack());
+
+        for ($i = 0; $i < 20; ++$i) {
+            $initials = $generator->initials();
+            self::assertMatchesRegularExpression('/^[А-Я]\. [А-Я]\.$/u', $initials);
+        }
+
+        $single = $generator->initials(1);
+        self::assertMatchesRegularExpression('/^[А-Я]\.$/u', $single);
+
+        $three = $generator->initials(3);
+        self::assertMatchesRegularExpression('/^[А-Я]\. [А-Я]\. [А-Я]\.$/u', $three);
+    }
 }

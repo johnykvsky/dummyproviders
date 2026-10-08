@@ -30,9 +30,7 @@ class Company extends BaseCompany
         '{{companyPrefix}} {{companyNameElement}}{{companyNameElement}}{{companyNameElement}}{{companyNameSuffix}}',
     ];
 
-    /**
-     * @example 'იმ ელექტროალმასგეოსაბჭო'
-     */
+    /** @example 'იმ ელექტროალმასგეოსაბჭო' */
     public function company(): string
     {
         $format = $this->randomizer->randomElement($this->companyNameFormats);
@@ -54,5 +52,4 @@ class Company extends BaseCompany
     {
         return $this->randomizer->randomElement($this->companyNameSuffixes);
     }
-
 }

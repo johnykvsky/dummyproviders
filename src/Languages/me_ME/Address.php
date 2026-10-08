@@ -14,9 +14,7 @@ class Address extends BaseAddress
         '',
     ];
 
-    /**
-     * @see http://podgorica.mapa.in.rs/
-     */
+    /** @see http://podgorica.mapa.in.rs/ */
     protected array $street = [
         '1. crnogorske brigade narodne odbrane', '1. maja', '1. proleterske brigade', '10. crnogorske brigade', '13. jula', '18. februara', '18. jula', '19. decembra', '2. crnogorskog bataljona', '2. proleterske dalmatinske brigade', '27. marta', '3. sandžačke proleterske brigade', '4. jula', '4. proleterske brigade', '5. proleterske brigade', '6. crnogorske udarne brigade', '7. omladinske brigade', '8. crnogorske udarne brigade', '8. jula', '8. marta', '9. crnogorske brigade',
         'Admirala Zmajevića', 'Aerodromska', 'Aleksandra Ace Prijića', 'Aleksandra Lesa Ivanovića', 'Aleksandra Puškina', 'Alekse Šantića', 'Alfreda Tenisona', 'Andrije Paltašića', 'Andrijevička', 'Antona Čehova', 'Arhitekte Milana Popovića', 'Arsenija Čarnojevića', 'Atinska', 'AVNOJ-a',
@@ -55,9 +53,7 @@ class Address extends BaseAddress
         '{{cityName}}',
     ];
 
-    /**
-     * @see http://sh.wikipedia.org/wiki/Popis_gradova_u_Crnoj_Gori
-     */
+    /** @see http://sh.wikipedia.org/wiki/Popis_gradova_u_Crnoj_Gori */
     protected array $cityNames = [
         'Bar', 'Budva', 'Herceg Novi',
         'Kotor', 'Tivat', 'Ulcinj', 'Podgorica',
@@ -67,9 +63,7 @@ class Address extends BaseAddress
         'Šavnik', 'Petnjica', 'Gusinje', 'Petrovac', 'Sutomore',
     ];
 
-    /**
-     * @see https://github.com/umpirsky/country-list/blob/master/country/cldr/sr_Latn/country.php
-     */
+    /** @see https://github.com/umpirsky/country-list/blob/master/country/cldr/sr_Latn/country.php */
     protected array $country = [
         'Alandska ostrva', 'Albanija', 'Alžir', 'Američka Samoa', 'Andora', 'Angola', 'Angvila', 'Antarktika', 'Antigva i Barbuda', 'Argentina', 'Armenija', 'Aruba', 'Australija', 'Austrija', 'Avganistan', 'Azerbejdžan',
         'Bahami', 'Bahrein', 'Bangladeš', 'Barbados', 'Belgija', 'Belise', 'Belorusija', 'Benin', 'Bermuda', 'Bocvana', 'Bolivija', 'Bosna i Hercegovina', 'Božićna Ostrva', 'Brazil', 'Britanska Devičanska Ostrva', 'Britansko Indijska Okeanska Teritorija', 'Brunej', 'Bugarska', 'Burkina Faso', 'Burundi', 'Butan', 'Buve Ostrva',
@@ -120,5 +114,4 @@ class Address extends BaseAddress
             'longitude' => $this->longitude(19.16, 19.27),
         ];
     }
-
 }

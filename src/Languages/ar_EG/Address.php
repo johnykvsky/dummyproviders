@@ -17,9 +17,7 @@ class Address extends BaseAddress
 
     protected array $streetPrefix = ['شارع', 'طريق', 'ممر'];
 
-    /**
-     * @see https://ar.wikipedia.org/wiki/%D8%AA%D8%B5%D9%86%D9%8A%D9%81:%D8%A3%D8%AD%D9%8A%D8%A7%D8%A1_%D8%A7%D9%84%D9%82%D8%A7%D9%87%D8%B1%D8%A9
-     */
+    /** @see https://ar.wikipedia.org/wiki/%D8%AA%D8%B5%D9%86%D9%8A%D9%81:%D8%A3%D8%AD%D9%8A%D8%A7%D8%A1_%D8%A7%D9%84%D9%82%D8%A7%D9%87%D8%B1%D8%A9 */
     protected array $cityName = [
         'التجمع الاول',
         'التجمع التالت',
@@ -123,9 +121,7 @@ class Address extends BaseAddress
 
     protected array $postcode = ['#####', '#####-####'];
 
-    /**
-     * @see http://www.nationsonline.org/oneworld/countrynames_arabic.htm
-     */
+    /** @see http://www.nationsonline.org/oneworld/countrynames_arabic.htm */
     protected array $country = [
         'الكاريبي', 'أمريكا الوسطى', 'أنتيجوا وبربودا', 'أنجولا', 'أنجويلا', 'أندورا', 'اندونيسيا', 'أورجواي', 'أوروبا', 'أوزبكستان', 'أوغندا', 'أوقيانوسيا', 'أوقيانوسيا النائية', 'أوكرانيا', 'ايران', 'أيرلندا', 'أيسلندا', 'ايطاليا',
         'بابوا غينيا الجديدة', 'باراجواي', 'باكستان', 'بالاو', 'بتسوانا', 'بتكايرن', 'بربادوس', 'برمودا', 'بروناي', 'بلجيكا', 'بلغاريا', 'بليز', 'بنجلاديش', 'بنما', 'بنين', 'بوتان', 'بورتوريكو', 'بوركينا فاسو', 'بوروندي', 'بولندا', 'بوليفيا', 'بولينيزيا', 'بولينيزيا الفرنسية', 'بيرو',
@@ -169,54 +165,39 @@ class Address extends BaseAddress
 
     protected array $secondaryAddressFormats = ['شقة رقم. ##', 'عمارة رقم ##'];
 
-    /**
-     * @example 'شرق'
-     */
+    /** @example 'شرق' */
     public function cityPrefix(): string
     {
         return $this->randomizer->randomElement($this->cityPrefix);
     }
 
-    /**
-     * @example 'المعادي'
-     */
+    /** @example 'المعادي' */
     public function cityName(): string
     {
         return $this->randomizer->randomElement($this->cityName);
     }
 
-    /**
-     * @example 'شارع'
-     */
+    /** @example 'شارع' */
     public function streetPrefix(): string
     {
         return $this->randomizer->randomElement($this->streetPrefix);
     }
 
-    /**
-     * @example 'شقة رقم. 350'
-     */
+    /** @example 'شقة رقم. 350' */
     public function secondaryAddress(): string
     {
         return $this->replacer->numerify($this->randomizer->randomElement($this->secondaryAddressFormats));
     }
 
-    /**
-     * @example 'الإسكندرية'
-     */
+    /** @example 'الإسكندرية' */
     public function governorate(): string
     {
         return $this->randomizer->randomKey($this->governorates);
     }
 
-    /**
-     * @example '01'
-     *
-     * @return string
-     */
+    /** @example '01' */
     public function governorateId(): string
     {
         return $this->randomizer->randomElement($this->governorates);
     }
-
 }

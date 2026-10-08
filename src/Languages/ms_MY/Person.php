@@ -19,9 +19,7 @@ class Person extends BasePerson
         '{{firstNameFemaleChristian}}',
     ];
 
-    /**
-     * @see https://en.wikipedia.org/wiki/Malaysian_names
-     */
+    /** @see https://en.wikipedia.org/wiki/Malaysian_names */
     protected array $maleNameFormats = [
         //Malay
         '{{muhammadName}}{{haji}}{{titleMaleMalay}}{{firstNameMaleMalay}} {{lastNameMalay}} bin {{titleMaleMalay}}{{firstNameMaleMalay}} {{lastNameMalay}}',
@@ -48,9 +46,7 @@ class Person extends BasePerson
         '{{firstNameMaleIndian}} {{lastNameIndian}}',
     ];
 
-    /**
-     * @see https://en.wikipedia.org/wiki/Malaysian_names
-     */
+    /** @see https://en.wikipedia.org/wiki/Malaysian_names */
     protected array $femaleNameFormats = [
         //Malay
         '{{nurName}}{{hajjah}}{{firstNameFemaleMalay}} {{lastNameMalay}} binti {{titleMaleMalay}}{{firstNameMaleMalay}} {{lastNameMalay}}',
@@ -166,20 +162,14 @@ class Person extends BasePerson
      * @see https://en.wikipedia.org/wiki/Muhammad_(name)
      */
     protected array $muhammadName = ['', '', '', '', 'Mohamad ', 'Mohamed ', 'Mohammad ', 'Mohammed ', 'Muhamad ', 'Muhamed ', 'Muhammad ', 'Muhammed ', 'Muhammet ', 'Mohd '];
-    /**
-     * @see https://en.wikipedia.org/wiki/Noor_(name)
-     */
+    /** @see https://en.wikipedia.org/wiki/Noor_(name) */
     protected array $nurName = ['', '', '', '', 'Noor ', 'Nor ', 'Nur ', 'Nur ', 'Nur ', 'Nurul ', 'Nuur '];
 
-    /**
-     * @see https://en.wikipedia.org/wiki/Malaysian_names#Haji_or_Hajjah
-     */
+    /** @see https://en.wikipedia.org/wiki/Malaysian_names#Haji_or_Hajjah */
     protected array $haji = ['', '', '', '', 'Haji ', 'Hj '];
     protected array $hajjah = ['', '', '', '', 'Hajjah ', 'Hjh '];
 
-    /**
-     * @see https://en.wikipedia.org/wiki/Malay_styles_and_titles
-     */
+    /** @see https://en.wikipedia.org/wiki/Malay_styles_and_titles */
     protected array $titleMaleMalay = ['', '', '', '', '', '', 'Syed ', 'Wan ', 'Nik ', 'Che '];
 
     /**
@@ -534,18 +524,16 @@ class Person extends BasePerson
         'Xavier',
     ];
 
-    /**
-     * @see https://en.wikipedia.org/wiki/Malay_styles_and_titles
-     */
+    /** @see https://en.wikipedia.org/wiki/Malay_styles_and_titles */
     protected array $titleMale = ['En.', 'Dr.', 'Prof.', 'Datuk', 'Dato\'', 'Datuk Seri', 'Dato\' Sri', 'Tan Sri', 'Tun'];
     protected array $titleFemale = ['Pn.', 'Cik', 'Dr.', 'Prof.', 'Datin', 'Datin Paduka', 'Datin Paduka Seri', 'Puan Sri', 'Toh Puan'];
 
     /**
      * Return a Malay male first name
      *
-     * @example 'Ahmad'
-     *
      * @return string
+     *
+     * @example 'Ahmad'
      */
     public function firstNameMaleMalay()
     {
@@ -555,9 +543,9 @@ class Person extends BasePerson
     /**
      * Return a Malay female first name
      *
-     * @example 'Adibah'
-     *
      * @return string
+     *
+     * @example 'Adibah'
      */
     public function firstNameFemaleMalay()
     {
@@ -567,9 +555,9 @@ class Person extends BasePerson
     /**
      * Return a Malay last name
      *
-     * @example 'Abdullah'
-     *
      * @return string
+     *
+     * @example 'Abdullah'
      */
     public function lastNameMalay()
     {
@@ -579,9 +567,9 @@ class Person extends BasePerson
     /**
      * Return a Malay male 'Muhammad' name
      *
-     * @example 'Muhammad'
-     *
      * @return string
+     *
+     * @example 'Muhammad'
      */
     public function muhammadName()
     {
@@ -591,9 +579,9 @@ class Person extends BasePerson
     /**
      * Return a Malay female 'Nur' name
      *
-     * @example 'Nur'
-     *
      * @return string
+     *
+     * @example 'Nur'
      */
     public function nurName()
     {
@@ -603,9 +591,9 @@ class Person extends BasePerson
     /**
      * Return a Malay male 'Haji' title
      *
-     * @example 'Haji'
-     *
      * @return string
+     *
+     * @example 'Haji'
      */
     public function haji()
     {
@@ -615,9 +603,9 @@ class Person extends BasePerson
     /**
      * Return a Malay female 'Hajjah' title
      *
-     * @example 'Hajjah'
-     *
      * @return string
+     *
+     * @example 'Hajjah'
      */
     public function hajjah()
     {
@@ -627,9 +615,9 @@ class Person extends BasePerson
     /**
      * Return a Malay title
      *
-     * @example 'Syed'
-     *
      * @return string
+     *
+     * @example 'Syed'
      */
     public function titleMaleMalay()
     {
@@ -639,9 +627,9 @@ class Person extends BasePerson
     /**
      * Return a Chinese last name
      *
-     * @example 'Lim'
-     *
      * @return string
+     *
+     * @example 'Lim'
      */
     public function lastNameChinese()
     {
@@ -651,9 +639,9 @@ class Person extends BasePerson
     /**
      * Return a Chinese male first name
      *
-     * @example 'Goh Tong'
-     *
      * @return string
+     *
+     * @example 'Goh Tong'
      */
     public function firstNameMaleChinese()
     {
@@ -663,9 +651,9 @@ class Person extends BasePerson
     /**
      * Return a Chinese female first name
      *
-     * @example 'Mew Choo'
-     *
      * @return string
+     *
+     * @example 'Mew Choo'
      */
     public function firstNameFemaleChinese()
     {
@@ -675,9 +663,9 @@ class Person extends BasePerson
     /**
      * Return a Christian male name
      *
-     * @example 'Aaron'
-     *
      * @return string
+     *
+     * @example 'Aaron'
      */
     public function firstNameMaleChristian()
     {
@@ -687,9 +675,9 @@ class Person extends BasePerson
     /**
      * Return a Christian female name
      *
-     * @example 'Alice'
-     *
      * @return string
+     *
+     * @example 'Alice'
      */
     public function firstNameFemaleChristian()
     {
@@ -699,9 +687,9 @@ class Person extends BasePerson
     /**
      * Return an Indian initial
      *
-     * @example 'S. '
-     *
      * @return string
+     *
+     * @example 'S. '
      */
     public function initialIndian()
     {
@@ -711,9 +699,9 @@ class Person extends BasePerson
     /**
      * Return an Indian male first name
      *
-     * @example 'Arumugam'
-     *
      * @return string
+     *
+     * @example 'Arumugam'
      */
     public function firstNameMaleIndian()
     {
@@ -723,9 +711,9 @@ class Person extends BasePerson
     /**
      * Return an Indian female first name
      *
-     * @example 'Ambiga'
-     *
      * @return string
+     *
+     * @example 'Ambiga'
      */
     public function firstNameFemaleIndian()
     {
@@ -735,9 +723,9 @@ class Person extends BasePerson
     /**
      * Return an Indian last name
      *
-     * @example 'Subramaniam'
-     *
      * @return string
+     *
+     * @example 'Subramaniam'
      */
     public function lastNameIndian()
     {
@@ -748,8 +736,6 @@ class Person extends BasePerson
      * Return a random last name
      *
      * @example 'Lee'
-     *
-     * @return string
      */
     public function lastName(): string
     {
@@ -765,14 +751,12 @@ class Person extends BasePerson
     /**
      * Return a Malaysian I.C. No.
      *
-     * @example '890123-45-6789'
-     *
-     * @see https://en.wikipedia.org/wiki/Malaysian_identity_card#Structure_of_the_National_Registration_Identity_Card_Number_(NRIC)
-     *
      * @param string|null      $gender 'male', 'female' or null for any
      * @param bool|string|null $hyphen true, false, or any separator characters
-     *
      * @return string
+     *
+     * @example '890123-45-6789'
+     * @see https://en.wikipedia.org/wiki/Malaysian_identity_card#Structure_of_the_National_Registration_Identity_Card_Number_(NRIC)
      */
     public function myKadNumber($gender = null, $hyphen = false)
     {

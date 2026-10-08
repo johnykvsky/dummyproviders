@@ -49,12 +49,9 @@ class Address extends BaseAddress
         'Χιλή',
     ];
 
-    /**
-     * @example 'Όδος'
-     */
+    /** @example 'Όδος' */
     public function streetPrefix(): string
     {
         return $this->randomizer->randomElement($this->streetPrefix);
     }
-
 }

@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types=1);
+declare(strict_types = 1);
 
 namespace DummyGenerator\Provider\Test\Languages;
 
@@ -50,6 +50,61 @@ class MsMyTest extends TestCase
 
             $voip = $generator->voipNumber(false, false);
             self::assertMatchesRegularExpression('/^015\d{7,8}$/', $voip);
+        }
+    }
+
+    public function testCompany(): void
+    {
+        $generator = DummyGenerator::create()->withProvider(new MsMyDefinitionPack());
+
+        for ($i = 0; $i < 20; ++$i) {
+            $company = $generator->company();
+            self::assertNotEmpty($company);
+            self::assertIsString($company);
+
+            $companyName = $generator->companyName();
+            self::assertNotEmpty($companyName);
+            self::assertIsString($companyName);
+
+            $industry = $generator->industry();
+            self::assertNotEmpty($industry);
+            self::assertIsString($industry);
+        }
+    }
+
+    public function testPayment(): void
+    {
+        $generator = DummyGenerator::create()->withProvider(new MsMyDefinitionPack());
+
+        for ($i = 0; $i < 20; ++$i) {
+            $currencySymbol = $generator->currencySymbol();
+            self::assertSame('RM', $currencySymbol);
+
+            $swiftCode = $generator->swiftCode();
+            self::assertNotEmpty($swiftCode);
+            self::assertIsString($swiftCode);
+
+            $localBank = $generator->localBank();
+            self::assertNotEmpty($localBank);
+            self::assertIsString($localBank);
+
+            $foreignBank = $generator->foreignBank();
+            self::assertNotEmpty($foreignBank);
+            self::assertIsString($foreignBank);
+
+            $governmentBank = $generator->governmentBank();
+            self::assertNotEmpty($governmentBank);
+            self::assertIsString($governmentBank);
+
+            $insurance = $generator->insurance();
+            self::assertNotEmpty($insurance);
+            self::assertIsString($insurance);
+
+            $currencyCode = $generator->currencyCode();
+            self::assertSame('MYR', $currencyCode);
+
+            $currencyName = $generator->currencyName();
+            self::assertSame('Ringgit Malaysia', $currencyName);
         }
     }
 }

@@ -18,9 +18,7 @@ class Miscellaneous implements ExtensionInterface
     ) {
     }
 
-    /**
-     * @see https://en.wikipedia.org/wiki/Vehicle_registration_plates_of_Malaysia
-     */
+    /** @see https://en.wikipedia.org/wiki/Vehicle_registration_plates_of_Malaysia */
     protected array $jpjNumberPlateFormats = [
         '{{peninsularPrefix}}{{validAlphabet}}{{validAlphabet}} {{numberSequence}}',
         '{{peninsularPrefix}}{{validAlphabet}}{{validAlphabet}} {{numberSequence}}',
@@ -44,24 +42,18 @@ class Miscellaneous implements ExtensionInterface
         'W', 'W', 'W', 'W', 'W', 'W',
     ];
 
-    /**
-     * @see https://en.wikipedia.org/wiki/Vehicle_registration_plates_of_Malaysia#Current_format_2
-     */
+    /** @see https://en.wikipedia.org/wiki/Vehicle_registration_plates_of_Malaysia#Current_format_2 */
     protected array $sarawakPrefix = [
         'QA', 'QK', 'QB', 'QC', 'QL', 'QM', 'QP', 'QR', 'QS', 'QT',
     ];
 
-    /**
-     * @see https://en.wikipedia.org/wiki/Vehicle_registration_plates_of_Malaysia#Current_format_3
-     */
+    /** @see https://en.wikipedia.org/wiki/Vehicle_registration_plates_of_Malaysia#Current_format_3 */
     protected array $sabahPrefix = [
         'SA', 'SAA', 'SAB', 'SAC', 'SB', 'SD', 'SG',
         'SK', 'SL', 'SS', 'SSA', 'ST', 'STA', 'SU',
     ];
 
-    /**
-     * @see https://en.wikipedia.org/wiki/Vehicle_registration_plates_of_Malaysia#Commemorative_plates
-     */
+    /** @see https://en.wikipedia.org/wiki/Vehicle_registration_plates_of_Malaysia#Commemorative_plates */
     protected array $specialPrefix = [
         '1M4U',
         'A1M',
@@ -99,8 +91,6 @@ class Miscellaneous implements ExtensionInterface
      * Return a valid Malaysia JPJ(Road Transport Department) vehicle licence plate number
      *
      * @example 'WKN 2368'
-     *
-     * @return string
      */
     public function jpjNumberPlate(): string
     {
@@ -113,8 +103,6 @@ class Miscellaneous implements ExtensionInterface
      * Return Peninsular prefix alphabet
      *
      * @example 'W'
-     *
-     * @return string
      */
     public function peninsularPrefix(): string
     {
@@ -125,8 +113,6 @@ class Miscellaneous implements ExtensionInterface
      * Return Sarawak state prefix alphabet
      *
      * @example 'QA'
-     *
-     * @return string
      */
     public function sarawakPrefix(): string
     {
@@ -137,8 +123,6 @@ class Miscellaneous implements ExtensionInterface
      * Return Sabah state prefix alphabet
      *
      * @example 'SA'
-     *
-     * @return string
      */
     public function sabahPrefix(): string
     {
@@ -149,8 +133,6 @@ class Miscellaneous implements ExtensionInterface
      * Return specialty licence plate prefix
      *
      * @example 'G1M'
-     *
-     * @return string
      */
     public function specialPrefix(): string
     {
@@ -161,8 +143,6 @@ class Miscellaneous implements ExtensionInterface
      * Return a valid license plate alphabet
      *
      * @example 'A'
-     *
-     * @return string
      */
     public function validAlphabet(): string
     {
@@ -173,12 +153,9 @@ class Miscellaneous implements ExtensionInterface
      * Return a valid number sequence between 1 and 9999
      *
      * @example '1234'
-     *
-     * @return int
      */
     public function numberSequence(): int
     {
         return $this->randomizer->getInt(1, 9999);
     }
-
 }

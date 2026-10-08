@@ -25,5 +25,4 @@ class Internet extends BaseInternet
     protected array $emailFormats = [
         '{{userName}}@{{freeEmailDomain}}',
     ];
-
 }

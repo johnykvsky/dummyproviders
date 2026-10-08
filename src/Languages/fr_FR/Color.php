@@ -14,9 +14,7 @@ class Color extends BaseColor
         'argenté', 'gris', 'jaune', 'fuchsia', 'blanc',
     ];
 
-    /**
-     * @source: https://fr.wikipedia.org/wiki/Liste_de_noms_de_couleur#Liste
-     */
+    /** @source: https://fr.wikipedia.org/wiki/Liste_de_noms_de_couleur#Liste */
     protected array $allColorNames = [
         'Abricot', 'Acajou', 'Aigue-marine', 'Amande', 'Amarante', 'Ambre', 'Améthyste', 'Anthracite', 'Argent', 'Aubergine',
         'Aurore', 'Avocat', 'Azur', 'Basané', 'Beurre', 'Bis', 'Bisque', 'Bistre', 'Bitume', 'Blanc cassé', 'Blanc lunaire',
@@ -41,5 +39,4 @@ class Color extends BaseColor
         'Vert pomme', 'Vert prairie', 'Vert printemps', 'Vert sapin', 'Vert sauge', 'Vert tilleul', 'Vert Véronèse',
         'Violet', "Violet d'évêque", 'Viride', 'Zinzolin',
     ];
-
 }

@@ -36,9 +36,7 @@ class Person extends BasePerson
 
     protected array $titleFemale = ['p.', 'ponia', 'panelė'];
 
-    /**
-     * @see https://lt.wikipedia.org/wiki/S%C4%85ra%C5%A1as:Lietuvoje_paplit%C4%99_vardai
-     */
+    /** @see https://lt.wikipedia.org/wiki/S%C4%85ra%C5%A1as:Lietuvoje_paplit%C4%99_vardai */
     protected array $firstNameMale = [
         'Abramas', 'Abraomas', 'Achilas', 'Adalbertas', 'Adamas', 'Adas', 'Adolfas', 'Adolis', 'Adomas',
         'Adrijus', 'Agatas', 'Agnius', 'Aidas', 'Ainius', 'Aistis', 'Aivaras', 'Akimas', 'Akvilinas', 'Albertas', 'Albrechtas',
@@ -127,9 +125,7 @@ class Person extends BasePerson
         'Žydrius', 'Žydrūnas', 'Žygaudas', 'Žygimantas', 'Žygintas', 'Žygis', 'Žymantas', 'Žvaigždžius',
     ];
 
-    /**
-     * @see https://lt.wikipedia.org/wiki/S%C4%85ra%C5%A1as:Lietuvoje_paplit%C4%99_vardai
-     */
+    /** @see https://lt.wikipedia.org/wiki/S%C4%85ra%C5%A1as:Lietuvoje_paplit%C4%99_vardai */
     protected array $firstNameFemale = [
         'Ada', 'Adelė', 'Adelija', 'Adelina', 'Adolfa', 'Adolfina',
         'Adriana', 'Adrija', 'Adrijana', 'Agata', 'Agnė', 'Agnetė', 'Agnieška', 'Agnietė', 'Agnija',
@@ -249,17 +245,13 @@ class Person extends BasePerson
         'Žydronė', 'Žydrūnė', 'Žygimantė', 'Žyginta', 'Žilvinė', 'Žymantė', 'Žoržeta',
     ];
 
-    /**
-     * @see http://www.horoskopai.lt/gaires/populiariausios-pavardes-lietuvoje/
-     */
+    /** @see http://www.horoskopai.lt/gaires/populiariausios-pavardes-lietuvoje/ */
     protected array $lastNameMale = [
         'Kazlauskas', 'Jankauskas', 'Petrauskas', 'Stankevičius', 'Vasiliauskas', 'Žukauskas', 'Butkus',
         'Kateiva', 'Paulauskas', 'Urbonas', 'Kavaliauskas', 'Baranauskas', 'Pocius', 'Sakalauskas',
     ];
 
-    /**
-     * @see http://www.horoskopai.lt/gaires/populiariausios-pavardes-lietuvoje/
-     */
+    /** @see http://www.horoskopai.lt/gaires/populiariausios-pavardes-lietuvoje/ */
     protected array $lastNameFemale = [
         'Kazlauskienė', 'Jankauskienė', 'Petrauskienė', 'Stankevičienė', 'Vasiliauskienė', 'Paulauskienė',
         'Žukauskienė', 'Urbonienė', 'Kavaliauskienė', 'Navickienė', 'Kazlauskaitė', 'Jankauskaitė', 'Stankevičiūtė',
@@ -270,10 +262,8 @@ class Person extends BasePerson
      * @param string|null $gender 'male', 'female' or null for any
      *
      * @example 'Doe'
-     *
-     * @return string
      */
-    public function lastName($gender = null): string
+    public function lastName(?string $gender = null): string
     {
         if ($gender === static::GENDER_MALE) {
             return $this->lastNameMale();
@@ -289,8 +279,6 @@ class Person extends BasePerson
     /**
      * Return male last name
      *
-     * @return string
-     *
      * @example 'Vasiliauskas'
      */
     public function lastNameMale(): string
@@ -300,8 +288,6 @@ class Person extends BasePerson
 
     /**
      * Return female last name
-     *
-     * @return string
      *
      * @example 'Žukauskaitė'
      */
@@ -337,13 +323,12 @@ class Person extends BasePerson
     /**
      * National Personal Identity number (asmens kodas)
      *
-     * @see https://en.wikipedia.org/wiki/National_identification_number#Lithuania
-     * @see https://lt.wikipedia.org/wiki/Asmens_kodas
-     *
      * @param string $gender       [male|female]
      * @param string $randomNumber three integers
-     *
      * @return string on format XXXXXXXXXXX
+     *
+     * @see https://en.wikipedia.org/wiki/National_identification_number#Lithuania
+     * @see https://lt.wikipedia.org/wiki/Asmens_kodas
      */
     public function personalIdentityNumber($gender = 'male', ?\DateTimeInterface $birthdate = null, $randomNumber = ''): string
     {
@@ -378,21 +363,16 @@ class Person extends BasePerson
     /**
      * Calculate the sum of personal code
      *
-     * @see https://en.wikipedia.org/wiki/National_identification_number#Lithuania
-     * @see https://lt.wikipedia.org/wiki/Asmens_kodas
-     *
      * @param string $numbers
      * @param int    $time    [1|2]
-     *
      * @return int
+     *
+     * @see https://en.wikipedia.org/wiki/National_identification_number#Lithuania
+     * @see https://lt.wikipedia.org/wiki/Asmens_kodas
      */
     private function calculateSum($numbers, $time = 1)
     {
-        if ($time == 1) {
-            $multipliers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 1];
-        } else {
-            $multipliers = [3, 4, 5, 6, 7, 8, 9, 1, 2, 3];
-        }
+        $multipliers = $time == 1 ? [1, 2, 3, 4, 5, 6, 7, 8, 9, 1] : [3, 4, 5, 6, 7, 8, 9, 1, 2, 3];
 
         $sum = 0;
 

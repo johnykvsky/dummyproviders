@@ -35,8 +35,6 @@ class PhoneNumber extends BasePhoneNumber
 
     /**
      * An array of Swiss mobile (cell) phone number formats.
-     *
-     * @var array
      */
     protected array $mobileFormats = [
         // Local
@@ -58,12 +56,9 @@ class PhoneNumber extends BasePhoneNumber
 
     /**
      * Return a Swiss mobile phone number.
-     *
-     * @return string
      */
     public function mobileNumber(): string
     {
         return $this->replacer->numerify($this->randomizer->randomElement($this->mobileFormats));
     }
-
 }

@@ -19,16 +19,12 @@ class Internet extends BaseInternet
         'com', 'ir', 'me', 'net', 'org',
     ];
 
-    /**
-     * @see https://en.wikipedia.org/wiki/.ir
-     */
+    /** @see https://en.wikipedia.org/wiki/.ir */
     protected array $tld = [
         'biz', 'com', 'info', 'ac.ir', 'sch.ir', 'co.ir', 'ir', 'net', 'org',
     ];
 
-    /**
-     * @see http://en.wikipedia.org/wiki/Category:Iranian-language_surnames
-     */
+    /** @see http://en.wikipedia.org/wiki/Category:Iranian-language_surnames */
     protected array $lastNameAscii = [
         'abdullahi', 'abbasi', 'abedini', 'ahadi', 'ahmadi', 'akbari', 'alizadeh', 'asadi',
         'baraghani', 'babaei',
@@ -50,9 +46,7 @@ class Internet extends BaseInternet
         'zandi', 'zare',
     ];
 
-    /**
-     * @see http://en.wikipedia.org/wiki/Persian_name
-     */
+    /** @see http://en.wikipedia.org/wiki/Persian_name */
     protected array $firstNameAscii = [
         'abbas', 'afshin', 'ahmad', 'ali', 'amir', 'anahita', 'anousheh', 'arash', 'ardeshir', 'arezu', 'aria', 'arian', 'arman', 'ashraf', 'atoosa', 'azadeh', 'azar',
         'babak', 'bahar', 'bahare', 'bardia', 'behnaz', 'benyamin', 'bita',
@@ -76,19 +70,17 @@ class Internet extends BaseInternet
         'zahra', 'zarine', 'zeynab', 'zhila',
     ];
 
-    public function lastNameAscii()
+    public function lastNameAscii(): string
     {
         return $this->randomizer->randomElement($this->lastNameAscii);
     }
 
-    public function firstNameAscii()
+    public function firstNameAscii(): string
     {
         return $this->randomizer->randomElement($this->firstNameAscii);
     }
 
-    /**
-     * @example 'ali.rezaei'
-     */
+    /** @example 'ali.rezaei' */
     public function userName(): string
     {
         $format = $this->randomizer->randomElement($this->userNameFormats);
@@ -96,12 +88,9 @@ class Internet extends BaseInternet
         return $this->replacer->bothify($this->generator->parse($format));
     }
 
-    /**
-     * @example 'ahmad.ir'
-     */
+    /** @example 'ahmad.ir' */
     public function domainName(): string
     {
         return $this->randomizer->randomElement($this->lastNameAscii) . '.' . $this->tld();
     }
-
 }

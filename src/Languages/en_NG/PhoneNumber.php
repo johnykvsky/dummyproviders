@@ -134,5 +134,4 @@ class PhoneNumber extends BasePhoneNumber
         '+234 908 ### ####',
         '+234 909 ### ####',
     ];
-
 }

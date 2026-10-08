@@ -115,6 +115,7 @@ class Person extends BasePerson
         } else {
             $seq3 = $this->randomizer->getInt(0, 9);
         }
+
         $sequence = (string) $seq1 . (string) $seq2 . (string) $seq3;
 
         $first17 = $division . $birthDate . $sequence;
@@ -131,12 +132,9 @@ class Person extends BasePerson
         return $first17 . $check;
     }
 
-    /**
-     * @example '11010119900307237X'
-     */
+    /** @example '11010119900307237X' */
     public function idCard(?string $gender = null): string
     {
         return $this->residentId($gender);
     }
-
 }

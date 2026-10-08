@@ -14,9 +14,7 @@ class Payment extends BasePayment
         '{{governmentBank}}',
     ];
 
-    /**
-     * @see http://www.muamalat.com.my/consumer-banking/internet-banking/popup-ibg.html
-     */
+    /** @see http://www.muamalat.com.my/consumer-banking/internet-banking/popup-ibg.html */
     protected array $bankAccountNumberFormats = [
         '##########',
         '###########',
@@ -27,9 +25,7 @@ class Payment extends BasePayment
         '################',
     ];
 
-    /**
-     * @see https://en.wikipedia.org/wiki/List_of_banks_in_Malaysia
-     */
+    /** @see https://en.wikipedia.org/wiki/List_of_banks_in_Malaysia */
     protected array $localBanks = [
         'Affin Bank',
         'Alliance Bank',
@@ -41,9 +37,7 @@ class Payment extends BasePayment
         'RHB Bank',
     ];
 
-    /**
-     * @see https://en.wikipedia.org/wiki/List_of_banks_in_Malaysia#List_of_foreign_banks_(commercial)
-     */
+    /** @see https://en.wikipedia.org/wiki/List_of_banks_in_Malaysia#List_of_foreign_banks_(commercial) */
     protected array $foreignBanks = [
         'Bangkok Bank Berhad',
         'Bank of America Malaysia Berhad',
@@ -66,9 +60,7 @@ class Payment extends BasePayment
         'United Overseas Bank (Malaysia) Bhd.',
     ];
 
-    /**
-     * @see https://en.wikipedia.org/wiki/List_of_banks_in_Malaysia#Development_Financial_Institutions_(Government-owned_banks)_(full_list)
-     */
+    /** @see https://en.wikipedia.org/wiki/List_of_banks_in_Malaysia#Development_Financial_Institutions_(Government-owned_banks)_(full_list) */
     protected array $governmentBanks = [
         'Agro Bank Malaysia',
         'Bank Pembangunan Malaysia Berhad (BPMB) (The development bank of Malaysia)',
@@ -84,9 +76,7 @@ class Payment extends BasePayment
         'Tabung Haji',
     ];
 
-    /**
-     * @see https://en.wikipedia.org/wiki/List_of_banks_in_Malaysia#Investment-Link_Funds_(Insurance_Companies_-_Takaful_included)
-     */
+    /** @see https://en.wikipedia.org/wiki/List_of_banks_in_Malaysia#Investment-Link_Funds_(Insurance_Companies_-_Takaful_included) */
     protected array $insuranceCompanies = [
         'AIA Malaysia',
         'AIG Malaysia',
@@ -105,9 +95,7 @@ class Payment extends BasePayment
         'Zurich Insurance Malaysia',
     ];
 
-    /**
-     * @see http://www.bankswiftcode.org/malaysia/
-     */
+    /** @see http://www.bankswiftcode.org/malaysia/ */
     protected array $swiftCodes = [
         'ABNAMY2AXXX', 'ABNAMYKLPNG', 'ABNAMYKLXXX', 'AFBQMYKLXXX', 'AIBBMYKLXXX',
         'AISLMYKLXXX', 'AMMBMYKLXXX', 'ARBKMYKLXXX',
@@ -139,19 +127,27 @@ class Payment extends BasePayment
         'UIIBMYKLXXX', 'UOVBMYKLCND', 'UOVBMYKLXXX',
     ];
 
-    /**
-     * @see https://en.wikipedia.org/wiki/Malaysian_ringgit
-     */
+    /** @see https://en.wikipedia.org/wiki/Malaysian_ringgit */
+    protected array $currencyCode = [
+        'MYR',
+    ];
+
     protected array $currencySymbol = [
         'RM',
+    ];
+
+    protected array $currencySymbols = [
+        'RM',
+    ];
+
+    protected array $currencyNames = [
+        'Ringgit Malaysia',
     ];
 
     /**
      * Return a Malaysian Bank
      *
      * @example 'Maybank'
-     *
-     * @return string
      */
     public function bank(): string
     {
@@ -164,8 +160,6 @@ class Payment extends BasePayment
      * Return a Malaysian Bank account number
      *
      * @example '1234567890123456'
-     *
-     * @return string
      */
     public function bankAccountNumber(): string
     {
@@ -178,10 +172,8 @@ class Payment extends BasePayment
      * Return a Malaysian Local Bank
      *
      * @example 'Public Bank'
-     *
-     * @return string
      */
-    public function localBank()
+    public function localBank(): string
     {
         return $this->randomizer->randomElement($this->localBanks);
     }
@@ -190,10 +182,8 @@ class Payment extends BasePayment
      * Return a Malaysian Foreign Bank
      *
      * @example 'Citibank Berhad'
-     *
-     * @return string
      */
-    public function foreignBank()
+    public function foreignBank(): string
     {
         return $this->randomizer->randomElement($this->foreignBanks);
     }
@@ -202,10 +192,8 @@ class Payment extends BasePayment
      * Return a Malaysian Government Bank
      *
      * @example 'Bank Simpanan Nasional'
-     *
-     * @return string
      */
-    public function governmentBank()
+    public function governmentBank(): string
     {
         return $this->randomizer->randomElement($this->governmentBanks);
     }
@@ -214,10 +202,8 @@ class Payment extends BasePayment
      * Return a Malaysian insurance company
      *
      * @example 'AIA Malaysia'
-     *
-     * @return string
      */
-    public function insurance()
+    public function insurance(): string
     {
         return $this->randomizer->randomElement($this->insuranceCompanies);
     }
@@ -226,10 +212,8 @@ class Payment extends BasePayment
      * Return a Malaysian Bank SWIFT Code
      *
      * @example 'MBBEMYKLXXX'
-     *
-     * @return string
      */
-    public function swiftCode()
+    public function swiftCode(): string
     {
         return $this->replacer->toUpper($this->replacer->lexify($this->randomizer->randomElement($this->swiftCodes)));
     }
@@ -238,12 +222,9 @@ class Payment extends BasePayment
      * Return the Malaysian currency symbol
      *
      * @example 'RM'
-     *
-     * @return string
      */
-    public function currencySymbol()
+    public function currencySymbol(): string
     {
         return $this->randomizer->randomElement($this->currencySymbol);
     }
-
 }

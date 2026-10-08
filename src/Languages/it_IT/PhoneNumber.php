@@ -22,5 +22,4 @@ class PhoneNumber extends BasePhoneNumber
         '3## ### ###',
         '+39 3## ### ###',
     ];
-
 }

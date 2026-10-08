@@ -24,9 +24,7 @@ class Company extends BaseCompany
         '{{companyPrefix}}{{companyModifier}}{{CompanySuffix}}',
     ];
 
-    /**
-     * @see http://zh.wikipedia.org/zh-tw/Category:%E5%8F%B0%E7%81%A3%E5%85%AC%E5%8F%B8%E5%88%97%E8%A1%A8
-     */
+    /** @see http://zh.wikipedia.org/zh-tw/Category:%E5%8F%B0%E7%81%A3%E5%85%AC%E5%8F%B8%E5%88%97%E8%A1%A8 */
     protected array $companyPrefix = [
         '乾坤', '亞神', '光譜', '典選', '凱基', '前衛花園',
         '創見', '友訊', '台達', '合勤', '喜瑪拉雅', '喬山',
@@ -50,9 +48,7 @@ class Company extends BaseCompany
     protected array $companySuffix = [
         '公司', '有限公司', '股份有限公司',
     ];
-    /**
-     * @see https://zh-tw.facebook.com/notes/%E7%8E%A9%E5%BB%A3%E5%91%8Aplaying-with-advertising/%E5%9B%9E%E9%A1%A7%E8%87%BA%E7%81%A3%E6%AD%B7%E5%B1%86%E5%BB%A3%E5%91%8A%E9%87%91%E5%8F%A5%E7%8D%8E/294008963985215
-     */
+    /** @see https://zh-tw.facebook.com/notes/%E7%8E%A9%E5%BB%A3%E5%91%8Aplaying-with-advertising/%E5%9B%9E%E9%A1%A7%E8%87%BA%E7%81%A3%E6%AD%B7%E5%B1%86%E5%BB%A3%E5%91%8A%E9%87%91%E5%8F%A5%E7%8D%8E/294008963985215 */
     protected array $catchPhrase = [
         'Everything\'s ok',
         'Just call me be happy',
@@ -262,8 +258,6 @@ class Company extends BaseCompany
      * return standard VAT / Tax ID / Uniform Serial Number
      *
      * @example 28263822
-     *
-     * @return string
      */
     public function VAT(): string
     {

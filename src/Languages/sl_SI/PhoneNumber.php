@@ -19,5 +19,4 @@ class PhoneNumber extends BasePhoneNumber
         '00386 # ### ####',
         '0# ### ####',
     ];
-
 }

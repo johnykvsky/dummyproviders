@@ -262,9 +262,7 @@ class Address extends BaseAddress
         'Чернігів',
     ];
 
-    /**
-     * @see list of Ukraine street (2017-08-08), source: http://ukrexport.gov.ua/ukr/useful_info/gov/
-     */
+    /** @see list of Ukraine street (2017-08-08), source: http://ukrexport.gov.ua/ukr/useful_info/gov/ */
     protected array $street = [
         'Тараса Шевченка',
         'Лесі Українки',
@@ -347,9 +345,9 @@ class Address extends BaseAddress
      * Get city and region together
      * We need it because city and region must comply each other in Ukraine
      *
-     * @example 'Закарпатська область, місто Ужгород'
-     *
      * @return string
+     *
+     * @example 'Закарпатська область, місто Ужгород'
      */
     public function cityAndRegion()
     {
@@ -365,5 +363,4 @@ class Address extends BaseAddress
     {
         return $this->randomizer->randomElement($this->streetPrefix);
     }
-
 }

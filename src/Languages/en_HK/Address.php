@@ -240,5 +240,4 @@ class Address extends BaseAddress
     {
         return $this->generator->parse($this->randomizer->randomElement($this->estateNameFormats));
     }
-
 }

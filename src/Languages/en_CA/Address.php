@@ -97,17 +97,13 @@ class Address extends BaseAddress
         "{{streetAddress}}\n{{city}}, {{provinceAbbr}}  {{postcode}}",
     ];
 
-    /**
-     * @example 'Ontario'
-     */
+    /** @example 'Ontario' */
     public function province(): string
     {
         return $this->randomizer->randomElement($this->province);
     }
 
-    /**
-     * @example 'ON'
-     */
+    /** @example 'ON' */
     public function provinceAbbr()
     {
         return $this->randomizer->randomElement($this->provinceAbbr);
@@ -123,14 +119,12 @@ class Address extends BaseAddress
         return $this->randomizer->randomElement($this->postcodeLetters);
     }
 
-    /**
-     * @example A1B 2C3
-     */
+    /** @example A1B 2C3 */
     public function postcode(): string
     {
         $string = $this->randomizer->randomElement($this->postcode);
 
-        $string = preg_replace_callback('/\#/u', [static::class,  'randomDigit'], $string);
+        $string = preg_replace_callback('/\#/u', [static::class, 'randomDigit'], $string);
         $string = preg_replace_callback('/\?/u', [static::class, 'randomPostcodeLetter'], $string);
 
         return $this->replacer->toUpper($string);

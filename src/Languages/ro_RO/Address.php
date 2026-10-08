@@ -139,20 +139,15 @@ class Address extends BaseAddress
         return $this->randomizer->randomElement($this->streetPrefix);
     }
 
-    /**
-     * @example 'Independenței'
-     */
+    /** @example 'Independenței' */
     public function streetPlainName()
     {
         return $this->randomizer->randomElement($this->streetPlainName);
     }
 
-    /**
-     * @example 'Cluj'
-     */
+    /** @example 'Cluj' */
     public function county(): string
     {
         return $this->randomizer->randomElement($this->counties);
     }
-
 }

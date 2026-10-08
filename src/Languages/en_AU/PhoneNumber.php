@@ -74,5 +74,4 @@ class PhoneNumber extends BasePhoneNumber
     {
         return $this->replacer->numerify($this->randomizer->randomElement($this->areacodes));
     }
-
 }

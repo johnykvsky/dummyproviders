@@ -12,10 +12,9 @@ class Person extends BasePerson
      * National Registration Identity Card number
      *
      * @param \DateTime|null $birthDate birth date
-     *
      * @return string in format S1234567D or T1234567J
      */
-    public function nric(?\DateTime $birthDate = null) : string
+    public function nric(?\DateTime $birthDate = null): string
     {
         return $this->singaporeId($birthDate, false);
     }
@@ -24,10 +23,9 @@ class Person extends BasePerson
      * Foreign Identification Number
      *
      * @param \DateTime|null $issueDate issue date
-     *
      * @return string in format F1234567N or G1234567X
      */
-    public function fin(?\DateTime $issueDate = null) : string
+    public function fin(?\DateTime $issueDate = null): string
     {
         return $this->singaporeId($issueDate, true);
     }
@@ -37,10 +35,9 @@ class Person extends BasePerson
      *
      * @param \DateTime|null $issueDate birth/issue date
      * @param bool           $foreigner whether a person is foreigner or citizen
-     *
      * @return string in format S1234567D, T1234567J, F1234567N or G1234567X
      */
-    public function singaporeId(?\DateTime $issueDate = null, bool $foreigner = false) : string
+    public function singaporeId(?\DateTime $issueDate = null, bool $foreigner = false): string
     {
         if ($issueDate === null) {
             $issueDate = $this->generator->dateTimeThisCentury();

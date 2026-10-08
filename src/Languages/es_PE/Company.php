@@ -53,9 +53,7 @@ class Company extends BaseCompany
 
     protected array $companySuffix = ['e Hijo', 'e Hija', 'e Hijos', 'y Asoc.', 'y Flia.', 'SRL', 'SA', 'S. de H.'];
 
-    /**
-     * @example 'Robust full-range hub'
-     */
+    /** @example 'Robust full-range hub' */
     public function catchPhrase(): string
     {
         $result = [];
@@ -67,9 +65,7 @@ class Company extends BaseCompany
         return implode(' ', $result);
     }
 
-    /**
-     * @example 'integrate extensible convergence'
-     */
+    /** @example 'integrate extensible convergence' */
     public function bs(): string
     {
         $result = [];
@@ -87,18 +83,16 @@ class Company extends BaseCompany
      * Doesn't include a checksum, as peruvians commonly use only the first
      * 8 digits.
      *
-     * @example '10164090581'
-     * @example '20105895410'
-     *
      * @param bool $isNaturalPerson If set to false or empty, RUC starts with 20 and otherwise with 10
      *
+     * @example '10164090581'
+     * @example '20105895410'
      * @see http://www2.sunat.gob.pe/pdt/pdtModulos/independientes/p695/TipoDoc.htm
      */
-    public function ruc(bool $isNaturalPerson = false) : string
+    public function ruc(bool $isNaturalPerson = false): string
     {
         $prefix = $isNaturalPerson ? '10' : '20';
 
         return $prefix . $this->replacer->numerify('#########');
     }
-
 }

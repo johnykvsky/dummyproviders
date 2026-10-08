@@ -23,7 +23,7 @@ class Person extends BasePerson
     ];
 
     protected array $firstNameMale = [
-        'অনন্ত', 'আব্দুল্লাহ', 'আহসান',  'ইমরুল', 'করিম', 'জলিল', 'বরকত', 'মাসনুন', 'রহিম',  'রিফাত', 'হাসনাত', 'হাসান',
+        'অনন্ত', 'আব্দুল্লাহ', 'আহসান', 'ইমরুল', 'করিম', 'জলিল', 'বরকত', 'মাসনুন', 'রহিম', 'রিফাত', 'হাসনাত', 'হাসান',
     ];
 
     protected array $firstNameFemale = [
@@ -37,5 +37,4 @@ class Person extends BasePerson
     protected array $titleMale = ['মি.'];
 
     protected array $titleFemale = ['মিসেস.', 'মিস.'];
-
 }

@@ -118,8 +118,6 @@ class Address extends BaseAddress
      * Randomly returns a czech city.
      *
      * @example 'Krnov'
-     *
-     * @return string
      */
     public function city(): string
     {
@@ -130,8 +128,6 @@ class Address extends BaseAddress
      * Randomly returns a czech region.
      *
      * @example 'Liberecký kraj'
-     *
-     * @return string
      */
     public function region(): string
     {
@@ -143,12 +139,9 @@ class Address extends BaseAddress
      * generated due to inflection.
      *
      * @example 'U Vodárny'
-     *
-     * @return string
      */
     public function streetName(): string
     {
         return $this->randomizer->randomElement($this->street);
     }
-
 }

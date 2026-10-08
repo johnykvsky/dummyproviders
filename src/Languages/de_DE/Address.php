@@ -20,11 +20,7 @@ class Address extends BaseAddress
 
     protected array $postcode = ['#####'];
 
-    /**
-     * @var array
-     *
-     * @see https://de.wikipedia.org/wiki/Liste_der_Gro%C3%9F-_und_Mittelst%C3%A4dte_in_Deutschland
-     */
+    /** @see https://de.wikipedia.org/wiki/Liste_der_Gro%C3%9F-_und_Mittelst%C3%A4dte_in_Deutschland */
     protected array $cityNames = [
         'Aachen', 'Aalen', 'Achern', 'Achim', 'Ahaus', 'Ahlen', 'Ahrensburg', 'Aichach', 'Albstadt', 'Alfter', 'Alsdorf', 'Altenburg', 'Amberg', 'Andernach', 'Annaberg-Buchholz', 'Ansbach', 'Apolda', 'Arnsberg', 'Arnstadt', 'Aschaffenburg', 'Aschersleben', 'Attendorn', 'Augsburg', 'Aurich',
         'Backnang', 'Bad Harzburg', 'Bad Hersfeld', 'Bad Homburg vor der Höhe', 'Bad Honnef', 'Bad Kissingen', 'Bad Kreuznach', 'Bad Mergentheim', 'Bad Nauheim', 'Bad Neuenahr-Ahrweiler', 'Bad Oeynhausen', 'Bad Oldesloe', 'Bad Rappenau', 'Bad Salzuflen', 'Bad Soden am Taunus', 'Bad Vilbel', 'Bad Waldsee', 'Bad Zwischenahn', 'Baden-Baden', 'Baesweiler', 'Balingen', 'Bamberg', 'Barsinghausen', 'Baunatal', 'Bautzen', 'Bayreuth', 'Beckum', 'Bedburg', 'Bensheim', 'Bergheim', 'Bergisch Gladbach', 'Bergkamen', 'Berlin', 'Bernau bei Berlin', 'Bernburg (Saale)', 'Biberach an der Riß', 'Bielefeld', 'Bietigheim-Bissingen', 'Bingen am Rhein', 'Bitterfeld-Wolfen', 'Blankenburg (Harz)', 'Blankenfelde-Mahlow', 'Blieskastel', 'Böblingen', 'Bocholt', 'Bochum', 'Bonn', 'Borken', 'Bornheim', 'Bottrop', 'Bramsche', 'Brandenburg an der Havel', 'Braunschweig', 'Bremen', 'Bremerhaven', 'Bretten', 'Brilon', 'Bruchköbel', 'Bruchsal', 'Brühl', 'Buchholz in der Nordheide', 'Büdingen', 'Bühl', 'Bünde', 'Büren', 'Burg', 'Burgdorf', 'Burgwedel', 'Butzbach', 'Buxtehude',
@@ -116,9 +112,7 @@ class Address extends BaseAddress
         return $this->randomizer->randomElement($this->streetSuffixLong);
     }
 
-    /**
-     * @example 'Berlin'
-     */
+    /** @example 'Berlin' */
     public function state(): string
     {
         return $this->randomizer->randomElement($this->state);
@@ -128,5 +122,4 @@ class Address extends BaseAddress
     {
         return Regexify::regexify($this->replacer->numerify($this->randomizer->randomElement($this->buildingNumber)));
     }
-
 }

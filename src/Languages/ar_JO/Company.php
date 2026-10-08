@@ -30,19 +30,13 @@ class Company extends BaseCompany
 
     protected array $companySuffix = ['وأولاده', 'للمساهمة المحدودة', ' ذ.م.م', 'مساهمة عامة', 'وشركائه'];
 
-    /**
-     * @example 'مؤسسة'
-     *
-     * @return string
-     */
+    /** @example 'مؤسسة' */
     public function companyPrefix(): string
     {
         return $this->randomizer->randomElement($this->companyPrefix);
     }
 
-    /**
-     * @example 'Robust full-range hub'
-     */
+    /** @example 'Robust full-range hub' */
     public function catchPhrase(): string
     {
         $result = [];
@@ -54,9 +48,7 @@ class Company extends BaseCompany
         return implode(' ', $result);
     }
 
-    /**
-     * @example 'integrate extensible convergence'
-     */
+    /** @example 'integrate extensible convergence' */
     public function bs(): string
     {
         $result = [];
@@ -67,5 +59,4 @@ class Company extends BaseCompany
 
         return implode(' ', $result);
     }
-
 }

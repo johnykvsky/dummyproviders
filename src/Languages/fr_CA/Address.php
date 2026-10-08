@@ -17,9 +17,7 @@ class Address extends BaseAddress
         'Territoire britannique de l\'océan Indien', 'Territoires français du sud', 'Thailande', 'Timor', 'Togo', 'Tokelau', 'Tonga', 'Trinité et Tobago', 'Tunisie', 'Turkménistan', 'Turks et Caïques (Îles)', 'Turquie', 'Tuvalu', 'Ukraine', 'Uruguay', 'Vanuatu', 'Vatican (Etat du)', 'Venezuela', 'Vierges (Îles)', 'Vierges britanniques (Îles)', 'Vietnam', 'Wallis et Futuna (Îles)', 'Yemen', 'Yougoslavie', 'Zambie', 'Zaïre', 'Zimbabwe',
     ];
 
-    /**
-     * @see https://en.wikipedia.org/wiki/Regions_of_France
-     */
+    /** @see https://en.wikipedia.org/wiki/Regions_of_France */
     private array $regions = [
         'Auvergne-Rhône-Alpes', 'Bourgogne-Franche-Comté', 'Bretagne', 'Centre-Val de Loire', 'Corse', 'Grand Est', 'Hauts-de-France',
         'Île-de-France', 'Normandie', 'Nouvelle-Aquitaine', 'Occitanie', 'Pays de la Loire', "Provence-Alpes-Côte d'Azur",
@@ -85,9 +83,7 @@ class Address extends BaseAddress
         '-des-Aulnaies', '-les-Mines', '-de-Lotbinière', '-de-Patton', '-sur-Rivière-du-Sud', '-de-Beauregard', '-de-Watford',
     ];
 
-    /**
-     * @example 'Saint-Marc-des-Carrières' or 'Sainte-Monique'
-     */
+    /** @example 'Saint-Marc-des-Carrières' or 'Sainte-Monique' */
     protected array $cityFormats = [
         '{{cityPrefix}}{{firstName}}{{citySuffix}}',
         '{{cityPrefix}}{{firstName}}',
@@ -101,9 +97,7 @@ class Address extends BaseAddress
 
     protected array $postcode = ['?#? #?#', '?#?#?#'];
 
-    /**
-     * @example 'Avenue Bolduc'
-     */
+    /** @example 'Avenue Bolduc' */
     protected array $streetNameFormats = [
         '{{streetSuffix}} {{firstName}}',
         '{{streetSuffix}} {{lastName}}',
@@ -128,49 +122,37 @@ class Address extends BaseAddress
         'AB', 'BC', 'MB', 'NB', 'NL', 'NS', 'ON', 'PE', 'QC', 'SK',
     ];
 
-    /**
-     * @example 'Saint-'
-     */
+    /** @example 'Saint-' */
     public function cityPrefix(): string
     {
         return $this->randomizer->randomElement($this->cityPrefix);
     }
 
-    /**
-     * @example '-des-Sables'
-     */
+    /** @example '-des-Sables' */
     public function citySuffix(): string
     {
         return $this->randomizer->randomElement($this->citySuffix);
     }
 
-    /**
-     * @example 'Bureau 500'
-     */
+    /** @example 'Bureau 500' */
     public function secondaryAddress(): string
     {
         return $this->replacer->numerify($this->randomizer->randomElement($this->secondaryAddressFormats));
     }
 
-    /**
-     * @example 'Québec'
-     */
+    /** @example 'Québec' */
     public function state(): string
     {
         return $this->randomizer->randomElement($this->state);
     }
 
-    /**
-     * @example 'QC'
-     */
+    /** @example 'QC' */
     public function stateAbbr(): string
     {
         return $this->randomizer->randomElement($this->stateAbbr);
     }
 
-    /**
-     * @example 'rue'
-     */
+    /** @example 'rue' */
     public function streetPrefix(): string
     {
         return $this->randomizer->randomElement($this->streetPrefix);
@@ -180,8 +162,6 @@ class Address extends BaseAddress
      * Randomly returns a french region.
      *
      * @example 'Guadeloupe'
-     *
-     * @return string
      */
     public function region(): string
     {
@@ -192,8 +172,6 @@ class Address extends BaseAddress
      * Randomly returns a french department ('departmentNumber' => 'departmentName').
      *
      * @example array('2B' => 'Haute-Corse')
-     *
-     * @return array
      */
     public function department(): array
     {
@@ -203,9 +181,9 @@ class Address extends BaseAddress
     /**
      * Randomly returns a french department name.
      *
-     * @example 'Ardèche'
-     *
      * @return string
+     *
+     * @example 'Ardèche'
      */
     public function departmentName()
     {
@@ -217,9 +195,9 @@ class Address extends BaseAddress
     /**
      * Randomly returns a french department number.
      *
-     * @example '59'
-     *
      * @return string
+     *
+     * @example '59'
      */
     public function departmentNumber()
     {

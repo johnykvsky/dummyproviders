@@ -34,11 +34,7 @@ class Company extends BaseCompany
 
     protected array $companySuffix = ['科技', '网络', '信息', '传媒'];
 
-    /**
-     * @see blog.renren.com/share/223844062/2387611567
-     *
-     * @var array
-     */
+    /** @see blog.renren.com/share/223844062/2387611567 */
     protected array $catchPhrase = [
         '燕舞，燕舞，一曲歌来一片情。',
         '康师傅方便面，好吃看得见。',
@@ -276,5 +272,4 @@ class Company extends BaseCompany
 
         return $base17 . $check;
     }
-
 }

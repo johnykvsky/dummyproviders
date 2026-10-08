@@ -148,9 +148,7 @@ class PhoneNumber extends BasePhoneNumber
         return Regexify::regexify($regex);
     }
 
-    /**
-     * @example '0601020304'
-     */
+    /** @example '0601020304' */
     public function mobileNumber(): string
     {
         $format = $this->randomizer->randomElement($this->mobileFormats);
@@ -158,14 +156,11 @@ class PhoneNumber extends BasePhoneNumber
         return $this->replacer->numerify($this->generator->parse($format));
     }
 
-    /**
-     * @example '0891951357'
-     */
+    /** @example '0891951357' */
     public function serviceNumber()
     {
         $format = $this->randomizer->randomElement($this->serviceFormats);
 
         return $this->replacer->numerify($this->generator->parse($format));
     }
-
 }

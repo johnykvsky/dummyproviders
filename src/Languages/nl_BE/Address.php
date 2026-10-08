@@ -42,8 +42,6 @@ class Address extends BaseAddress
     /**
      * Export of BAG (http://bag.vrom.nl/)
      * last updated 2012/11/09
-     *
-     * @var array
      */
     protected array $cityNames = [
         'Aalst', 'Aarlen', 'Aarschot', 'Aat', 'Andenne', 'Antoing', 'Antwerpen', 'Bastenaken', 'Beringen',
@@ -110,20 +108,15 @@ class Address extends BaseAddress
         return $this->randomizer->randomElement($this->postcodes);
     }
 
-    /**
-     * @example 'Gelderland'
-     */
+    /** @example 'Gelderland' */
     public function state(): string
     {
         return $this->randomizer->randomElement($this->state);
     }
 
-    /**
-     * @see parent
-     */
+    /** @see parent */
     public function cityName(): string
     {
         return $this->randomizer->randomElement($this->cityNames);
     }
-
 }

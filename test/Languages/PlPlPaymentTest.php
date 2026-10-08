@@ -85,4 +85,13 @@ class PlPlPaymentTest extends TestCase
             self::assertSame(trim($bank), $bank, sprintf('Bank name "%s" is padded with whitespace', $bank));
         }
     }
+
+    public function testCurrency(): void
+    {
+        $generator = DummyGenerator::create()->withProvider(new PlPlDefinitionPack());
+
+        self::assertSame('PLN', $generator->currencyCode());
+        self::assertSame('zł', $generator->currencySymbol());
+        self::assertSame('Polski złoty', $generator->currencyName());
+    }
 }

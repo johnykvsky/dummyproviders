@@ -37,5 +37,4 @@ class Color extends BaseColor
         'Donkerstaalblauw', 'Groenblauw', 'Distel', 'Tomaat', 'Transparant', 'Turkoois',
         'Violet', 'Wit', 'Rookwit', 'Geel', 'Groengeel',
     ];
-
 }

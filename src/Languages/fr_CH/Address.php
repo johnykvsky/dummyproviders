@@ -17,9 +17,7 @@ class Address extends BaseAddress
         'Territoire britannique de l\'océan Indien', 'Territoires français du sud', 'Thailande', 'Timor', 'Togo', 'Tokelau', 'Tonga', 'Trinité et Tobago', 'Tunisie', 'Turkménistan', 'Turks et Caïques (Îles)', 'Turquie', 'Tuvalu', 'Ukraine', 'Uruguay', 'Vanuatu', 'Vatican (Etat du)', 'Venezuela', 'Vierges (Îles)', 'Vierges britanniques (Îles)', 'Vietnam', 'Wallis et Futuna (Îles)', 'Yemen', 'Yougoslavie', 'Zambie', 'Zaïre', 'Zimbabwe',
     ];
 
-    /**
-     * @see https://en.wikipedia.org/wiki/Regions_of_France
-     */
+    /** @see https://en.wikipedia.org/wiki/Regions_of_France */
     private array $regions = [
         'Auvergne-Rhône-Alpes', 'Bourgogne-Franche-Comté', 'Bretagne', 'Centre-Val de Loire', 'Corse', 'Grand Est', 'Hauts-de-France',
         'Île-de-France', 'Normandie', 'Nouvelle-Aquitaine', 'Occitanie', 'Pays de la Loire', "Provence-Alpes-Côte d'Azur",
@@ -57,9 +55,7 @@ class Address extends BaseAddress
 
     protected array $postcode = ['####'];
 
-    /**
-     * @see https://fr.wikipedia.org/wiki/Villes_de_Suisse
-     */
+    /** @see https://fr.wikipedia.org/wiki/Villes_de_Suisse */
     protected array $cityNames = [
         'Aarau', 'Aarberg', 'Aarburg', 'Agno', 'Aigle VD', 'Altdorf', 'Altstätten', 'Appenzell', 'Arbon', 'Ascona', 'Aubonne', 'Avenches',
         'Baden', 'Bad Zurzach', 'Bâle', 'Bellinzone', 'Berne', 'Beromünster', 'Berthoud', 'Biasca', 'Bienne', 'Bischofszell', 'Boudry', 'Bourg-Saint-Pierre', 'Bremgarten AG', 'Brigue', 'Brugg', 'Bulle', 'Bülach',
@@ -86,9 +82,7 @@ class Address extends BaseAddress
         'Zofingue', 'Zoug', 'Zurich',
     ];
 
-    /**
-     * @see https://fr.wikipedia.org/wiki/Canton_suisse
-     */
+    /** @see https://fr.wikipedia.org/wiki/Canton_suisse */
     protected array $canton = [
         ['AG' => 'Argovie'],
         ['AI' => 'Appenzell Rhodes-Intérieures'],
@@ -139,8 +133,6 @@ class Address extends BaseAddress
      * Returns a random street prefix
      *
      * @example Rue
-     *
-     * @return string
      */
     public function streetPrefix(): string
     {
@@ -151,8 +143,6 @@ class Address extends BaseAddress
      * Returns a random city name.
      *
      * @example Luzern
-     *
-     * @return string
      */
     public function cityName(): string
     {
@@ -162,9 +152,9 @@ class Address extends BaseAddress
     /**
      * Returns a canton
      *
-     * @example array('BE' => 'Bern')
-     *
      * @return array
+     *
+     * @example array('BE' => 'Bern')
      */
     public function canton(): string
     {
@@ -195,10 +185,7 @@ class Address extends BaseAddress
         return current($canton);
     }
 
-
-    /**
-     * @example 'Appt. 350'
-     */
+    /** @example 'Appt. 350' */
     public function secondaryAddress(): string
     {
         return $this->replacer->numerify($this->randomizer->randomElement($this->secondaryAddressFormats));
@@ -208,8 +195,6 @@ class Address extends BaseAddress
      * Randomly returns a french region.
      *
      * @example 'Guadeloupe'
-     *
-     * @return string
      */
     public function region(): string
     {
@@ -220,8 +205,6 @@ class Address extends BaseAddress
      * Randomly returns a french department ('departmentNumber' => 'departmentName').
      *
      * @example array('2B' => 'Haute-Corse')
-     *
-     * @return array
      */
     public function department(): array
     {
@@ -231,9 +214,9 @@ class Address extends BaseAddress
     /**
      * Randomly returns a french department name.
      *
-     * @example 'Ardèche'
-     *
      * @return string
+     *
+     * @example 'Ardèche'
      */
     public function departmentName()
     {
@@ -245,9 +228,9 @@ class Address extends BaseAddress
     /**
      * Randomly returns a french department number.
      *
-     * @example '59'
-     *
      * @return string
+     *
+     * @example '59'
      */
     public function departmentNumber()
     {

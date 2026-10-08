@@ -149,12 +149,11 @@ class PhoneNumber extends BasePhoneNumber
     /**
      * Generate a country calling code prefix.
      *
+     * @return string
+     *
      * @example Prefix an empty string: ''
      * @example Prefix the country calling code: '+30'
-     *
      * @internal Used to generate phone numbers with or without prefixes.
-     *
-     * @return string
      */
     public function internationalCodePrefix()
     {
@@ -173,8 +172,6 @@ class PhoneNumber extends BasePhoneNumber
      *
      * @example Thessaloniki has code '231', so '2310' and '2313' are valid.
      * @example Serres has code '232', but '2326', '2328' and '2329' are not valid.
-     *
-     * @return string
      */
     public function areaCode(): string
     {
@@ -191,14 +188,14 @@ class PhoneNumber extends BasePhoneNumber
      * Numbers in Athens use a 3-digit area code, and can be formatted as 21# ### ####.
      * Numbers in other areas use a 4-digit area code, and can be formatted as 2### ### ###.
      *
+     * @return string
+     *
      * @example A number in Athens: '2101234567'
      * @example A number in Thessaloniki: '2310123456'
      * @example A number with spaces in Athens: '210 123 4567'
      * @example A number with spaces in Thessaloniki: '2310 123 456'
      * @example A number with international code prefix: '+302101234567'
      * @example A number with international code prefix and spaces: '+30 2310 123 456'
-     *
-     * @return string
      */
     public function fixedLineNumber()
     {
@@ -210,9 +207,9 @@ class PhoneNumber extends BasePhoneNumber
     /**
      * Generate a code for a mobile number.
      *
-     * @internal Used to generate mobile numbers.
-     *
      * @return string
+     *
+     * @internal Used to generate mobile numbers.
      */
     public function mobileCode()
     {
@@ -226,8 +223,6 @@ class PhoneNumber extends BasePhoneNumber
      * @example A mobile number with spaces: '690 123 4567'
      * @example A mobile number with international code prefix: '+306901234567'
      * @example A mobile number with international code prefix and spaces: '+30 690 123 4567'
-     *
-     * @return string
      */
     public function mobileNumber(): string
     {
@@ -236,9 +231,6 @@ class PhoneNumber extends BasePhoneNumber
         )));
     }
 
-    /**
-     * @deprecated Use $this->generator->mobileNumber() instead.
-     */
     public function mobilePhoneNumber()
     {
         return $this->replacer->numerify(
@@ -252,12 +244,12 @@ class PhoneNumber extends BasePhoneNumber
     /**
      * Generate a personal number.
      *
+     * @return string
+     *
      * @example A personal number: '7012345678'
      * @example A personal number with spaces: '70 1234 5678'
      * @example A personal number with international code prefix: '+307012345678'
      * @example A personal number with international code prefix and spaces: '+30 70 1234 5678'
-     *
-     * @return string
      */
     public function personalNumber()
     {
@@ -269,12 +261,12 @@ class PhoneNumber extends BasePhoneNumber
     /**
      * Generate a toll-free number.
      *
+     * @return string
+     *
      * @example A toll-free number: '8001234567'
      * @example A toll-free number with spaces: '800 123 4567'
      * @example A toll-free number with international code prefix: '+308001234567'
      * @example A toll-free number with international code prefix and spaces: '+30 800 123 4567'
-     *
-     * @return string
      */
     public function tollFreeNumber()
     {
@@ -288,9 +280,9 @@ class PhoneNumber extends BasePhoneNumber
     /**
      * Generate a code for a shared-cost number.
      *
-     * @internal Used to generate shared-cost numbers.
-     *
      * @return string
+     *
+     * @internal Used to generate shared-cost numbers.
      */
     public function sharedCostCode()
     {
@@ -300,12 +292,12 @@ class PhoneNumber extends BasePhoneNumber
     /**
      * Generate a shared-cost number.
      *
+     * @return string
+     *
      * @example A shared-cost number: '8011234567'
      * @example A shared-cost number with spaces: '801 123 4567'
      * @example A shared-cost number with international code prefix: '+308011234567'
      * @example A shared-cost number with international code prefix and spaces: '+30 801 123 4567'
-     *
-     * @return string
      */
     public function sharedCostNumber()
     {
@@ -317,9 +309,9 @@ class PhoneNumber extends BasePhoneNumber
     /**
      * Generate a code for a premium-rate number.
      *
-     * @internal Used to generate premium-rate numbers.
-     *
      * @return string
+     *
+     * @internal Used to generate premium-rate numbers.
      */
     public function premiumRateCode()
     {
@@ -329,12 +321,12 @@ class PhoneNumber extends BasePhoneNumber
     /**
      * Generate a premium-rate number.
      *
+     * @return string
+     *
      * @example A premium-rate number: '9011234567'
      * @example A premium-rate number with spaces: '901 123 4567'
      * @example A premium-rate number with international code prefix: '+309011234567'
      * @example A premium-rate number with international code prefix and spaces: '+30 901 123 4567'
-     *
-     * @return string
      */
     public function premiumRateNumber()
     {
@@ -342,5 +334,4 @@ class PhoneNumber extends BasePhoneNumber
             $this->randomizer->randomElement($this->premiumRateFormats),
         )));
     }
-
 }

@@ -34,8 +34,6 @@ class PhoneNumber extends BasePhoneNumber
 
     /**
      * An array of en_IN mobile (cell) phone number formats
-     *
-     * @var array
      */
     protected array $mobileFormats = [
         '+91 9#########',
@@ -48,12 +46,9 @@ class PhoneNumber extends BasePhoneNumber
 
     /**
      * Return a en_IN mobile phone number
-     *
-     * @return string
      */
     public function mobileNumber(): string
     {
         return $this->replacer->numerify($this->randomizer->randomElement($this->mobileFormats));
     }
-
 }

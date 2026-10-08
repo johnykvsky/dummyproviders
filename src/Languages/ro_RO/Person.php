@@ -119,20 +119,18 @@ class Person extends BasePerson
     /**
      * Personal Numerical Code (CNP)
      *
-     * @see http://ro.wikipedia.org/wiki/Cod_numeric_personal
-     *
-     * @example 1111111111118
-     *
      * @param string|null $gender      Person::GENDER_MALE or Person::GENDER_FEMALE
      * @param string|null $dateOfBirth (1800-2099) 'Y-m-d', 'Y-m', 'Y'  I.E. '1981-06-16', '2085-03', '1900'
      * @param string|null $county      county code where the CNP was issued
      * @param bool|null   $isResident  flag if the person resides in Romania
-     *
      * @return string 13 digits CNP code
+     *
+     * @see http://ro.wikipedia.org/wiki/Cod_numeric_personal
+     * @example 1111111111118
      */
     public function cnp($gender = null, $dateOfBirth = null, $county = null, $isResident = true)
     {
-        $genders = [Person::GENDER_MALE, Person::GENDER_FEMALE];
+        $genders = [self::GENDER_MALE, self::GENDER_FEMALE];
 
         if (empty($gender)) {
             $gender = $this->randomizer->randomElement($genders);
@@ -153,8 +151,7 @@ class Person extends BasePerson
         $cnp = (string) $this->getGenderDigit($date, $gender, $isResident)
             . $date->format('ymd')
             . $countyCode
-            . $this->replacer->numerify('##%')
-        ;
+            . $this->replacer->numerify('##%');
 
         $checksum = $this->getChecksumDigit($cnp);
 
@@ -163,26 +160,24 @@ class Person extends BasePerson
 
     /**
      * @param string|null $dateOfBirth
-     *
      * @return \DateTime
      */
     protected function getDateOfBirth($dateOfBirth)
     {
-        if (empty($dateOfBirth)) {
-            $dateOfBirthParts = [$this->randomizer->getInt(1800, 2099)];
-        } else {
-            $dateOfBirthParts = explode('-', $dateOfBirth);
-        }
+        $dateOfBirthParts = empty($dateOfBirth) ? [$this->randomizer->getInt(1800, 2099)] : explode('-', $dateOfBirth);
+
         $baseDate = $this->generator->dateTimeBetween("first day of January {$dateOfBirthParts[0]}", "last day of December {$dateOfBirthParts[0]}");
 
         switch (count($dateOfBirthParts)) {
             case 1:
                 $dateOfBirthParts[] = $baseDate->format('m');
                 //don't break, we need the day also
+
                 // no break
             case 2:
                 $dateOfBirthParts[] = $baseDate->format('d');
                 //don't break, next line will
+
                 // no break
             case 3:
                 break;
@@ -211,7 +206,6 @@ class Person extends BasePerson
      *
      * @param bool   $isResident
      * @param string $gender
-     *
      * @return int
      */
     protected function getGenderDigit(\DateTime $dateOfBirth, $gender, $isResident)
@@ -221,7 +215,7 @@ class Person extends BasePerson
         }
 
         if ($dateOfBirth->format('Y') < 1900) {
-            if ($gender == Person::GENDER_MALE) {
+            if ($gender == self::GENDER_MALE) {
                 return 3;
             }
 
@@ -229,14 +223,14 @@ class Person extends BasePerson
         }
 
         if ($dateOfBirth->format('Y') < 2000) {
-            if ($gender == Person::GENDER_MALE) {
+            if ($gender == self::GENDER_MALE) {
                 return 1;
             }
 
             return 2;
         }
 
-        if ($gender == Person::GENDER_MALE) {
+        if ($gender == self::GENDER_MALE) {
             return 5;
         }
 
@@ -247,7 +241,6 @@ class Person extends BasePerson
      * Calculates a checksum for the Personal Numerical Code (CNP).
      *
      * @param string $value 12 digit CNP
-     *
      * @return int checksum digit
      */
     protected function getChecksumDigit(string $value): int
@@ -259,6 +252,7 @@ class Person extends BasePerson
         foreach (range(0, 11) as $digit) {
             $checksum += (int) substr($value, $digit, 1) * (int) substr($checkNumber, $digit, 1);
         }
+
         $checksum %= 11;
 
         return $checksum == 10 ? 1 : $checksum;

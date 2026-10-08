@@ -43,9 +43,7 @@ class Person extends BasePerson
         parent::__construct($randomizer, $generator);
     }
 
-    /**
-     * @see http://www.bfs.admin.ch/bfs/portal/de/index/themen/01/02/blank/dos/prenoms/02.html
-     */
+    /** @see http://www.bfs.admin.ch/bfs/portal/de/index/themen/01/02/blank/dos/prenoms/02.html */
     protected array $firstNameMale = [
         'Aaron', 'Adriano', 'Alain', 'Alan', 'Alberto', 'Aldo', 'Alessandro', 'Alessio', 'Alex', 'Alexander', 'Alfredo', 'Andrea', 'Andreas', 'André', 'Angelo', 'Antonino', 'Antonio', 'Aris', 'Armando', 'Arturo', 'Athos', 'Attilio', 'Augusto', 'Aurelio',
         'Boris', 'Bruno',
@@ -70,9 +68,7 @@ class Person extends BasePerson
         'Walter', 'Werner',
     ];
 
-    /**
-     * @see http://www.bfs.admin.ch/bfs/portal/de/index/themen/01/02/blank/dos/prenoms/02.html
-     */
+    /** @see http://www.bfs.admin.ch/bfs/portal/de/index/themen/01/02/blank/dos/prenoms/02.html */
     protected array $firstNameFemale = [
         'Ada', 'Adele', 'Adriana', 'Agnese', 'Alessandra', 'Alessia', 'Alexandra', 'Alice', 'Aline', 'Ana', 'Andrea', 'Angela', 'Angelina', 'Anita', 'Anna', 'Annamaria', 'Antonella', 'Antonia', 'Antonietta', 'Arianna', 'Asia', 'Aurora',
         'Barbara', 'Beatrice', 'Bianca', 'Brigitte', 'Bruna',
@@ -97,9 +93,7 @@ class Person extends BasePerson
         'Yvonne',
     ];
 
-    /**
-     * @see http://blog.tagesanzeiger.ch/datenblog/index.php/6859
-     */
+    /** @see http://blog.tagesanzeiger.ch/datenblog/index.php/6859 */
     protected array $lastName = [
         'Agustoni', 'Alberti', 'Albertini', 'Albisetti', 'Ambrosini', 'Antonini',
         'Balestra', 'Balmelli', 'Bassetti', 'Bassi', 'Baumann', 'Beffa', 'Belotti', 'Beretta', 'Bernasconi', 'Berta', 'Besomi', 'Bettosini', 'Bianchi', 'Bianda', 'Bizzozero', 'Bonetti', 'Botta', 'Bottinelli', 'Brunner', 'Butti',
@@ -151,9 +145,7 @@ class Person extends BasePerson
         return (10 - $sums % 10) % 10;
     }
 
-    /**
-     * @example 'PhD'
-     */
+    /** @example 'PhD' */
     public function suffix(): string
     {
         return $this->randomizer->randomElement($this->suffix);
@@ -162,9 +154,9 @@ class Person extends BasePerson
     /**
      * TaxCode (CodiceFiscale)
      *
-     * @see https://it.wikipedia.org/wiki/Codice_fiscale
-     *
      * @return string
+     *
+     * @see https://it.wikipedia.org/wiki/Codice_fiscale
      */
     public function taxId()
     {

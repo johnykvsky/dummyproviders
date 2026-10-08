@@ -65,8 +65,6 @@ class Address extends BaseAddress
     /**
      * Export of BAG (http://bag.vrom.nl/)
      * last updated 2012/11/09
-     *
-     * @var array
      */
     protected array $cityNames = [
         "'s Gravenmoer", "'s-Graveland", "'s-Gravendeel", "'s-Gravenhage", "'s-Gravenpolder", "'s-Gravenzande", "'s-Heer Abtskerke", "'s-Heer Arendskerke", "'s-Heer Hendrikskinderen", "'s-Heerenberg", "'s-Heerenbroek", "'s-Heerenhoek", "'s-Hertogenbosch", "'t Goy", "'t Haantje", "'t Harde", "'t Loo Oldebroek", "'t Veld", "'t Waar", "'t Zand", "'t Zandt", '2e Valthermond',
@@ -126,25 +124,19 @@ class Address extends BaseAddress
         'Zambia', 'Zuid-Afrika', 'Zuid-Georgia en de Zuidelijke Sandwicheilanden', 'Zimbabwe',
     ];
 
-    /**
-     * @see parent
-     */
+    /** @see parent */
     public function buildingNumber(): string
     {
         return $this->replacer->bothify($this->randomizer->randomElement($this->buildingNumber));
     }
 
-    /**
-     * @example 'Gelderland'
-     */
+    /** @example 'Gelderland' */
     public function state(): string
     {
         return $this->randomizer->randomElement($this->state);
     }
 
-    /**
-     * @see parent
-     */
+    /** @see parent */
     public function cityName(): string
     {
         return $this->randomizer->randomElement($this->cityNames);
@@ -154,5 +146,4 @@ class Address extends BaseAddress
     {
         return $this->randomizer->randomElement($this->postcodes);
     }
-
 }

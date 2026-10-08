@@ -54,4 +54,13 @@ class DeDeTest extends TestCase
             }
         }
     }
+
+    public function testCurrency(): void
+    {
+        $generator = DummyGenerator::create()->withProvider(new DeDeDefinitionPack());
+
+        self::assertSame('EUR', $generator->currencyCode());
+        self::assertSame('€', $generator->currencySymbol());
+        self::assertSame('Euro', $generator->currencyName());
+    }
 }

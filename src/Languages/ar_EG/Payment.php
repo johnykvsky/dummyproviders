@@ -13,9 +13,8 @@ class Payment extends BasePayment
      *
      * @see https://www.upiqrcode.com/iban-generator/eg/egypt
      */
-    public function bankAccountNumber() : string
+    public function bankAccountNumber(): string
     {
         return $this->iban('EG', '', 25);
     }
-
 }

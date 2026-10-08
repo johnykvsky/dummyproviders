@@ -50,5 +50,4 @@ class Person extends BasePerson
     protected array $titleMale = ['M.', 'Dr.', 'Pr.', 'Me.', 'Mgr'];
 
     protected array $titleFemale = ['Mme.', 'Mlle', 'Dr.', 'Pr.', 'Me.'];
-
 }

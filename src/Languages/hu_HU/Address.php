@@ -29,41 +29,31 @@ class Address extends BaseAddress
     ];
     protected array $secondaryAddressFormats = ['##. emelet', '##. ajtó'];
 
-    /**
-     * @example '10. emelet'
-     */
+    /** @example '10. emelet' */
     public function secondaryAddress(): string
     {
         return $this->replacer->numerify($this->randomizer->randomElement($this->secondaryAddressFormats));
     }
 
-    /**
-     * @example 'Pest'
-     */
+    /** @example 'Pest' */
     public function state(): string
     {
         return $this->randomizer->randomElement($this->state);
     }
 
-    /**
-     * @example 'Budapest'
-     */
+    /** @example 'Budapest' */
     public function capital()
     {
         return $this->randomizer->randomElement($this->capitals);
     }
 
-    /**
-     * @example 'Pécs'
-     */
+    /** @example 'Pécs' */
     public function bigCity()
     {
         return $this->randomizer->randomElement($this->bigCities);
     }
 
-    /**
-     * @example 'Várpalota'
-     */
+    /** @example 'Várpalota' */
     public function smallerCity()
     {
         return $this->randomizer->randomElement($this->smallerCities);
@@ -74,9 +64,9 @@ class Address extends BaseAddress
     /**
      * Coordinates inside the border of Hungary
      *
-     * @example array('47.049242', '18.355119')
-     *
      * @return array | latitude, longitude
+     *
+     * @example array('47.049242', '18.355119')
      */
     public function localCoordinates()
     {
@@ -149,5 +139,4 @@ class Address extends BaseAddress
         'Vác', 'Várpalota', 'Vásárosnamény', 'Vasvár', 'Vecsés',
         'Záhony', 'Zalaszentgrót', 'Zirc',
     ];
-
 }

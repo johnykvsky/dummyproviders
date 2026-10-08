@@ -56,16 +56,12 @@ class Address extends BaseAddress
         'Švedija', 'Šveicarija', 'Šventasis Vincentas ir Grenadinai', 'Švento Baltramiejaus sala', 'Šventoji Elena',
         'Šventoji Liucija', 'Žaliasis Kyšulys', ];
 
-    /**
-     * @see https://lt.wikipedia.org/wiki/Lietuvos_etnokult%C5%ABriniai_regionai
-     */
+    /** @see https://lt.wikipedia.org/wiki/Lietuvos_etnokult%C5%ABriniai_regionai */
     protected array $region = [
         'Aukštaitija', 'Dzūkija', 'Suvalkija', 'Žemaitija',
     ];
 
-    /**
-     * @see https://lt.wikipedia.org/wiki/S%C4%85ra%C5%A1as:Lietuvos_miestai_pagal_gyventojus
-     */
+    /** @see https://lt.wikipedia.org/wiki/S%C4%85ra%C5%A1as:Lietuvos_miestai_pagal_gyventojus */
     protected array $city = ['Vilnius', 'Kaunas', 'Klaipėda', 'Šiauliai', 'Panevėžys',
         'Alytus', 'Marijampolė', 'Mažeikiai', 'Jonava', 'Utena', 'Kėdainiai', 'Telšiai', 'Visaginas', 'Tauragė',
         'Ukmergė',
@@ -81,9 +77,7 @@ class Address extends BaseAddress
         '{{street}} {{streetSuffix}} {{buildingNumber}}, {{city}} {{postcode}}',
     ];
 
-    /**
-     * @see https://en.wikipedia.org/wiki/Municipalities_of_Lithuania
-     */
+    /** @see https://en.wikipedia.org/wiki/Municipalities_of_Lithuania */
     private array $municipality = [
         'Akmenės rajono savivaldybė',
         'Alytaus miesto savivaldybė',
@@ -203,12 +197,9 @@ class Address extends BaseAddress
      * Lithuania municipality
      *
      * @see https://en.wikipedia.org/wiki/Municipality
-     *
-     * @return string
      */
     public function municipality(): string
     {
         return $this->randomizer->randomElement($this->municipality);
     }
-
 }

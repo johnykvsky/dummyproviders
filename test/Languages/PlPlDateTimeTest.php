@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types=1);
+declare(strict_types = 1);
 
 namespace DummyGenerator\Provider\Test\Languages;
 
@@ -25,6 +25,17 @@ class PlPlDateTimeTest extends TestCase
     {
         $generator = DummyGenerator::create()->withProvider(new PlPlDefinitionPack());
         $monthNameGenitive = $generator->monthNameGenitive();
+
+        self::assertContains($monthNameGenitive, [
+            'stycznia', 'lutego', 'marca', 'kwietnia', 'maja', 'czerwca', 'lipca',
+            'sierpnia', 'września', 'października', 'listopada', 'grudnia',
+        ]);
+    }
+
+    public function testMonthNameGenitiveWithUntil(): void
+    {
+        $generator = DummyGenerator::create()->withProvider(new PlPlDefinitionPack());
+        $monthNameGenitive = $generator->monthNameGenitive(until: '2023-05-15');
 
         self::assertContains($monthNameGenitive, [
             'stycznia', 'lutego', 'marca', 'kwietnia', 'maja', 'czerwca', 'lipca',
@@ -58,7 +69,7 @@ class PlPlDateTimeTest extends TestCase
 
         self::assertMatchesRegularExpression(
             '/^\d{1,2}\. (stycznia|lutego|marca|kwietnia|maja|czerwca|lipca|sierpnia|września|października|listopada|grudnia) \d{4}$/u',
-            $formattedDate
+            $formattedDate,
         );
     }
 }

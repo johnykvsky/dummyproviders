@@ -23,9 +23,7 @@ class Person extends BasePerson
         '{{firstNameFemale}} {{firstNameMale}} {{lastName}}',
     ];
 
-    /**
-     * @see http://www.indiaonlinepages.com/babynames/
-     */
+    /** @see http://www.indiaonlinepages.com/babynames/ */
     protected array $firstNameMale = [
         'Aayushman', 'Amrit', 'Anand', 'Abhinav', 'Anil', 'Animesh', 'Arpit', 'Akhil', 'Ajinkya', 'Aniruddh', 'Arun', 'Atul', 'Ajay', 'Abhishek', 'Aditya', 'Ajeet', 'Akshay', 'Arjun', 'Arvind', 'Aadil', 'Aadish', 'Amir', 'Aarif', 'Aatif', 'Abbas', 'Abdul', 'Aslam', 'Azhar', 'Anees', 'Alex', 'Albert',
         'Bahadur', 'Baldev', 'Baalkrishan', 'Balaji', 'Bharat', 'Bhola', 'Bijoy', 'Binod', 'Biren', 'Bishnu', 'Baber', 'Binoya', 'Brock',
@@ -79,9 +77,7 @@ class Person extends BasePerson
         'Zeenat', 'Zara',
     ];
 
-    /**
-     * @see http://genealogy.familyeducation.com/browse/origin/indian
-     */
+    /** @see http://genealogy.familyeducation.com/browse/origin/indian */
     protected array $lastName = [
         'Acharya', 'Agarwal', 'Agate', 'Aggarwal', 'Agrawal', 'Ahluwalia', 'Ahuja', 'Amble', 'Amin', 'Anand', 'Andra', 'Anne', 'Anthony', 'Apte', 'Arora', 'Arya', 'Atwal', 'Aurora',
         'Babu', 'Badal', 'Badami', 'Bahl', 'Bahri', 'Bail', 'Bains', 'Bajaj', 'Bajwa', 'Bakshi', 'Bal', 'Bala', 'Balakrishnan', 'Balan', 'Balasubramanian', 'Balay', 'Bali', 'Bandi', 'Banerjee', 'Banik', 'Bansal', 'Barad', 'Baral', 'Baria', 'Barman', 'Basak', 'Bassi', 'Basu', 'Bath', 'Batra', 'Batta', 'Bava', 'Bawa', 'Bedi', 'Beharry', 'Behl', 'Ben', 'Bera', 'Bhagat', 'Bhakta', 'Bhalla', 'Bhandari', 'Bhardwaj', 'Bhargava', 'Bhasin', 'Bhat', 'Bhatia', 'Bhatnagar', 'Bhatt', 'Bhattacharyya', 'Bhatti', 'Bhavsar', 'Bir', 'Biswas', 'Biyani', 'Binnani', 'Boase', 'Bobal', 'Bora', 'Borah', 'Borde', 'Borra', 'Bose', 'Brahmbhatt', 'Brar', 'Buch', 'Bumb', 'Butala',
@@ -108,9 +104,7 @@ class Person extends BasePerson
         'Zacharia', 'Zachariah',
     ];
 
-    /**
-     * @see http://www.indianchild.com/indian_middle_names.htm
-     */
+    /** @see http://www.indianchild.com/indian_middle_names.htm */
     protected array $middleNameMale = [
         'Dev', 'Chandra', 'Kumar', 'Lal', 'Prasad', 'Raj', 'Singh', 'Rao', 'Ram', 'Pratap', 'Bhai',
     ];
@@ -118,9 +112,9 @@ class Person extends BasePerson
     /**
      * Return male middle name
      *
-     * @example 'Kumar'
-     *
      * @return string Middle name
+     *
+     * @example 'Kumar'
      */
     public function middleNameMale(): string
     {
@@ -187,6 +181,7 @@ class Person extends BasePerson
         for ($i = 0; $i < 11; $i++) {
             $c = $d[$c][$p[($i + 1) % 8][(int) $rev[$i]]];
         }
+
         $check = (string) $inv[$c];
         $full = $digits . $check;
 
@@ -194,5 +189,4 @@ class Person extends BasePerson
             ? (substr($full, 0, 4) . ' ' . substr($full, 4, 4) . ' ' . substr($full, 8, 4))
             : $full;
     }
-
 }

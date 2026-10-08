@@ -104,11 +104,10 @@ class Person extends BasePerson
     /**
      * National Personal Identity Number (Henkilötunnus)
      *
-     * @see http://www.finlex.fi/fi/laki/ajantasa/2010/20100128
-     *
      * @param string $gender Person::GENDER_MALE || Person::GENDER_FEMALE
-     *
      * @return string on format DDMMYYCZZZQ, where DDMMYY is the date of birth, C the century sign, ZZZ the individual number and Q the control character (checksum)
+     *
+     * @see http://www.finlex.fi/fi/laki/ajantasa/2010/20100128
      */
     public function personalIdentityNumber(?\DateTimeInterface $birthdate = null, $gender = null): string
     {
@@ -117,6 +116,7 @@ class Person extends BasePerson
         if (!$birthdate) {
             $birthdate = $this->generator->dateTimeThisCentury();
         }
+
         $datePart = $birthdate->format('dmy');
 
         switch ((int) ($birthdate->format('Y') / 100)) {
@@ -160,6 +160,7 @@ class Person extends BasePerson
                 $randomDigits .= (string) $this->replacer->numerify('#');
             }
         }
+
         $randomDigits = str_pad($randomDigits, 3, '0', STR_PAD_LEFT);
 
         $checksum = $checksumCharacters[(int) ($datePart . $randomDigits) % strlen($checksumCharacters)];

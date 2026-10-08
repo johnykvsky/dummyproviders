@@ -53,4 +53,16 @@ class TrTrTest extends TestCase
         self::assertTrue($generator->tcNoIsValid('19090909018'));
         self::assertFalse($generator->tcNoIsValid('19090909019'));
     }
+
+    public function testDateTime(): void
+    {
+        $generator = DummyGenerator::create()->withProvider(new TrTrDefinitionPack());
+
+        self::assertContains($generator->amPm(), ['öö', 'ös']);
+        self::assertContains($generator->dayOfWeek(), ['Pazar', 'Pazartesi', 'Salı', 'Çarşamba', 'Perşembe', 'Cuma', 'Cumartesi']);
+        self::assertContains($generator->monthName(), [
+            'Ocak', 'Şubat', 'Mart', 'Nisan', 'Mayıs', 'Haziran',
+            'Temmuz', 'Ağustos', 'Eylül', 'Ekim', 'Kasım', 'Aralık',
+        ]);
+    }
 }

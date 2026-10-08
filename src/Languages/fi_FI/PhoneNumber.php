@@ -8,11 +8,7 @@ use DummyGenerator\Core\PhoneNumber as BasePhoneNumber;
 
 class PhoneNumber extends BasePhoneNumber
 {
-    /**
-     * @see https://www.viestintavirasto.fi/en/internettelephone/numberingoftelecommunicationsnetworks/localcallsandtelecommunicationsareas/mapoftelecommunicationsareas.html
-     *
-     * @var array
-     */
+    /** @see https://www.viestintavirasto.fi/en/internettelephone/numberingoftelecommunicationsnetworks/localcallsandtelecommunicationsareas/mapoftelecommunicationsareas.html */
     protected array $landLineareaCodes = [
         '02',
         '03',
@@ -29,11 +25,7 @@ class PhoneNumber extends BasePhoneNumber
         '019',
     ];
 
-    /**
-     * @see https://www.viestintavirasto.fi/en/internettelephone/numberingoftelecommunicationsnetworks/mobilenetworks/mobilenetworkareacodes.html
-     *
-     * @var array
-     */
+    /** @see https://www.viestintavirasto.fi/en/internettelephone/numberingoftelecommunicationsnetworks/mobilenetworks/mobilenetworkareacodes.html */
     protected array $mobileNetworkAreaCodes = [
         '040',
         '050',
@@ -55,52 +47,39 @@ class PhoneNumber extends BasePhoneNumber
         '{{ landLineAreaCode }}{{ separator }}{{ numberFormat }}',
     ];
 
-    /**
-     * @return string
-     */
+    /** @return string */
     public function landLineAreaCode()
     {
         return $this->randomizer->randomElement($this->landLineareaCodes);
     }
 
-    /**
-     * @return string
-     */
+    /** @return string */
     public function e164landLineAreaCode()
     {
         return substr($this->randomizer->randomElement($this->landLineareaCodes), 1);
     }
 
-    /**
-     * @return string
-     */
+    /** @return string */
     public function mobileNetworkAreaCode()
     {
         return $this->randomizer->randomElement($this->mobileNetworkAreaCodes);
     }
 
-    /**
-     * @return string
-     */
+    /** @return string */
     public function e164MobileNetworkAreaCode()
     {
         return substr($this->randomizer->randomElement($this->mobileNetworkAreaCodes), 1);
     }
 
-    /**
-     * @return string
-     */
+    /** @return string */
     public function numberFormat()
     {
         return $this->randomizer->randomElement($this->numberFormats);
     }
 
-    /**
-     * @return string
-     */
+    /** @return string */
     public function separator()
     {
         return $this->randomizer->randomElement([' ', '-']);
     }
-
 }

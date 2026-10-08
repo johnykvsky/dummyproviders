@@ -36,9 +36,7 @@ class Person extends BasePerson
 
     protected array $suffix = ['B.Sc.', 'B.A.', 'B.Eng.', 'MBA.'];
 
-    /**
-     * @see http://www.bfs.admin.ch/bfs/portal/de/index/themen/01/02/blank/dos/prenoms/02.html
-     */
+    /** @see http://www.bfs.admin.ch/bfs/portal/de/index/themen/01/02/blank/dos/prenoms/02.html */
     protected array $firstNameMale = [
         'Adrian', 'Alain', 'Albert', 'Alessandro', 'Alex', 'Alexander', 'Alfred', 'Ali', 'Alois', 'Andrea', 'Andreas', 'Andrin', 'André', 'Angelo', 'Anton', 'Antonio', 'Armin', 'Arnold', 'Arthur',
         'Beat', 'Benjamin', 'Bernhard', 'Bruno',
@@ -64,9 +62,7 @@ class Person extends BasePerson
         'Yannick', 'Yves',
     ];
 
-    /**
-     * @see http://www.bfs.admin.ch/bfs/portal/de/index/themen/01/02/blank/dos/prenoms/02.html
-     */
+    /** @see http://www.bfs.admin.ch/bfs/portal/de/index/themen/01/02/blank/dos/prenoms/02.html */
     protected array $firstNameFemale = [
         'Adelheid', 'Agnes', 'Alessia', 'Alexandra', 'Alice', 'Alina', 'Aline', 'Ana', 'Andrea', 'Angela', 'Angelika', 'Anita', 'Anja', 'Anna', 'Annemarie', 'Antonia', 'Astrid',
         'Barbara', 'Beatrice', 'Beatrix', 'Bernadette', 'Bertha', 'Bettina', 'Brigitta', 'Brigitte',
@@ -91,9 +87,7 @@ class Person extends BasePerson
         'Yvonne',
     ];
 
-    /**
-     * @see http://blog.tagesanzeiger.ch/datenblog/index.php/6859
-     */
+    /** @see http://blog.tagesanzeiger.ch/datenblog/index.php/6859 */
     protected array $lastName = [
         'Achermann', 'Ackermann', 'Aeschlimann', 'Ammann', 'Arnold',
         'Bachmann', 'Baumann', 'Baumgartner', 'Beck', 'Benz', 'Berger', 'Betschart', 'Bieri', 'Bischof', 'Blaser', 'Blum', 'Bolliger', 'Bosshard', 'Brunner', 'Bucher', 'Burri', 'Bärtschi', 'Bösch', 'Bühler', 'Bühlmann', 'Bürgi', 'Bürki',
@@ -155,9 +149,7 @@ class Person extends BasePerson
         return (10 - $sums % 10) % 10;
     }
 
-    /**
-     * @example 'PhD'
-     */
+    /** @example 'PhD' */
     public function suffix(): string
     {
         return $this->randomizer->randomElement($this->suffix);

@@ -24,16 +24,12 @@ class Address extends BaseAddress
         '{{streetName}}, {{buildingNumber}}, {{secondaryAddress}}',
     ];
 
-    /**
-     * @see http://www.univ-ab.pt/PINTAC/carta_normas.htm address example in letters *
-     */
+    /** @see http://www.univ-ab.pt/PINTAC/carta_normas.htm address example in letters * */
     protected array $addressFormats = [
         '{{streetAddress}} {{postcode}} {{city}}',
     ];
 
-    /**
-     * @see http://www.mapadeportugal.net/indicecidades.asp *
-     */
+    /** @see http://www.mapadeportugal.net/indicecidades.asp * */
     private array $cities = [
         'Abrantes', 'Agualva-Cacém', 'Águeda', 'Albufeira', 'Alcácer do Sal', 'Alcobaça', 'Almada', 'Almeirim', 'Alverca do Ribatejo', 'Amadora', 'Amarante', 'Amora', 'Anadia', 'Angra do Heroísmo', 'Aveiro', 'Barcelos', 'Barreiro',
         'Beja', 'Braga', 'Bragança', 'Caldas da Rainha', 'Camara de Lobos', 'Cantanhede', 'Cartaxo', 'Castelo Branco', 'Chaves', 'Coimbra', 'Covilhã', 'Elvas', 'Entroncamento', 'Ermesinde', 'Esmoriz', 'Espinho', 'Esposende', 'Estarreja',
@@ -62,17 +58,13 @@ class Address extends BaseAddress
         '%º Esq.', '%#º Esq.', '%º Eq.', '%#º Eq.',
     ];
 
-    /**
-     * @example '6º Dir.'
-     */
+    /** @example '6º Dir.' */
     public function secondaryAddress(): string
     {
         return $this->replacer->numerify($this->randomizer->randomElement($this->secondaryAddressFormats));
     }
 
-    /**
-     * @see http://www.indexmundi.com/pt/ *
-     */
+    /** @see http://www.indexmundi.com/pt/ * */
     protected array $country = [
         'Afeganistão', 'África do Sul', 'Albânia', 'Alemanha', 'Andorra',
         'Angola', 'Antigua e Barbuda', 'Arabia Saudita', 'Argélia',
@@ -116,20 +108,15 @@ class Address extends BaseAddress
         'Zimbábue',
     ];
 
-    /**
-     * @example 'Avenida' ' Rua'
-     */
+    /** @example 'Avenida' ' Rua' */
     public function streetPrefix(): string
     {
         return $this->randomizer->randomElement($this->streetPrefix);
     }
 
-    /**
-     * @example 'Aveiro' 'Oliveira de Azeméis'
-     */
+    /** @example 'Aveiro' 'Oliveira de Azeméis' */
     public function city(): string
     {
         return $this->randomizer->randomElement($this->cities);
     }
-
 }

@@ -102,5 +102,4 @@ class Person extends BasePerson
     {
         return $this->randomizer->randomElement($this->lastNameFemaleMarried);
     }
-
 }

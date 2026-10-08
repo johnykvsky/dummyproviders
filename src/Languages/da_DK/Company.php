@@ -19,9 +19,7 @@ class Company extends BaseCompany
         parent::__construct($randomizer, $generator);
     }
 
-    /**
-     * @var array Danish company name formats.
-     */
+    /** @var array Danish company name formats. */
     protected array $formats = [
         '{{lastName}} {{companySuffix}}',
         '{{lastName}} {{companySuffix}}',
@@ -41,29 +39,25 @@ class Company extends BaseCompany
         '{{middleName}} og {{lastName}}',
     ];
 
-    /**
-     * @var array Company suffixes.
-     */
+    /** @var array Company suffixes. */
     protected array $companySuffix = ['ApS', 'A/S', 'I/S', 'K/S'];
 
     /**
-     * @see http://cvr.dk/Site/Forms/CMS/DisplayPage.aspx?pageid=60
-     *
      * @var string CVR number format.
+     *
+     * @see http://cvr.dk/Site/Forms/CMS/DisplayPage.aspx?pageid=60
      */
     protected string $cvrFormat = '%#######';
 
     /**
-     * @see http://cvr.dk/Site/Forms/CMS/DisplayPage.aspx?pageid=60
-     *
      * @var string P number (production number) format.
+     *
+     * @see http://cvr.dk/Site/Forms/CMS/DisplayPage.aspx?pageid=60
      */
     protected string $pFormat = '%#########';
 
     /**
      * Generates a CVR number (8 digits).
-     *
-     * @return string
      */
     public function cvr(): string
     {

@@ -55,15 +55,11 @@ class Address extends BaseAddress
 
     /**
      * An array of en_NZ (New Zealand) building number formats
-     *
-     * @var array
      */
     protected array $buildingNumber = ['%', '%#', '%##'];
 
     /**
      * An array of en_NZ (New Zealand) street suffixes
-     *
-     * @var array
      */
     protected array $streetSuffix = [
         'Avenue', 'Close', 'Court', 'Crescent', 'Drive', 'Esplanade', 'Grove', 'Heights', 'Highway', 'Hill', 'Lane', 'Line', 'Mall', 'Parade', 'Place', 'Quay', 'Rise', 'Road', 'Square', 'Street', 'Terrace', 'Way',
@@ -71,15 +67,11 @@ class Address extends BaseAddress
 
     /**
      * City suffixes
-     *
-     * @var array
      */
     protected array $citySuffix = ['ville', 'ston'];
 
     /**
      * City formats
-     *
-     * @var array
      */
     protected array $cityFormats = ['{{firstName}}{{citySuffix}}'];
 
@@ -87,8 +79,6 @@ class Address extends BaseAddress
      * An array of en_NZ (New Zealand) regions
      *
      * @see http://en.wikipedia.org/wiki/Regions_of_New_Zealand
-     *
-     * @var array
      */
     protected array $region = [
         'Auckland', 'Bay of Plenty', 'Canterbury', 'Gisborne', 'Hawkes Bay', 'Manawatu-Whanganui', 'Marlborough', 'Nelson', 'Northland', 'Otago', 'Southland', 'Taranaki', 'Tasman', 'Waikato', 'Wellington', 'West Coast',
@@ -96,29 +86,21 @@ class Address extends BaseAddress
 
     /**
      * An array of en_NZ (New Zealand) poscode formats
-     *
-     * @var array
      */
     protected array $postcode = ['####'];
 
     /**
      * An array of en_NZ (New Zealand) address formats
-     *
-     * @var array
      */
     protected array $addressFormats = ['{{buildingNumber}} {{streetName}}, {{city}}, {{region}}, {{postcode}}'];
 
     /**
      * An array of en_NZ (New Zealand) street address formats
-     *
-     * @var array
      */
     protected array $streetAddressFormats = ['{{buildingNumber}} {{streetName}}'];
 
     /**
      * Return a en_NZ (New Zealand) postcode
-     *
-     * @return string
      */
     public function postcode(): string
     {
@@ -127,8 +109,6 @@ class Address extends BaseAddress
 
     /**
      * Return a en_NZ (New Zealand) region
-     *
-     * @return string
      */
     public function region(): string
     {

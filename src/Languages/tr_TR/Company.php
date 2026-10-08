@@ -35,7 +35,6 @@ class Company extends BaseCompany
 
     /**
      * @see https://tr.wikipedia.org/wiki/Meslekler_listesi
-     *
      * @note Randomly took 300 from this list
      */
     protected array $jobTitleFormat = [
@@ -125,12 +124,13 @@ class Company extends BaseCompany
                 if ($c2 === 0) {
                     $c2 = 9;
                 }
+
                 $s += $c2;
             }
         }
+
         $check = (10 - ($s % 10)) % 10;
 
         return $base . $check;
     }
-
 }

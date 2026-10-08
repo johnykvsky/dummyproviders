@@ -51,6 +51,7 @@ class Company extends BaseCompany
         for ($i = 0; $i < 9; $i++) {
             $sum += ((int) $digits[$i]) * $weights[$i];
         }
+
         $sum += intdiv(((int) $digits[8]) * 5, 10);
 
         $check = (10 - ($sum % 10)) % 10;
@@ -61,12 +62,9 @@ class Company extends BaseCompany
             : $full;
     }
 
-    /**
-     * @example '124-81-00998'
-     */
+    /** @example '124-81-00998' */
     public function businessRegistrationNumber(bool $formatted = true): string
     {
         return $this->brn($formatted);
     }
-
 }

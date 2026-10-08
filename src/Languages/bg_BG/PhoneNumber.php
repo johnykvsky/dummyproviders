@@ -21,5 +21,4 @@ class PhoneNumber extends BasePhoneNumber
         '(0###) ### ###',
         '(0###) ###-###',
     ];
-
 }

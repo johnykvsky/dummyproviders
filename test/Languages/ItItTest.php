@@ -26,4 +26,13 @@ class ItItTest extends TestCase
         self::assertNotEmpty($generator->streetName());
         self::assertNotEmpty($generator->firstNameMale());
     }
+
+    public function testCurrency(): void
+    {
+        $generator = DummyGenerator::create()->withProvider(new ItItDefinitionPack());
+
+        self::assertSame('EUR', $generator->currencyCode());
+        self::assertSame('€', $generator->currencySymbol());
+        self::assertSame('Euro', $generator->currencyName());
+    }
 }

@@ -42,11 +42,7 @@ class Address extends BaseAddress
         '9330', '9341', '9360', '9400', '9433', '9462', '9500', '9545', '9560', '9620', '9800', '9853', '9900',
     ];
 
-    /**
-     * @var array
-     *
-     * @see https://de.wikipedia.org/wiki/Liste_der_St%C3%A4dte_in_%C3%96sterreich
-     */
+    /** @see https://de.wikipedia.org/wiki/Liste_der_St%C3%A4dte_in_%C3%96sterreich */
     protected array $cityNames = [
         'Allentsteig', 'Altheim', 'Althofen', 'Amstetten', 'Ansfelden', 'Attnang-Puchheim',
         'Bad Aussee', 'Bad Hall', 'Bad Ischl', 'Bad Leonfelden', 'Bad Radkersburg', 'Bad St. Leonhard im Lavanttal', 'Bad Vöslau', 'Baden', 'Bärnbach', 'Berndorf', 'Bischofshofen', 'Bleiburg', 'Bludenz', 'Braunau am Inn', 'Bregenz', 'Bruck an der Leitha', 'Bruck an der Mur',
@@ -133,9 +129,7 @@ class Address extends BaseAddress
         return $this->randomizer->randomElement($this->streetSuffixLong);
     }
 
-    /**
-     * @example 'Wien'
-     */
+    /** @example 'Wien' */
     public function state(): string
     {
         return $this->randomizer->randomElement($this->state);
@@ -145,5 +139,4 @@ class Address extends BaseAddress
     {
         return Regexify::regexify($this->replacer->numerify($this->randomizer->randomElement($this->buildingNumber)));
     }
-
 }

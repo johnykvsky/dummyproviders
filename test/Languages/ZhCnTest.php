@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types=1);
+declare(strict_types = 1);
 
 namespace DummyGenerator\Provider\Test\Languages;
 
@@ -26,6 +26,7 @@ class ZhCnTest extends TestCase
             for ($j = 0; $j < 17; ++$j) {
                 $sum += (int) $id[$j] * $weights[$j];
             }
+
             $checkMap = ['1', '0', 'X', '9', '8', '7', '6', '5', '4', '3', '2'];
             self::assertSame($checkMap[$sum % 11], $id[17]);
         }
@@ -46,8 +47,21 @@ class ZhCnTest extends TestCase
                 $val = (int) strpos($charset, $uscc[$j]);
                 $sum += $val * $weights[$j];
             }
+
             $checkVal = (31 - ($sum % 31)) % 31;
             self::assertSame($charset[$checkVal], $uscc[17]);
         }
+    }
+
+    public function testDateTime(): void
+    {
+        $generator = DummyGenerator::create()->withProvider(new ZhCnDefinitionPack());
+
+        self::assertContains($generator->amPm(), ['上午', '下午']);
+        self::assertContains($generator->dayOfWeek(), ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六']);
+        self::assertContains($generator->monthName(), [
+            '一月', '二月', '三月', '四月', '五月', '六月',
+            '七月', '八月', '九月', '十月', '十一月', '十二月',
+        ]);
     }
 }

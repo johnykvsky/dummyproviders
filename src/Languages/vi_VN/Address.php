@@ -156,20 +156,15 @@ class Address extends BaseAddress
         return $this->randomizer->randomElement($this->districtPrefix);
     }
 
-    /**
-     * @example 'Hà Nội'
-     */
+    /** @example 'Hà Nội' */
     public function city(): string
     {
         return $this->randomizer->randomElement($this->city);
     }
 
-    /**
-     * @example 'Bắc Giang'
-     */
+    /** @example 'Bắc Giang' */
     public function province(): string
     {
         return $this->randomizer->randomElement($this->province);
     }
-
 }

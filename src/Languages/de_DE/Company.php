@@ -15,9 +15,7 @@ class Company extends BaseCompany
         '{{lastName}}',
     ];
 
-    /**
-     * @see http://www.personalseite.de/information/titel.htm
-     */
+    /** @see http://www.personalseite.de/information/titel.htm */
     protected array $jobTitleFormat = [
         'Abteilungsdirektor', 'Arbeitsdirektor', 'Aufsichtsrat', 'Beirat', 'Bereichsleiter', 'Betriebsleiter', 'Finanzvorstand', 'Geschäftsführender Gesellschafter', 'Geschäftsführer', 'Gesellschafter',
         'Handlungsbevollmächtigter', 'Kaufmännischer Vorstand', 'Leiter Rechtsabteilung', 'Mitglied des Aufsichtsrats', 'Personalleiter', 'Prokurist', 'Stellvertretender Vorsitzender des Vorstandes',
@@ -25,6 +23,14 @@ class Company extends BaseCompany
     ];
 
     protected array $companySuffix = ['e.G.', 'e.V.', 'GbR', 'GbR', 'OHG mbH', 'GmbH & Co. OHG', 'AG & Co. OHG', 'GmbH', 'GmbH', 'GmbH', 'GmbH', 'AG', 'AG', 'AG', 'AG', 'KG', 'KG', 'KG', 'GmbH & Co. KG', 'GmbH & Co. KG', 'AG & Co. KG', 'Stiftung & Co. KG', 'KGaA', 'GmbH & Co. KGaA', 'AG & Co. KGaA', 'Stiftung & Co. KGaA'];
+
+    /** @var string[] */
+    protected array $industries = [
+        'Technologie', 'Gesundheitswesen', 'Finanzdienstleistungen', 'Produktion',
+        'Einzelhandel', 'Telekommunikation', 'Bildung', 'Energie',
+        'Transport & Logistik', 'Medien & Unterhaltung', 'Immobilien', 'Landwirtschaft',
+        'Gastgewerbe', 'Bauwesen', 'Beratung', 'Automobilindustrie',
+    ];
 
     /**
      * German Value Added Tax Identification Number (Umsatzsteuer-Identifikationsnummer / USt-IdNr)
@@ -44,8 +50,10 @@ class Company extends BaseCompany
             if ($sum === 0) {
                 $sum = 10;
             }
+
             $sum = ($sum * 2) % 11;
         }
+
         $check = 11 - $sum;
         $checkDigit = $check === 10 ? 0 : $check;
 

@@ -74,9 +74,7 @@ class Address extends BaseAddress
         'Ds.', 'Dk.', 'Gg.', 'Jln.', 'Jr.', 'Kpg.', 'Ki.', 'Psr.',
     ];
 
-    /**
-     * @see http://kodepos.nomor.net/_kodepos.php?_i=provinsi-kodepos
-     */
+    /** @see http://kodepos.nomor.net/_kodepos.php?_i=provinsi-kodepos */
     protected array $state = [
         'Aceh', 'Sumatera Utara', 'Sumatera Barat', 'Jambi', 'Kepulauan Bangka Belitung', 'Riau',
         'Kepulauan Riau', 'Bengkulu', 'Sumatera Selatan', 'Lampung', 'Banten',
@@ -92,8 +90,6 @@ class Address extends BaseAddress
      * Abbreviated State Names.
      *
      * @see https://en.wikipedia.org/wiki/Provinces_of_Indonesia#Table_of_provinces
-     *
-     * @var array
      */
     protected array $stateAbbr = [
         'Aceh', 'Sumut', 'Sumbar', 'Jambi', 'Babel', 'Riau', 'Kepri', 'Bengkulu', 'Sumsel',
@@ -103,9 +99,7 @@ class Address extends BaseAddress
         'Pabar', 'Papua',
     ];
 
-    /**
-     * @see http://id.wikipedia.org/wiki/Daftar_negara-negara_di_dunia
-     */
+    /** @see http://id.wikipedia.org/wiki/Daftar_negara-negara_di_dunia */
     protected array $country = [
         'Afganistan', 'Afrika Selatan', 'Albania', 'Aljazair',
         'Amerika Serikat', 'Andorra', 'Angola', 'Anguilla',
@@ -228,9 +222,7 @@ class Address extends BaseAddress
         'Wilayah Selatan Perancis', 'Yaman', 'Yunani', 'Zambia', 'Zimbabwe',
     ];
 
-    /**
-     * @see http://id.wikipedia.org/wiki/Daftar_kabupaten_dan_kota_Indonesia#Daftar_kota
-     */
+    /** @see http://id.wikipedia.org/wiki/Daftar_kabupaten_dan_kota_Indonesia#Daftar_kota */
     protected array $cityNames = [
         'Administrasi Jakarta Barat', 'Administrasi Jakarta Pusat',
         'Administrasi Jakarta Selatan', 'Administrasi Jakarta Timur',
@@ -278,17 +270,13 @@ class Address extends BaseAddress
 
     protected array $postcode = ['%####'];
 
-    /**
-     * @example 'Kalimantan Tengah'
-     */
+    /** @example 'Kalimantan Tengah' */
     public function state(): string
     {
         return $this->randomizer->randomElement($this->state);
     }
 
-    /**
-     * @example 'Banten'
-     */
+    /** @example 'Banten' */
     public function stateAbbr(): string
     {
         return $this->randomizer->randomElement($this->stateAbbr);
@@ -320,5 +308,4 @@ class Address extends BaseAddress
     {
         return (string) $this->randomizer->getInt(1, 999);
     }
-
 }

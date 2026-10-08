@@ -94,12 +94,9 @@ class Person extends BasePerson
         return $formatted ? ($birthPart . '-' . $secondPart) : ($birthPart . $secondPart);
     }
 
-    /**
-     * @example '900101-1234567'
-     */
+    /** @example '900101-1234567' */
     public function residentRegistrationNumber(bool $formatted = true, ?string $gender = null): string
     {
         return $this->rrn($formatted, $gender);
     }
-
 }

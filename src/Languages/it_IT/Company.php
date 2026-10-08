@@ -53,9 +53,15 @@ class Company extends BaseCompany
 
     protected array $companySuffix = ['SPA', 'e figli', 'Group', 's.r.l.'];
 
-    /**
-     * @example 'Robust full-range hub'
-     */
+    /** @var string[] */
+    protected array $industries = [
+        'Tecnologia', 'Sanità', 'Servizi finanziari', 'Manifattura',
+        'Commercio al dettaglio', 'Telecomunicazioni', 'Istruzione', 'Energia',
+        'Trasporti e logistica', 'Media e intrattenimento', 'Immobiliare', 'Agricoltura',
+        'Ospitalità e ristorazione', 'Edilizia', 'Consulenza', 'Automotive',
+    ];
+
+    /** @example 'Robust full-range hub' */
     public function catchPhrase(): string
     {
         $result = [];
@@ -67,9 +73,7 @@ class Company extends BaseCompany
         return implode(' ', $result);
     }
 
-    /**
-     * @example 'integrate extensible convergence'
-     */
+    /** @example 'integrate extensible convergence' */
     public function bs(): string
     {
         $result = [];
@@ -85,8 +89,6 @@ class Company extends BaseCompany
      * Italian VAT number (partita IVA)
      *
      * @see https://it.wikipedia.org/wiki/Partita_IVA
-     *
-     * @return string
      */
     public function vat(): string
     {
@@ -99,9 +101,6 @@ class Company extends BaseCompany
      * Italian VAT number (partita IVA)
      *
      * @return string
-     *
-     * @deprecated use {@link $this->generator->vat()} instead
-     * @see $this->generator->vat()
      */
     public function vatId()
     {

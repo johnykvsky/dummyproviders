@@ -126,5 +126,4 @@ class Address extends BaseAddress
     {
         return $this->townName;
     }
-
 }

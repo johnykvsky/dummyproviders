@@ -127,9 +127,7 @@ class Person extends BasePerson
 
     protected array $suffix = ['Filho', 'Neto', 'Sobrinho', 'Jr.'];
 
-    /**
-     * @example 'Jr.'
-     */
+    /** @example 'Jr.' */
     public function suffix(): string
     {
         return $this->randomizer->randomElement($this->suffix);
@@ -138,11 +136,9 @@ class Person extends BasePerson
     /**
      * A random CPF number.
      *
-     * @see http://en.wikipedia.org/wiki/Cadastro_de_Pessoas_F%C3%ADsicas
-     *
      * @param bool $formatted If the number should have dots/dashes or not.
      *
-     * @return string
+     * @see http://en.wikipedia.org/wiki/Cadastro_de_Pessoas_F%C3%ADsicas
      */
     public function cpf($formatted = true): string
     {
@@ -156,11 +152,9 @@ class Person extends BasePerson
     /**
      * A random RG number, following Sao Paulo state's rules.
      *
-     * @see http://pt.wikipedia.org/wiki/C%C3%A9dula_de_identidade
-     *
      * @param bool $formatted If the number should have dots/dashes or not.
      *
-     * @return string
+     * @see http://pt.wikipedia.org/wiki/C%C3%A9dula_de_identidade
      */
     public function rg($formatted = true): string
     {

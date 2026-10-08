@@ -40,5 +40,4 @@ class PhoneNumber extends BasePhoneNumber
         '0900 ######',
         '+31900 ######',
     ];
-
 }

@@ -15,5 +15,4 @@ class Company extends BaseCompany
     ];
 
     protected array $companySuffix = ['בע"מ', 'ובניו', 'סוכנויות', 'משווקים'];
-
 }

@@ -26,6 +26,14 @@ class Company extends BaseCompany
     /** @var array<string> */
     protected array $companyPrefix = ['Grupa', 'Fundacja', 'Stowarzyszenie', 'Spółdzielnia'];
 
+    /** @var string[] */
+    protected array $industries = [
+        'Technologia', 'Ochrona zdrowia', 'Usługi finansowe', 'Produkcja',
+        'Handel detaliczny', 'Telekomunikacja', 'Edukacja', 'Energetyka',
+        'Transport i logistyka', 'Media i rozrywka', 'Nieruchomości', 'Rolnictwo',
+        'Hotelarstwo i gastronomia', 'Budownictwo', 'Konsulting', 'Motoryzacja',
+    ];
+
     /** @example 'Grupa' */
     public function companyPrefix(): string
     {

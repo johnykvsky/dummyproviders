@@ -58,44 +58,33 @@ class Address extends BaseAddress
         '{{province}} {{city}} {{streetName}} {{buildingNumber}}',
     ];
 
-    /**
-     * @example '서울특별시'
-     */
+    /** @example '서울특별시' */
     public function metropolitanCity()
     {
         return $this->randomizer->randomElement($this->metropolitanCity);
     }
 
-    /**
-     * @example '경기도'
-     */
+    /** @example '경기도' */
     public function province(): string
     {
         return $this->randomizer->randomElement($this->province);
     }
 
-    /**
-     * @example '고양시'
-     */
+    /** @example '고양시' */
     public function city(): string
     {
         return $this->randomizer->randomElement($this->city);
     }
 
-    /**
-     * @example '강남구'
-     */
+    /** @example '강남구' */
     public function borough()
     {
         return $this->randomizer->randomElement($this->borough);
     }
 
-    /**
-     * @example '강남대로'
-     */
+    /** @example '강남대로' */
     public function streetName(): string
     {
         return $this->randomizer->randomElement($this->streetName);
     }
-
 }

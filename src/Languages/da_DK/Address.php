@@ -8,58 +8,42 @@ use DummyGenerator\Core\Address as BaseAddress;
 
 class Address extends BaseAddress
 {
-    /**
-     * @var array Danish city suffixes.
-     */
+    /** @var array Danish city suffixes. */
     protected array $citySuffix = [
         'sted', 'bjerg', 'borg', 'rød', 'lund', 'by',
     ];
 
-    /**
-     * @var array Danish street suffixes.
-     */
+    /** @var array Danish street suffixes. */
     protected array $streetSuffix = [
         'vej', 'gade', 'skov', 'haven',
     ];
 
-    /**
-     * @var array Danish street word suffixes.
-     */
+    /** @var array Danish street word suffixes. */
     protected array $streetSuffixWord = [
         'Vej', 'Gade', 'Allé', 'Boulevard', 'Plads', 'Have',
     ];
 
-    /**
-     * @var array Danish building numbers.
-     */
+    /** @var array Danish building numbers. */
     protected array $buildingNumber = [
         '%##', '%#', '%#', '%', '%', '%', '%?', '% ?',
     ];
 
-    /**
-     * @var array Danish building level.
-     */
+    /** @var array Danish building level. */
     protected array $buildingLevel = [
         'st.', '%.', '%. sal.',
     ];
 
-    /**
-     * @var array Danish building sides.
-     */
+    /** @var array Danish building sides. */
     protected array $buildingSide = [
         'tv.', 'mf.', 'th.',
     ];
 
-    /**
-     * @var array Danish zip code.
-     */
+    /** @var array Danish zip code. */
     protected array $postcode = [
         '%###',
     ];
 
-    /**
-     * @var array Danish cities.
-     */
+    /** @var array Danish cities. */
     protected array $cityNames = [
         'Aabenraa', 'Aabybro', 'Aakirkeby', 'Aalborg', 'Aalestrup', 'Aars', 'Aarup', 'Agedrup', 'Agerbæk', 'Agerskov',
         'Albertslund', 'Allerød', 'Allinge', 'Allingåbro', 'Almind', 'Anholt', 'Ansager', 'Arden', 'Asaa', 'Askeby',
@@ -119,9 +103,7 @@ class Address extends BaseAddress
         'Ålbæk', 'Ålsgårde', 'Århus', 'Årre', 'Årslev', 'Haarby', 'Nivå', 'Rømø', 'Omme', 'Vrå', 'Ørum',
     ];
 
-    /**
-     * @var array Danish municipalities, called 'kommuner' in danish.
-     */
+    /** @var array Danish municipalities, called 'kommuner' in danish. */
     protected array $kommuneNames = [
         'København', 'Frederiksberg', 'Ballerup', 'Brøndby', 'Dragør', 'Gentofte', 'Gladsaxe', 'Glostrup', 'Herlev',
         'Albertslund', 'Hvidovre', 'Høje Taastrup', 'Lyngby-Taarbæk', 'Rødovre', 'Ishøj', 'Tårnby', 'Vallensbæk',
@@ -136,17 +118,15 @@ class Address extends BaseAddress
         'Vesthimmerlands', 'Læsø', 'Rebild', 'Mariagerfjord', 'Jammerbugt', 'Aalborg', 'Hjørring', 'Køge',
     ];
 
-    /**
-     * @var array Danish regions.
-     */
+    /** @var array Danish regions. */
     protected array $regionNames = [
         'Region Nordjylland', 'Region Midtjylland', 'Region Syddanmark', 'Region Hovedstaden', 'Region Sjælland',
     ];
 
     /**
-     * @see https://github.com/umpirsky/country-list/blob/master/country/cldr/da_DK/country.php
-     *
      * @var array Some countries in danish.
+     *
+     * @see https://github.com/umpirsky/country-list/blob/master/country/cldr/da_DK/country.php
      */
     protected array $country = [
         'Andorra', 'Forenede Arabiske Emirater', 'Afghanistan', 'Antigua og Barbuda', 'Anguilla', 'Albanien', 'Armenien',
@@ -183,16 +163,12 @@ class Address extends BaseAddress
         'Yemen', 'Mayotte', 'Sydafrika', 'Zambia', 'Zimbabwe',
     ];
 
-    /**
-     * @var array Danish city format.
-     */
+    /** @var array Danish city format. */
     protected array $cityFormats = [
         '{{cityName}}',
     ];
 
-    /**
-     * @var array Danish street's name formats.
-     */
+    /** @var array Danish street's name formats. */
     protected array $streetNameFormats = [
         '{{lastName}}{{streetSuffix}}',
         '{{middleName}}{{streetSuffix}}',
@@ -200,26 +176,20 @@ class Address extends BaseAddress
         '{{middleName}} {{streetSuffixWord}}',
     ];
 
-    /**
-     * @var array Danish street's address formats.
-     */
+    /** @var array Danish street's address formats. */
     protected array $streetAddressFormats = [
         '{{streetName}} {{buildingNumber}}',
         '{{streetName}} {{buildingNumber}}, {{buildingLevel}}',
         '{{streetName}} {{buildingNumber}}, {{buildingLevel}} {{buildingSide}}',
     ];
 
-    /**
-     * @var array Danish address format.
-     */
+    /** @var array Danish address format. */
     protected array $addressFormats = [
         "{{streetAddress}}\n{{postcode}} {{city}}",
     ];
 
     /**
      * Randomly return a real city name.
-     *
-     * @return string
      */
     public function cityName(): string
     {
@@ -238,8 +208,6 @@ class Address extends BaseAddress
 
     /**
      * Randomly return a building number.
-     *
-     * @return string
      */
     public function buildingNumber(): string
     {
@@ -278,12 +246,9 @@ class Address extends BaseAddress
 
     /**
      * Randomly return a real region name.
-     *
-     * @return string
      */
     public function region(): string
     {
         return $this->randomizer->randomElement($this->regionNames);
     }
-
 }

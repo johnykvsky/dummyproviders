@@ -87,7 +87,7 @@ class Person extends BasePerson
 
     protected array $title = ['Doç. Dr.', 'Dr.', 'Prof. Dr.'];
 
-    public function title($gender = null): string
+    public function title(?string $gender = null): string
     {
         return $this->titleMale();
     }

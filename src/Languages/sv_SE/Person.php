@@ -134,17 +134,17 @@ class Person extends BasePerson
     /**
      * National Personal Identity number (personnummer)
      *
-     * @see http://en.wikipedia.org/wiki/Personal_identity_number_(Sweden)
-     *
      * @param string $gender Person::GENDER_MALE || Person::GENDER_FEMALE
-     *
      * @return string on format XXXXXX-XXXX
+     *
+     * @see http://en.wikipedia.org/wiki/Personal_identity_number_(Sweden)
      */
     public function personalIdentityNumber(?\DateTimeInterface $birthdate = null, $gender = null): string
     {
         if (!$birthdate) {
             $birthdate = $this->generator->dateTimeThisCentury();
         }
+
         $datePart = $birthdate->format('ymd');
         $randomDigits = $this->getBirthNumber($gender);
 
@@ -155,7 +155,6 @@ class Person extends BasePerson
 
     /**
      * @param string $gender Person::GENDER_MALE || Person::GENDER_FEMALE
-     *
      * @return string of three digits
      */
     protected function getBirthNumber(?string $gender = null): string

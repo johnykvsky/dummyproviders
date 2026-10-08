@@ -27,5 +27,4 @@ class Company extends BaseCompany
             $this->randomizer->randomElement($this->legalEntities),
         );
     }
-
 }

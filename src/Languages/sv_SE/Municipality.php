@@ -6,7 +6,6 @@ namespace DummyGenerator\Provider\Languages\sv_SE;
 
 use DummyGenerator\Definitions\Extension\ExtensionInterface;
 use DummyGenerator\Definitions\Randomizer\RandomizerInterface;
-use DummyGenerator\GeneratorInterface;
 
 class Municipality implements ExtensionInterface
 {
@@ -26,12 +25,9 @@ class Municipality implements ExtensionInterface
      * Swedish municipality
      *
      * @see https://en.wikipedia.org/wiki/Municipality
-     *
-     * @return string
      */
     public function municipality(): string
     {
         return $this->randomizer->randomElement($this->municipalities);
     }
-
 }

@@ -25,5 +25,4 @@ class Color extends BaseColor
         'verde',
         'verde oliva',
     ];
-
 }

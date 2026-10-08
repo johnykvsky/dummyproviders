@@ -85,5 +85,4 @@ class Person extends BasePerson
         'Uibo', 'Uibo',
         'Vassiljev', 'Vaher', 'Volkov', 'Valk', 'Vaher', 'Vahtra', 'Vaino', 'Vainola', 'Välbe', 'Valdma', 'Väljas', 'Valk', 'Vassiljev', 'Vassiljeva', 'Vesik', 'Veski', 'Viiding', 'Vitsut', 'Võigemast', 'Volkov', 'Volkova', 'Võsu', 'Vassiljeva', 'Vaher', 'Volkova',
     ];
-
 }

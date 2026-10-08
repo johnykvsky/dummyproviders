@@ -8,9 +8,7 @@ use DummyGenerator\Core\Address as BaseAddress;
 
 class Address extends BaseAddress
 {
-    /**
-     * @see http://www.rtvslo.si/strani/abecedni-seznam-obcin/3103
-     */
+    /** @see http://www.rtvslo.si/strani/abecedni-seznam-obcin/3103 */
     protected array $city = [
         'Ajdovščina', 'Apače', 'Beltinci', 'Benedikt', 'Bistrica ob Sotli', 'Bled', 'Bloke', 'Bohinj', 'Borovnica', 'Bovec',
         'Braslovče', 'Brda', 'Brezovica', 'Brežice', 'Cankova', 'Celje', 'Cerklje na Gorenjskem', 'Cerknica', 'Cerkno',
@@ -61,9 +59,7 @@ class Address extends BaseAddress
         'Gorica', 'Lipa', 'Nova vas', 'Podgora', 'Podgorje', 'Podgrad', 'Ponikve', 'Sela', 'Selo', 'Škocjan', 'Vrh',
     ];
 
-    /**
-     * @see http://sl.wikipedia.org/wiki/Seznam_suverenih_držav
-     */
+    /** @see http://sl.wikipedia.org/wiki/Seznam_suverenih_držav */
     protected array $country = [
         'Afganistan', 'Albanija', 'Alžirija', 'Andora', 'Angola', 'Antigva in Barbuda', 'Argentina', 'Armenija', 'Avstralija', 'Avstrija',
         'Azerbajdžan', 'Bahami', 'Bahrajn', 'Bangladeš', 'Barbados', 'Belgija', 'Belize', 'Belorusija', 'Benin', 'Bocvana', 'Bolgarija',
@@ -107,5 +103,4 @@ class Address extends BaseAddress
     {
         return $this->randomizer->randomElement($this->street);
     }
-
 }

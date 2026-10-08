@@ -14,6 +14,14 @@ class Company extends BaseCompany
 
     protected array $companyPrefix = ['株式会社', '有限会社'];
 
+    /** @var string[] */
+    protected array $industries = [
+        'テクノロジー', '医療・ヘルスケア', '金融サービス', '製造業',
+        '小売', '通信', '教育', 'エネルギー',
+        '運輸・物流', 'メディア・エンターテインメント', '不動産', '農業',
+        '宿泊・飲食業', '建設業', 'コンサルティング', '自動車',
+    ];
+
     public function companyPrefix(): string
     {
         return $this->randomizer->randomElement($this->companyPrefix);
@@ -44,12 +52,9 @@ class Company extends BaseCompany
         return $check . $base;
     }
 
-    /**
-     * @example '1180301018771'
-     */
+    /** @example '1180301018771' */
     public function houjinBangou(): string
     {
         return $this->corporateNumber();
     }
-
 }

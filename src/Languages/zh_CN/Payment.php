@@ -8,11 +8,7 @@ use DummyGenerator\Core\Payment as BasePayment;
 
 class Payment extends BasePayment
 {
-    /**
-     * @see https://zh.wikipedia.org/wiki/%E4%B8%AD%E5%9B%BD%E9%93%B6%E8%A1%8C%E5%88%97%E8%A1%A8
-     *
-     * @var array
-     */
+    /** @see https://zh.wikipedia.org/wiki/%E4%B8%AD%E5%9B%BD%E9%93%B6%E8%A1%8C%E5%88%97%E8%A1%A8 */
     protected array $banks = [
         '渤海银行',
         '广发银行',
@@ -35,14 +31,9 @@ class Payment extends BasePayment
         '中信银行',
     ];
 
-    /**
-     * @example '中国建设银行'
-     *
-     * @return string
-     */
+    /** @example '中国建设银行' */
     public function bank(): string
     {
         return $this->randomizer->randomElement($this->banks);
     }
-
 }

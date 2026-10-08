@@ -8,9 +8,7 @@ use DummyGenerator\Core\Payment as BasePayment;
 
 class Payment extends BasePayment
 {
-    /**
-     * @see list of Ukraine banks (2017-11-08), source: https://uk.wikipedia.org/wiki/%D0%91%D0%B0%D0%BD%D0%BA%D0%B8_%D0%A3%D0%BA%D1%80%D0%B0%D1%97%D0%BD%D0%B8
-     */
+    /** @see list of Ukraine banks (2017-11-08), source: https://uk.wikipedia.org/wiki/%D0%91%D0%B0%D0%BD%D0%BA%D0%B8_%D0%A3%D0%BA%D1%80%D0%B0%D1%97%D0%BD%D0%B8 */
     protected array $banks = [
         'А-Банк', 'Авангард', 'Айбокс Банк', 'Акордбанк', 'Альпарі Банк', 'Альтбанк', 'Альфа-Банк', 'Альянс', 'Апекс-банк', 'Аркада', 'Асвіо Банк',
         'Банк 3/4', 'БМ Банк', 'Богуслав', 'БТА Банк', 'Вернум Банк', 'Восток', 'ВТБ',
@@ -35,12 +33,9 @@ class Payment extends BasePayment
         'Unex',
     ];
 
-    /**
-     * @example 'Сітібанк'
-     */
+    /** @example 'Сітібанк' */
     public function bank(): string
     {
         return $this->randomizer->randomElement($this->banks);
     }
-
 }

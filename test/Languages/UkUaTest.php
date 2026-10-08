@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types=1);
+declare(strict_types = 1);
 
 namespace DummyGenerator\Provider\Test\Languages;
 
@@ -26,10 +26,12 @@ class UkUaTest extends TestCase
             for ($j = 0; $j < 9; ++$j) {
                 $sum += (int) $rntrc[$j] * $weights[$j];
             }
+
             $rem = ($sum % 11) % 10;
             if ($rem < 0) {
                 $rem += 10;
             }
+
             self::assertSame($rem, (int) $rntrc[9]);
         }
     }
@@ -42,5 +44,18 @@ class UkUaTest extends TestCase
             $edrpou = $generator->edrpou();
             self::assertMatchesRegularExpression('/^\d{8}$/', $edrpou);
         }
+    }
+
+    public function testInitials(): void
+    {
+        $generator = DummyGenerator::create()->withProvider(new UkUaDefinitionPack());
+
+        for ($i = 0; $i < 20; ++$i) {
+            $initials = $generator->initials();
+            self::assertMatchesRegularExpression('/^[А-ЯІЇЄҐ]\. [А-ЯІЇЄҐ]\.$/u', $initials);
+        }
+
+        $single = $generator->initials(1);
+        self::assertMatchesRegularExpression('/^[А-ЯІЇЄҐ]\.$/u', $single);
     }
 }

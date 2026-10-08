@@ -29,9 +29,7 @@ class Company extends BaseCompany
         'Sdn. Bhd.', 'Sdn. Bhd.', 'Sdn. Bhd.', 'Sdn. Bhd.',
     ];
 
-    /**
-     * @see https://en.wikipedia.org/wiki/List_of_companies_of_Malaysia
-     */
+    /** @see https://en.wikipedia.org/wiki/List_of_companies_of_Malaysia */
     protected array $companies = [
         'Adventa', 'AirAsia', 'AmBank', 'Astro Malaysia Holdings', 'Astro Radio', 'Axiata',
         'Berjaya Group', 'Bonia', 'Boustead Holdings', 'BSA Manufacturing', 'Bufori', 'Bumiputra-Commerce Holdings', 'Bursa Malaysia',
@@ -58,9 +56,7 @@ class Company extends BaseCompany
         'YTL Corporation',
     ];
 
-    /**
-     * @see http://www.daftarsyarikat.biz/perkhidmatan-dan-konsultasi/pendaftaran-lesen-kementerian-kewangan/senarai-kod-bidang/
-     */
+    /** @see http://www.daftarsyarikat.biz/perkhidmatan-dan-konsultasi/pendaftaran-lesen-kementerian-kewangan/senarai-kod-bidang/ */
     protected array $industry = [
         'Agen Pengembaraan', 'Agen Penghantaran', 'Agen Perkapalan', 'Agensi Kredit Dan Pemfaktoran', 'Air', 'Akseso Kenderaan', 'Aksesori', 'Aksesori Jentera Berat', 'Aksesori Penghubung Dan Telekomunikasi', 'Aksesori Senjata Api', 'Akuatik', 'Akustik Dan Gelombang', 'Alat Forensik Dan Aksesori', 'Alat Gani', 'Alat Ganti', 'Alat Ganti Dan Kelengkapan Bot', 'Alat Hawa Dingin', 'Alat Hawa Dingin Kenderaan', 'Alat Kebombaan', 'Alat Kelengkapan Perubatan', 'Alat Keselamatan, Perlindungan Dan Kawalan Perlindungan Dan Kawalan', 'Alat Muzik Dan Aksesori', 'Alat Muzik, Kesenian dan Aksesori', 'Alat Penghasil Nyalaan', 'Alat penyelamat', 'Alat Penyimpan Tenaga Dan Aksesori', 'Alat Perhubungan', 'Alat Semboyan', 'Alat-Alat Marin', 'Alatganti Dan Kelengkapan Pesawat', 'Alatulis', 'Animation', 'Anti Kakis', 'Artis Dan Penghibur Profesional', 'Audio Visual',
         'Bagasi Dan Beg dari kulit', 'Bahan Api Nuklear', 'Bahan Bacaan', 'Bahan Bacaan Terbitan Luar Negara', 'Bahan Bakar', 'Bahan Binaan', 'Bahan dan Peralatan Solekan dan Andaman', 'Bahan Letupan', 'Bahan Peledak', 'Bahan Pelincir', 'Bahan pembungkusan', 'Bahan Pencuci Dan Pembersihan', 'Bahan Pendidikan', 'Bahan Penerbitan Elektronik Dan Muzik', 'Bahan Surih, Drafting Dan Alat Lukis', 'Bahan Tambah', 'Bahan Tarpaulin Dan Kanvas', 'Baik Pulih Kasut Dan Barangan Kulit', 'Baikpulih Barang-Barang Logam', 'Baja Dan Nutrien Tumbuhan', 'Baka', 'Bangunan', 'Bantuan Kecemasan DanAmbulan', 'Bantuan Kemanusiaan', 'Barangan Hiasan Dalaman Dan Aksesori', 'Barangan PVC', 'Barge', 'Bas', 'Basah', 'Basikal', 'Bekalan Pejabat Dan Alatulis', 'Bekas', 'Belon Panas', 'Benih Semaian', 'Bill Board', 'Bioteknologi', 'Bot', 'Bot Malim', 'Bot Tunda', 'Brangan Logam', 'Broker Insuran', 'Broker Perkapalan', 'Bunga Api Dan Mercun', 'Butang Dan Bekalan Jahitan',
@@ -92,7 +88,7 @@ class Company extends BaseCompany
      *
      * @example 'AirAsia'
      */
-    public function companyName()
+    public function companyName(): string
     {
         return $this->randomizer->randomElement($this->companies);
     }
@@ -102,9 +98,8 @@ class Company extends BaseCompany
      *
      * @example 'Automobil'
      */
-    public function industry()
+    public function industry(): string
     {
         return $this->randomizer->randomElement($this->industry);
     }
-
 }

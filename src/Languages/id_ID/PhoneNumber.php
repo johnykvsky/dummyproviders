@@ -29,8 +29,8 @@ class PhoneNumber extends BasePhoneNumber
         '09## #### ####',
 
         // mobile numbers
-        '08## ### ###',   // 0811 XXX XXX, 10 digits, very old
-        '08## #### ###',  // 0811 XXXX XXX, 11 digits
+        '08## ### ###', // 0811 XXX XXX, 10 digits, very old
+        '08## #### ###', // 0811 XXXX XXX, 11 digits
         '08## #### ####', // 0811 XXXX XXXX, 12 digits
 
         // international numbers
@@ -56,5 +56,4 @@ class PhoneNumber extends BasePhoneNumber
         '(+62) 8## #### ####',
         '(+62) 9## #### ####',
     ];
-
 }

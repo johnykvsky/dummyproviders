@@ -5,6 +5,7 @@ declare(strict_types = 1);
 namespace DummyGenerator\Provider\Languages\uk_UA;
 
 use DummyGenerator\Core\Person as BasePerson;
+use DummyGenerator\Definitions\Extension\Exception\ExtensionArgumentException;
 
 class Person extends BasePerson
 {
@@ -58,9 +59,9 @@ class Person extends BasePerson
     /**
      * Return male middle name
      *
-     * @example 'Іванович'
-     *
      * @return string Middle name
+     *
+     * @example 'Іванович'
      */
     public function middleNameMale(): string
     {
@@ -70,9 +71,9 @@ class Person extends BasePerson
     /**
      * Return female middle name
      *
-     * @example 'Івановна'
-     *
      * @return string Middle name
+     *
+     * @example 'Івановна'
      */
     public function middleNameFemale(): string
     {
@@ -84,10 +85,9 @@ class Person extends BasePerson
      *
      * @param string|null $gender A gender the middle name should be generated
      *                            for. If the argument is skipped a random gender will be used.
-     *
      * @return string Middle name
      */
-    public function middleName($gender = null): string
+    public function middleName(?string $gender = null): string
     {
         if ($gender === static::GENDER_MALE) {
             return $this->middleNameMale();
@@ -122,6 +122,7 @@ class Person extends BasePerson
         for ($i = 0; $i < 9; ++$i) {
             $sum += $digits[$i] * $weights[$i];
         }
+
         $check = ($sum % 11) % 10;
         if ($check < 0) {
             $check += 10;
@@ -133,5 +134,24 @@ class Person extends BasePerson
     public function ipn(): string
     {
         return $this->rntrc();
+    }
+
+    /** @var string[] */
+    protected array $cyrillicLetters = [
+        'А', 'Б', 'В', 'Г', 'Ґ', 'Д', 'Е', 'Є', 'Ж', 'З', 'І', 'Ї', 'Й', 'К', 'Л', 'М', 'Н', 'О', 'П', 'Р', 'С', 'Т', 'У', 'Ф', 'Х', 'Ц', 'Ч', 'Ш', 'Щ', 'Ю', 'Я',
+    ];
+
+    public function initials(int $length = 2): string
+    {
+        if ($length < 1) {
+            throw new ExtensionArgumentException('initials() $length must be at least 1');
+        }
+
+        $letters = [];
+        for ($i = 0; $i < $length; ++$i) {
+            $letters[] = $this->randomizer->randomElement($this->cyrillicLetters) . '.';
+        }
+
+        return implode(' ', $letters);
     }
 }

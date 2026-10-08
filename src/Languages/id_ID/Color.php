@@ -18,9 +18,7 @@ class Color extends BaseColor
         'merah marun', 'nila', 'perak', 'putih', 'sepia', 'teal', 'toska', 'ungu', 'violet', 'zaitun',
     ];
 
-    /**
-     * @see https://id.wikipedia.org/wiki/Daftar_warna
-     */
+    /** @see https://id.wikipedia.org/wiki/Daftar_warna */
     protected array $allColorNames = [
         'Abu-Abu', 'Abu-Abu Tua', 'Abu-Abu Muda', 'Abu-Abu Kecokelatan', 'Almond',
         'Biru', 'Biru Baja', 'Biru Dongker', 'Biru Keabu-abuan', 'Biru Kehijauan', 'Biru Keunguan', 'Biru Laut', 'Biru Laut Gelap', 'Biru Laut Terang', 'Biru Langit', 'Biru Langit Muda', 'Biru Langit Tua', 'Biru Malam', 'Biru Muda', 'Biru Nilam', 'Biru Pucat', 'Biru Terang', 'Biru Tua',
@@ -41,5 +39,4 @@ class Color extends BaseColor
         'Ungu', 'Ungu Gelap', 'Ungu Kebiruan', 'Ungu Kecokelatan', 'Ungu Lembayung', 'Ungu Lembayung Muda', 'Ungu Muda', 'Ungu Terong',
         'Zaitun', 'Zaitun Hijau Gelap',
     ];
-
 }

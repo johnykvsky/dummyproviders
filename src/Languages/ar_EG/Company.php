@@ -54,19 +54,13 @@ class Company extends BaseCompany
         'للانظمة المتكاملة',
     ];
 
-    /**
-     * @example 'مؤسسة'
-     *
-     * @return string
-     */
+    /** @example 'مؤسسة' */
     public function companyPrefix(): string
     {
         return $this->randomizer->randomElement($this->companyPrefix);
     }
 
-    /**
-     * @example 'الحلول المتقدمة'
-     */
+    /** @example 'الحلول المتقدمة' */
     public function catchPhrase(): string
     {
         $result = [];

@@ -19,5 +19,4 @@ class Company extends BaseCompany
         '{{lastName}} {{companySuffix}}',
         '{{lastName}}-{{lastName}}',
     ];
-
 }

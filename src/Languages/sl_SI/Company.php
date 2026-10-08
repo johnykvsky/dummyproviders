@@ -15,5 +15,4 @@ class Company extends BaseCompany
     ];
 
     protected array $companySuffix = ['d.o.o.', 'd.d.', 'k.d.', 'k.d.d.', 'd.n.o.', 'so.p.'];
-
 }

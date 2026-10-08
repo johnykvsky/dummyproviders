@@ -25,9 +25,7 @@ class PhoneNumber extends BasePhoneNumber
         $this->generator = $generator;
     }
 
-    /**
-     * @see http://en.wikipedia.org/wiki/Telephone_numbers_in_Portugal
-     */
+    /** @see http://en.wikipedia.org/wiki/Telephone_numbers_in_Portugal */
     protected array $formats = [
         '+351 91#######',
         '+351 92#######',
@@ -68,5 +66,4 @@ class PhoneNumber extends BasePhoneNumber
     {
         return $this->replacer->numerify($this->randomizer->randomElement($this->mobileNumberPrefixes));
     }
-
 }

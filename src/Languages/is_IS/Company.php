@@ -19,9 +19,7 @@ class Company extends BaseCompany
         parent::__construct($randomizer, $generator);
     }
 
-    /**
-     * @var array Danish company name formats.
-     */
+    /** @var array Danish company name formats. */
     protected array $formats = [
         '{{lastName}} {{companySuffix}}',
         '{{lastName}} {{companySuffix}}',
@@ -41,15 +39,13 @@ class Company extends BaseCompany
         '{{middleName}} og {{lastName}}',
     ];
 
-    /**
-     * @var array Company suffixes.
-     */
+    /** @var array Company suffixes. */
     protected array $companySuffix = ['ehf.', 'hf.', 'sf.'];
 
     /**
-     * @see http://www.rsk.is/atvinnurekstur/virdisaukaskattur/
-     *
      * @var string VSK number format.
+     *
+     * @see http://www.rsk.is/atvinnurekstur/virdisaukaskattur/
      */
     protected string $vskFormat = '%####';
 
@@ -62,5 +58,4 @@ class Company extends BaseCompany
     {
         return $this->replacer->numerify($this->vskFormat);
     }
-
 }

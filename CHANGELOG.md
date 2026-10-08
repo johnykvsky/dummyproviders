@@ -4,11 +4,12 @@
 
 ## v0.3.0
 
-* **75 Language Locales**: Expanded to 75 standalone, decoupled language packs with localized personal and business identifiers (tax IDs, national identity numbers, company registrations).
-* **Regexify Utility**: Maintained standalone `Regexify` class with full test coverage for pattern generation.
-* **Test Suite & Quality**: Added smoke tests for all 75 `DefinitionPack` classes and dedicated test suites for localized extensions (279 tests, 11,615 assertions).
-* **Dependencies**: Added `ext-mbstring` requirement in `composer.json`.
-* Removed **`Text` Extension**
+* **Dependencies & Cleanup**:
+  * Bumped `johnykvsky/dummygenerator` to `^0.3.0`.
+  * Removed legacy `Text` extension.
+  * Added `ext-mbstring` requirement in `composer.json`.
+  * Added localized Currencies, Initials, and Industries.
+  * Added tests
 
 ---
 

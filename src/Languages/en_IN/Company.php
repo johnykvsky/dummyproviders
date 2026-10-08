@@ -53,6 +53,7 @@ class Company extends BaseCompany
             $hash = intdiv($product, 36) + ($product % 36);
             $sum += $hash;
         }
+
         $rem = $sum % 36;
         $check = $chars[(36 - $rem) % 36];
 

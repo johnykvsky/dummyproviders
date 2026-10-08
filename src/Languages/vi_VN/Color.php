@@ -37,5 +37,4 @@ class Color extends BaseColor
         'Xanh Thổ', 'Đỏ son', 'Tím',
         'Xanh crôm', 'Trắng', 'Vàng',
     ];
-
 }

@@ -433,7 +433,6 @@ class Person extends BasePerson
      * @param string|null $gender 'male', 'female' or null for any
      * @param int         $minAge minimal age of "generated person" in years
      * @param int         $maxAge maximal age of "generated person" in years
-     *
      * @return string czech birth number
      */
     public function birthNumber($gender = null, $minAge = 0, $maxAge = 100, $slashProbability = 50)
@@ -470,6 +469,7 @@ class Person extends BasePerson
             if ($crc == 10) {
                 $crc = 0;
             }
+
             $birthNumber .= sprintf('%d', $crc);
         }
 
@@ -481,17 +481,17 @@ class Person extends BasePerson
         return $birthNumber;
     }
 
-    public function birthNumberMale()
+    public function birthNumberMale(): string
     {
         return $this->birthNumber(static::GENDER_MALE);
     }
 
-    public function birthNumberFemale()
+    public function birthNumberFemale(): string
     {
         return $this->birthNumber(static::GENDER_FEMALE);
     }
 
-    public function title($gender = null): string
+    public function title(?string $gender = null): string
     {
         return $this->titleMale();
     }
@@ -517,7 +517,7 @@ class Person extends BasePerson
      *
      * @example 'Albrecht'
      */
-    public function lastName($gender = null): string
+    public function lastName(?string $gender = null): string
     {
         if ($gender === static::GENDER_MALE) {
             return $this->lastNameMale();

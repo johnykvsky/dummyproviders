@@ -20,6 +20,7 @@ class Person extends BasePerson
     ) {
         parent::__construct($randomizer, $generator);
     }
+
     protected array $maleNameFormats = [
         '{{firstNameMale}} {{lastName}}',
         '{{firstNameMale}} {{lastName}}',
@@ -40,10 +41,6 @@ class Person extends BasePerson
         '{{firstNameFemale}}-{{firstNameFemale}} {{lastName}}',
     ];
 
-    /**
-     * This list is more or less the same as in \Faker\Provider\fr_FR\Person.php
-     * Some common names were added and other removed.
-     */
     protected array $firstNameMale = [
         'Adrien', 'Aimé', 'Alain', 'Albert', 'Alexandre', 'Alfred', 'Alphonse', 'Alysson', 'André', 'Anthony', 'Antoine', 'Arthur', 'Auguste',
         'Augustin', 'Augustine', 'Benjamin', 'Benoit', 'Benoît', 'Bernard', 'Bertrand', 'Charles', 'Christian', 'Christophe', 'Claude', 'Daniel',

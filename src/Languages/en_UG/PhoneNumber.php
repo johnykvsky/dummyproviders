@@ -18,5 +18,4 @@ class PhoneNumber extends BasePhoneNumber
         '04## ### ###',
         '04########',
     ];
-
 }

@@ -16,9 +16,7 @@ class Address extends BaseAddress
 
     protected array $postcode = ['#####'];
 
-    /**
-     * @var array Cities of Turkey, for future updates please use @see https://tr.wikipedia.org/wiki/T%C3%BCrkiye'nin_illeri
-     */
+    /** @var array Cities of Turkey, for future updates please use @see https://tr.wikipedia.org/wiki/T%C3%BCrkiye'nin_illeri */
     protected array $cityNames = [
         'Adana', 'Adıyaman', 'Afyonkarahisar', 'Ağrı', 'Aksaray', 'Amasya', 'Ankara', 'Antalya', 'Ardahan', 'Artvin', 'Aydın',
         'Balıkesir', 'Bartın', 'Batman', 'Bayburt', 'Bilecik', 'Bingöl', 'Bitlis', 'Bolu', 'Burdur', 'Bursa',
@@ -95,5 +93,4 @@ class Address extends BaseAddress
     {
         return $this->randomizer->randomElement($this->cityNames);
     }
-
 }

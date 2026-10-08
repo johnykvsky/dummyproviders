@@ -94,9 +94,7 @@ class Address extends BaseAddress
         'Österrike', 'Östtimor',
     ];
 
-    /**
-     * @var array Swedish street name formats
-     */
+    /** @var array Swedish street name formats */
     protected array $streetNameFormats = [
         '{{lastName}}{{streetSuffix}}',
         '{{lastName}}{{streetSuffix}}',
@@ -109,24 +107,18 @@ class Address extends BaseAddress
         '{{lastName}} {{streetSuffixWord}}',
     ];
 
-    /**
-     * @var array Swedish street address formats
-     */
+    /** @var array Swedish street address formats */
     protected array $streetAddressFormats = [
         '{{streetName}} {{buildingNumber}}',
     ];
 
-    /**
-     * @var array Swedish address formats
-     */
+    /** @var array Swedish address formats */
     protected array $addressFormats = [
         "{{streetAddress}}\n{{postcode}} {{city}}",
     ];
 
     /**
      * Randomly return a real city name
-     *
-     * @return string
      */
     public function cityName(): string
     {
@@ -145,12 +137,9 @@ class Address extends BaseAddress
 
     /**
      * Randomly return a building number.
-     *
-     * @return string
      */
     public function buildingNumber(): string
     {
         return $this->replacer->toUpper($this->replacer->bothify($this->randomizer->randomElement($this->buildingNumber)));
     }
-
 }

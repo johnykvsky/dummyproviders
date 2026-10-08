@@ -71,4 +71,13 @@ class JaJpTest extends TestCase
             self::assertMatchesRegularExpression('/^\d{7}$/', $postcode);
         }
     }
+
+    public function testCurrency(): void
+    {
+        $generator = DummyGenerator::create()->withProvider(new JaJpDefinitionPack());
+
+        self::assertSame('JPY', $generator->currencyCode());
+        self::assertSame('¥', $generator->currencySymbol());
+        self::assertSame('Japanese Yen', $generator->currencyName());
+    }
 }

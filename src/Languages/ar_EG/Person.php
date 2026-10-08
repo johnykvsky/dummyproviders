@@ -20,9 +20,7 @@ class Person extends BasePerson
         '{{titleFemale}} {{firstNameFemale}} {{lastName}}',
     ];
 
-    /**
-     * @see http://muslim-names.us/
-     */
+    /** @see http://muslim-names.us/ */
     protected array $firstNameMale = [
 
         'آدم', 'أبراهيم', 'أحمد', 'أدهم', 'أسامة', 'أسعد', 'أشرف', 'أكثم', 'أكرم', 'أمجد', 'أمين', 'أنس', 'أنور', 'أيمن', 'أيوب', 'إبراهيم', 'إسلام', 'إسماعيل', 'إلياس', 'إياد', 'إيهاب', 'ابراهيم', 'احسان', 'احمد', 'ادريس', 'ادم', 'ادهم', 'اديب', 'اسامة',
@@ -41,9 +39,7 @@ class Person extends BasePerson
         'واصف', 'وجدي', 'وجيه', 'وحيد', 'وديع', 'وسام', 'وسيم', 'وصفي', 'وليد', 'وهيب', 'ياسر', 'ياسين', 'يامن', 'يحيى', 'يشار', 'يعقوب', 'يوسف', 'يونس',
     ];
 
-    /**
-     * @see http://muslim-names.us/
-     */
+    /** @see http://muslim-names.us/ */
     protected array $firstNameFemale = [
         'آثار', 'آلاء', 'آية', 'أبرار', 'أحلام', 'أروى', 'أريج', 'أسماء', 'أسيل', 'أصاله', 'أفنان', 'ألاء', 'أماني', 'أمل', 'أميرة', 'أنسام', 'أنوار', 'إخلاص', 'إسراء', 'إكرام', 'إنعام', 'إيمان', 'إيناس', 'ابتهاج', 'ابتهال', 'إخلاص', 'أروى', 'أريج',
         'أزهار', 'اسراء', 'اسرار', 'اسيل', 'اشراق', 'أفراح', 'إكرام', 'إلهام', 'آمال', 'أمنة', 'أميرة', 'أمينة', 'أنعام', 'أنوار', 'آيات', 'إيمان', 'إيناس', 'آية', 'بتول', 'بثينة', 'بسمة',
@@ -73,20 +69,17 @@ class Person extends BasePerson
     protected array $titleFemale = ['السيدة', 'الآنسة', 'الدكتورة', 'المهندسة'];
     private array $prefix = ['أ.', 'د.', 'أ.د', 'م.'];
 
-    /**
-     * @example 'أ.'
-     */
+    /** @example 'أ.' */
     public function prefix(): string
     {
         return $this->randomizer->randomElement($this->prefix);
     }
 
     /**
-     * @see https://ar.wikipedia.org/wiki/%D8%A8%D8%B7%D8%A7%D9%82%D8%A9_%D8%A7%D9%84%D8%B1%D9%82%D9%85_%D8%A7%D9%84%D9%82%D9%88%D9%85%D9%8A_%D8%A7%D9%84%D9%85%D8%B5%D8%B1%D9%8A%D8%A9
-     *
-     * @example 27512310101010
-     *
      * @return string
+     *
+     * @see https://ar.wikipedia.org/wiki/%D8%A8%D8%B7%D8%A7%D9%82%D8%A9_%D8%A7%D9%84%D8%B1%D9%82%D9%85_%D8%A7%D9%84%D9%82%D9%88%D9%85%D9%8A_%D8%A7%D9%84%D9%85%D8%B5%D8%B1%D9%8A%D8%A9
+     * @example 27512310101010
      */
     public function nationalIdNumber($gender = null)
     {

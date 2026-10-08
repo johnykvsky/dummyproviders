@@ -8,9 +8,7 @@ use DummyGenerator\Core\Internet as BaseInternet;
 
 class Internet extends BaseInternet
 {
-    /**
-     * @var array some email domains
-     */
+    /** @var array some email domains */
     protected array $freeEmailDomain = [
         'gmail.com', 'outlook.com', 'yahoo.com', 'gmail.co.id', 'yahoo.co.id',
     ];
@@ -26,5 +24,4 @@ class Internet extends BaseInternet
         'ac.id', 'sch.id', 'go.id', 'mil.id', 'co.id', 'or.id', 'web.id',
         'my.id', 'biz.id', 'desa.id', 'id',
     ];
-
 }

@@ -23,10 +23,12 @@ class Person extends BasePerson
             for ($i = 1; $i < 8; ++$i) {
                 $digits[] = $this->randomizer->getInt(0, 9);
             }
+
             $sum = 0;
             for ($i = 0; $i < 8; ++$i) {
                 $sum += $digits[$i] * $weights[$i];
             }
+
             $remainder = $sum % 11;
             $check = (11 - $remainder) % 11;
         } while ($check === 10);
@@ -53,6 +55,7 @@ class Person extends BasePerson
         for ($i = 0; $i < 8; ++$i) {
             $sum += $digits[$i] * $weights[$i];
         }
+
         $check = $sum % 10;
         $issueNumber = $this->randomizer->getInt(1, 9);
 

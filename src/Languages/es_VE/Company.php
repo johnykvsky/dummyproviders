@@ -35,9 +35,7 @@ class Company extends BaseCompany
     ];
     protected array $companySuffix = ['S.R.L.', 'C.A.', 'S.A.', 'R.L.', 'etc'];
 
-    /**
-     * @example 'Grupo'
-     */
+    /** @example 'Grupo' */
     public function companyPrefix(): string
     {
         return $this->randomizer->randomElement($this->companyPrefix);
@@ -47,8 +45,6 @@ class Company extends BaseCompany
      * Generate random Taxpayer Identification Number (RIF in Venezuela). Ex J-123456789-1
      *
      * @param string $separator
-     *
-     * @return string
      */
     public function taxpayerIdentificationNumber($separator = ''): string
     {

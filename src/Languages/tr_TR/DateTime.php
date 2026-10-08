@@ -6,15 +6,29 @@ namespace DummyGenerator\Provider\Languages\tr_TR;
 
 use DummyGenerator\Clock\SystemClockInterface;
 use DummyGenerator\Core\DateTime as BaseDateTime;
+use DummyGenerator\Definitions\Randomizer\RandomizerInterface;
+use DummyGenerator\GeneratorInterface;
 
 class DateTime extends BaseDateTime
 {
-    public function amPm($max = 'now'): string
-    {
-        return $this->generator->dateTime($max)->format('a') === 'am' ? 'öö' : 'ös';
+    private GeneratorInterface $generator;
+
+    public function __construct(
+        RandomizerInterface $randomizer,
+        SystemClockInterface $clock,
+        GeneratorInterface $generator,
+    ) {
+        parent::__construct($randomizer, $clock);
+
+        $this->generator = $generator;
     }
 
-    public function dayOfWeek($max = 'now'): string
+    public function amPm(\DateTimeInterface|string $until = 'now'): string
+    {
+        return $this->dateTime($until)->format('a') === 'am' ? 'öö' : 'ös';
+    }
+
+    public function dayOfWeek(\DateTimeInterface|string $until = 'now'): string
     {
         $map = [
             'Sunday' => 'Pazar',
@@ -25,12 +39,12 @@ class DateTime extends BaseDateTime
             'Friday' => 'Cuma',
             'Saturday' => 'Cumartesi',
         ];
-        $week = $this->generator->dateTime($max)->format('l');
+        $week = $this->dateTime($until)->format('l');
 
         return $map[$week] ?? $week;
     }
 
-    public function monthName($max = 'now'): string
+    public function monthName(\DateTimeInterface|string $until = 'now'): string
     {
         $map = [
             'January' => 'Ocak',
@@ -46,9 +60,8 @@ class DateTime extends BaseDateTime
             'November' => 'Kasım',
             'December' => 'Aralık',
         ];
-        $month = $this->generator->dateTime($max)->format('F');
+        $month = $this->dateTime($until)->format('F');
 
         return $map[$month] ?? $month;
     }
-
 }

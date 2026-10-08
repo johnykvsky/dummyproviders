@@ -32,8 +32,6 @@ class PhoneNumber extends BasePhoneNumber
 
     /**
      * Return an en_HK mobile phone number
-     *
-     * @return string
      */
     public function mobileNumber(): string
     {
@@ -59,5 +57,4 @@ class PhoneNumber extends BasePhoneNumber
     {
         return $this->replacer->numerify($this->randomizer->randomElement($this->faxFormats));
     }
-
 }

@@ -8,9 +8,7 @@ use DummyGenerator\Core\Company as BaseCompany;
 
 class Company extends BaseCompany
 {
-    /**
-     * @see https://nl.wikipedia.org/wiki/Lijst_van_beroepen
-     */
+    /** @see https://nl.wikipedia.org/wiki/Lijst_van_beroepen */
     protected array $jobTitleFormat = [
         'Aankondiger', 'Acceptant', 'Accountant', 'Accountmanager', 'Acrobaat', 'Acteur', 'Activiteitenbegeleider', 'Actuaris', 'Acupuncturist', 'Adjudant', 'Administrateur', 'Advertentiezetter', 'Adviseur', 'Advocaat', 'Agent', 'Agrariër', 'Akoepedist', 'Akoesticus', 'Alchemist', 'Allergoloog', 'Altist', 'Amanuensis', 'Ambtenaar', 'Ambulancebegeleider', 'Ambulancechauffeur', 'Ambulanceverpleegkundige', 'Analist', 'Anatoom', 'Andragoog', 'Androloog', 'Anesthesist', 'Anesthesiemedewerker', 'Animeermeisje', 'Antiquaar', 'Antiquair', 'Apotheker', 'Apothekersassistent', 'Applicatieontwikkelaar', 'Arbeidsanalist', 'Arbeidsbemiddelaar', 'Arbeidsdeskundige', 'Arbeidsfysioloog', 'Arbeidsgeneesheer', 'Arbeidshygiënist', 'Archeoloog', 'Architect', 'Archivaris', 'Archivist', 'Arrangeur', 'Artdirector', 'Artiest', 'Arts', 'Assuradeur', 'Astrofysicus', 'Astroloog', 'Astronaut', 'Astronoom', 'Audioloog', 'Audiometrist', 'Audiotherapeut', 'Auditor', 'Autohandelaar', 'Automonteur', 'Autoplaatwerker', 'Autospuiter',
         'Bacterioloog', 'Badmeester', 'Baggermachinist', 'Baggermolenarbeider', 'Baker', 'Bakker', 'Baliemedewerker', 'Balletdanser', 'Ballroomdanser', 'Bandagist', 'Bandenmonteur', 'Bankbediende', 'Bankdirecteur', 'Banketbakker', 'Bankmakelaar', 'Bankwerker', 'Barbediende', 'Barhouder', 'Barman', 'Basketballer', 'Bassist', 'Beademingsassistent', 'Bedienaar', 'Bediener', 'Bedrijfsbrandweer', 'Bedrijfseconoom', 'Bedrijfshoofd', 'Bedrijfsjurist', 'Bedrijfskassier', 'Bedrijfskundige', 'Bedrijfsleermeester', 'Bedrijfsleider', 'Bedrijfsorganisatiedeskundige', 'Bedrijfspolitieagent', 'Bedrijfsrecherche', 'Bedrijfsverpleegkundige', 'Beeldapparatuurbediener', 'Beeldhouwer', 'Beenhouwer', 'Begeleider', 'Begrafenispersoneel', 'Begrotingscalculator', 'Behanger', 'Beheerder', 'Beiaardier', 'Bejaardenverzorgende', 'Belastingambtenaar', 'Belastingconsulent', 'Beleidsambtenaar', 'Beleidsmedewerker', 'Belichter', 'Bergingsduiker', 'Beroepskeuzeadviseur', 'Beroepsmilitair', 'Beroepssporter', 'Bestekschrijver', 'Besteksorteerder', 'Bestekzoeker', 'Bestuurder', 'Bestuurskundige', 'Betonmolenbaas', 'Betontimmerman', 'Betonstaalvlechter', 'Betonwerker', 'Beul', 'Beveiligingsapparatuur', 'Beveiligingsbeambte', 'Bewaarder', 'Bewaker', 'Bewegingstherapeut', 'Bezorger', 'Bibliothecaris', 'Bibliotheekassistent', 'Bierbrouwer', 'Bijenkorfvlechter', 'Bijenkweker', 'Bijkantoorhouder', 'Binderijpersoneel', 'Binnenhuisarchitect', 'Biochemicus', 'Biograaf', 'Bioloog', 'Bioscoopoperateur', 'Bitumineerder', 'Bloemist', 'Bloemkweker', 'Bloemschikker', 'Bloemsierkunstenaar', 'Bode', 'Boekbinder', 'Boekhouder', 'Boekillustrator', 'Boer', 'Bontkleermaker', 'Bontsnijder', 'Bookmaker', 'Boomchirurg', 'Boomkweker', 'Boomverzorger', 'Boordwerktuigkundige', 'Boormachinist', 'Boorpersoneel', 'Bootsman', 'Bosbaas', 'Bosbouwkundige', 'Boswachter', 'Botenbouwer', 'Bouwcalculator', 'Bouwhistoricus', 'Bouwkundig tekenaar', 'Bouwliftbediener', 'Bouwpromotor', 'Bouwopzichter', 'Bouwvakker', 'Bouwvaktimmerman', 'Brandmeester', 'Brandveiligheidsdeskundige', 'Brandwacht', 'Brandweerman', 'Brandweercommandant', 'Brandweeronderofficier', 'Breimachinesteller', 'Bromfietshersteller', 'Bronboorder', 'Buffetbediende', 'Buikspreker', 'Buitenbandenvulkaniseur', 'Buitendienstmedewerker', 'Burgemeester', 'Buschauffeur', 'Budgetcoach', 'Butler',
@@ -65,11 +63,7 @@ class Company extends BaseCompany
         'Café', 'Garage',
     ];
 
-    /**
-     * @example 'Fietsenmaker Zijlemans'
-     *
-     * @return string
-     */
+    /** @example 'Fietsenmaker Zijlemans' */
     public function company(): string
     {
         $determinator = $this->randomizer->getInt(0, 2);
@@ -101,11 +95,10 @@ class Company extends BaseCompany
     /**
      * Belasting Toegevoegde Waarde (BTW) = VAT
      *
-     * @example 'NL123456789B01'
-     *
-     * @see https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/zakelijk/btw/administratie_bijhouden/btw_nummers_controleren/uw_btw_nummer
-     *
      * @return string VAT Number
+     *
+     * @example 'NL123456789B01'
+     * @see https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/zakelijk/btw/administratie_bijhouden/btw_nummers_controleren/uw_btw_nummer
      */
     public function vat(): string
     {

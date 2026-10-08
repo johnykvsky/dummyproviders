@@ -39,9 +39,7 @@ class Company extends BaseCompany
         'Мотор', 'Қаз', 'Тех', 'Сантех', 'Алматы', 'Астана', 'Электро',
     ];
 
-    /**
-     * @example 'ЖШС АлматыТелеком'
-     */
+    /** @example 'ЖШС АлматыТелеком' */
     public function company(): string
     {
         $format = $this->randomizer->randomElement($this->companyNameFormats);
@@ -67,9 +65,9 @@ class Company extends BaseCompany
     /**
      * National Business Identification Numbers
      *
-     * @see   http://egov.kz/wps/portal/Content?contentPath=%2Fegovcontent%2Fbus_business%2Ffor_businessmen%2Farticle%2Fbusiness_identification_number&lang=en
-     *
      * @return string 12 digits, like 150140000019
+     *
+     * @see   http://egov.kz/wps/portal/Content?contentPath=%2Fegovcontent%2Fbus_business%2Ffor_businessmen%2Farticle%2Fbusiness_identification_number&lang=en
      */
     public function businessIdentificationNumber(?\DateTimeInterface $registrationDate = null)
     {

@@ -27,8 +27,6 @@ class PhoneNumber extends BasePhoneNumber
 
     /**
      * An array of en_NZ landline phone number formats
-     *
-     * @var array
      */
     protected array $formats = [
         // National Calls
@@ -38,8 +36,6 @@ class PhoneNumber extends BasePhoneNumber
 
     /**
      * An array of en_NZ mobile (cell) phone number formats
-     *
-     * @var array
      */
     protected array $mobileFormats = [
         // Local
@@ -51,8 +47,6 @@ class PhoneNumber extends BasePhoneNumber
 
     /**
      * An array of toll free phone number formats
-     *
-     * @var array
      */
     protected array $tollFreeFormats = [
         '0508######',
@@ -65,8 +59,6 @@ class PhoneNumber extends BasePhoneNumber
 
     /**
      * An array of en_NZ landline area codes
-     *
-     * @var array
      */
     protected array $areaCodes = [
         '02', '03', '04', '06', '07', '09',
@@ -74,8 +66,6 @@ class PhoneNumber extends BasePhoneNumber
 
     /**
      * An array of en_NZ landline beginning numbers
-     *
-     * @var array
      */
     protected array $beginningNumbers = [
         '2', '3', '4', '5', '6', '7', '8', '9',
@@ -83,8 +73,6 @@ class PhoneNumber extends BasePhoneNumber
 
     /**
      * Return a en_NZ mobile phone number
-     *
-     * @return string
      */
     public function mobileNumber(): string
     {
@@ -103,8 +91,6 @@ class PhoneNumber extends BasePhoneNumber
 
     /**
      * Return a en_NZ landline area code
-     *
-     * @return string
      */
     public function areaCode(): string
     {
@@ -120,5 +106,4 @@ class PhoneNumber extends BasePhoneNumber
     {
         return $this->replacer->numerify($this->randomizer->randomElement($this->beginningNumbers));
     }
-
 }

@@ -74,9 +74,7 @@ class Address extends BaseAddress
         '{{cityName}}',
     ];
 
-    /**
-     * @see http://en.wikipedia.org/wiki/List_of_cities_and_towns_in_Uganda
-     */
+    /** @see http://en.wikipedia.org/wiki/List_of_cities_and_towns_in_Uganda */
     protected array $cityName = [
         'Alebtong', 'Abim', 'Adjumani', 'Amolatar', 'Amuria', 'Amuru', 'Apac', 'Arua',
         'Bombo', 'Budaka', 'Bugembe', 'Bugiri', 'Bukedea', 'Bulisa', 'Buikwe', 'Bundibugyo',
@@ -106,9 +104,7 @@ class Address extends BaseAddress
         'Yumbe',
     ];
 
-    /**
-     * @see http://en.wikipedia.org/wiki/Category:Districts_of_Uganda
-     */
+    /** @see http://en.wikipedia.org/wiki/Category:Districts_of_Uganda */
     protected array $district = [
         'Abim', 'Adjumani', 'Agago', 'Alebtong', 'Amolatar', 'Amudat', 'Amuria', 'Amuru', 'Apac', 'Arua',
         'Budaka', 'Bududa', 'Bugiri', 'Buhweju', 'Buikwe', 'Bukedea', 'Bukomansimbi', 'Bukwo', 'Bulambuli',
@@ -141,25 +137,19 @@ class Address extends BaseAddress
 
     protected array $region = ['Central', 'East', 'North', 'West'];
 
-    /**
-     * @example 'Fort Portal'
-     */
+    /** @example 'Fort Portal' */
     public function cityName(): string
     {
         return $this->randomizer->randomElement($this->cityName);
     }
 
-    /**
-     * @example 'Kampala'
-     */
+    /** @example 'Kampala' */
     public function district(): string
     {
         return $this->randomizer->randomElement($this->district);
     }
 
-    /**
-     * @example 'East'
-     */
+    /** @example 'East' */
     public function region(): string
     {
         return $this->randomizer->randomElement($this->region);

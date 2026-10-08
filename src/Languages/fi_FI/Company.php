@@ -40,9 +40,7 @@ class Company extends BaseCompany
 
     protected array $companySuffix = ['OY', 'AB', 'OY AB', 'RY', 'OYj', 'Tmi.', 'Inc.', 'Ltd'];
 
-    /**
-     * @example 'Ainoa 3.sukupolven ohjelmisto'
-     */
+    /** @example 'Ainoa 3.sukupolven ohjelmisto' */
     public function catchPhrase(): string
     {
         $result = [];
@@ -54,9 +52,7 @@ class Company extends BaseCompany
         return implode(' ', $result);
     }
 
-    /**
-     * @example 'hyödyntää maailmanlaajuisia yhteisöjä'
-     */
+    /** @example 'hyödyntää maailmanlaajuisia yhteisöjä' */
     public function bs(): string
     {
         $result = [];
@@ -83,10 +79,12 @@ class Company extends BaseCompany
             for ($i = 0; $i < 7; ++$i) {
                 $digits[] = $this->randomizer->getInt(0, 9);
             }
+
             $sum = 0;
             for ($i = 0; $i < 7; ++$i) {
                 $sum += $digits[$i] * $weights[$i];
             }
+
             $remainder = $sum % 11;
         } while ($remainder === 1);
 

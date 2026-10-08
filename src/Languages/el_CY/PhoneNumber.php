@@ -34,8 +34,6 @@ class PhoneNumber extends BasePhoneNumber
 
     /**
      * An array of el_CY mobile (cell) phone number formats.
-     *
-     * @var array
      */
     protected array $mobileFormats = [
         '9#######',
@@ -43,12 +41,9 @@ class PhoneNumber extends BasePhoneNumber
 
     /**
      * Return a el_CY mobile phone number.
-     *
-     * @return string
      */
     public function mobileNumber(): string
     {
         return $this->replacer->numerify($this->randomizer->randomElement($this->mobileFormats));
     }
-
 }

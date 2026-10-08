@@ -14,9 +14,7 @@ class Color extends BaseColor
         'رمادي', 'أصفر', 'برتقالي', 'بني', 'أبيض', 'بنفسجى',
     ];
 
-    /**
-     * @see http://r7eq.com/Service/Design/ColorName/
-     */
+    /** @see http://r7eq.com/Service/Design/ColorName/ */
     protected array $allColorNames = [
         'أخضر فاتح',
         'أزرق فاتح',
@@ -66,5 +64,4 @@ class Color extends BaseColor
         'زيتي',
         'عنابي',
     ];
-
 }

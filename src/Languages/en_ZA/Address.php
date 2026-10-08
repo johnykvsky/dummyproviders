@@ -76,33 +76,25 @@ class Address extends BaseAddress
     ];
     protected array $secondaryAddressFormats = ['Apt. ###', 'Suite ###'];
 
-    /**
-     * @example 'East'
-     */
+    /** @example 'East' */
     public function cityPrefix(): string
     {
         return $this->randomizer->randomElement($this->cityPrefix);
     }
 
-    /**
-     * @example 'Appt. 350'
-     */
+    /** @example 'Appt. 350' */
     public function secondaryAddress(): string
     {
         return $this->replacer->numerify($this->randomizer->randomElement($this->secondaryAddressFormats));
     }
 
-    /**
-     * @example 'Gauteng'
-     */
+    /** @example 'Gauteng' */
     public function province(): string
     {
         return $this->randomizer->randomElement($this->province);
     }
 
-    /**
-     * @example 'GP'
-     */
+    /** @example 'GP' */
     public function provinceAbbr()
     {
         return $this->randomizer->randomElement($this->provinceAbbr);

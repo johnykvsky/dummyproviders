@@ -27,9 +27,7 @@ class Person extends BasePerson
         '{{firstNameFemale}}',
     ];
 
-    /**
-     * @see http://www.dattenhay.vn/1001-ten-cho-be-trai.htm
-     */
+    /** @see http://www.dattenhay.vn/1001-ten-cho-be-trai.htm */
     protected array $firstNameMale = [
         'An', 'Anh',
         'Bào', 'Bình', 'Bạch', 'Bảo', 'Bắc', 'Bằng', 'Bổng', 'Bửu',
@@ -54,9 +52,7 @@ class Person extends BasePerson
         'Ẩn',
     ];
 
-    /**
-     * @see http://www.dattenhay.vn/1001-ten-cho-be-trai.htm
-     */
+    /** @see http://www.dattenhay.vn/1001-ten-cho-be-trai.htm */
     protected array $middleNameMale = [
         'An', 'Anh',
         'Bá', 'Bách', 'Bình', 'Bích', 'Bảo', 'Bằng', 'Bửu', 'Bữu',
@@ -76,9 +72,7 @@ class Person extends BasePerson
         'Đan', 'Đinh', 'Đoàn', 'Đình', 'Đông', 'Đăng', 'Đại', 'Đạt', 'Đắc', 'Định', 'Đồng', 'Đức', 'Đăng', 'Đức',
     ];
 
-    /**
-     * @see http://www.dattenhay.vn/1001-ten-cho-be-gai.htm
-     */
+    /** @see http://www.dattenhay.vn/1001-ten-cho-be-gai.htm */
     protected array $firstNameFemale = [
         'An', 'Anh',
         'Bình', 'Bích', 'Băng', 'Bạch', 'Bảo',
@@ -106,9 +100,7 @@ class Person extends BasePerson
         'Ý',
     ];
 
-    /**
-     * @see http://www.dattenhay.vn/1001-ten-cho-be-gai.htm
-     */
+    /** @see http://www.dattenhay.vn/1001-ten-cho-be-gai.htm */
     protected array $middleNameFemale = [
         'An', 'Anh',
         'Ban', 'Bích', 'Băng', 'Bạch', 'Bảo', 'Bội',
@@ -134,9 +126,7 @@ class Person extends BasePerson
         'Ý',
     ];
 
-    /**
-     * @see http://vi.wikipedia.org/wiki/H%E1%BB%8D_ng%C6%B0%E1%BB%9Di_Vi%E1%BB%87t_Nam
-     */
+    /** @see http://vi.wikipedia.org/wiki/H%E1%BB%8D_ng%C6%B0%E1%BB%9Di_Vi%E1%BB%87t_Nam */
     protected array $lastName = [
         'An', 'Ánh',
         'Ân', 'Âu', 'Ấu',
@@ -165,7 +155,7 @@ class Person extends BasePerson
 
     protected array $titleFemale = ['Cụ', 'Bà', 'Bác', 'Cô', 'Chị', 'Em'];
 
-    public function middleName($gender = null): string
+    public function middleName(?string $gender = null): string
     {
         if ($gender === static::GENDER_MALE) {
             return $this->middleNameMale();
@@ -187,5 +177,4 @@ class Person extends BasePerson
     {
         return $this->randomizer->randomElement($this->middleNameFemale);
     }
-
 }

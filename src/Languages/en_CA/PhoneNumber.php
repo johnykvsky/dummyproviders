@@ -80,7 +80,6 @@ class PhoneNumber extends BasePhoneNumber
         '(%##) ###-#### x###',
     ];
 
-
     public function tollFreeAreaCode(): int
     {
         return $this->randomizer->randomElement($this->tollFreeAreaCodes);

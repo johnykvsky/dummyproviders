@@ -68,9 +68,7 @@ class Company extends BaseCompany
         'Καθεκλοποιός',
     ];
 
-    /**
-     * @example 'Αθήνας'
-     */
+    /** @example 'Αθήνας' */
     public function doy()
     {
         return $this->randomizer->randomElement($this->doy);
@@ -85,5 +83,4 @@ class Company extends BaseCompany
     {
         return $this->randomizer->randomElement($this->object);
     }
-
 }

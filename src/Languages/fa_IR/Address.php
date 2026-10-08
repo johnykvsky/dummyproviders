@@ -44,49 +44,37 @@ class Address extends BaseAddress
     protected array $postcode = ['##########'];
     protected array $country = ['ایران'];
 
-    /**
-     * @example 'استان'
-     */
+    /** @example 'استان' */
     public function cityPrefix(): string
     {
         return $this->randomizer->randomElement($this->cityPrefix);
     }
 
-    /**
-     * @example 'زنجان'
-     */
+    /** @example 'زنجان' */
     public function cityName(): string
     {
         return $this->randomizer->randomElement($this->cityName);
     }
 
-    /**
-     * @example 'خیابان'
-     */
+    /** @example 'خیابان' */
     public function streetPrefix(): string
     {
         return $this->randomizer->randomElement($this->streetPrefix);
     }
 
-    /**
-     * @example 'ساختمان'
-     */
+    /** @example 'ساختمان' */
     public function buildingNamePrefix()
     {
         return $this->randomizer->randomElement($this->buildingNamePrefix);
     }
 
-    /**
-     * @example 'پلاک'
-     */
+    /** @example 'پلاک' */
     public function buildingNumberPrefix()
     {
         return $this->randomizer->randomElement($this->buildingNumberPrefix);
     }
 
-    /**
-     * @example 'ساختمان آفتاب پلاک 24'
-     */
+    /** @example 'ساختمان آفتاب پلاک 24' */
     public function building()
     {
         $format = $this->randomizer->randomElement($this->buildingFormat);
@@ -94,12 +82,9 @@ class Address extends BaseAddress
         return $this->generator->parse($format);
     }
 
-    /**
-     * @example 'کد پستی'
-     */
+    /** @example 'کد پستی' */
     public function postcodePrefix()
     {
         return $this->randomizer->randomElement($this->postcodePrefix);
     }
-
 }

@@ -39,9 +39,7 @@ class Address extends BaseAddress
 
     protected array $buildingNumber = ['%', '%#', '%#', '%#', '%##'];
 
-    /**
-     * @see https://en.wikipedia.org/wiki/Postal_codes_in_France
-     */
+    /** @see https://en.wikipedia.org/wiki/Postal_codes_in_France */
     protected array $postcode = ['#####'];
 
     protected array $country = [
@@ -51,9 +49,7 @@ class Address extends BaseAddress
         'Territoire britannique de l\'océan Indien', 'Territoires français du sud', 'Thailande', 'Timor', 'Togo', 'Tokelau', 'Tonga', 'Trinité et Tobago', 'Tunisie', 'Turkménistan', 'Turks et Caïques (Îles)', 'Turquie', 'Tuvalu', 'Ukraine', 'Uruguay', 'Vanuatu', 'Vatican (Etat du)', 'Venezuela', 'Vierges (Îles)', 'Vierges britanniques (Îles)', 'Vietnam', 'Wallis et Futuna (Îles)', 'Yemen', 'Yougoslavie', 'Zambie', 'Zaïre', 'Zimbabwe',
     ];
 
-    /**
-     * @see https://en.wikipedia.org/wiki/Regions_of_France
-     */
+    /** @see https://en.wikipedia.org/wiki/Regions_of_France */
     private array $regions = [
         'Auvergne-Rhône-Alpes', 'Bourgogne-Franche-Comté', 'Bretagne', 'Centre-Val de Loire', 'Corse', 'Grand Est', 'Hauts-de-France',
         'Île-de-France', 'Normandie', 'Nouvelle-Aquitaine', 'Occitanie', 'Pays de la Loire', "Provence-Alpes-Côte d'Azur",
@@ -85,17 +81,13 @@ class Address extends BaseAddress
 
     protected array $secondaryAddressFormats = ['Apt. ###', 'Suite ###', 'Étage ###', 'Bât. ###', 'Chambre ###'];
 
-    /**
-     * @example 'Appt. 350'
-     */
+    /** @example 'Appt. 350' */
     public function secondaryAddress(): string
     {
         return $this->replacer->numerify($this->randomizer->randomElement($this->secondaryAddressFormats));
     }
 
-    /**
-     * @example 'rue'
-     */
+    /** @example 'rue' */
     public function streetPrefix(): string
     {
         return $this->randomizer->randomElement($this->streetPrefix);
@@ -105,8 +97,6 @@ class Address extends BaseAddress
      * Randomly returns a french region.
      *
      * @example 'Guadeloupe'
-     *
-     * @return string
      */
     public function region(): string
     {
@@ -117,8 +107,6 @@ class Address extends BaseAddress
      * Randomly returns a french department ('departmentNumber' => 'departmentName').
      *
      * @example array('2B' => 'Haute-Corse')
-     *
-     * @return array
      */
     public function department(): array
     {
@@ -128,9 +116,9 @@ class Address extends BaseAddress
     /**
      * Randomly returns a french department name.
      *
-     * @example 'Ardèche'
-     *
      * @return string
+     *
+     * @example 'Ardèche'
      */
     public function departmentName()
     {
@@ -142,9 +130,9 @@ class Address extends BaseAddress
     /**
      * Randomly returns a french department number.
      *
-     * @example '59'
-     *
      * @return string
+     *
+     * @example '59'
      */
     public function departmentNumber()
     {
@@ -152,5 +140,4 @@ class Address extends BaseAddress
 
         return $randomDepartmentNumber[0];
     }
-
 }

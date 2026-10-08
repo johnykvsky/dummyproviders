@@ -290,6 +290,7 @@ class Person extends BasePerson
             $val = ord($letters[$i]) - 55;
             $sum += $val * $weights[$i];
         }
+
         for ($i = 0; $i < 5; ++$i) {
             $sum += $digits[$i] * $weights[$i + 3];
         }

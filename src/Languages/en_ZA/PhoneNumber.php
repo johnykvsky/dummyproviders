@@ -51,9 +51,7 @@ class PhoneNumber extends BasePhoneNumber
         '0800', '0860', '0861', '0862',
     ];
 
-    /**
-     * @see https://en.wikipedia.org/wiki/Telephone_numbers_in_South_Africa
-     */
+    /** @see https://en.wikipedia.org/wiki/Telephone_numbers_in_South_Africa */
     public function areaCode(): string
     {
         $digits[] = $this->randomizer->getInt(1, 5);
@@ -134,5 +132,4 @@ class PhoneNumber extends BasePhoneNumber
 
         return $this->replacer->numerify($this->generator->parse($format));
     }
-
 }

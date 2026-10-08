@@ -42,9 +42,7 @@ class Company extends BaseCompany
 
     protected array $companySuffix = ['e Hijo', 'e Hija', 'e Hijos', 'y Asoc.', 'y Flia.', 'SRL', 'SA', 'S. de H.'];
 
-    /**
-     * @example 'Robust full-range hub'
-     */
+    /** @example 'Robust full-range hub' */
     public function catchPhrase(): string
     {
         $result = [];
@@ -56,9 +54,7 @@ class Company extends BaseCompany
         return implode(' ', $result);
     }
 
-    /**
-     * @example 'integrate extensible convergence'
-     */
+    /** @example 'integrate extensible convergence' */
     public function bs(): string
     {
         $result = [];
@@ -69,5 +65,4 @@ class Company extends BaseCompany
 
         return implode(' ', $result);
     }
-
 }

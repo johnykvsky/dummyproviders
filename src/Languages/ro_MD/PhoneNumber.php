@@ -34,5 +34,4 @@ class PhoneNumber extends BasePhoneNumber
         '(373) 77 8## ###',
         '(373) 77 9## ###',
     ];
-
 }

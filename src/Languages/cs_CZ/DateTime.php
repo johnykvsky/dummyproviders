@@ -41,37 +41,37 @@ class DateTime extends BaseDateTime
         '{{dayOfMonth}}. {{monthNameGenitive}} {{year}}',
     ];
 
-    public function monthName($max = 'now'): string
+    public function monthName(\DateTimeInterface|string $until = 'now'): string
     {
-        return $this->months[parent::month($max) - 1];
+        $month = (int) parent::month($until) - 1;
+
+        return $this->months[$month];
     }
 
-    public function monthNameGenitive($max = 'now')
+    public function monthNameGenitive(\DateTimeInterface|string $until = 'now'): string
     {
-        return $this->monthsGenitive[parent::month($max) - 1];
+        $month = (int) parent::month($until) - 1;
+
+        return $this->monthsGenitive[$month];
     }
 
-    public function dayOfWeek($max = 'now'): string
+    public function dayOfWeek(\DateTimeInterface|string $until = 'now'): string
     {
-        return $this->days[$this->generator->dateTime($max)->format('w')];
+        return $this->days[$this->dateTime($until)->format('w')];
     }
 
     /**
-     * @param \DateTime|int|string $max maximum timestamp used as random end limit, default to "now"
-     *
-     * @return string
+     * @param \DateTimeInterface|string $until maximum timestamp used as random end limit, default to "now"
      *
      * @example '2'
      */
-    public function dayOfMonth($max = 'now'): string
+    public function dayOfMonth(\DateTimeInterface|string $until = 'now'): string
     {
-        return $this->generator->dateTime($max)->format('j');
+        return $this->dateTime($until)->format('j');
     }
 
     /**
      * Full date with inflected month
-     *
-     * @return string
      *
      * @example '16. listopadu 2003'
      */
@@ -81,5 +81,4 @@ class DateTime extends BaseDateTime
 
         return $this->generator->parse($format);
     }
-
 }

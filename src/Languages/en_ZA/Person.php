@@ -146,18 +146,17 @@ class Person extends BasePerson
     protected array $licenceCodes = ['A', 'A1', 'B', 'C', 'C1', 'C2', 'EB', 'EC', 'EC1', 'I', 'L', 'L1'];
 
     /**
-     * @see https://en.wikipedia.org/wiki/National_identification_number#South_Africa
-     *
      * @param bool   $citizen
      * @param string $gender
      *
-     * @return string
+     * @see https://en.wikipedia.org/wiki/National_identification_number#South_Africa
      */
     public function idNumber(?\DateTimeInterface $birthdate = null, $citizen = true, $gender = null): string
     {
         if (!$birthdate) {
             $birthdate = $this->generator->dateTimeThisCentury();
         }
+
         $birthDateString = $birthdate->format('ymd');
 
         switch (strtolower($gender ?: '')) {
@@ -174,6 +173,7 @@ class Person extends BasePerson
             default:
                 $genderDigit = $this->randomizer->getInt(0, 9);
         }
+
         $sequenceDigits = str_pad((string) $this->generator->randomNumber(3), 3, '0', STR_PAD_BOTH);
         $citizenDigit = ($citizen === true) ? '0' : '1';
         $raceDigit = $this->randomizer->getInt(8, 9);
@@ -183,11 +183,7 @@ class Person extends BasePerson
         return $partialIdNumber . $this->luhnCalculator->computeCheckDigit($partialIdNumber);
     }
 
-    /**
-     * @see https://en.wikipedia.org/wiki/Driving_licence_in_South_Africa
-     *
-     * @return string
-     */
+    /** @see https://en.wikipedia.org/wiki/Driving_licence_in_South_Africa */
     public function licenceCode(): string
     {
         return $this->randomizer->randomElement($this->licenceCodes);

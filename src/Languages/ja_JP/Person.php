@@ -88,11 +88,9 @@ class Person extends BasePerson
     /**
      * @param string|null $gender 'male', 'female' or null for any
      *
-     * @return string
-     *
      * @example 'アオタ アキラ'
      */
-    public function kanaName($gender = null)
+    public function kanaName(?string $gender = null): string
     {
         if ($gender === static::GENDER_MALE) {
             $format = $this->randomizer->randomElement($this->maleKanaNameFormats);
@@ -108,11 +106,9 @@ class Person extends BasePerson
     /**
      * @param string|null $gender 'male', 'female' or null for any
      *
-     * @return string
-     *
      * @example 'アキラ'
      */
-    public function firstKanaName($gender = null)
+    public function firstKanaName(?string $gender = null): string
     {
         if ($gender === static::GENDER_MALE) {
             return $this->firstKanaNameMale();
@@ -125,29 +121,24 @@ class Person extends BasePerson
         return $this->generator->parse($this->randomizer->randomElement($this->firstKanaNameFormat));
     }
 
-    /**
-     * @example 'アキラ'
-     */
-    public function firstKanaNameMale()
+    /** @example 'アキラ' */
+    public function firstKanaNameMale(): string
     {
         return $this->randomizer->randomElement($this->firstKanaNameMale);
     }
 
-    /**
-     * @example 'アケミ'
-     */
-    public function firstKanaNameFemale()
+    /** @example 'アケミ' */
+    public function firstKanaNameFemale(): string
     {
         return $this->randomizer->randomElement($this->firstKanaNameFemale);
     }
 
-    /**
-     * @example 'アオタ'
-     */
-    public function lastKanaName()
+    /** @example 'アオタ' */
+    public function lastKanaName(): string
     {
         return $this->randomizer->randomElement($this->lastKanaName);
     }
+
     /**
      * Japanese Individual Number (My Number / 個人番号)
      * 12 digits with check digit.
@@ -173,12 +164,9 @@ class Person extends BasePerson
         return $digits . $check;
     }
 
-    /**
-     * @example '123456789018'
-     */
+    /** @example '123456789018' */
     public function individualNumber(): string
     {
         return $this->myNumber();
     }
-
 }

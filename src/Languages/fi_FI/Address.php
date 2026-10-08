@@ -63,28 +63,21 @@ class Address extends BaseAddress
     ];
     protected array $secondaryAddressFormats = ['###'];
 
-    /**
-     * @example 'Pohjois'
-     */
+    /** @example 'Pohjois' */
     public function cityPrefix(): string
     {
         return $this->randomizer->randomElement($this->cityPrefix);
     }
 
-    /**
-     * @example '123'
-     */
+    /** @example '123' */
     public function secondaryAddress(): string
     {
         return $this->replacer->numerify($this->randomizer->randomElement($this->secondaryAddressFormats));
     }
 
-    /**
-     * @example 'Pohjois-Pohjanmaa'
-     */
+    /** @example 'Pohjois-Pohjanmaa' */
     public function state(): string
     {
         return $this->randomizer->randomElement($this->state);
     }
-
 }

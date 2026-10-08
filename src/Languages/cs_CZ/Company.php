@@ -19,9 +19,7 @@ class Company extends BaseCompany
         parent::__construct($randomizer, $generator);
     }
 
-    /**
-     * @var array Czech company name formats.
-     */
+    /** @var array Czech company name formats. */
     protected array $formats = [
         '{{lastName}} {{companySuffix}}',
         '{{lastName}} {{lastName}} {{companySuffix}}',
@@ -29,9 +27,7 @@ class Company extends BaseCompany
         '{{lastName}} a {{lastName}} {{companySuffix}}',
     ];
 
-    /**
-     * @var array Czech catch phrase formats.
-     */
+    /** @var array Czech catch phrase formats. */
     protected array $catchPhraseFormats = [
         '{{catchPhraseVerb}} {{catchPhraseNoun}} {{catchPhraseAttribute}}',
         '{{catchPhraseVerb}} {{catchPhraseNoun}} a {{catchPhraseNoun}} {{catchPhraseAttribute}}',
@@ -39,24 +35,18 @@ class Company extends BaseCompany
         'Ne{{catchPhraseVerb}} {{catchPhraseNoun}} {{catchPhraseAttribute}}',
     ];
 
-    /**
-     * @var array Czech nouns (used by the catch phrase format).
-     */
+    /** @var array Czech nouns (used by the catch phrase format). */
     protected array $noun = [
         'bezpečnost', 'pohodlí', 'seo', 'rychlost', 'testování', 'údržbu', 'odebírání', 'výstavbu',
         'návrh', 'prodej', 'nákup', 'zprostředkování', 'odvoz', 'přepravu', 'pronájem',
     ];
 
-    /**
-     * @var array Czech verbs (used by the catch phrase format).
-     */
+    /** @var array Czech verbs (used by the catch phrase format). */
     protected array $verb = [
         'zajišťujeme', 'nabízíme', 'děláme', 'provozujeme', 'realizujeme', 'předstihujeme', 'mobilizujeme',
     ];
 
-    /**
-     * @var array End of sentences (used by the catch phrase format).
-     */
+    /** @var array End of sentences (used by the catch phrase format). */
     protected array $attribute = [
         'pro vás', 'pro vaší službu', 'a jsme jednička na trhu', 'pro lepší svět', 'zdarma', 'se zárukou',
         's inovací', 'turbíny', 'mrakodrapů', 'lampiónků a svíček', 'bourací techniky', 'nákupních košíků',
@@ -64,15 +54,11 @@ class Company extends BaseCompany
         'vaší rodiny', 'vašich známých', 'vašich stránek', 'čehokoliv na světě', 'za hubičku',
     ];
 
-    /**
-     * @var array Company suffixes.
-     */
+    /** @var array Company suffixes. */
     protected array $companySuffix = ['s.r.o.', 's.r.o.', 's.r.o.', 's.r.o.', 'a.s.', 'o.p.s.', 'o.s.'];
 
     /**
      * Returns a random catch phrase noun.
-     *
-     * @return string
      */
     public function catchPhraseNoun(): string
     {
@@ -81,8 +67,6 @@ class Company extends BaseCompany
 
     /**
      * Returns a random catch phrase attribute.
-     *
-     * @return string
      */
     public function catchPhraseAttribute(): string
     {
@@ -91,17 +75,12 @@ class Company extends BaseCompany
 
     /**
      * Returns a random catch phrase verb.
-     *
-     * @return string
      */
     public function catchPhraseVerb(): string
     {
         return $this->randomizer->randomElement($this->verb);
     }
 
-    /**
-     * @return string
-     */
     public function catchPhrase(): string
     {
         $format = $this->randomizer->randomElement($this->catchPhraseFormats);
@@ -112,9 +91,9 @@ class Company extends BaseCompany
     /**
      * Generates valid czech IČO
      *
-     * @see http://phpfashion.com/jak-overit-platne-ic-a-rodne-cislo
-     *
      * @return string
+     *
+     * @see http://phpfashion.com/jak-overit-platne-ic-a-rodne-cislo
      */
     public function ico()
     {
@@ -125,6 +104,7 @@ class Company extends BaseCompany
         foreach ([8, 7, 6, 5, 4, 3, 2] as $i => $p) {
             $prod += $p * $split[$i];
         }
+
         $mod = $prod % 11;
 
         if ($mod === 0 || $mod === 10) {

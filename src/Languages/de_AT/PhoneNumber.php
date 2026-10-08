@@ -24,5 +24,4 @@ class PhoneNumber extends BasePhoneNumber
     protected array $e164Formats = [
         '+43##########',
     ];
-
 }

@@ -144,10 +144,9 @@ class Address extends BaseAddress
 
     public function postcode(): string
     {
-        $prefix = str_pad($this->randomizer->getInt(1, 85), 2, 0, STR_PAD_LEFT);
+        $prefix = str_pad((string)$this->randomizer->getInt(1, 85), 2, '0', STR_PAD_LEFT);
         $suffix = '00';
 
         return $prefix . $this->randomizer->getInt(10, 88) . $suffix;
     }
-
 }

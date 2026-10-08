@@ -33,5 +33,4 @@ class Internet extends BaseInternet
         'http://www.{{domainName}}/',
         'http://{{domainName}}/',
     ];
-
 }

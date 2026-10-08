@@ -8,9 +8,7 @@ use DummyGenerator\Core\Payment as BasePayment;
 
 class Payment extends BasePayment
 {
-    /**
-     * @see list of Georgian banks (2015-12-26), source: https://www.nbg.gov.ge/index.php?m=403
-     */
+    /** @see list of Georgian banks (2015-12-26), source: https://www.nbg.gov.ge/index.php?m=403 */
     protected array $banks = [
         'ბანკი რესპუბლიკა',
         'თიბისი ბანკი',
@@ -33,9 +31,7 @@ class Payment extends BasePayment
         'ფინკა ბანკი საქართველო',
     ];
 
-    /**
-     * @example 'თიბისი ბანკი'
-     */
+    /** @example 'თიბისი ბანკი' */
     public function bank(): string
     {
         return $this->randomizer->randomElement($this->banks);
@@ -44,17 +40,14 @@ class Payment extends BasePayment
     /**
      * International Bank Account Number (IBAN)
      *
-     * @see http://en.wikipedia.org/wiki/International_Bank_Account_Number
-     *
      * @param string $prefix      for generating bank account number of a specific bank
      * @param string $countryCode ISO 3166-1 alpha-2 country code
      * @param int    $length      total length without country code and 2 check digits
      *
-     * @return string
+     * @see http://en.wikipedia.org/wiki/International_Bank_Account_Number
      */
     public function bankAccountNumber($prefix = '', $countryCode = 'GE', $length = null): string
     {
         return $this->iban($countryCode, $prefix, $length);
     }
-
 }

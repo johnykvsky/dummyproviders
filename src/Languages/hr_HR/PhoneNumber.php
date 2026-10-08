@@ -15,5 +15,4 @@ class PhoneNumber extends BasePhoneNumber
         '+385 98 ### ####',
         '+385 99 ### ####',
     ];
-
 }

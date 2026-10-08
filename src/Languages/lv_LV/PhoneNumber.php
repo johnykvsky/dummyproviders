@@ -16,5 +16,4 @@ class PhoneNumber extends BasePhoneNumber
         '## ### ###',
         '+371 ########',
     ];
-
 }

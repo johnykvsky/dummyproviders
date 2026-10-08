@@ -16,5 +16,4 @@ class Internet extends BaseInternet
         'ge', 'ge', 'ge', 'ge', 'ge', 'com.ge', 'edu.ge', 'net.ge', 'org.ge',
         'pvt.ge', 'gov.ge', 'mil.ge', 'com', 'biz', 'info', 'net', 'org',
     ];
-
 }

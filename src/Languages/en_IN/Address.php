@@ -134,60 +134,45 @@ class Address extends BaseAddress
         return $this->randomizer->randomElement($this->societySuffix);
     }
 
-    /**
-     * @example Shanti Apartments
-     */
+    /** @example Shanti Apartments */
     public function societyName()
     {
         return $this->generator->parse($this->randomizer->randomElement($this->societyNameFormat));
     }
 
-    /**
-     * @example Mumbai
-     */
+    /** @example Mumbai */
     public function city(): string
     {
         return $this->randomizer->randomElement($this->city);
     }
 
-    /**
-     * @example Vaishali Nagar
-     */
+    /** @example Vaishali Nagar */
     public function locality()
     {
         return $this->generator->parse($this->randomizer->randomElement($this->localityFormats));
     }
 
-    /**
-     * @example Kharadi
-     */
+    /** @example Kharadi */
     public function localityName()
     {
         return $this->generator->parse($this->randomizer->randomElement($this->localityName));
     }
 
-    /**
-     * @example Nagar
-     */
+    /** @example Nagar */
     public function areaSuffix()
     {
         return $this->randomizer->randomElement($this->areaSuffix);
     }
 
-    /**
-     * @example 'Delhi'
-     */
+    /** @example 'Delhi' */
     public function state(): string
     {
         return $this->randomizer->randomElement($this->state);
     }
 
-    /**
-     * @example 'DL'
-     */
+    /** @example 'DL' */
     public function stateAbbr(): string
     {
         return $this->randomizer->randomElement($this->stateAbbr);
     }
-
 }

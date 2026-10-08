@@ -29,5 +29,4 @@ class Company extends BaseCompany
     {
         return $this->randomizer->randomElement($this->names);
     }
-
 }

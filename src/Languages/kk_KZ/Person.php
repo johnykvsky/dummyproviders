@@ -8,7 +8,6 @@ use DummyGenerator\Core\Person as BasePerson;
 
 class Person extends BasePerson
 {
-        
     public const CENTURY_19TH = 0;
     public const CENTURY_20TH = 1;
     public const CENTURY_21ST = 2;
@@ -21,19 +20,10 @@ class Person extends BasePerson
     public const FEMALE_CENTURY_20TH = 4;
     public const FEMALE_CENTURY_21ST = 6;
 
-    /**
-     * @var array
-     */
     public array $firstSequenceBitWeights = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
 
-    /**
-     * @var array
-     */
     public array $secondSequenceBitWeights = [3, 4, 5, 6, 7, 8, 9, 10, 11, 1, 2];
 
-    /**
-     * @var array
-     */
     public array $genderCenturyMap = [
         self::GENDER_MALE => [
             self::CENTURY_19TH => self::MALE_CENTURY_19TH,
@@ -57,29 +47,17 @@ class Person extends BasePerson
         ],
     ];
 
-    /**
-     * @see https://ru.wikipedia.org/wiki/%D0%9A%D0%B0%D0%B7%D0%B0%D1%85%D1%81%D0%BA%D0%B0%D1%8F_%D1%84%D0%B0%D0%BC%D0%B8%D0%BB%D0%B8%D1%8F
-     *
-     * @var array
-     */
+    /** @see https://ru.wikipedia.org/wiki/%D0%9A%D0%B0%D0%B7%D0%B0%D1%85%D1%81%D0%BA%D0%B0%D1%8F_%D1%84%D0%B0%D0%BC%D0%B8%D0%BB%D0%B8%D1%8F */
     protected array $maleNameFormats = [
         '{{lastName}}ұлы {{firstNameMale}}',
     ];
 
-    /**
-     * @see https://ru.wikipedia.org/wiki/%D0%9A%D0%B0%D0%B7%D0%B0%D1%85%D1%81%D0%BA%D0%B0%D1%8F_%D1%84%D0%B0%D0%BC%D0%B8%D0%BB%D0%B8%D1%8F
-     *
-     * @var array
-     */
+    /** @see https://ru.wikipedia.org/wiki/%D0%9A%D0%B0%D0%B7%D0%B0%D1%85%D1%81%D0%BA%D0%B0%D1%8F_%D1%84%D0%B0%D0%BC%D0%B8%D0%BB%D0%B8%D1%8F */
     protected array $femaleNameFormats = [
         '{{lastName}}қызы {{firstNameFemale}}',
     ];
 
-    /**
-     * @see http://koshpendi.kz/index.php/nomad/imena/
-     *
-     * @var array
-     */
+    /** @see http://koshpendi.kz/index.php/nomad/imena/ */
     protected array $firstNameMale = [
         'Аылғазы',
         'Әбдіқадыр',
@@ -111,11 +89,7 @@ class Person extends BasePerson
         'Ібни',
     ];
 
-    /**
-     * @see http://koshpendi.kz/index.php/nomad/imena/
-     *
-     * @var array
-     */
+    /** @see http://koshpendi.kz/index.php/nomad/imena/ */
     protected array $firstNameFemale = [
         'Асылтас',
         'Әужа',
@@ -151,8 +125,6 @@ class Person extends BasePerson
     /**
      * @see http://koshpendi.kz/index.php/nomad/imena/
      * @see https://ru.wikipedia.org/wiki/%D0%9A%D0%B0%D0%B7%D0%B0%D1%85%D1%81%D0%BA%D0%B0%D1%8F_%D1%84%D0%B0%D0%BC%D0%B8%D0%BB%D0%B8%D1%8F
-     *
-     * @var array
      */
     protected array $lastName = [
         'Адырбай',
@@ -191,7 +163,6 @@ class Person extends BasePerson
      *   1900-01-01 - 1900-12-31 counts as 20th century
      *
      * @param int $year
-     *
      * @return int
      */
     private function getCenturyByYear($year)
@@ -214,12 +185,11 @@ class Person extends BasePerson
     /**
      * National Individual Identification Numbers
      *
+     * @param int $gender
+     * @return string 12 digits, like 780322300455
+     *
      * @see   http://egov.kz/wps/portal/Content?contentPath=%2Fegovcontent%2Fcitizen_migration%2Fpassport_id_card%2Farticle%2Fiin_info&lang=en
      * @see   https://ru.wikipedia.org/wiki/%D0%98%D0%BD%D0%B4%D0%B8%D0%B2%D0%B8%D0%B4%D1%83%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9_%D0%B8%D0%B4%D0%B5%D0%BD%D1%82%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D0%BE%D0%BD%D0%BD%D1%8B%D0%B9_%D0%BD%D0%BE%D0%BC%D0%B5%D1%80
-     *
-     * @param int $gender
-     *
-     * @return string 12 digits, like 780322300455
      */
     public function individualIdentificationNumber(?\DateTimeInterface $birthDate = null, $gender = self::GENDER_MALE)
     {
@@ -242,7 +212,6 @@ class Person extends BasePerson
 
     /**
      * @param string $iinValue
-     *
      * @return int
      */
     public function checkSum($iinValue)
@@ -259,7 +228,6 @@ class Person extends BasePerson
     /**
      * @param string $iinValue
      * @param array  $sequence
-     *
      * @return int
      */
     protected function getControlDigit($iinValue, $sequence)

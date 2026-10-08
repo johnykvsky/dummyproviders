@@ -9,5 +9,4 @@ use DummyGenerator\Core\Internet as BaseInternet;
 class Internet extends BaseInternet
 {
     protected array $tld = ['com.ng', 'com', 'ng', 'net', 'edu.ng', 'org', 'gov.ng', 'org.ng', 'biz', 'co'];
-
 }

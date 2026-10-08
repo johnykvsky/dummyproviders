@@ -12,9 +12,9 @@ class Payment extends BasePayment
     /**
      * List of commercial banks sorted in alphabetical order.
      *
-     * @see https://en.wikipedia.org/wiki/List_of_banks_in_Nepal
-     *
      * @var string[]
+     *
+     * @see https://en.wikipedia.org/wiki/List_of_banks_in_Nepal
      */
     protected array $commercialBanks = [
         'Agricultural Development Bank',
@@ -49,9 +49,9 @@ class Payment extends BasePayment
     /**
      * List of development banks sorted in alphabetical order.
      *
-     * @see https://en.wikipedia.org/wiki/List_of_banks_in_Nepal
-     *
      * @var string[]
+     *
+     * @see https://en.wikipedia.org/wiki/List_of_banks_in_Nepal
      */
     protected array $developmentBanks = [
         'Corporate Development Bank',
@@ -78,9 +78,9 @@ class Payment extends BasePayment
     /**
      * List of finance companies sorted in alphabetical order.
      *
-     * @see https://en.wikipedia.org/wiki/List_of_banks_in_Nepal
-     *
      * @var string[]
+     *
+     * @see https://en.wikipedia.org/wiki/List_of_banks_in_Nepal
      */
     protected array $financeCompanies = [
         'Best Finance Company',
@@ -105,9 +105,9 @@ class Payment extends BasePayment
     /**
      * List of microfinance companies sorted in alphabetical order.
      *
-     * @see https://en.wikipedia.org/wiki/List_of_banks_in_Nepal
-     *
      * @var string[]
+     *
+     * @see https://en.wikipedia.org/wiki/List_of_banks_in_Nepal
      */
     protected array $microFinances = [
         'Aatmanirbhar',
@@ -184,9 +184,9 @@ class Payment extends BasePayment
     /**
      * List of digital wallets sorted in alphabetical order.
      *
-     * @see https://www.nrb.org.np/bank-list/
-     *
      * @var string[]
+     *
+     * @see https://www.nrb.org.np/bank-list/
      */
     protected array $digitalWallets = [
         'CellPay',
@@ -221,9 +221,9 @@ class Payment extends BasePayment
     /**
      * List of Swift Codes in alphabetical order.
      *
-     * @see https://www.theswiftcodes.com/nepal/
-     *
      * @var string[]
+     *
+     * @see https://www.theswiftcodes.com/nepal/
      */
     protected array $swiftCodes = [
         'ADBLNPKA',
@@ -259,64 +259,49 @@ class Payment extends BasePayment
         'SRBLNPKA',
     ];
 
-    /**
-     * @example 'Agricultural Development Bank'
-     */
-    public function commercialBank() : string
+    /** @example 'Agricultural Development Bank' */
+    public function commercialBank(): string
     {
         return $this->randomizer->randomElement($this->commercialBanks);
     }
 
-    /**
-     * @example 'Nepal Infrastructure Bank'
-     */
-    public function developmentBank() : string
+    /** @example 'Nepal Infrastructure Bank' */
+    public function developmentBank(): string
     {
         return $this->randomizer->randomElement($this->developmentBanks);
     }
 
-    /**
-     * @example 'Gurkhas Finance'
-     */
-    public function financeCompany() : string
+    /** @example 'Gurkhas Finance' */
+    public function financeCompany(): string
     {
         return $this->randomizer->randomElement($this->financeCompanies);
     }
 
-    /**
-     * @example 'Adarsha Laghubitta Bittiya Sanstha'
-     */
-    public function microFinance() : string
+    /** @example 'Adarsha Laghubitta Bittiya Sanstha' */
+    public function microFinance(): string
     {
         $suffix = ' Laghubitta Bittiya Sanstha';
 
         return $this->randomizer->randomElement($this->microFinances) . $suffix;
     }
 
-    /**
-     * @example 'Khalti'
-     */
-    public function digitalWallet() : string
+    /** @example 'Khalti' */
+    public function digitalWallet(): string
     {
         return $this->randomizer->randomElement($this->digitalWallets);
     }
 
-    /**
-     * @example 'ADBLNPKA'
-     */
-    public function swiftCode() : string
+    /** @example 'ADBLNPKA' */
+    public function swiftCode(): string
     {
         return $this->randomizer->randomElement($this->swiftCodes);
     }
 
-    /**
-     * @example '00454689832792' or 'S49646367883667'
-     */
-    public function bankAccountNumber() : string
+    /** @example '00454689832792' or 'S49646367883667' */
+    public function bankAccountNumber(): string
     {
         $format = $this->randomizer->randomElement(['[A-Z][1-9]{8,19}', '[0]{2}[1-9]{7,18}']);
 
         return Regexify::regexify($format);
     }
-
 }

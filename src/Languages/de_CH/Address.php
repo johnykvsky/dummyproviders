@@ -20,9 +20,7 @@ class Address extends BaseAddress
 
     protected array $postcode = ['####'];
 
-    /**
-     * @see https://de.wikipedia.org/wiki/Liste_der_St%C3%A4dte_in_der_Schweiz
-     */
+    /** @see https://de.wikipedia.org/wiki/Liste_der_St%C3%A4dte_in_der_Schweiz */
     protected array $cityNames = [
         'Aarau', 'Aarberg', 'Aarburg', 'Adliswil', 'Aesch', 'Affoltern am Albis', 'Agno', 'Aigle', 'Allschwil', 'Altdorf', 'Altstätten', 'Amriswil', 'Appenzell', 'Arbon', 'Arth', 'Ascona', 'Aubonne', 'Avenches',
         'Baar', 'Bad Zurzach', 'Baden', 'Basel', 'Bassersdorf', 'Bellinzona', 'Belp', 'Bern', 'Beromünster', 'Biasca', 'Biel/Bienne', 'Binningen', 'Birsfelden', 'Bischofszell', 'Boudry', 'Bourg-Saint-Pierre', 'Bremgarten', 'Brig-Glis', 'Brig', 'Brugg', 'Buchs', 'Bulle', 'Burgdorf', 'Bülach',
@@ -48,9 +46,7 @@ class Address extends BaseAddress
         'Zofingen', 'Zollikon', 'Zug', 'Zürich',
     ];
 
-    /**
-     * @see https://de.wikipedia.org/wiki/Kanton_(Schweiz)
-     */
+    /** @see https://de.wikipedia.org/wiki/Kanton_(Schweiz) */
     protected array $canton = [
         ['AG' => 'Aargau'],
         ['AI' => 'Appenzell Innerrhoden'],
@@ -127,8 +123,6 @@ class Address extends BaseAddress
      * Returns a random city name.
      *
      * @example Luzern
-     *
-     * @return string
      */
     public function cityName(): string
     {
@@ -138,9 +132,9 @@ class Address extends BaseAddress
     /**
      * Returns a random street suffix.
      *
-     * @example str.
-     *
      * @return string
+     *
+     * @example str.
      */
     public function streetSuffixShort()
     {
@@ -150,9 +144,9 @@ class Address extends BaseAddress
     /**
      * Returns a random street suffix.
      *
-     * @example Strasse
-     *
      * @return string
+     *
+     * @example Strasse
      */
     public function streetSuffixLong()
     {
@@ -162,9 +156,9 @@ class Address extends BaseAddress
     /**
      * Returns a canton
      *
-     * @example array('BE' => 'Bern')
-     *
      * @return array
+     *
+     * @example array('BE' => 'Bern')
      */
     public function canton(): string
     {
@@ -199,5 +193,4 @@ class Address extends BaseAddress
     {
         return Regexify::regexify($this->replacer->numerify($this->randomizer->randomElement($this->buildingNumber)));
     }
-
 }

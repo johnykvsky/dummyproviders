@@ -47,9 +47,7 @@ class Person extends BasePerson
         'Yakubu', 'Yusuf', 'Yusuf',
     ];
 
-    /**
-     * @see https://andela-celisha-wigwe.github.io/names.html
-     */
+    /** @see https://andela-celisha-wigwe.github.io/names.html */
     protected array $firstNameFemale = [
         'Adaugo', 'Akunna', 'Aminat', 'Aminu', 'Augustina', 'Ayebatari',
         'Cherechi', 'Chiamaka', 'Chimamanda', 'Chinyere', 'Chizoba',
@@ -65,9 +63,7 @@ class Person extends BasePerson
         'Zainab',
     ];
 
-    /**
-     * @see https://andela-celisha-wigwe.github.io/names.html
-     */
+    /** @see https://andela-celisha-wigwe.github.io/names.html */
     protected array $lastName = [
         'Abiodun', 'Abiola', 'Abodunrin', 'Abosede', 'Adaobi', 'Adebayo', 'Adegboye', 'Adegoke', 'Ademayowa', 'Ademola', 'Adeniyan', 'Adeoluwa', 'Aderinsola', 'Aderonke', 'Adesina', 'Adewale', 'Adewale', 'Adewale', 'Adewunmi', 'Adewura', 'Adeyemo', 'Afolabi', 'Afunku', 'Agboola', 'Agboola', 'Agnes', 'Aigbiniode', 'Ajakaiye', 'Ajose-adeogun', 'Akeem-omosanya', 'Akerele', 'Akintade', 'Aligbe', 'Amaechi', 'Aminat', 'Aremu', 'Atanda', 'Ayisat', 'Ayobami', 'Ayomide', 'Ayomide',
         'Babalola', 'Babatunde', 'Balogun', 'Bamisebi', 'Bello', 'Busari',
@@ -91,5 +87,4 @@ class Person extends BasePerson
         'Wasiu', 'Wilcox', 'Wuraola',
         'Yaqub', 'Yussuf',
     ];
-
 }

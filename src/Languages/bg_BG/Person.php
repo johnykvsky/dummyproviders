@@ -5,6 +5,7 @@ declare(strict_types = 1);
 namespace DummyGenerator\Provider\Languages\bg_BG;
 
 use DummyGenerator\Core\Person as BasePerson;
+use DummyGenerator\Definitions\Extension\Exception\ExtensionArgumentException;
 
 class Person extends BasePerson
 {
@@ -96,7 +97,7 @@ class Person extends BasePerson
      *
      * @example 'Чанталиев'
      */
-    public function lastName($gender = null): string
+    public function lastName(?string $gender = null): string
     {
         if ($gender === static::GENDER_MALE) {
             return $this->lastNameMale();
@@ -119,4 +120,22 @@ class Person extends BasePerson
         return $this->randomizer->randomElement($this->lastNameFemale);
     }
 
+    /** @var string[] */
+    protected array $cyrillicLetters = [
+        'А', 'Б', 'В', 'Г', 'Д', 'Е', 'Ж', 'З', 'И', 'Й', 'К', 'Л', 'М', 'Н', 'О', 'П', 'Р', 'С', 'Т', 'У', 'Ф', 'Х', 'Ц', 'Ч', 'Ш', 'Щ', 'Ю', 'Я',
+    ];
+
+    public function initials(int $length = 2): string
+    {
+        if ($length < 1) {
+            throw new ExtensionArgumentException('initials() $length must be at least 1');
+        }
+
+        $letters = [];
+        for ($i = 0; $i < $length; ++$i) {
+            $letters[] = $this->randomizer->randomElement($this->cyrillicLetters) . '.';
+        }
+
+        return implode(' ', $letters);
+    }
 }

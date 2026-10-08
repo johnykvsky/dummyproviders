@@ -41,9 +41,7 @@ class Person extends BasePerson
         '{{firstNameFemale}} {{firstNameFemale}} {{lastName}} {{lastName}} {{lastName}}',
     ];
 
-    /**
-     * @see http://goo.gl/v6bScG document with all pt abreviations *
-     */
+    /** @see http://goo.gl/v6bScG document with all pt abreviations * */
     protected array $titleMale = ['Sr.', 'Dr.', 'Exmo.', 'Eng.', 'Eng.º', 'Ex.', 'Exº'];
     protected array $titleFemale = ['Sra.', 'Dra.', 'Exma', 'Eng.ª', 'Exª'];
 
@@ -68,9 +66,9 @@ class Person extends BasePerson
     /**
      * Taxpayer Identification Number (NIF in Portugal)
      *
-     * @see http://pt.wikipedia.org/wiki/N%C3%BAmero_de_identifica%C3%A7%C3%A3o_fiscal
-     *
      * @return string 9 digit number
+     *
+     * @see http://pt.wikipedia.org/wiki/N%C3%BAmero_de_identifica%C3%A7%C3%A3o_fiscal
      */
     public function taxpayerIdentificationNumber(): string
     {
@@ -83,11 +81,10 @@ class Person extends BasePerson
     /**
      * Generate module
      *
-     * @see http://pt.wikipedia.org/wiki/D%C3%ADgito_verificador
-     *
      * @param string $number number
-     *
      * @return int
+     *
+     * @see http://pt.wikipedia.org/wiki/D%C3%ADgito_verificador
      */
     public function dvCalcMod11($number)
     {
@@ -103,22 +100,16 @@ class Person extends BasePerson
             if ($factor == $base) {
                 $factor = 1;
             }
+
             ++$factor;
         }
+
         $res = $sum % 11;
 
-        if ($res == 0 || $res == 1) {
-            $digit = 0;
-        } else {
-            $digit = 11 - $res;
-        }
-
-        return $digit;
+        return $res == 0 || $res == 1 ? 0 : 11 - $res;
     }
 
-    /**
-     * @see http://nomesportugueses.blogspot.pt/2012/01/lista-dos-cem-nomes-mais-usados-em.html
-     */
+    /** @see http://nomesportugueses.blogspot.pt/2012/01/lista-dos-cem-nomes-mais-usados-em.html */
     protected array $firstNameMale = [
         'Rodrigo', 'João', 'Martim', 'Afonso', 'Tomás', 'Gonçalo', 'Francisco', 'Tiago',
         'Diogo', 'Guilherme', 'Pedro', 'Miguel', 'Rafael', 'Gabriel', 'Santiago', 'Dinis',
@@ -148,7 +139,7 @@ class Person extends BasePerson
     ];
 
     protected array $lastName = [
-        'Abreu',  'Almeida',  'Alves', 'Amaral', 'Amorim', 'Andrade', 'Anjos', 'Antunes', 'Araújo', 'Assunção',
+        'Abreu', 'Almeida', 'Alves', 'Amaral', 'Amorim', 'Andrade', 'Anjos', 'Antunes', 'Araújo', 'Assunção',
         'Azevedo', 'Baptista', 'Barbosa', 'Barros', 'Batista', 'Borges', 'Branco', 'Brito', 'Campos', 'Cardoso',
         'Carneiro', 'Carvalho', 'Castro', 'Coelho', 'Correia', 'Costa', 'Cruz', 'Cunha', 'Domingues', 'Esteves',
         'Faria', 'Fernandes', 'Ferreira', 'Figueiredo', 'Fonseca', 'Freitas', 'Garcia', 'Gaspar', 'Gomes',

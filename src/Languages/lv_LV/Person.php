@@ -145,9 +145,9 @@ class Person extends BasePerson
     /**
      * National Personal Identity number (personas kods)
      *
-     * @see https://en.wikipedia.org/wiki/National_identification_number#Latvia
-     *
      * @return string on format XXXXXX-XXXXX
+     *
+     * @see https://en.wikipedia.org/wiki/National_identification_number#Latvia
      */
     public function personalIdentityNumber(?\DateTimeInterface $birthdate = null): string
     {

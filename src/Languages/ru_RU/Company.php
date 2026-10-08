@@ -111,9 +111,6 @@ class Company extends BaseCompany
      *
      * @param string $area_code
      * @return string
-     *
-     * @deprecated use {@link $this->generator->inn10()} instead
-     * @see $this->generator->inn10()
      */
     public function inn($area_code = '')
     {

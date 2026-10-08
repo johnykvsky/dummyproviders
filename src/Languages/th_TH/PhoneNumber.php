@@ -36,9 +36,7 @@ class PhoneNumber extends BasePhoneNumber
         '0########',
     ];
 
-    /**
-     * @var array Thai mobile phone number formats
-     */
+    /** @var array Thai mobile phone number formats */
     protected array $mobileFormats = [
         '08# ### ####',
         '08 #### ####',
@@ -50,12 +48,9 @@ class PhoneNumber extends BasePhoneNumber
 
     /**
      * Returns a Thai mobile phone number
-     *
-     * @return string
      */
     public function mobileNumber(): string
     {
         return $this->replacer->numerify($this->randomizer->randomElement($this->mobileFormats));
     }
-
 }

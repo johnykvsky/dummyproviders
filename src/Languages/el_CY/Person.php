@@ -5,14 +5,11 @@ declare(strict_types = 1);
 namespace DummyGenerator\Provider\Languages\el_CY;
 
 use DummyGenerator\Core\Person as BasePerson;
+use DummyGenerator\Definitions\Extension\Exception\ExtensionArgumentException;
 
 class Person extends BasePerson
 {
-    /**
-     * @var array
-     *
-     * @see http://www.mof.gov.cy/mof/cystat/statistics.nsf/populationcondition_22main_gr/populationcondition_22main_gr?OpenForm&sub=2&sel=2
-     */
+    /** @see http://www.mof.gov.cy/mof/cystat/statistics.nsf/populationcondition_22main_gr/populationcondition_22main_gr?OpenForm&sub=2&sel=2 */
     protected array $firstNameMale = [
         'Άγγελος', 'Άδωνης', 'Άκης', 'Άνθιμος', 'Άρης',
         'Έκτορας',
@@ -40,11 +37,7 @@ class Person extends BasePerson
         'Όμηρος',
     ];
 
-    /**
-     * @var array
-     *
-     * @see http://www.mof.gov.cy/mof/cystat/statistics.nsf/populationcondition_22main_gr/populationcondition_22main_gr?OpenForm&sub=2&sel=2
-     */
+    /** @see http://www.mof.gov.cy/mof/cystat/statistics.nsf/populationcondition_22main_gr/populationcondition_22main_gr?OpenForm&sub=2&sel=2 */
     protected array $firstNameFemale = [
         'Ελση',
         'Άλκηστις', 'Άννα', 'Άννα Μαρία', 'Έφη', 'Ήβη', 'Αίγλη', 'Αίμιλη', 'Αγάθη', 'Αγάπη', 'Αγγέλα', 'Αγλαϊα', 'Αγνή', 'Αδαμάντια', 'Αθανασία', 'Αθηνά', 'Αλέξια', 'Αλίκη', 'Αλεξάνδρα', 'Αμαλία', 'Αναστασία', 'Ανδρομάχη', 'Ανδρονίκη', 'Ανδρούλα', 'Ανθή', 'Ανθούλα', 'Αννέτα', 'Αννίτα', 'Αντιγόνη', 'Αντωνία', 'Αποστολία', 'Αργυρώ', 'Αρετή', 'Αριάδνη', 'Αριστη', 'Αριστοτέλης', 'Αρτεμισία', 'Ασπασία', 'Αστέρω', 'Αυγή', 'Αυγούστα', 'Αφροδίτη',
@@ -71,11 +64,7 @@ class Person extends BasePerson
         'Όλγα',
     ];
 
-    /**
-     * @var array
-     *
-     * @see http://www.mof.gov.cy/mof/cystat/statistics.nsf/populationcondition_22main_gr/populationcondition_22main_gr?OpenForm&sub=2&sel=2
-     */
+    /** @see http://www.mof.gov.cy/mof/cystat/statistics.nsf/populationcondition_22main_gr/populationcondition_22main_gr?OpenForm&sub=2&sel=2 */
     protected array $lastName = [
         'Άκη', 'Αγαθοκλέους', 'Αθανάσιου', 'Αλέκου', 'Αλεξάνδρου', 'Αλκιβιάδη', 'Αναστασίου', 'Ανδρέου', 'Ανδρονίκου', 'Αντωνίου', 'Αργύρη', 'Αριστείδη', 'Αριστοδήμου', 'Αυγουστή', 'Αυξεντίου', 'Αχιλλέα',
         'Βίκτωρα', 'Βαλεντίνου', 'Βαρνάβα', 'Βασίλη',
@@ -102,4 +91,22 @@ class Person extends BasePerson
     protected array $titleMale = ['κος.', 'κ.'];
     protected array $titleFemale = ['δις.', 'δνις.', 'κα.'];
 
+    /** @var string[] */
+    protected array $greekLetters = [
+        'Α', 'Β', 'Γ', 'Δ', 'Ε', 'Ζ', 'Η', 'Θ', 'Ι', 'Κ', 'Λ', 'Μ', 'Ν', 'Ξ', 'Ο', 'Π', 'Ρ', 'Σ', 'Τ', 'Υ', 'Φ', 'Χ', 'Ψ', 'Ω',
+    ];
+
+    public function initials(int $length = 2): string
+    {
+        if ($length < 1) {
+            throw new ExtensionArgumentException('initials() $length must be at least 1');
+        }
+
+        $letters = [];
+        for ($i = 0; $i < $length; ++$i) {
+            $letters[] = $this->randomizer->randomElement($this->greekLetters) . '.';
+        }
+
+        return implode(' ', $letters);
+    }
 }

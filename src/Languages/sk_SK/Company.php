@@ -40,9 +40,7 @@ class Company extends BaseCompany
 
     protected array $companySuffix = ['s.r.o.', 'a.s.', 'v.o.s.'];
 
-    /**
-     * @example 'Robust full-range hub'
-     */
+    /** @example 'Robust full-range hub' */
     public function catchPhrase(): string
     {
         $result = [];
@@ -54,9 +52,7 @@ class Company extends BaseCompany
         return implode(' ', $result);
     }
 
-    /**
-     * @example 'integrate extensible convergence'
-     */
+    /** @example 'integrate extensible convergence' */
     public function bs(): string
     {
         $result = [];
@@ -81,12 +77,14 @@ class Company extends BaseCompany
         for ($i = 0; $i < 7; ++$i) {
             $ico .= (string) $this->generator->randomDigit();
         }
+
         $split = str_split($ico);
         $prod = 0;
 
         foreach ([8, 7, 6, 5, 4, 3, 2] as $i => $p) {
             $prod += $p * (int) $split[$i];
         }
+
         $mod = $prod % 11;
 
         if ($mod === 0 || $mod === 10) {

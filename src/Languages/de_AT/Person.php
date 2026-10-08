@@ -114,9 +114,7 @@ class Person extends BasePerson
 
     protected array $suffix = ['B.Sc.', 'B.A.', 'B.Eng.', 'MBA.'];
 
-    /**
-     * @example 'PhD'
-     */
+    /** @example 'PhD' */
     public function suffix(): string
     {
         return $this->randomizer->randomElement($this->suffix);
@@ -126,12 +124,10 @@ class Person extends BasePerson
      * Generates a random Austrian Social Security number.
      *
      * @see https://de.wikipedia.org/wiki/Sozialversicherungsnummer#.C3.96sterreich
-     *
-     * @return string
      */
     public function ssn(?\DateTimeInterface $birthdate = null): string
     {
-        $birthdate = $birthdate ?? $this->generator->dateTimeThisCentury();
+        $birthdate ??= $this->generator->dateTimeThisCentury();
 
         $birthDateString = $birthdate->format('dmy');
 

@@ -140,5 +140,4 @@ class Address extends BaseAddress
     {
         return $this->randomizer->randomElement($this->street);
     }
-
 }

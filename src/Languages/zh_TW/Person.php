@@ -8,9 +8,7 @@ use DummyGenerator\Core\Person as BasePerson;
 
 class Person extends BasePerson
 {
-    /**
-     * @see https://zh.wikipedia.org/wiki/%E4%B8%AD%E8%8F%AF%E6%B0%91%E5%9C%8B%E5%9C%8B%E6%B0%91%E8%BA%AB%E5%88%86%E8%AD%89
-     */
+    /** @see https://zh.wikipedia.org/wiki/%E4%B8%AD%E8%8F%AF%E6%B0%91%E5%9C%8B%E5%9C%8B%E6%B0%91%E8%BA%AB%E5%88%86%E8%AD%89 */
     public array $idBirthplaceCode = [
         'A' => 10,
         'B' => 11,
@@ -36,9 +34,7 @@ class Person extends BasePerson
         'Z' => 33,
     ];
 
-    /**
-     * @see https://zh.wikipedia.org/wiki/%E4%B8%AD%E8%8F%AF%E6%B0%91%E5%9C%8B%E5%9C%8B%E6%B0%91%E8%BA%AB%E5%88%86%E8%AD%89
-     */
+    /** @see https://zh.wikipedia.org/wiki/%E4%B8%AD%E8%8F%AF%E6%B0%91%E5%9C%8B%E5%9C%8B%E6%B0%91%E8%BA%AB%E5%88%86%E8%AD%89 */
     public array $idDigitValidator = [1, 9, 8, 7, 6, 5, 4, 3, 2, 1, 1];
 
     protected array $maleNameFormats = [
@@ -52,9 +48,7 @@ class Person extends BasePerson
     protected array $titleMale = ['先生', '博士', '教授'];
     protected array $titleFemale = ['小姐', '太太', '博士', '教授'];
 
-    /**
-     * @see http://zh.wikipedia.org/wiki/%E7%99%BE%E5%AE%B6%E5%A7%93
-     */
+    /** @see http://zh.wikipedia.org/wiki/%E7%99%BE%E5%AE%B6%E5%A7%93 */
     protected array $lastName = [
         '趙', '錢', '孫', '李', '周', '吳', '鄭', '王', '馮',
         '陳', '褚', '衛', '蔣', '沈', '韓', '楊', '朱', '秦',
@@ -123,9 +117,7 @@ class Person extends BasePerson
         '愛', '陽', '佟', '第五', '言', '福',
     ];
 
-    /**
-     * @see http://technology.chtsai.org/namefreq/
-     */
+    /** @see http://technology.chtsai.org/namefreq/ */
     protected array $characterMale = [
         '佳', '俊', '信', '偉', '傑', '冠', '君', '哲',
         '嘉', '威', '宇', '安', '宏', '宗', '宜', '家',
@@ -171,11 +163,10 @@ class Person extends BasePerson
 
     /**
      * @param string $gender Person::GENDER_MALE || Person::GENDER_FEMALE
-     *
-     * @see https://en.wikipedia.org/wiki/National_Identification_Card_(Republic_of_China)
-     *
      * @return string Length 10 alphanumeric characters, begins with 1 latin character (birthplace),
      *                1 number (gender) and then 8 numbers (the last one is check digit).
+     *
+     * @see https://en.wikipedia.org/wiki/National_Identification_Card_(Republic_of_China)
      */
     public function personalIdentityNumber($gender = null): string
     {

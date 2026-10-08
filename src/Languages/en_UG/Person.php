@@ -112,7 +112,7 @@ class Person extends BasePerson
         'Wasswa', 'Wavamuno', 'Were',
     ];
 
-    public function lastName($gender = null): string
+    public function lastName(?string $gender = null): string
     {
         if ($gender === static::GENDER_MALE) {
             return $this->lastNameMale();
@@ -134,5 +134,4 @@ class Person extends BasePerson
     {
         return $this->randomizer->randomElement($this->lastNameFemale);
     }
-
 }

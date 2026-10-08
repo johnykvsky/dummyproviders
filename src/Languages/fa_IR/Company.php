@@ -32,20 +32,16 @@ class Company extends BaseCompany
         'رسمی', 'پیمانی', 'تمام وقت', 'پاره وقت', 'پروژه ای', 'ساعتی',
     ];
 
-    /**
-     * @example 'شرکت'
-     *
-     * @return string
-     */
+    /** @example 'شرکت' */
     public function companyPrefix(): string
     {
         return $this->randomizer->randomElement($this->companyPrefix);
     }
 
     /**
-     * @example 'سرمایه گذاری'
-     *
      * @return string
+     *
+     * @example 'سرمایه گذاری'
      */
     public function companyField()
     {
@@ -53,13 +49,12 @@ class Company extends BaseCompany
     }
 
     /**
-     * @example 'تمام وقت'
-     *
      * @return string
+     *
+     * @example 'تمام وقت'
      */
     public function contract()
     {
         return $this->randomizer->randomElement($this->contract);
     }
-
 }

@@ -25,9 +25,7 @@ class PhoneNumber extends BasePhoneNumber
         $this->generator = $generator;
     }
 
-    /**
-     * @var array Norwegian phone number formats
-     */
+    /** @var array Norwegian phone number formats */
     protected array $formats = [
         '+47#########',
         '+47 ## ## ## ##',
@@ -41,9 +39,7 @@ class PhoneNumber extends BasePhoneNumber
         '4#######',
     ];
 
-    /**
-     * @var array Norweign mobile number formats
-     */
+    /** @var array Norweign mobile number formats */
     protected array $mobileFormats = [
         '+474#######',
         '+479#######',
@@ -59,5 +55,4 @@ class PhoneNumber extends BasePhoneNumber
 
         return $this->replacer->numerify($this->generator->parse($format));
     }
-
 }

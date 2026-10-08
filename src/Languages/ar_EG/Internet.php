@@ -67,19 +67,17 @@ class Internet extends BaseInternet
         'hashem',
     ];
 
-    public function lastNameAscii()
+    public function lastNameAscii(): string
     {
         return $this->randomizer->randomElement($this->lastNameAscii);
     }
 
-    public function firstNameAscii()
+    public function firstNameAscii(): string
     {
         return $this->randomizer->randomElement($this->firstNameAscii);
     }
 
-    /**
-     * @example 'ahmad.abbadi'
-     */
+    /** @example 'ahmad.abbadi' */
     public function userName(): string
     {
         $format = $this->randomizer->randomElement($this->userNameFormats);
@@ -87,12 +85,9 @@ class Internet extends BaseInternet
         return $this->replacer->bothify($this->generator->parse($format));
     }
 
-    /**
-     * @example 'wewebit.jo'
-     */
+    /** @example 'wewebit.jo' */
     public function domainName(): string
     {
         return $this->randomizer->randomElement($this->lastNameAscii) . '.' . $this->tld();
     }
-
 }

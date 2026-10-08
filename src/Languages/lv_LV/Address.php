@@ -18,9 +18,7 @@ class Address extends BaseAddress
     protected array $buildingNumber = ['%#'];
     protected array $postcode = ['LV-####'];
 
-    /**
-     * @see https://lv.wikipedia.org/wiki/Suver%C4%93no_valstu_uzskait%C4%ABjums
-     */
+    /** @see https://lv.wikipedia.org/wiki/Suver%C4%93no_valstu_uzskait%C4%ABjums */
     protected array $country = [
         'Afganistāna', 'Albānija', 'Alžīrija', 'Amerikas Savienotās Valstis', 'Andora', 'Angola', 'Antigva un Barbuda',
         'Apvienotie Arābu Emirāti', 'Argentīna', 'Armēnija', 'Austrālija', 'Austrija', 'Austrumtimora', 'Azerbaidžāna',
@@ -118,5 +116,4 @@ class Address extends BaseAddress
     {
         return $this->randomizer->randomElement($this->street);
     }
-
 }

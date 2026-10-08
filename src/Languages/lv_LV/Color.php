@@ -20,5 +20,4 @@ class Color extends BaseColor
         'ābolains', 'bērs', 'dūkans', 'loss', 'pāts', 'salns',
         'zelts', 'sudrabs', 'varš', 'bronza', 'zeltains', 'subrabains',
     ];
-
 }

@@ -8,9 +8,7 @@ use DummyGenerator\Core\Color as BaseColor;
 
 class Color extends BaseColor
 {
-    /**
-     * @see http://tr.wikipedia.org/wiki/Renkler_listesi
-     */
+    /** @see http://tr.wikipedia.org/wiki/Renkler_listesi */
     protected array $safeColorNames = [
         'siyah', 'kırmızı', 'sarı', 'mavi', 'turuncu',
         'yeşil', 'mor', 'gümüş', 'gri', 'pembe',
@@ -59,5 +57,4 @@ class Color extends BaseColor
         'Vurgun pembe', 'Salamura grisi', 'Tenné (Tawny)', 'Küçük kara', 'Lacivert', 'Viridian',
         'Zinnwaldite',
     ];
-
 }

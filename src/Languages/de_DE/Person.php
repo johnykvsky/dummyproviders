@@ -126,9 +126,7 @@ class Person extends BasePerson
 
     protected array $suffix = ['B.Sc.', 'B.A.', 'B.Eng.', 'MBA.'];
 
-    /**
-     * @example 'PhD'
-     */
+    /** @example 'PhD' */
     public function suffix(): string
     {
         return $this->randomizer->randomElement($this->suffix);
@@ -162,8 +160,10 @@ class Person extends BasePerson
                 if ($sum === 0) {
                     $sum = 10;
                 }
+
                 $sum = ($sum * 2) % 11;
             }
+
             $check = 11 - $sum;
             $checkDigit = $check === 10 ? 0 : $check;
         } while ($checkDigit === 10);

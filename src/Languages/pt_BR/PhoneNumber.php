@@ -21,8 +21,6 @@ class PhoneNumber extends BasePhoneNumber
      * Generates a 2-digit area code not composed by zeroes.
      *
      * @see http://www.anatel.gov.br/legislacao/resolucoes/16-2001/383-resolucao-263.
-     *
-     * @return string
      */
     public function areaCode(): string
     {
@@ -42,8 +40,6 @@ class PhoneNumber extends BasePhoneNumber
      * Generates a 9-digit cellphone number without formatting characters.
      *
      * @param bool $formatted [def: true] If it should return a formatted number or not.
-     *
-     * @return string
      */
     public function cellphone($formatted = true): string
     {
@@ -60,8 +56,6 @@ class PhoneNumber extends BasePhoneNumber
      * Generates an 9-digit landline number without formatting characters.
      *
      * @param bool $formatted [def: true] If it should return a formatted number or not.
-     *
-     * @return string
      */
     public function landline($formatted = true): string
     {
@@ -95,7 +89,6 @@ class PhoneNumber extends BasePhoneNumber
      *
      * @param string $type      [def: landline] One of "landline" or "cellphone". Defaults to "landline" on invalid values.
      * @param bool   $formatted [def: true] If the number should be formatted or not.
-     *
      * @return string
      */
     protected function anyPhoneNumber($type, $formatted = true)
@@ -112,7 +105,6 @@ class PhoneNumber extends BasePhoneNumber
      * Concatenates {@link areaCode} and {@link cellphone} into a national cellphone number.
      *
      * @param bool $formatted [def: true] If it should return a formatted number or not.
-     *
      * @return string
      */
     public function cellphoneNumber($formatted = true)
@@ -124,7 +116,6 @@ class PhoneNumber extends BasePhoneNumber
      * Concatenates {@link areaCode} and {@link landline} into a national landline number.
      *
      * @param bool $formatted [def: true] If it should return a formatted number or not.
-     *
      * @return string
      */
     public function landlineNumber($formatted = true)
@@ -151,5 +142,4 @@ class PhoneNumber extends BasePhoneNumber
 
         return call_user_func([static::class, $method], false);
     }
-
 }

@@ -14,5 +14,4 @@ class PhoneNumber extends BasePhoneNumber
         '7#######',
         '3#####',
     ];
-
 }

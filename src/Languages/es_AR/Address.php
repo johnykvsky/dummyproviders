@@ -72,49 +72,37 @@ class Address extends BaseAddress
     ];
     protected array $secondaryAddressFormats = ['Depto. ###', 'Hab. ###', 'Piso #', 'Piso ##', 'PB A', '# A', '# B', '# C', '# D', '# E', '# F', '## A', '## B', '## C', '## D', '## E', '## F', '# #', '## #'];
 
-    /**
-     * @example 'San'
-     */
+    /** @example 'San' */
     public function cityPrefix(): string
     {
         return $this->randomizer->randomElement($this->cityPrefix);
     }
 
-    /**
-     * @example '3ºA'
-     */
+    /** @example '3ºA' */
     public function secondaryAddress(): string
     {
         return $this->replacer->numerify($this->randomizer->randomElement($this->secondaryAddressFormats));
     }
 
-    /**
-     * @example 'Buenos Aires'
-     */
+    /** @example 'Buenos Aires' */
     public function state(): string
     {
         return $this->randomizer->randomElement($this->state);
     }
 
-    /**
-     * @example 'AR-B'
-     */
+    /** @example 'AR-B' */
     public function stateAbbr(): string
     {
         return $this->randomizer->randomElement($this->stateAbbr);
     }
 
-    /**
-     * @example 'Avenida'
-     */
+    /** @example 'Avenida' */
     public function streetPrefix(): string
     {
         return $this->randomizer->randomElement($this->streetPrefix);
     }
 
-    /**
-     * @example 'Comunidad de Madrid'
-     */
+    /** @example 'Comunidad de Madrid' */
     public function community()
     {
         return $this->randomizer->randomElement($this->community);

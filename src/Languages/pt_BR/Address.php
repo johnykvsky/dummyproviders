@@ -100,60 +100,45 @@ class Address extends BaseAddress
         'Apto ####', 'F', 'Fundos', 'Anexo',
     ];
 
-    /**
-     * @example 'Avenida'
-     */
+    /** @example 'Avenida' */
     public function streetPrefix(): string
     {
         return $this->randomizer->randomElement($this->streetPrefix);
     }
 
-    /**
-     * @example 'São'
-     */
+    /** @example 'São' */
     public function cityPrefix(): string
     {
         return $this->randomizer->randomElement($this->cityPrefix);
     }
 
-    /**
-     * @example '6º Andar'
-     */
+    /** @example '6º Andar' */
     public function secondaryAddress(): string
     {
         return $this->replacer->numerify($this->randomizer->randomElement($this->secondaryAddressFormats));
     }
 
-    /**
-     * @example 'Brasília'
-     */
+    /** @example 'Brasília' */
     public function state(): string
     {
         return $this->randomizer->randomElement($this->state);
     }
 
-    /**
-     * @example 'DF'
-     */
+    /** @example 'DF' */
     public function stateAbbr(): string
     {
         return $this->randomizer->randomElement($this->stateAbbr);
     }
 
-    /**
-     * @example 'Nordeste'
-     */
+    /** @example 'Nordeste' */
     public function region(): string
     {
         return $this->randomizer->randomElement($this->region);
     }
 
-    /**
-     * @example 'NE'
-     */
+    /** @example 'NE' */
     public function regionAbbr()
     {
         return $this->randomizer->randomElement($this->regionAbbr);
     }
-
 }

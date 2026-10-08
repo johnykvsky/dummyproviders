@@ -42,9 +42,7 @@ class Person extends BasePerson
         '{{firstNameFemale}} {{firstNameFemale}} {{lastNameFemale}} {{suffix}}',
     ];
 
-    /**
-     * @see http://www.nama.web.id/search.php?gender=male&origin=Indonesia+-+Jawa&letter=&submit=Search
-     */
+    /** @see http://www.nama.web.id/search.php?gender=male&origin=Indonesia+-+Jawa&letter=&submit=Search */
     protected array $firstNameMale = [
         'Abyasa', 'Ade', 'Adhiarja', 'Adiarja', 'Adika', 'Adikara', 'Adinata',
         'Aditya', 'Agus', 'Ajiman', 'Ajimat', 'Ajimin', 'Ajiono', 'Akarsana',
@@ -119,9 +117,7 @@ class Person extends BasePerson
         'Xanana', 'Yahya', 'Yusuf', 'Yosef', 'Yono', 'Yoga',
     ];
 
-    /**
-     * @see http://namafb.com/2010/08/12/top-1000-nama-populer-indonesia/
-     */
+    /** @see http://namafb.com/2010/08/12/top-1000-nama-populer-indonesia/ */
     protected array $firstNameFemale = [
         'Ade', 'Agnes', 'Ajeng', 'Amalia', 'Anita', 'Ayu', 'Aisyah', 'Ana',
         'Ami', 'Ani', 'Azalea', 'Aurora', 'Alika', 'Anastasia', 'Amelia',
@@ -180,9 +176,7 @@ class Person extends BasePerson
         'Wijaya', 'Widodo', 'Wacana', 'Waskita', 'Wasita', 'Zulkarnain',
     ];
 
-    /**
-     * @see http://namafb.com/2010/08/12/top-1000-nama-populer-indonesia/
-     */
+    /** @see http://namafb.com/2010/08/12/top-1000-nama-populer-indonesia/ */
     protected array $lastNameFemale = [
         'Agustina', 'Andriani', 'Anggraini', 'Aryani', 'Astuti',
         'Fujiati', 'Farida', 'Handayani', 'Hassanah', 'Hartati', 'Hasanah',
@@ -198,19 +192,13 @@ class Person extends BasePerson
         'Wijayanti', 'Widiastuti', 'Winarsih', 'Wulandari', 'Wastuti', 'Zulaika',
     ];
 
-    /**
-     * @see http://id.wikipedia.org/wiki/Gelar_akademik
-     */
+    /** @see http://id.wikipedia.org/wiki/Gelar_akademik */
     protected array $titleMale = ['dr.', 'drg.', 'Dr.', 'Drs.', 'Ir.', 'H.'];
 
-    /**
-     * @see http://id.wikipedia.org/wiki/Gelar_akademik
-     */
+    /** @see http://id.wikipedia.org/wiki/Gelar_akademik */
     protected array $titleFemale = ['dr.', 'drg.', 'Dr.', 'Hj.'];
 
-    /**
-     * @see http://informasipedia.com/wilayah-indonesia/daftar-kabupaten-kota-di-indonesia/
-     */
+    /** @see http://informasipedia.com/wilayah-indonesia/daftar-kabupaten-kota-di-indonesia/ */
     protected array $birthPlaceCode = [
         '1101', '1102', '1103', '1104', '1105', '1106', '1107', '1108', '1109', '1110', '1111', '1112', '1113', '1114', '1115', '1116',
         '1117', '1118', '1171', '1172', '1173', '1174', '1175', '1201', '1202', '1203', '1204', '1205', '1206', '1207', '1208', '1209',
@@ -259,10 +247,9 @@ class Person extends BasePerson
      * Return last name
      *
      * @param string|null $gender male or female or null for any
-     *
      * @return string last name
      */
-    public function lastName($gender = null): string
+    public function lastName(?string $gender = null): string
     {
         if ($gender === static::GENDER_MALE) {
             return $this->lastNameMale();
@@ -271,6 +258,7 @@ class Person extends BasePerson
         if ($gender === static::GENDER_FEMALE) {
             return $this->lastNameFemale();
         }
+
         $lastNameRandomElement = $this->randomizer->randomElement($this->lastNameFormat);
 
         return $this->generator->parse($lastNameRandomElement);
@@ -309,12 +297,11 @@ class Person extends BasePerson
     /**
      * Generates Nomor Induk Kependudukan (NIK)
      *
-     * @see https://en.wikipedia.org/wiki/National_identification_number#Indonesia
-     *
      * @param string|null    $gender
      * @param \DateTime|null $birthDate
-     *
      * @return string
+     *
+     * @see https://en.wikipedia.org/wiki/National_identification_number#Indonesia
      */
     public function nik($gender = null, $birthDate = null)
     {

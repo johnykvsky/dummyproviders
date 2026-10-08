@@ -81,11 +81,10 @@ class Person extends BasePerson
      * males, even for females. The last part is used to check if it's
      * a valid number.
      *
-     *  @see https://nl.wikipedia.org/wiki/Rijksregisternummer
-     *
      * @param string|null $gender 'male', 'female' or null for any
-     *
      * @return string
+     *
+     * @see https://nl.wikipedia.org/wiki/Rijksregisternummer
      */
     public function rrn($gender = null)
     {
@@ -96,6 +95,7 @@ class Person extends BasePerson
         } elseif ($gender === static::GENDER_FEMALE) {
             $middle = $middle % 2 === 0 ? $middle : $middle + 1;
         }
+
         $middle = sprintf('%03d', $middle);
 
         $date = $this->generator->dateTimeThisCentury();

@@ -8,16 +8,29 @@ use DummyGenerator\Core\Payment as BasePayment;
 
 class Payment extends BasePayment
 {
+    /** @var string[] */
+    protected array $currencyCode = [
+        'EUR',
+    ];
+
+    /** @var string[] */
+    protected array $currencySymbols = [
+        '€',
+    ];
+
+    /** @var string[] */
+    protected array $currencyNames = [
+        'Euro',
+    ];
+
     /**
      * International Bank Account Number (IBAN)
-     *
-     * @see http://en.wikipedia.org/wiki/International_Bank_Account_Number
      *
      * @param string $prefix      for generating bank account number of a specific bank
      * @param string $countryCode ISO 3166-1 alpha-2 country code
      * @param int    $length      total length without country code and 2 check digits
      *
-     * @return string
+     * @see http://en.wikipedia.org/wiki/International_Bank_Account_Number
      */
     public function bankAccountNumber($prefix = '', $countryCode = 'DE', $length = null): string
     {
@@ -54,12 +67,9 @@ class Payment extends BasePayment
         'WGZ Bank',
     ];
 
-    /**
-     * @example 'Volksbank Stuttgart'
-     */
+    /** @example 'Volksbank Stuttgart' */
     public function bank(): string
     {
         return $this->randomizer->randomElement($this->banks);
     }
-
 }

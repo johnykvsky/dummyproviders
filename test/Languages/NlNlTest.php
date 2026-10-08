@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types=1);
+declare(strict_types = 1);
 
 namespace DummyGenerator\Provider\Test\Languages;
 
@@ -23,6 +23,7 @@ class NlNlTest extends TestCase
             for ($j = 0; $j < 8; ++$j) {
                 $sum += (int) $bsn[$j] * (9 - $j);
             }
+
             $sum -= (int) $bsn[8];
             self::assertSame(0, $sum % 11);
         }
@@ -62,5 +63,14 @@ class NlNlTest extends TestCase
             $btw = $generator->btw();
             self::assertMatchesRegularExpression('/^NL\d{9}B\d{2}$/', $btw);
         }
+    }
+
+    public function testCurrency(): void
+    {
+        $generator = DummyGenerator::create()->withProvider(new NlNlDefinitionPack());
+
+        self::assertSame('EUR', $generator->currencyCode());
+        self::assertSame('€', $generator->currencySymbol());
+        self::assertSame('Euro', $generator->currencyName());
     }
 }

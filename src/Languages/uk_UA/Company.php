@@ -9,9 +9,9 @@ use DummyGenerator\Core\Company as BaseCompany;
 class Company extends BaseCompany
 {
     protected array $formats = [
-        '{{companyName}}',                                      // Вектор
-        '{{companyPrefix}} "{{companyName}}"',                  // ТОВ "Інфоком"
-        '{{companyName}}-{{companySuffix}}',                    // Сервіс-Плюс
+        '{{companyName}}', // Вектор
+        '{{companyPrefix}} "{{companyName}}"', // ТОВ "Інфоком"
+        '{{companyName}}-{{companySuffix}}', // Сервіс-Плюс
         '{{companyPrefix}} "{{companyName}}-{{companySuffix}}"', // ПАТ "Альфа-Стиль"
     ];
 
@@ -29,9 +29,7 @@ class Company extends BaseCompany
         'Мегамакс', 'Мульти', 'Майнер',
     ];
 
-    /**
-     * @see list of Ukraine job title (2017-08-09), source: https://uk.wikipedia.org/wiki/%D0%A1%D0%BF%D0%B8%D1%81%D0%BE%D0%BA_%D0%BF%D1%80%D0%BE%D1%84%D0%B5%D1%81%D1%96%D0%B9
-     */
+    /** @see list of Ukraine job title (2017-08-09), source: https://uk.wikipedia.org/wiki/%D0%A1%D0%BF%D0%B8%D1%81%D0%BE%D0%BA_%D0%BF%D1%80%D0%BE%D1%84%D0%B5%D1%81%D1%96%D0%B9 */
     protected array $jobTitleFormat = [
         'Агроном', 'Адвокат', 'Актор', 'Акушер', 'Антрополог', 'Аптекар', 'Архітектор', 'Археолог', 'Астронавт', 'Астрофізик', 'Автослюсар', 'Агент',
         'Бариста', 'Бармен', 'Бібліограф', 'Біолог', 'Бізнесмен', 'Ботанік', 'Будівельник', 'Будник', 'Бухгалтер', 'Бібліотекар',
@@ -95,6 +93,7 @@ class Company extends BaseCompany
         for ($i = 0; $i < 7; ++$i) {
             $sum += $digits[$i] * $weights[$i];
         }
+
         $check = $sum % 11;
         if ($check === 10) {
             $weights2 = [3, 4, 5, 6, 7, 8, 9];
@@ -102,6 +101,7 @@ class Company extends BaseCompany
             for ($i = 0; $i < 7; ++$i) {
                 $sum2 += $digits[$i] * $weights2[$i];
             }
+
             $check = $sum2 % 11;
             if ($check === 10) {
                 $check = 0;

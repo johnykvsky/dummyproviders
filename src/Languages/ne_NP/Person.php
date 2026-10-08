@@ -107,20 +107,15 @@ class Person extends BasePerson
     private array $middleNameMale = ['Bahadur', 'Dev', 'Kumar', 'Man', 'Mani', 'Nath', 'Prasad', 'Raj', 'Ratna'];
     private array $middleNameFemale = ['Devi', 'Kumari'];
 
-    /**
-     * @example 'Bahadur'
-     */
+    /** @example 'Bahadur' */
     public function middleNameMale(): string
     {
         return $this->randomizer->randomElement($this->middleNameMale);
     }
 
-    /**
-     * @example 'Devi'
-     */
+    /** @example 'Devi' */
     public function middleNameFemale(): string
     {
         return $this->randomizer->randomElement($this->middleNameFemale);
     }
-
 }

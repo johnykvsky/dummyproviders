@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types=1);
+declare(strict_types = 1);
 
 namespace DummyGenerator\Provider\Test\Languages;
 
@@ -29,5 +29,14 @@ class FrFrTest extends TestCase
             $expectedKey = (12 + 3 * (((int) $siren) % 97)) % 97;
             self::assertSame($expectedKey, $key);
         }
+    }
+
+    public function testCurrency(): void
+    {
+        $generator = DummyGenerator::create()->withProvider(new FrFrDefinitionPack());
+
+        self::assertSame('EUR', $generator->currencyCode());
+        self::assertSame('€', $generator->currencySymbol());
+        self::assertSame('Euro', $generator->currencyName());
     }
 }

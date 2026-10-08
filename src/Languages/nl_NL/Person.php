@@ -112,7 +112,7 @@ class Person extends BasePerson
         'Haselaar', 'van Haspengouw', 'Hazenveld', 'de Heer', 'Heere', 'Heerkens',
         'Heerschop', 'Hehl', 'van der Heiden', 'van der Heijden', 'Heijman', 'Heijmans', 'Heijmen', 'Heinrichs',
         'Hekker', 'Hellevoort', 'Helmerhorst', 'van Hemert', 'Hemma', 'Hendricks', 'Hendriks',
-        'Hendrikse', 'van Henegouwen',  'van den Henst', 'Heribert van Laon', "d' Heripon",
+        'Hendrikse', 'van Henegouwen', 'van den Henst', 'Heribert van Laon', "d' Heripon",
         'Hermans', 'van Herstal', 'van Heusden', 'Hexspoor', 'Heymans', 'Heyne', 'Hoedemakers', 'van den Hoek', 'Hoeks',
         'Hoelen', 'Hoes', 'van Hoevel en van Zwindrecht', 'van der Hoeven', 'van Holland', 'Hollander', 'Holthuis',
         'Hondeveld', 'Honing', 'de Hoog', 'Hoogers', 'de Hoogh', 'Hoppenbrouwer', 'Horrocks', 'van der Horst',
@@ -263,9 +263,7 @@ class Person extends BasePerson
         'Mart', 'Sten', 'Ivan', 'Philip', 'Giel', 'Lex', 'Rik', 'Tyler',
     ];
 
-    /**
-     * @example 'Doe'
-     */
+    /** @example 'Doe' */
     public function lastName(): string
     {
         $determinator = $this->randomizer->getInt(0, 25);
@@ -283,7 +281,7 @@ class Person extends BasePerson
         return $lastName;
     }
 
-    public function title($gender = null): string
+    public function title(?string $gender = null): string
     {
         return $this->randomizer->randomElement($this->title);
     }
@@ -304,27 +302,19 @@ class Person extends BasePerson
         return $this->randomizer->randomElement($this->title);
     }
 
-    /**
-     * @example 'BA'
-     */
+    /** @example 'BA' */
     public function suffix(): string
     {
         return $this->randomizer->randomElement($this->suffix);
     }
 
-    /**
-     * @example 'van der'
-     */
+    /** @example 'van der' */
     public function prefix(): string
     {
         return $this->randomizer->randomElement($this->prefix);
     }
 
-    /**
-     * @see https://nl.wikipedia.org/wiki/Burgerservicenummer#11-proef
-     *
-     * @return string
-     */
+    /** @see https://nl.wikipedia.org/wiki/Burgerservicenummer#11-proef */
     public function idNumber(): string
     {
         $nr = [];
@@ -333,6 +323,7 @@ class Person extends BasePerson
         while (count($nr) < 8) {
             $nr[] = $this->randomizer->getInt(0, 9);
         }
+
         $nr[] = $this->randomizer->getInt(0, 6);
 
         if ($nr[7] == 0 && $nr[8] == 0) {

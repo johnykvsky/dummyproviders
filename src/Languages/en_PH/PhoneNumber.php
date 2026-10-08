@@ -70,12 +70,9 @@ class PhoneNumber extends BasePhoneNumber
 
     /**
      * Return a en_PH mobile phone number
-     *
-     * @return string
      */
     public function mobileNumber(): string
     {
         return $this->replacer->numerify($this->randomizer->randomElement($this->mobileFormats));
     }
-
 }

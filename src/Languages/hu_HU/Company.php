@@ -14,5 +14,4 @@ class Company extends BaseCompany
     ];
 
     protected array $companySuffix = ['Kft.', 'és Tsa', 'Kht', 'Zrt.', 'Nyrt.', 'Bt.'];
-
 }
